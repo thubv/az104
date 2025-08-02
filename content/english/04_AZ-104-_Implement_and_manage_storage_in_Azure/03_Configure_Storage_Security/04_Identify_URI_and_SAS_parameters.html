@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identify URI and SAS parameters - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Identify URI and SAS parameters</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-storage-security/4-identify-uri-sas-parameters/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  When you create your shared access signature (SAS), a uniform resource identifier (URI) is created by using parameters and tokens. The URI consists of your Azure Storage resource URI and the SAS token.
+ </p>
+ <h3 id="things-to-know-about-uri-definitions">
+  Things to know about URI definitions
+ </h3>
+ <p>
+  Let's look at an example URI definition and examine the parameters. This example creates a service-level SAS that grants read and write permissions to a blob. Consider how you might configure the parameters to support your Azure Storage resources.
+ </p>
+ <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-URI" data-author-content="https://myaccount.blob.core.windows.net/?restype=service&amp;comp=properties&amp;sv=2015-04-05&amp;ss=bf&amp;st=2015-04-29T22%3A18%3A26Z&amp;se=2015-04-30T02%3A23%3A26Z&amp;sr=b&amp;sp=rw&amp;sip=168.1.5.60-168.1.5.70&amp;spr=https&amp;sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
+">https://myaccount.blob.core.windows.net/?restype=service&amp;comp=properties&amp;sv=2015-04-05&amp;ss=bf&amp;st=2015-04-29T22%3A18%3A26Z&amp;se=2015-04-30T02%3A23%3A26Z&amp;sr=b&amp;sp=rw&amp;sip=168.1.5.60-168.1.5.70&amp;spr=https&amp;sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
+</code></pre>
+ <div class="has-inner-focus">
+  <table aria-label="Things to know about URI definitions" class="table">
+   <thead>
+    <tr>
+     <th>
+      Parameter
+     </th>
+     <th>
+      Example
+     </th>
+     <th>
+      Description
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      <strong>
+       Resource URI
+      </strong>
+     </td>
+     <td>
+      <code>
+       https://myaccount.
+      </code>
+      <strong>
+       <code>
+        blob
+       </code>
+      </strong>
+      <code>
+       .core.windows.net/
+      </code>
+      <code>
+       ?restype=
+      </code>
+      <strong>
+       <code>
+        service
+       </code>
+      </strong>
+      <code>
+       &amp;amp;comp=properties
+      </code>
+     </td>
+     <td>
+      Defines the Azure Storage endpoint and other parameters. This example defines an endpoint for Blob Storage and indicates that the SAS applies to service-level operations. When the URI is used with
+      <code>
+       GET
+      </code>
+      , the Storage properties are retrieved. When the URI is used with
+      <code>
+       SET
+      </code>
+      , the Storage properties are configured.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       Storage version
+      </strong>
+     </td>
+     <td>
+      <strong>
+       <code>
+        sv
+       </code>
+      </strong>
+      <code>
+       =2015-04-05
+      </code>
+     </td>
+     <td>
+      For Azure Storage version 2012-02-12 and later, this parameter indicates the version to use. This example indicates that version 2015-04-05 (April 5, 2015) should be used.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       Storage service
+      </strong>
+     </td>
+     <td>
+      <strong>
+       <code>
+        ss
+       </code>
+      </strong>
+      <code>
+       =bf
+      </code>
+     </td>
+     <td>
+      Specifies the Azure Storage to which the SAS applies. This example indicates that the SAS applies to Blob Storage and Azure Files.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       Start time
+      </strong>
+     </td>
+     <td>
+      <strong>
+       <code>
+        st
+       </code>
+      </strong>
+      <code>
+       =2015-04-29T22%3A18%3A26Z
+      </code>
+     </td>
+     <td>
+      (Optional) Specifies the start time for the SAS in UTC time. This example sets the start time as April 29, 2015 22:18:26 UTC. If you want the SAS to be valid immediately, omit the start time.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       Expiry time
+      </strong>
+     </td>
+     <td>
+      <strong>
+       <code>
+        se
+       </code>
+      </strong>
+      <code>
+       =2015-04-30T02%3A23%3A26Z
+      </code>
+     </td>
+     <td>
+      Specifies the expiration time for the SAS in UTC time. This example sets the expiry time as April 30, 2015 02:23:26 UTC.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       Resource
+      </strong>
+     </td>
+     <td>
+      <strong>
+       <code>
+        sr
+       </code>
+      </strong>
+      <code>
+       =b
+      </code>
+     </td>
+     <td>
+      Specifies which resources are accessible via the SAS. This example specifies that the accessible resource is in Blob Storage.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       Permissions
+      </strong>
+     </td>
+     <td>
+      <strong>
+       <code>
+        sp
+       </code>
+      </strong>
+      <code>
+       =rw
+      </code>
+     </td>
+     <td>
+      Lists the permissions to grant. This example grants access to read and write operations.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       IP range
+      </strong>
+     </td>
+     <td>
+      <strong>
+       <code>
+        sip
+       </code>
+      </strong>
+      <code>
+       =168.1.5.60-168.1.5.70
+      </code>
+     </td>
+     <td>
+      Specifies a range of IP addresses from which a request is accepted. This example defines the IP address range 168.1.5.60 through 168.1.5.70.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       Protocol
+      </strong>
+     </td>
+     <td>
+      <strong>
+       <code>
+        spr
+       </code>
+      </strong>
+      <code>
+       =https
+      </code>
+     </td>
+     <td>
+      Specifies the protocols from which Azure Storage accepts the SAS. This example indicates that only requests by using HTTPS are accepted.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       Signature
+      </strong>
+     </td>
+     <td>
+      <strong>
+       <code>
+        sig
+       </code>
+      </strong>
+      <code>
+       =F%6GRVAZ5Cdj2Pw4tgU7Il
+      </code>
+      <code>
+       STkWgn7bUkkAg8P6HESXwmf%4B
+      </code>
+     </td>
+     <td>
+      Specifies that access to the resource is authenticated by using a Hash-Based Message Authentication Code (HMAC) signature. The signature is computed with a key using the SHA256 algorithm, and encoded by using Base64 encoding.
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div class="alert is-success">
+  <p class="alert-title">
+   Tip
+  </p>
+  <p>
+   Continue your learning with the
+   <a data-linktype="absolute-path" href="/en-us/training/modules/implement-shared-access-signatures/">
+    <em>
+     Implement shared access signatures
+    </em>
+   </a>
+   training modules.
+  </p>
+ </div>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

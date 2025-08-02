@@ -1,0 +1,1511 @@
+{
+  "course_title": "AZ-104: Microsoft Azure Administrator",
+  "course_url": "https://learn.microsoft.com/en-us/training/courses/az-104t00",
+  "crawl_timestamp": "2025-08-02 23:37:17",
+  "total_learning_paths": 6,
+  "learning_paths": [
+    {
+      "title": "AZ-104: Prerequisites for Azure administrators",
+      "url": "https://learn.microsoft.com/en-us/training/paths/az-104-administrator-prerequisites/",
+      "expected_modules": 5,
+      "actual_modules": 5,
+      "modules": [
+        {
+          "title": "Tour Azure Portal",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/01_Introduction.html"
+            },
+            {
+              "title": "Azure management options",
+              "url": "https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/2-azure-management/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/02_Azure_management_options.html"
+            },
+            {
+              "title": "Navigate the portal",
+              "url": "https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/3-navigate-the-portal/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/03_Navigate_the_portal.html"
+            },
+            {
+              "title": "Exercise - Work with resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/4-exercise-work-with-blades/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/04_Exercise_-_Work_with_resources.html"
+            },
+            {
+              "title": "Exercise - Use the Azure portal",
+              "url": "https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/5-exercise-navigate-the-portal/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/05_Exercise_-_Use_the_Azure_portal.html"
+            },
+            {
+              "title": "Azure portal dashboards",
+              "url": "https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/6-customize-the-dashboard/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/06_Azure_portal_dashboards.html"
+            },
+            {
+              "title": "Exercise - Customize the dashboard",
+              "url": "https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/7-exercise-customize-the-dashboard/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/07_Exercise_-_Customize_the_dashboard.html"
+            },
+            {
+              "title": "Access preview features",
+              "url": "https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/8-preview-features/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/08_Access_preview_features.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/9-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/09_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Intro To Azure Cloud Shell",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-cloud-shell/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/01_Introduction.html"
+            },
+            {
+              "title": "What is Azure Cloud Shell?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-cloud-shell/2-what-is-azure-cloud-shell/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/02_What_is_Azure_Cloud_Shell-.html"
+            },
+            {
+              "title": "How does Azure Cloud Shell work?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-cloud-shell/3-how-azure-cloud-shell-works/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/03_How_does_Azure_Cloud_Shell_work-.html"
+            },
+            {
+              "title": "When should you use Azure Cloud Shell?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-cloud-shell/4-when-to-use-azure-cloud-shell/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/04_When_should_you_use_Azure_Cloud_Shell-.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-cloud-shell/5-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/05_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-cloud-shell/6-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/06_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Bash Introduction",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/bash-introduction/0-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/01_Introduction.html"
+            },
+            {
+              "title": "What is Bash?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/bash-introduction/1-what-is-bash/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/02_What_is_Bash-.html"
+            },
+            {
+              "title": "Bash fundamentals",
+              "url": "https://learn.microsoft.com/en-us/training/modules/bash-introduction/2-bash-fundamentals/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/03_Bash_fundamentals.html"
+            },
+            {
+              "title": "Bash commands and operators",
+              "url": "https://learn.microsoft.com/en-us/training/modules/bash-introduction/3-bash-commands/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/04_Bash_commands_and_operators.html"
+            },
+            {
+              "title": "Exercise - Try Bash",
+              "url": "https://learn.microsoft.com/en-us/training/modules/bash-introduction/4-exercise-try-bash/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/05_Exercise_-_Try_Bash.html"
+            },
+            {
+              "title": "Exercise - Terminate a misbehaving process",
+              "url": "https://learn.microsoft.com/en-us/training/modules/bash-introduction/5-exercise-terminate-process/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/06_Exercise_-_Terminate_a_misbehaving_process.html"
+            },
+            {
+              "title": "Exercise - Use Bash and grep to filter CLI output",
+              "url": "https://learn.microsoft.com/en-us/training/modules/bash-introduction/6-exercise-filter-cli-output/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/07_Exercise_-_Use_Bash_and_grep_to_filter_CLI_output.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/bash-introduction/7-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/08_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/bash-introduction/8-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/09_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Introduction To Powershell",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/01_Introduction.html"
+            },
+            {
+              "title": "What is PowerShell?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/2-what-is-powershell/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/02_What_is_PowerShell-.html"
+            },
+            {
+              "title": "Exercise - Run your first PowerShell commands",
+              "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/3-exercise-powershell/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/03_Exercise_-_Run_your_first_PowerShell_commands.html"
+            },
+            {
+              "title": "Locate commands",
+              "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/4-cmdlets/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/04_Locate_commands.html"
+            },
+            {
+              "title": "Exercise - Locate commands",
+              "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/5-exercise-cmdlets/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/05_Exercise_-_Locate_commands.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/6-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/06_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/7-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/07_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Create Azure Resource Manager Template Vs Code",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/01_Introduction.html"
+            },
+            {
+              "title": "Explore Azure Resource Manager template structure",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/2-explore-template-structure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/02_Explore_Azure_Resource_Manager_template_structure.html"
+            },
+            {
+              "title": "Exercise - Create and deploy an Azure Resource Manager template",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/3-exercise-create-and-deploy-template/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/03_Exercise_-_Create_and_deploy_an_Azure_Resource_Manager_template.html"
+            },
+            {
+              "title": "Add flexibility to your Azure Resource Manager template by using parameters and outputs",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/4-add-flexibility-arm-template/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/04_Add_flexibility_to_your_Azure_Resource_Manager_template_by_using_parameters_and_outputs.html"
+            },
+            {
+              "title": "Exercise - Add parameters and outputs to your Azure Resource Manager template",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/5-exercise-parameters-output/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/05_Exercise_-_Add_parameters_and_outputs_to_your_Azure_Resource_Manager_template.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/6-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/06_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/7-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites",
+              "local_file": "english_original/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/07_Summary.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "AZ-104: Manage identities and governance in Azure",
+      "url": "https://learn.microsoft.com/en-us/training/paths/az-104-manage-identities-governance/",
+      "expected_modules": 6,
+      "actual_modules": 6,
+      "modules": [
+        {
+          "title": "Understand Azure Active Directory",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/understand-azure-active-directory/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/01_Understand_Azure_Active_Directory/01_Introduction.html"
+            },
+            {
+              "title": "Examine Microsoft Entra ID",
+              "url": "https://learn.microsoft.com/en-us/training/modules/understand-azure-active-directory/2-examine-azure-active-directory/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/01_Understand_Azure_Active_Directory/02_Examine_Microsoft_Entra_ID.html"
+            },
+            {
+              "title": "Compare Microsoft Entra ID and Active Directory Domain Services",
+              "url": "https://learn.microsoft.com/en-us/training/modules/understand-azure-active-directory/3-compare-azure-active-directory-domain-services/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/01_Understand_Azure_Active_Directory/03_Compare_Microsoft_Entra_ID_and_Active_Directory_Domain_Services.html"
+            },
+            {
+              "title": "Examine Microsoft Entra ID as a directory service for cloud apps",
+              "url": "https://learn.microsoft.com/en-us/training/modules/understand-azure-active-directory/4-examine-azure-directory-service-cloud-apps/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/01_Understand_Azure_Active_Directory/04_Examine_Microsoft_Entra_ID_as_a_directory_service_for_cloud_apps.html"
+            },
+            {
+              "title": "Compare Microsoft Entra ID P1 and P2 plans",
+              "url": "https://learn.microsoft.com/en-us/training/modules/understand-azure-active-directory/5-compare-azure-premium-p1-p2-plans/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/01_Understand_Azure_Active_Directory/05_Compare_Microsoft_Entra_ID_P1_and_P2_plans.html"
+            },
+            {
+              "title": "Examine Microsoft Entra Domain Services",
+              "url": "https://learn.microsoft.com/en-us/training/modules/understand-azure-active-directory/6-examine-azure-domain-services/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/01_Understand_Azure_Active_Directory/06_Examine_Microsoft_Entra_Domain_Services.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/understand-azure-active-directory/7-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/01_Understand_Azure_Active_Directory/07_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/understand-azure-active-directory/8-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/01_Understand_Azure_Active_Directory/08_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Create Configure Manage Identities",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/01_Introduction.html"
+            },
+            {
+              "title": "Create, configure, and manage users",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/2-users/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/02_Create,_configure,_and_manage_users.html"
+            },
+            {
+              "title": "Exercise - assign licenses to users",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/3-exercise-assign-licenses-users/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/03_Exercise_-_assign_licenses_to_users.html"
+            },
+            {
+              "title": "Exercise - restore or remove deleted users",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/4-exercise-restore-remove-deleted-users/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/04_Exercise_-_restore_or_remove_deleted_users.html"
+            },
+            {
+              "title": "Create, configure, and manage groups",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/5-groups/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/05_Create,_configure,_and_manage_groups.html"
+            },
+            {
+              "title": "Exercise - add groups in Microsoft Entra ID",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/6-exercise-add-groups-azure-active-directory/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/06_Exercise_-_add_groups_in_Microsoft_Entra_ID.html"
+            },
+            {
+              "title": "Configure and manage device registration",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/7-configure-manage-device-registration/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/07_Configure_and_manage_device_registration.html"
+            },
+            {
+              "title": "Manage licenses",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/8-manage-licenses/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/08_Manage_licenses.html"
+            },
+            {
+              "title": "Exercise - change group license assignments",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/9-exercise-change-group-license-assignments/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/09_Exercise_-_change_group_license_assignments.html"
+            },
+            {
+              "title": "Exercise - change user license assignments",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/10-exercise-change-user-license-assignments/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/10_Exercise_-_change_user_license_assignments.html"
+            },
+            {
+              "title": "Create custom security attributes",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/11-create-custom-security-attributes/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/11_Create_custom_security_attributes.html"
+            },
+            {
+              "title": "Explore automatic user creation",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/12-explore-automatic-user-creation/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/12_Explore_automatic_user_creation.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/13-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/13_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/14-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/02_Create_Configure_Manage_Identities/14_Summary_and_resources.html"
+            }
+          ]
+        },
+        {
+          "title": "Describe Core Architectural Components Of Azure",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/03_Describe_Core_Architectural_Components_Of_Azure/01_Introduction.html"
+            },
+            {
+              "title": "What is Microsoft Azure",
+              "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/2-what-microsoft-azure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/03_Describe_Core_Architectural_Components_Of_Azure/02_What_is_Microsoft_Azure.html"
+            },
+            {
+              "title": "Get started with Azure accounts",
+              "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/3-get-started-azure-accounts/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/03_Describe_Core_Architectural_Components_Of_Azure/03_Get_started_with_Azure_accounts.html"
+            },
+            {
+              "title": "Exercise - Explore the Learn sandbox",
+              "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/4-exercise-explore-learn-sandbox/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/03_Describe_Core_Architectural_Components_Of_Azure/04_Exercise_-_Explore_the_Learn_sandbox.html"
+            },
+            {
+              "title": "Describe Azure physical infrastructure",
+              "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/5-describe-azure-physical-infrastructure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/03_Describe_Core_Architectural_Components_Of_Azure/05_Describe_Azure_physical_infrastructure.html"
+            },
+            {
+              "title": "Describe Azure management infrastructure",
+              "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/6-describe-azure-management-infrastructure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/03_Describe_Core_Architectural_Components_Of_Azure/06_Describe_Azure_management_infrastructure.html"
+            },
+            {
+              "title": "Exercise - Create an Azure resource",
+              "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/7-exercise-create-azure-resource/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/03_Describe_Core_Architectural_Components_Of_Azure/07_Exercise_-_Create_an_Azure_resource.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/8-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/03_Describe_Core_Architectural_Components_Of_Azure/08_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/9-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/03_Describe_Core_Architectural_Components_Of_Azure/09_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Sovereignty Policy Initiatives",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/overview/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/04_Sovereignty_Policy_Initiatives/01_Introduction.html"
+            },
+            {
+              "title": "Cloud Adoption Framework for Azure",
+              "url": "https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/cloud-adoption-framework/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/04_Sovereignty_Policy_Initiatives/02_Cloud_Adoption_Framework_for_Azure.html"
+            },
+            {
+              "title": "Azure Policy design principles",
+              "url": "https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/azure-policy-design-principles/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/04_Sovereignty_Policy_Initiatives/03_Azure_Policy_design_principles.html"
+            },
+            {
+              "title": "Azure Policy resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/azure-policy-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/04_Sovereignty_Policy_Initiatives/04_Azure_Policy_resources.html"
+            },
+            {
+              "title": "Azure Policy definitions",
+              "url": "https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/azure-policy-definitions/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/04_Sovereignty_Policy_Initiatives/05_Azure_Policy_definitions.html"
+            },
+            {
+              "title": "Evaluation of resources through Azure Policy",
+              "url": "https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/azure-policies-evaluation-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/04_Sovereignty_Policy_Initiatives/06_Evaluation_of_resources_through_Azure_Policy.html"
+            },
+            {
+              "title": "Check your knowledge",
+              "url": "https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/04_Sovereignty_Policy_Initiatives/07_Check_your_knowledge.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/04_Sovereignty_Policy_Initiatives/08_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Secure Azure Resources With Rbac",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/05_Secure_Azure_Resources_With_Rbac/01_Introduction.html"
+            },
+            {
+              "title": "What is Azure RBAC?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/2-rbac-overview/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/05_Secure_Azure_Resources_With_Rbac/02_What_is_Azure_RBAC-.html"
+            },
+            {
+              "title": "Knowledge check - What is Azure RBAC?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/3-knowledge-check-rbac-overview/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/05_Secure_Azure_Resources_With_Rbac/03_Knowledge_check_-_What_is_Azure_RBAC-.html"
+            },
+            {
+              "title": "Exercise - List access using Azure RBAC and the Azure portal",
+              "url": "https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/4-list-access/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/05_Secure_Azure_Resources_With_Rbac/04_Exercise_-_List_access_using_Azure_RBAC_and_the_Azure_portal.html"
+            },
+            {
+              "title": "Exercise - Grant access using Azure RBAC and the Azure portal",
+              "url": "https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/5-grant-access/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/05_Secure_Azure_Resources_With_Rbac/05_Exercise_-_Grant_access_using_Azure_RBAC_and_the_Azure_portal.html"
+            },
+            {
+              "title": "Exercise - View activity logs for Azure RBAC changes",
+              "url": "https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/6-view-activity-logs/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/05_Secure_Azure_Resources_With_Rbac/06_Exercise_-_View_activity_logs_for_Azure_RBAC_changes.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/7-knowledge-check-rbac/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/05_Secure_Azure_Resources_With_Rbac/07_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/8-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/05_Secure_Azure_Resources_With_Rbac/08_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Allow Users Reset Their Password",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/allow-users-reset-their-password/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/06_Allow_Users_Reset_Their_Password/01_Introduction.html"
+            },
+            {
+              "title": "What is self-service password reset in Microsoft Entra ID?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/allow-users-reset-their-password/2-self-service-password-reset/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/06_Allow_Users_Reset_Their_Password/02_What_is_self-service_password_reset_in_Microsoft_Entra_ID-.html"
+            },
+            {
+              "title": "Implement Microsoft Entra self-service password reset",
+              "url": "https://learn.microsoft.com/en-us/training/modules/allow-users-reset-their-password/3-implement-azure-ad-self-service-password-reset/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/06_Allow_Users_Reset_Their_Password/03_Implement_Microsoft_Entra_self-service_password_reset.html"
+            },
+            {
+              "title": "Exercise - Set up self-service password reset",
+              "url": "https://learn.microsoft.com/en-us/training/modules/allow-users-reset-their-password/4-exercise-set-up-self-service-password-reset/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/06_Allow_Users_Reset_Their_Password/04_Exercise_-_Set_up_self-service_password_reset.html"
+            },
+            {
+              "title": "Exercise - Customize directory branding",
+              "url": "https://learn.microsoft.com/en-us/training/modules/allow-users-reset-their-password/5-exercise-customize-directory-branding/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/06_Allow_Users_Reset_Their_Password/05_Exercise_-_Customize_directory_branding.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/allow-users-reset-their-password/6-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance",
+              "local_file": "english_original/02_AZ-104-_Manage_identities_and_governance_in_Azure/06_Allow_Users_Reset_Their_Password/06_Summary.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "AZ-104: Configure and manage virtual networks for Azure administrators",
+      "url": "https://learn.microsoft.com/en-us/training/paths/az-104-manage-virtual-networks/",
+      "expected_modules": 8,
+      "actual_modules": 8,
+      "modules": [
+        {
+          "title": "Configure Virtual Networks",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/01_Introduction.html"
+            },
+            {
+              "title": "Plan virtual networks",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/2-plan-virtual-networks/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/02_Plan_virtual_networks.html"
+            },
+            {
+              "title": "Create subnets",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/3-create-subnets/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/03_Create_subnets.html"
+            },
+            {
+              "title": "Create virtual networks",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/4-create-virtual-networks/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/04_Create_virtual_networks.html"
+            },
+            {
+              "title": "Plan IP addressing",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/5-plan-addressing/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/05_Plan_IP_addressing.html"
+            },
+            {
+              "title": "Create public IP addressing",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/6-create-public-ip-addressing/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/06_Create_public_IP_addressing.html"
+            },
+            {
+              "title": "Associate public IP addresses",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/7-associate-public-ip-addresses/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/07_Associate_public_IP_addresses.html"
+            },
+            {
+              "title": "Allocate or assign private IP addresses",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/8-associate-private-ip-addresses/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/08_Allocate_or_assign_private_IP_addresses.html"
+            },
+            {
+              "title": "Exercise: Create and configure virtual networks",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/9-simulation-create-networks/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/09_Exercise-_Create_and_configure_virtual_networks.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/10-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/10_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/11-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/01_Configure_Virtual_Networks/11_Summary_and_resources.html"
+            }
+          ]
+        },
+        {
+          "title": "Configure Network Security Groups",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/02_Configure_Network_Security_Groups/01_Introduction.html"
+            },
+            {
+              "title": "Implement network security groups",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/2-implement-network-security-groups/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/02_Configure_Network_Security_Groups/02_Implement_network_security_groups.html"
+            },
+            {
+              "title": "Determine network security group rules",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/3-determine-network-security-groups-rules/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/02_Configure_Network_Security_Groups/03_Determine_network_security_group_rules.html"
+            },
+            {
+              "title": "Determine network security group effective rules",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/4-determine-network-security-groups-effective-rules/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/02_Configure_Network_Security_Groups/04_Determine_network_security_group_effective_rules.html"
+            },
+            {
+              "title": "Create network security group rules",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/5-create-network-security-groups-rules/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/02_Configure_Network_Security_Groups/05_Create_network_security_group_rules.html"
+            },
+            {
+              "title": "Implement application security groups",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/6-implement-asgs/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/02_Configure_Network_Security_Groups/06_Implement_application_security_groups.html"
+            },
+            {
+              "title": "Exercise - Implement virtual networking",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/7-simulation-create-network-groups/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/02_Configure_Network_Security_Groups/07_Exercise_-_Implement_virtual_networking.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/8-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/02_Configure_Network_Security_Groups/08_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/9-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/02_Configure_Network_Security_Groups/09_Summary_and_resources.html"
+            }
+          ]
+        },
+        {
+          "title": "Host Domain Azure Dns",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/03_Host_Domain_Azure_Dns/01_Introduction.html"
+            },
+            {
+              "title": "What is Azure DNS?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/2-what-is-azure-dns/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/03_Host_Domain_Azure_Dns/02_What_is_Azure_DNS-.html"
+            },
+            {
+              "title": "Configure Azure DNS to host your domain",
+              "url": "https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/3-configure-azure-dns-host-domain/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/03_Host_Domain_Azure_Dns/03_Configure_Azure_DNS_to_host_your_domain.html"
+            },
+            {
+              "title": "Exercise - Create a DNS zone and an A record by using Azure DNS",
+              "url": "https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/4-exercise-create-dns-zone-a-record/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/03_Host_Domain_Azure_Dns/04_Exercise_-_Create_a_DNS_zone_and_an_A_record_by_using_Azure_DNS.html"
+            },
+            {
+              "title": "Dynamically resolve resource name by using alias record",
+              "url": "https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/5-resolve-name-alias-record/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/03_Host_Domain_Azure_Dns/05_Dynamically_resolve_resource_name_by_using_alias_record.html"
+            },
+            {
+              "title": "Exercise - Create alias records for Azure DNS",
+              "url": "https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/6-exercise-create-alias-records/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/03_Host_Domain_Azure_Dns/06_Exercise_-_Create_alias_records_for_Azure_DNS.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/7-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/03_Host_Domain_Azure_Dns/07_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Configure Vnet Peering",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/04_Configure_Vnet_Peering/01_Introduction.html"
+            },
+            {
+              "title": "Determine Azure Virtual Network peering uses",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/2-determine-uses/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/04_Configure_Vnet_Peering/02_Determine_Azure_Virtual_Network_peering_uses.html"
+            },
+            {
+              "title": "Determine gateway transit and connectivity",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/3-determine-gateway-transit-connectivity/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/04_Configure_Vnet_Peering/03_Determine_gateway_transit_and_connectivity.html"
+            },
+            {
+              "title": "Create virtual network peering",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/4-create/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/04_Configure_Vnet_Peering/04_Create_virtual_network_peering.html"
+            },
+            {
+              "title": "Extend peering with user-defined routes and service chaining",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/5-determine-service-chaining-uses/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/04_Configure_Vnet_Peering/05_Extend_peering_with_user-defined_routes_and_service_chaining.html"
+            },
+            {
+              "title": "Exercise - Implement Intersite Connectivity",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/6-simulation-peering/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/04_Configure_Vnet_Peering/06_Exercise_-_Implement_Intersite_Connectivity.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/7-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/04_Configure_Vnet_Peering/07_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/8-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/04_Configure_Vnet_Peering/08_Summary_and_resources.html"
+            }
+          ]
+        },
+        {
+          "title": "Control Network Traffic Flow With Routes",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/05_Control_Network_Traffic_Flow_With_Routes/01_Introduction.html"
+            },
+            {
+              "title": "Identify routing capabilities of an Azure virtual network",
+              "url": "https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/2-azure-virtual-network-route/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/05_Control_Network_Traffic_Flow_With_Routes/02_Identify_routing_capabilities_of_an_Azure_virtual_network.html"
+            },
+            {
+              "title": "Exercise - Create custom routes",
+              "url": "https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/3-exercise-create-custom-routes/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/05_Control_Network_Traffic_Flow_With_Routes/03_Exercise_-_Create_custom_routes.html"
+            },
+            {
+              "title": "What is an NVA?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/4-network-virtual-appliances/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/05_Control_Network_Traffic_Flow_With_Routes/04_What_is_an_NVA-.html"
+            },
+            {
+              "title": "Exercise - Create an NVA and virtual machines",
+              "url": "https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/5-exercise-create-nva-vm/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/05_Control_Network_Traffic_Flow_With_Routes/05_Exercise_-_Create_an_NVA_and_virtual_machines.html"
+            },
+            {
+              "title": "Exercise - Route traffic through the NVA",
+              "url": "https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/6-exercise-route-traffic-through-nva/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/05_Control_Network_Traffic_Flow_With_Routes/06_Exercise_-_Route_traffic_through_the_NVA.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/7-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/05_Control_Network_Traffic_Flow_With_Routes/07_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Intro To Azure Load Balancer",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/06_Intro_To_Azure_Load_Balancer/01_Introduction.html"
+            },
+            {
+              "title": "What is Azure Load Balancer?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/2-what-is-azure-load-balancer/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/06_Intro_To_Azure_Load_Balancer/02_What_is_Azure_Load_Balancer-.html"
+            },
+            {
+              "title": "How Azure Load Balancer works",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/3-how-azure-load-balancer-works/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/06_Intro_To_Azure_Load_Balancer/03_How_Azure_Load_Balancer_works.html"
+            },
+            {
+              "title": "When to use Azure Load Balancer",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/4-when-to-use-azure-load-balancer/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/06_Intro_To_Azure_Load_Balancer/04_When_to_use_Azure_Load_Balancer.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/5-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/06_Intro_To_Azure_Load_Balancer/05_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/6-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/06_Intro_To_Azure_Load_Balancer/06_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Intro To Azure Application Gateway",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-application-gateway/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/07_Intro_To_Azure_Application_Gateway/01_Introduction.html"
+            },
+            {
+              "title": "What is Azure Application Gateway?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-application-gateway/2-what-is-azure-application-gateway/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/07_Intro_To_Azure_Application_Gateway/02_What_is_Azure_Application_Gateway-.html"
+            },
+            {
+              "title": "How Azure Application Gateway works",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-application-gateway/3-how-azure-application-gateway-works/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/07_Intro_To_Azure_Application_Gateway/03_How_Azure_Application_Gateway_works.html"
+            },
+            {
+              "title": "When to use Azure Application Gateway",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-application-gateway/4-when-to-use-azure-application-gateway/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/07_Intro_To_Azure_Application_Gateway/04_When_to_use_Azure_Application_Gateway.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-application-gateway/5-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/07_Intro_To_Azure_Application_Gateway/05_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-application-gateway/6-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/07_Intro_To_Azure_Application_Gateway/06_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Intro To Azure Network Watcher",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/08_Intro_To_Azure_Network_Watcher/01_Introduction.html"
+            },
+            {
+              "title": "What is Azure Network Watcher?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/2-what-is-azure-network-watcher/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/08_Intro_To_Azure_Network_Watcher/02_What_is_Azure_Network_Watcher-.html"
+            },
+            {
+              "title": "How Azure Network Watcher works",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/3-how-azure-network-watcher-works/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/08_Intro_To_Azure_Network_Watcher/03_How_Azure_Network_Watcher_works.html"
+            },
+            {
+              "title": "When to use Azure Network Watcher",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/4-when-to-use-azure-network-watcher/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/08_Intro_To_Azure_Network_Watcher/04_When_to_use_Azure_Network_Watcher.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/5-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/08_Intro_To_Azure_Network_Watcher/05_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/6-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks",
+              "local_file": "english_original/03_AZ-104-_Configure_and_manage_virtual_networks_for_Azure_administrators/08_Intro_To_Azure_Network_Watcher/06_Summary.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "AZ-104: Implement and manage storage in Azure",
+      "url": "https://learn.microsoft.com/en-us/training/paths/az-104-manage-storage/",
+      "expected_modules": 4,
+      "actual_modules": 4,
+      "modules": [
+        {
+          "title": "Configure Storage Accounts",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/01_Configure_Storage_Accounts/01_Introduction.html"
+            },
+            {
+              "title": "Implement Azure Storage",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/2-implement-azure-storage/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/01_Configure_Storage_Accounts/02_Implement_Azure_Storage.html"
+            },
+            {
+              "title": "Explore Azure Storage services",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/3-explore-azure-storage-services/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/01_Configure_Storage_Accounts/03_Explore_Azure_Storage_services.html"
+            },
+            {
+              "title": "Determine storage account types",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/4-determine-storage-account-kinds/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/01_Configure_Storage_Accounts/04_Determine_storage_account_types.html"
+            },
+            {
+              "title": "Determine replication strategies",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/5-determine-replication-strategies/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/01_Configure_Storage_Accounts/05_Determine_replication_strategies.html"
+            },
+            {
+              "title": "Access storage",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/6-access-storage/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/01_Configure_Storage_Accounts/06_Access_storage.html"
+            },
+            {
+              "title": "Secure storage endpoints",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/7-secure-storage-endpoints/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/01_Configure_Storage_Accounts/07_Secure_storage_endpoints.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/8-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/01_Configure_Storage_Accounts/08_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/9-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/01_Configure_Storage_Accounts/09_Summary_and_resources.html"
+            }
+          ]
+        },
+        {
+          "title": "Configure Blob Storage",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/01_Introduction.html"
+            },
+            {
+              "title": "Implement Azure Blob Storage",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/2-implement/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/02_Implement_Azure_Blob_Storage.html"
+            },
+            {
+              "title": "Create blob containers",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/3-create-blob-containers/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/03_Create_blob_containers.html"
+            },
+            {
+              "title": "Assign blob access tiers",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/4-create-blob-access-tiers/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/04_Assign_blob_access_tiers.html"
+            },
+            {
+              "title": "Add blob lifecycle management rules",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/5-add-blob-lifecycle-management-rules/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/05_Add_blob_lifecycle_management_rules.html"
+            },
+            {
+              "title": "Determine blob object replication",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/6-determine-blob-object-replication/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/06_Determine_blob_object_replication.html"
+            },
+            {
+              "title": "Manage blobs",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/7-upload-blobs/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/07_Manage_blobs.html"
+            },
+            {
+              "title": "Determine Blob Storage pricing",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/8-determine-storage-pricing/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/08_Determine_Blob_Storage_pricing.html"
+            },
+            {
+              "title": "Exercise - Provide storage for the public website",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/9-simulation-blobs/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/09_Exercise_-_Provide_storage_for_the_public_website.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/10-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/10_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/11-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/02_Configure_Blob_Storage/11_Summary_and_resources.html"
+            }
+          ]
+        },
+        {
+          "title": "Configure Storage Security",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-security/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/03_Configure_Storage_Security/01_Introduction.html"
+            },
+            {
+              "title": "Review Azure Storage security strategies",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-security/2-review-strategies/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/03_Configure_Storage_Security/02_Review_Azure_Storage_security_strategies.html"
+            },
+            {
+              "title": "Create shared access signatures",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-security/3-create-shared-access-signatures/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/03_Configure_Storage_Security/03_Create_shared_access_signatures.html"
+            },
+            {
+              "title": "Identify URI and SAS parameters",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-security/4-identify-uri-sas-parameters/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/03_Configure_Storage_Security/04_Identify_URI_and_SAS_parameters.html"
+            },
+            {
+              "title": "Determine Azure Storage encryption",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-security/5-determine-storage-service-encryption/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/03_Configure_Storage_Security/05_Determine_Azure_Storage_encryption.html"
+            },
+            {
+              "title": "Create customer-managed keys",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-security/6-create-customer-managed-keys/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/03_Configure_Storage_Security/06_Create_customer-managed_keys.html"
+            },
+            {
+              "title": "Apply Azure Storage security best practices",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-security/7-apply-best-practices/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/03_Configure_Storage_Security/07_Apply_Azure_Storage_security_best_practices.html"
+            },
+            {
+              "title": "Exercise: Manage Azure Storage",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-security/8-simulation-storage/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/03_Configure_Storage_Security/08_Exercise-_Manage_Azure_Storage.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-security/9-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/03_Configure_Storage_Security/09_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-storage-security/10-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/03_Configure_Storage_Security/10_Summary_and_resources.html"
+            }
+          ]
+        },
+        {
+          "title": "Configure Azure Files File Sync",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/04_Configure_Azure_Files_File_Sync/01_Introduction.html"
+            },
+            {
+              "title": "Compare storage for file shares and blob data",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/2-compare-files-to-blobs/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/04_Configure_Azure_Files_File_Sync/02_Compare_storage_for_file_shares_and_blob_data.html"
+            },
+            {
+              "title": "Manage Azure file shares",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/3-manage-file-shares/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/04_Configure_Azure_Files_File_Sync/03_Manage_Azure_file_shares.html"
+            },
+            {
+              "title": "Create file share snapshots",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/4-create-file-share-snapshots/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/04_Configure_Azure_Files_File_Sync/04_Create_file_share_snapshots.html"
+            },
+            {
+              "title": "Implement soft delete for Azure Files",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/5-implement-file-sync/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/04_Configure_Azure_Files_File_Sync/05_Implement_soft_delete_for_Azure_Files.html"
+            },
+            {
+              "title": "Use Azure Storage Explorer",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/6-identify-components/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/04_Configure_Azure_Files_File_Sync/06_Use_Azure_Storage_Explorer.html"
+            },
+            {
+              "title": "Consider Azure File Sync",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/7-deploy-azure-file-sync/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/04_Configure_Azure_Files_File_Sync/07_Consider_Azure_File_Sync.html"
+            },
+            {
+              "title": "Knowledge check",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/8-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/04_Configure_Azure_Files_File_Sync/08_Knowledge_check.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/9-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage",
+              "local_file": "english_original/04_AZ-104-_Implement_and_manage_storage_in_Azure/04_Configure_Azure_Files_File_Sync/09_Summary_and_resources.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "AZ-104: Deploy and manage Azure compute resources",
+      "url": "https://learn.microsoft.com/en-us/training/paths/az-104-manage-compute-resources/",
+      "expected_modules": 5,
+      "actual_modules": 5,
+      "modules": [
+        {
+          "title": "Intro To Azure Virtual Machines",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/01_Intro_To_Azure_Virtual_Machines/01_Introduction.html"
+            },
+            {
+              "title": "Compile a checklist for creating an Azure Virtual Machine",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/2-compile-a-checklist-for-creating-a-vm/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/01_Intro_To_Azure_Virtual_Machines/02_Compile_a_checklist_for_creating_an_Azure_Virtual_Machine.html"
+            },
+            {
+              "title": "Exercise - Create a VM using the Azure portal",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/3-create-a-vm/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/01_Intro_To_Azure_Virtual_Machines/03_Exercise_-_Create_a_VM_using_the_Azure_portal.html"
+            },
+            {
+              "title": "Describe the options available to create and manage an Azure Virtual Machine",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/4-describe-other-create-vm-options/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/01_Intro_To_Azure_Virtual_Machines/04_Describe_the_options_available_to_create_and_manage_an_Azure_Virtual_Machine.html"
+            },
+            {
+              "title": "Manage the availability of your Azure VMs",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/5-high-availability/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/01_Intro_To_Azure_Virtual_Machines/05_Manage_the_availability_of_your_Azure_VMs.html"
+            },
+            {
+              "title": "Back up your virtual machines",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/6-backup-services/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/01_Intro_To_Azure_Virtual_Machines/06_Back_up_your_virtual_machines.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/7-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/01_Intro_To_Azure_Virtual_Machines/07_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/8-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/01_Intro_To_Azure_Virtual_Machines/08_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Configure Virtual Machine Availability",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/01_Introduction.html"
+            },
+            {
+              "title": "Plan for maintenance and downtime",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/2-plan-for-maintenance-downtime/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/02_Plan_for_maintenance_and_downtime.html"
+            },
+            {
+              "title": "Create availability sets",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/3-setup-availability-sets/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/03_Create_availability_sets.html"
+            },
+            {
+              "title": "Review update domains and fault domains",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/4-review-update-fault-domains/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/04_Review_update_domains_and_fault_domains.html"
+            },
+            {
+              "title": "Review availability zones",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/5-review-availability-zones/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/05_Review_availability_zones.html"
+            },
+            {
+              "title": "Compare vertical and horizontal scaling",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/6-compare-vertical-horizontal-scaling/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/06_Compare_vertical_and_horizontal_scaling.html"
+            },
+            {
+              "title": "Implement Azure Virtual Machine Scale Sets",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/7-implement-scale-sets/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/07_Implement_Azure_Virtual_Machine_Scale_Sets.html"
+            },
+            {
+              "title": "Create Virtual Machine Scale Sets",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/8-create-scale-sets/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/08_Create_Virtual_Machine_Scale_Sets.html"
+            },
+            {
+              "title": "Implement autoscale",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/9-implement-autoscale/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/09_Implement_autoscale.html"
+            },
+            {
+              "title": "Configure autoscale",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/10-configure-autoscale/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/10_Configure_autoscale.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/11-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/11_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/12-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/02_Configure_Virtual_Machine_Availability/12_Summary_and_resources.html"
+            }
+          ]
+        },
+        {
+          "title": "Configure App Service Plans",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/03_Configure_App_Service_Plans/01_Introduction.html"
+            },
+            {
+              "title": "Implement Azure App Service plans",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/2-implement-azure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/03_Configure_App_Service_Plans/02_Implement_Azure_App_Service_plans.html"
+            },
+            {
+              "title": "Determine Azure App Service plan pricing",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/3-determine-plan-pricing/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/03_Configure_App_Service_Plans/03_Determine_Azure_App_Service_plan_pricing.html"
+            },
+            {
+              "title": "Scale up and scale out Azure App Service",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/4-scale-up-scale-out/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/03_Configure_App_Service_Plans/04_Scale_up_and_scale_out_Azure_App_Service.html"
+            },
+            {
+              "title": "Configure Azure App Service autoscale",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/5-plan-scaling/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/03_Configure_App_Service_Plans/05_Configure_Azure_App_Service_autoscale.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/6-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/03_Configure_App_Service_Plans/06_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/7-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/03_Configure_App_Service_Plans/07_Summary_and_resources.html"
+            }
+          ]
+        },
+        {
+          "title": "Configure Azure App Services",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/01_Introduction.html"
+            },
+            {
+              "title": "Implement Azure App Service",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/2-implement/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/02_Implement_Azure_App_Service.html"
+            },
+            {
+              "title": "Create an app with App Service",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/3-create-app-service/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/03_Create_an_app_with_App_Service.html"
+            },
+            {
+              "title": "Explore continuous integration and deployment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/4-explore-continuous-integration-deployment/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/04_Explore_continuous_integration_and_deployment.html"
+            },
+            {
+              "title": "Create deployment slots",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/5-create-deployment-slots/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/05_Create_deployment_slots.html"
+            },
+            {
+              "title": "Add deployment slots",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/6-add-deployment-slots/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/06_Add_deployment_slots.html"
+            },
+            {
+              "title": "Secure your App Service app",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/7-secure-app-service/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/07_Secure_your_App_Service_app.html"
+            },
+            {
+              "title": "Create custom domain names",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/8-create-custom-domain-names/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/08_Create_custom_domain_names.html"
+            },
+            {
+              "title": "Back up and restore your App Service app",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/9-backup-app-service/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/09_Back_up_and_restore_your_App_Service_app.html"
+            },
+            {
+              "title": "Use Azure Application Insights",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/10-use-application-insights/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/10_Use_Azure_Application_Insights.html"
+            },
+            {
+              "title": "Exercise: Implement Web Apps",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/11-simulation-web-apps/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/11_Exercise-_Implement_Web_Apps.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/12-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/12_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/13-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/04_Configure_Azure_App_Services/13_Summary_and_resources.html"
+            }
+          ]
+        },
+        {
+          "title": "Configure Azure Container Instances",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/05_Configure_Azure_Container_Instances/01_Introduction.html"
+            },
+            {
+              "title": "Compare containers to virtual machines",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/2-compare-containers-to-virtual-machines/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/05_Configure_Azure_Container_Instances/02_Compare_containers_to_virtual_machines.html"
+            },
+            {
+              "title": "Review Azure Container Instances",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/3-review/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/05_Configure_Azure_Container_Instances/03_Review_Azure_Container_Instances.html"
+            },
+            {
+              "title": "Implement container groups",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/4-implement-container-groups/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/05_Configure_Azure_Container_Instances/04_Implement_container_groups.html"
+            },
+            {
+              "title": "Review Azure Container Apps",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/5-review-docker-platform/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/05_Configure_Azure_Container_Instances/05_Review_Azure_Container_Apps.html"
+            },
+            {
+              "title": "Exercise: Implement Container Instances",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/6-simulation-containers/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/05_Configure_Azure_Container_Instances/06_Exercise-_Implement_Container_Instances.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/7-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/05_Configure_Azure_Container_Instances/07_Module_assessment.html"
+            },
+            {
+              "title": "Summary and resources",
+              "url": "https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/8-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources",
+              "local_file": "english_original/05_AZ-104-_Deploy_and_manage_Azure_compute_resources/05_Configure_Azure_Container_Instances/08_Summary_and_resources.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "AZ-104: Monitor and back up Azure resources",
+      "url": "https://learn.microsoft.com/en-us/training/paths/az-104-monitor-backup-resources/",
+      "expected_modules": 3,
+      "actual_modules": 3,
+      "modules": [
+        {
+          "title": "Intro To Azure Backup",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-backup/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/01_Intro_To_Azure_Backup/01_Introduction.html"
+            },
+            {
+              "title": "What is Azure Backup?",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-backup/2-what-is-azure-backup/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/01_Intro_To_Azure_Backup/02_What_is_Azure_Backup-.html"
+            },
+            {
+              "title": "How Azure Backup works",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-backup/3-how-azure-backup-works/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/01_Intro_To_Azure_Backup/03_How_Azure_Backup_works.html"
+            },
+            {
+              "title": "When to use Azure Backup",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-backup/4-when-to-use-azure-backup/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/01_Intro_To_Azure_Backup/04_When_to_use_Azure_Backup.html"
+            },
+            {
+              "title": "Module assessment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-backup/5-knowledge-check/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/01_Intro_To_Azure_Backup/05_Module_assessment.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-backup/6-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/01_Intro_To_Azure_Backup/06_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Protect Virtual Machines With Azure Backup",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/02_Protect_Virtual_Machines_With_Azure_Backup/01_Introduction.html"
+            },
+            {
+              "title": "Azure Backup features and scenarios",
+              "url": "https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/2-azure-backup-features-scenarios/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/02_Protect_Virtual_Machines_With_Azure_Backup/02_Azure_Backup_features_and_scenarios.html"
+            },
+            {
+              "title": "Back up an Azure virtual machine by using Azure Backup",
+              "url": "https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/3-back-up-azure-virtual-machine/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/02_Protect_Virtual_Machines_With_Azure_Backup/03_Back_up_an_Azure_virtual_machine_by_using_Azure_Backup.html"
+            },
+            {
+              "title": "Exercise - Back up an Azure virtual machine",
+              "url": "https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/4-exercise-back-up-azure-virtual-machine/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/02_Protect_Virtual_Machines_With_Azure_Backup/04_Exercise_-_Back_up_an_Azure_virtual_machine.html"
+            },
+            {
+              "title": "Restore virtual machine data",
+              "url": "https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/5-restore-virtual-machine-data/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/02_Protect_Virtual_Machines_With_Azure_Backup/05_Restore_virtual_machine_data.html"
+            },
+            {
+              "title": "Exercise - Restore Azure virtual machine data",
+              "url": "https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/6-exercise-restore-virtual-machine-data/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/02_Protect_Virtual_Machines_With_Azure_Backup/06_Exercise_-_Restore_Azure_virtual_machine_data.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/7-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/02_Protect_Virtual_Machines_With_Azure_Backup/07_Summary.html"
+            }
+          ]
+        },
+        {
+          "title": "Incident Response With Alerting On Azure",
+          "units": [
+            {
+              "title": "Introduction",
+              "url": "https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/1-introduction/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/03_Incident_Response_With_Alerting_On_Azure/01_Introduction.html"
+            },
+            {
+              "title": "Explore the different alert types that Azure Monitor supports",
+              "url": "https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/2-explore-azure-monitor-alert-types/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/03_Incident_Response_With_Alerting_On_Azure/02_Explore_the_different_alert_types_that_Azure_Monitor_supports.html"
+            },
+            {
+              "title": "Use metric alerts for alerts about performance issues in your Azure environment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/3-metric-alerts/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/03_Incident_Response_With_Alerting_On_Azure/03_Use_metric_alerts_for_alerts_about_performance_issues_in_your_Azure_environment.html"
+            },
+            {
+              "title": "Exercise - Use metric alerts to alert on performance issues in your Azure environment",
+              "url": "https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/4-exercise-metric-alerts/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/03_Incident_Response_With_Alerting_On_Azure/04_Exercise_-_Use_metric_alerts_to_alert_on_performance_issues_in_your_Azure_environment.html"
+            },
+            {
+              "title": "Use log search alerts to alert on events in your application",
+              "url": "https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/5-log-alerts/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/03_Incident_Response_With_Alerting_On_Azure/05_Use_log_search_alerts_to_alert_on_events_in_your_application.html"
+            },
+            {
+              "title": "Use activity log alerts to alert on events within your Azure infrastructure",
+              "url": "https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/6-activity-log-alerts/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/03_Incident_Response_With_Alerting_On_Azure/06_Use_activity_log_alerts_to_alert_on_events_within_your_Azure_infrastructure.html"
+            },
+            {
+              "title": "Use action groups and alert processing rules to send notifications when an alert is fired",
+              "url": "https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/7-actions-and-alert-processing-rules/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/03_Incident_Response_With_Alerting_On_Azure/07_Use_action_groups_and_alert_processing_rules_to_send_notifications_when_an_alert_is_fired.html"
+            },
+            {
+              "title": "Exercise - Use an activity log alert and an action group to notify users about events in your Azure infrastructure",
+              "url": "https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/8-exercise-activity-log-alerts/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/03_Incident_Response_With_Alerting_On_Azure/08_Exercise_-_Use_an_activity_log_alert_and_an_action_group_to_notify_users_about_events_in_your_Azure_.html"
+            },
+            {
+              "title": "Summary",
+              "url": "https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/9-summary/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources",
+              "local_file": "english_original/06_AZ-104-_Monitor_and_back_up_Azure_resources/03_Incident_Response_With_Alerting_On_Azure/09_Summary.html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

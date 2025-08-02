@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Azure RBAC? - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> What is Azure RBAC?</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/2-rbac-overview/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  When it comes to identity and access, most organizations that are considering using the public cloud are concerned about two things:
+ </p>
+ <ol>
+  <li>
+   Ensuring that when people leave the organization, they lose access to resources in the cloud.
+  </li>
+  <li>
+   Striking the right balance between autonomy and central governance. For example, giving project teams the ability to create and manage virtual machines in the cloud, while centrally controlling the networks those VMs use to communicate with other resources.
+  </li>
+ </ol>
+ <p>
+  Microsoft Entra ID and Azure RBAC work together to make it simple to carry out these goals.
+ </p>
+ <h2 id="azure-subscriptions">
+  Azure subscriptions
+ </h2>
+ <p>
+  First, remember that each Azure subscription is associated with a single Microsoft Entra directory. Users, groups, and applications in that directory can manage resources in the Azure subscription. The subscriptions use Microsoft Entra ID for single sign-on (SSO) and access management. You can extend your on-premises Active Directory to the cloud by using
+  <strong>
+   Microsoft Entra Connect
+  </strong>
+  . This feature allows your employees to manage their Azure subscriptions by using their existing work identities. When you disable an on-premises Active Directory account, it automatically loses access to all Azure subscriptions connected with Microsoft Entra ID.
+ </p>
+ <h2 id="whats-azure-rbac">
+  What's Azure RBAC?
+ </h2>
+ <p>
+  Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management for resources in Azure. With Azure RBAC, you can grant the exact access that users need to do their jobs. For example, you can use Azure RBAC to let one employee manage virtual machines in a subscription, while another manages SQL databases within the same subscription.
+ </p>
+ <p>
+  The following video describes Azure RBAC in detail:
+ </p>
+ <p>
+  You can grant access by assigning the appropriate Azure role to users, groups, and applications at a certain scope. The scope of a role assignment can be a management group, subscription, a resource group, or a single resource. A role assigned at a parent scope also grants access to the child scopes contained within it. For example, a user with access to a resource group can manage all the resources it contains like websites, virtual machines, and subnets. The Azure role that you assign dictates what resources the user, group, or application can manage within that scope.
+ </p>
+ <p>
+  The following diagram depicts how the classic subscription administrator roles, Azure roles, and Microsoft Entra roles are related at a high level. Child scopes, such as service instances, inherit roles assigned at a higher scope, like an entire subscription.
+ </p>
+ <p>
+  In the preceding diagram, a subscription is associated with only one Microsoft Entra tenant. Also note that a resource group can have multiple resources, but it's associated with only one subscription. Although it's not obvious from the diagram, a resource can be bound to only one resource group.
+ </p>
+ <h2 id="what-can-i-do-with-azure-rbac">
+  What can I do with Azure RBAC?
+ </h2>
+ <p>
+  Azure RBAC allows you to grant access to Azure resources that you control. Suppose you need to manage access to resources in Azure for the development, engineering, and marketing teams. You’ve started to receive access requests, and you need to quickly learn how access management works for Azure resources.
+ </p>
+ <p>
+  Here are some scenarios you can implement with Azure RBAC:
+ </p>
+ <ul>
+  <li>
+   Allow one user to manage virtual machines in a subscription and another user to manage virtual networks.
+  </li>
+  <li>
+   Allow a database administrator group to manage SQL databases in a subscription.
+  </li>
+  <li>
+   Allow a user to manage all resources in a resource group, such as virtual machines, websites, and subnets.
+  </li>
+  <li>
+   Allow an application to access all resources in a resource group.
+  </li>
+ </ul>
+ <h2 id="azure-rbac-in-the-azure-portal">
+  Azure RBAC in the Azure portal
+ </h2>
+ <p>
+  In several areas in the Azure portal, you'll see a pane named
+  <strong>
+   Access control (IAM)
+  </strong>
+  , also known as
+  <em>
+   identity and access management
+  </em>
+  . On this pane, you can see who has access to that area and their role. Using this same pane, you can grant or remove access.
+ </p>
+ <p>
+  The following shows an example of the Access control (IAM) pane for a resource group. In this example, Alain has been assigned the Backup Operator role for this resource group.
+ </p>
+ <h2 id="how-does-azure-rbac-work">
+  How does Azure RBAC work?
+ </h2>
+ <p>
+  You can control access to resources using Azure RBAC by creating role assignments, which control how permissions are enforced. To create a role assignment, you need three elements: a security principal, a role definition, and a scope. You can think of these elements as
+  <em>
+   who
+  </em>
+  ,
+  <em>
+   what
+  </em>
+  , and
+  <em>
+   where
+  </em>
+  .
+ </p>
+ <h3 id="1-security-principal-who">
+  1. Security principal (who)
+ </h3>
+ <p>
+  A
+  <em>
+   security principal
+  </em>
+  is just a fancy name for a user, group, or application to which you want to grant access.
+ </p>
+ <h3 id="2-role-definition-what">
+  2. Role definition (what)
+ </h3>
+ <p>
+  A
+  <em>
+   role definition
+  </em>
+  is a collection of permissions. It's sometimes just called a role. A role definition lists the permissions the role can perform such as read, write, and delete. Roles can be high-level, like Owner, or specific, like Virtual Machine Contributor.
+ </p>
+ <p>
+  Azure includes several built-in roles that you can use. The following lists four fundamental built-in roles:
+ </p>
+ <ul>
+  <li>
+   <strong>
+    Owner
+   </strong>
+   : Has full access to all resources, including the right to delegate access to others.
+  </li>
+  <li>
+   <strong>
+    Contributor
+   </strong>
+   : Can create and manage all types of Azure resources, but can’t grant access to others.
+  </li>
+  <li>
+   <strong>
+    Reader
+   </strong>
+   : Can view existing Azure resources.
+  </li>
+  <li>
+   <strong>
+    User Access Administrator
+   </strong>
+   : Lets you manage user access to Azure resources.
+  </li>
+ </ul>
+ <p>
+  If the built-in roles don't meet the specific needs of your organization, you can create your own custom roles.
+ </p>
+ <h3 id="3-scope-where">
+  3. Scope (where)
+ </h3>
+ <p>
+  <em>
+   Scope
+  </em>
+  is the level where the access applies. This is helpful if you want to make someone a Website Contributor but only for one resource group.
+ </p>
+ <p>
+  In Azure, you can specify a scope at multiple levels: management group, subscription, resource group, or resource. Scopes are structured in a parent-child relationship. When you grant access at a parent scope, the child scopes automatically inherit those permissions. For example, if a group is assigned the Contributor role at the subscription scope, it will inherit the role for all resource groups and resources within the subscription.
+ </p>
+ <h3 id="role-assignment">
+  Role assignment
+ </h3>
+ <p>
+  Once you have determined the who, what, and where, you can combine those elements to grant access. A
+  <em>
+   role assignment
+  </em>
+  is the process of binding a role to a security principal at a particular scope for the purpose of granting access. To grant access, you'll create a role assignment. To revoke access, you'll remove a role assignment.
+ </p>
+ <p>
+  The following example shows how the Marketing group has been assigned the Contributor role at the sales resource group scope.
+ </p>
+ <h2 id="azure-rbac-is-an-allow-model">
+  Azure RBAC is an allow model
+ </h2>
+ <p>
+  Azure RBAC is an
+  <em>
+   allow
+  </em>
+  model. This means that when you're assigned a role, Azure RBAC allows you to perform certain actions such as read, write, or delete. If one role assignment grants you read permissions to a resource group, and a different role assignment grants you write permissions to the same resource group, then you'll have read and write permissions on that resource group.
+ </p>
+ <p>
+  Azure RBAC has something called
+  <code>
+   NotActions
+  </code>
+  permissions. You can use
+  <code>
+   NotActions
+  </code>
+  to create a set of not allowed permissions. The access a role grants—the
+  <em>
+   effective permissions
+  </em>
+  —is computed by subtracting the
+  <code>
+   NotActions
+  </code>
+  operations from the
+  <code>
+   Actions
+  </code>
+  operations. For example, the
+  <a data-linktype="absolute-path" href="/en-us/azure/role-based-access-control/built-in-roles#contributor">
+   Contributor
+  </a>
+  role has both
+  <code>
+   Actions
+  </code>
+  and
+  <code>
+   NotActions
+  </code>
+  . The wildcard (*) in
+  <code>
+   Actions
+  </code>
+  indicates that it can perform all operations on the control plane. You'd then subtract the following operations in
+  <code>
+   NotActions
+  </code>
+  to compute the effective permissions:
+ </p>
+ <ul>
+  <li>
+   Delete roles and role assignments
+  </li>
+  <li>
+   Create roles and role assignments
+  </li>
+  <li>
+   Grant the caller User Access Administrator access at the tenant scope
+  </li>
+  <li>
+   Create or update any blueprint artifacts
+  </li>
+  <li>
+   Delete any blueprint artifacts
+  </li>
+ </ul>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

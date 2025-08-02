@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Grant access using Azure RBAC and the Azure portal - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Exercise - Grant access using Azure RBAC and the Azure portal</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/5-grant-access/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  A coworker named Alain at First Up Consultants needs permission to create and manage virtual machines for a project on which they're working. Your manager has asked that you handle this request. Using the best practice to grant users the least privileges to get their work done, you decide to assign Alain the Virtual Machine Contributor role for a resource group.
+ </p>
+ <h2 id="grant-access">
+  Grant access
+ </h2>
+ <p>
+  Follow this procedure to assign the Virtual Machine Contributor role to a user at the resource group scope.
+ </p>
+ <ol>
+  <li>
+   <p>
+    Sign in to the
+    <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/" target="az-portal">
+     Azure portal
+    </a>
+    as an administrator that has permissions to assign roles, such as
+    <a data-linktype="absolute-path" href="/en-us/azure/role-based-access-control/built-in-roles#user-access-administrator">
+     User Access Administrator
+    </a>
+    or
+    <a data-linktype="absolute-path" href="/en-us/azure/role-based-access-control/built-in-roles#owner">
+     Owner
+    </a>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    In the Search box at the top, search for
+    <strong>
+     Resource groups
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    In the list of resource groups, select a resource group.
+   </p>
+   <p>
+    These steps use a resource group named
+    <strong>
+     example-group
+    </strong>
+    , but your resource group's name will be different.
+   </p>
+  </li>
+  <li>
+   <p>
+    On the left menu pane, select
+    <strong>
+     Access control (IAM)
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Select the
+    <strong>
+     Role assignments
+    </strong>
+    tab to display the current list of role assignments at this scope.
+   </p>
+  </li>
+  <li>
+   <p>
+    Select
+    <strong>
+     Add
+    </strong>
+    &gt;
+    <strong>
+     Add role assignment
+    </strong>
+    .
+   </p>
+   <p>
+    If you don't have permissions to assign roles, the
+    <strong>
+     Add role assignment
+    </strong>
+    option will be disabled.
+   </p>
+   <p>
+    The
+    <strong>
+     Add role assignment
+    </strong>
+    page opens.
+   </p>
+  </li>
+  <li>
+   <p>
+    On the
+    <strong>
+     Role
+    </strong>
+    tab, search for and select
+    <strong>
+     Virtual Machine Contributor
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Select
+    <strong>
+     Next
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    On the
+    <strong>
+     Members
+    </strong>
+    tab, select
+    <strong>
+     Select members
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Search for and select a user.
+   </p>
+  </li>
+  <li>
+   <p>
+    Select
+    <strong>
+     Select
+    </strong>
+    to add the user to the Members list.
+   </p>
+  </li>
+  <li>
+   <p>
+    Select
+    <strong>
+     Next
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    On the
+    <strong>
+     Review + assign
+    </strong>
+    tab, review the role assignment settings.
+   </p>
+  </li>
+  <li>
+   <p>
+    Select
+    <strong>
+     Review + assign
+    </strong>
+    to assign the role.
+   </p>
+   <p>
+    After a few moments, the user is assigned the Virtual Machine Contributor role at the resource group scope. The user can now create and manage virtual machines just within this resource group.
+   </p>
+  </li>
+ </ol>
+ <h2 id="remove-access">
+  Remove access
+ </h2>
+ <p>
+  In Azure RBAC, you can remove a role assignment to remove access.
+ </p>
+ <ol>
+  <li>
+   <p>
+    In the list of role assignments, select
+    <strong>
+     View Assignments
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Search for and check the box for the user with the Virtual Machine Contributor role.
+   </p>
+  </li>
+  <li>
+   <p>
+    Select
+    <strong>
+     Delete
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     Remove role assignments
+    </strong>
+    message that appears, select
+    <strong>
+     Yes
+    </strong>
+    .
+   </p>
+  </li>
+ </ol>
+ <p>
+  In this unit, you learned how to grant a user access to create and manage virtual machines in a resource group using the Azure portal.
+ </p>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

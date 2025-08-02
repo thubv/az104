@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Azure Network Watcher? - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> What is Azure Network Watcher?</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/2-what-is-azure-network-watcher/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  Azure Network Watcher provides a suite of tools to monitor, diagnose, view metrics, and enable or disable logs for Azure IaaS (Infrastructure-as-a-Service) resources. Network Watcher enables you to monitor and repair the network health of IaaS products like virtual machines (VMs), virtual networks (VNets), application gateways, load balancers, etc. Network Watcher isn't designed or intended for PaaS monitoring or Web analytics.
+ </p>
+ <p>
+  Network Watcher consists of three major sets of tools and capabilities:
+ </p>
+ <ul>
+  <li>
+   Monitoring
+   <ul>
+    <li>
+     Topology
+    </li>
+    <li>
+     Connection monitor
+    </li>
+   </ul>
+  </li>
+  <li>
+   Network diagnostic
+   <ul>
+    <li>
+     IP flow verify
+    </li>
+    <li>
+     NSG diagnostics
+    </li>
+    <li>
+     Next hop
+    </li>
+    <li>
+     Effective security rules
+    </li>
+    <li>
+     Connection troubleshoot
+    </li>
+    <li>
+     Packet capture
+    </li>
+    <li>
+     VPN troubleshoot
+    </li>
+   </ul>
+  </li>
+  <li>
+   Traffic
+   <ul>
+    <li>
+     Flow logs
+    </li>
+    <li>
+     Traffic analytics
+    </li>
+   </ul>
+  </li>
+ </ul>
+ <h2 id="monitoring">
+  Monitoring
+ </h2>
+ <p>
+  Network Watcher offers two monitoring tools that help you view and monitor resources:
+ </p>
+ <ul>
+  <li>
+   Topology
+  </li>
+  <li>
+   Connection monitor
+  </li>
+ </ul>
+ <h3 id="topology">
+  Topology
+ </h3>
+ <p>
+  The
+  <strong>
+   Topology
+  </strong>
+  tool provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups, and locations. At the beginning of the troubleshooting process, this tool helps you visualize all of the elements involved in the problem, allowing you to find something that isn't apparent by looking at the contents of resource groups.
+ </p>
+ <h3 id="connection-monitor">
+  Connection monitor
+ </h3>
+ <p>
+  <strong>
+   Connection monitor
+  </strong>
+  provides end-to-end connection monitoring for Azure and hybrid endpoints. It helps you understand network performance between various endpoints in your network infrastructure. You can use connection monitor to verify that two IaaS VMs that host the components of a multi-tier application can communicate with each other. You can also use it to verify connectivity in hybrid scenarios.
+ </p>
+ <h2 id="network-diagnostic-tools">
+  Network diagnostic tools
+ </h2>
+ <p>
+  Network Watcher offers seven network diagnostic tools that help troubleshoot and diagnose network issues:
+ </p>
+ <ul>
+  <li>
+   IP flow verify
+  </li>
+  <li>
+   NSG diagnostics
+  </li>
+  <li>
+   Next hop
+  </li>
+  <li>
+   Effective security rules
+  </li>
+  <li>
+   Connection troubleshoot
+  </li>
+  <li>
+   Packet capture
+  </li>
+  <li>
+   VPN troubleshoot
+  </li>
+ </ul>
+ <h3 id="ip-flow-verify">
+  IP flow verify
+ </h3>
+ <p>
+  <strong>
+   IP flow verify
+  </strong>
+  allows you to detect traffic filtering issues at a virtual machine level. It checks if a packet is allowed or denied to or from an IP address (IPv4 or IPv6 address). It also tells you which security rule allowed or denied the traffic.
+ </p>
+ <h3 id="nsg-diagnostics">
+  NSG diagnostics
+ </h3>
+ <p>
+  <strong>
+   NSG diagnostics
+  </strong>
+  allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic. It also allows you to add a new security rule with a higher priority to allow or deny the traffic.
+ </p>
+ <h3 id="next-hop">
+  Next hop
+ </h3>
+ <p>
+  <strong>
+   Next hop
+  </strong>
+  allows you to detect routing issues. It checks if traffic is routed correctly to the intended destination. It provides you with information about the Next hop type, IP address, and Route table ID for a specific destination IP address.
+ </p>
+ <h3 id="effective-security-rules">
+  Effective security rules
+ </h3>
+ <p>
+  <strong>
+   Effective security rules
+  </strong>
+  allows you to view the effective security rules applied to a network interface. It shows you all security rules applied to the network interface, the subnet the network interface is in, and the aggregate of both.
+ </p>
+ <h3 id="connection-troubleshoot">
+  Connection troubleshoot
+ </h3>
+ <p>
+  <strong>
+   Connection troubleshoot
+  </strong>
+  enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the connection monitor tool, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does.
+ </p>
+ <h3 id="packet-capture">
+  Packet capture
+ </h3>
+ <p>
+  <strong>
+   Packet capture
+  </strong>
+  allows you to remotely create packet capture sessions to record all network traffic to and from a virtual machine (VM) or a virtual machine scale set.
+ </p>
+ <h3 id="vpn-troubleshoot">
+  VPN troubleshoot
+ </h3>
+ <p>
+  <strong>
+   VPN troubleshoot
+  </strong>
+  enables you to troubleshoot virtual network gateways and their connections.
+ </p>
+ <h2 id="traffic">
+  Traffic
+ </h2>
+ <p>
+  Network Watcher offers two traffic tools that help you log and visualize network traffic:
+ </p>
+ <ul>
+  <li>
+   Flow logs
+  </li>
+  <li>
+   Traffic analytics
+  </li>
+ </ul>
+ <h3 id="flow-logs">
+  Flow logs
+ </h3>
+ <p>
+  <strong>
+   Flow logs
+  </strong>
+  allows you to log information about your Azure IP traffic and stores the data in Azure storage. You can log IP traffic flowing through a network security group or Azure virtual network.
+ </p>
+ <h3 id="traffic-analytics">
+  Traffic analytics
+ </h3>
+ <p>
+  <strong>
+   Traffic analytics
+  </strong>
+  provides rich visualizations of flow logs data.
+ </p>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

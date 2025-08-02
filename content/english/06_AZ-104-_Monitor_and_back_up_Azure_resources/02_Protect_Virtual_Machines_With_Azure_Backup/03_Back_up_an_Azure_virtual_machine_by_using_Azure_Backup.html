@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back up an Azure virtual machine by using Azure Backup - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Back up an Azure virtual machine by using Azure Backup</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/3-back-up-azure-virtual-machine/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  You want to ensure that the backup and restore jobs you put in place offer a way to recover your company's servers. With this requirement in mind, you want to investigate the best way to implement backup for your virtual machines (VMs).
+ </p>
+ <p>
+  VMs that are hosted on Azure can take advantage of Azure Backup. You can easily back up and restore machines without installing extra software.
+ </p>
+ <p>
+  In this unit, you explore all the methods of backing up Azure VMs provided by Azure Backup and make a decision on which to implement.
+ </p>
+ <p>
+  <strong>
+   Azure VMs
+  </strong>
+  are backed up by taking snapshots of the underlying disks at user-defined intervals and transferring those snapshots to the Recovery Services vault as per the customer-defined policy.
+ </p>
+ <h2 id="recovery-services-vault">
+  Recovery Services vault
+ </h2>
+ <p>
+  Azure Backup uses a Recovery Services vault to manage and store the backup data. A vault is a storage-management entity, which provides a simple experience to carry out and monitor backup and restore operations. With Azure Backup, you don't need to worry about deploying or managing storage accounts. In fact, all you need to specify is the vault that you want to back up the virtual machine (VM) to. The backup data is transferred to the Azure Backup storage accounts (in a separate fault domain) in the background. The vault also acts as a role-based access control boundary to allow secure access to the data.
+ </p>
+ <h2 id="snapshots">
+  Snapshots
+ </h2>
+ <p>
+  A snapshot is a point-in-time backup of all disks on the VM. For Azure VMs, Azure Backup uses different extensions for each supporting operating system:
+ </p>
+ <div class="has-inner-focus">
+  <table aria-label="Snapshots" class="table">
+   <thead>
+    <tr>
+     <th>
+      Extension
+     </th>
+     <th>
+      OS
+     </th>
+     <th>
+      Description
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      VM Snapshot
+     </td>
+     <td>
+      Windows
+     </td>
+     <td>
+      The extension works with Volume Shadow Copy Service (VSS) to take a copy of the data on disk and in memory.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      VM SnapshotLinux
+     </td>
+     <td>
+      Linux
+     </td>
+     <td>
+      The snapshot is a copy of the disk.
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <p>
+  Depending on how the snapshot is taken and what it includes, you can achieve different levels of consistency:
+ </p>
+ <ul>
+  <li>
+   <strong>
+    Application consistent
+   </strong>
+   <ul>
+    <li>
+     The snapshot captures the VM as a whole. It uses VSS writers to capture the content of the machine memory and any pending I/O operations.
+    </li>
+    <li>
+     For Linux machines, you need to write custom pre or post scripts per app to capture the application state.
+    </li>
+    <li>
+     You can get complete consistency for the VM and all running applications.
+    </li>
+   </ul>
+  </li>
+  <li>
+   <strong>
+    File system consistent
+   </strong>
+   <ul>
+    <li>
+     If VSS fails on Windows, or the pre and post scripts fail on Linux, Azure Backup still creates a file-system-consistent snapshot.
+    </li>
+    <li>
+     During a recovery, no corruption occurs within the machine. But installed applications need to do their own cleanup during startup to become consistent.
+    </li>
+   </ul>
+  </li>
+  <li>
+   <strong>
+    Crash consistent
+   </strong>
+   <ul>
+    <li>
+     This level of consistency typically occurs if the VM is shut down at the time of the backup.
+    </li>
+    <li>
+     No I/O operations or memory contents are captured during this type of backup. This method doesn't guarantee data consistency for the OS or app.
+    </li>
+   </ul>
+  </li>
+ </ul>
+ <h2 id="backup-policy">
+  Backup policy
+ </h2>
+ <p>
+  You can define the backup frequency and retention duration for your backups. Currently, the VM backup can be triggered daily or weekly, and can be stored for multiple years. The backup policy supports two access tiers:
+  <em>
+   snapshot tier
+  </em>
+  and the
+  <em>
+   vault tier
+  </em>
+  . By using the Enhanced policy, you can trigger hourly backups.
+ </p>
+ <p>
+  <strong>
+   Selective disk backup
+  </strong>
+  : Azure Backup provides
+  <strong>
+   Selective Disk backup and restore
+  </strong>
+  capability using
+  <strong>
+   Enhanced policy
+  </strong>
+  . By using this capability, you can selectively back up a subset of the data disks that are attached to your VM. Then, you can restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier. It helps you manage critical data in a subset of the VM disks and use database backup solutions when you want to back up only their OS disk to reduce cost.
+ </p>
+ <p>
+  <strong>
+   Snapshot tier
+  </strong>
+  : All the snapshots are stored locally for a maximum period of five days, in what is called the snapshot tier. For all types of operation recoveries, we recommended that you restore from the snapshots because it's faster to do so. This capability is called
+  <strong>
+   instant restore
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Vault tier
+  </strong>
+  : All snapshots are additionally transferred to the vault for more security and longer retention. At this point, the recovery point type changes to "snapshot and vault."
+ </p>
+ <h2 id="backup-process-for-an-azure-virtual-machine">
+  Backup process for an Azure virtual machine
+ </h2>
+ <p>
+  Here's how Azure Backup completes a backup for Azure VMs:
+ </p>
+ <ol>
+  <li>
+   <p>
+    For Azure VMs that are selected for backup, Azure Backup starts a backup job according to the backup frequency you specify in the backup policy.
+   </p>
+  </li>
+  <li>
+   <p>
+    During the first backup, a backup extension is installed on the VM, if the VM is running:
+   </p>
+   <ul>
+    <li>
+     For Windows VMs, the VM Snapshot extension is installed.
+    </li>
+    <li>
+     For Linux VMs, the VM SnapshotLinux extension is installed.
+    </li>
+   </ul>
+  </li>
+  <li>
+   <p>
+    After the snapshot is taken, the data is stored locally and transferred to the vault.
+   </p>
+   <ul>
+    <li>
+     The backup is optimized by backing up each VM disk in parallel.
+    </li>
+    <li>
+     For each disk that's being backed up, Azure Backup reads the blocks on the disk and identifies and transfers only the data blocks that changed (the delta) since the previous backup.
+    </li>
+    <li>
+     Snapshot data might not be immediately copied to the vault. It might take several hours at peak times. Total backup time for a VM is less than 24 hours for daily backup policies.
+    </li>
+   </ul>
+  </li>
+ </ol>
+ <p>
+  You can additionally enable
+  <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk#configuring-a-vault-to-encrypt-using-customer-managed-keys?azure-portal=true" target="az-portal">
+   vault encryption with customer-managed keys (CMK)
+  </a>
+  . By using
+  <strong>
+   Enhanced soft delete
+  </strong>
+  for a Recovery Services vault, you can protect backups from deletion. You can also keep Enhanced soft delete
+  <em>
+   always on
+  </em>
+  to prevent turning it off, thus protecting your backups from accidental deletion or from malware attacks.
+ </p>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

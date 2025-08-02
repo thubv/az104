@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Azure Load Balancer works - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> How Azure Load Balancer works</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-load-balancer/3-how-azure-load-balancer-works/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  Azure Load Balancer operates at the transport layer of the Open Systems Interconnection (OSI) model. This Layer 4 functionality allows traffic management based on specific properties of the traffic. Properties including source and destination address, TCP or UDP protocol type, and port number.
+ </p>
+ <p>
+  Load Balancer has several elements that work together to ensure an application's high availability and performance:
+ </p>
+ <ul>
+  <li>
+   Front-end IP
+  </li>
+  <li>
+   Load balancer rules
+  </li>
+  <li>
+   Back-end pool
+  </li>
+  <li>
+   Health probes
+  </li>
+  <li>
+   Inbound NAT rules
+  </li>
+  <li>
+   High availability ports
+  </li>
+  <li>
+   Outbound rules
+  </li>
+ </ul>
+ <h2 id="front-end-ip">
+  Front-end IP
+ </h2>
+ <p>
+  The front-end IP address is the address clients use to connect to your web application. A front-end IP address can be either a public or a private IP address. Azure load balancers can have multiple front-end IPs. The selection of a public or a private IP address determines which type of load balancer to create:
+ </p>
+ <ul>
+  <li>
+   <p>
+    <strong>
+     Public IP address: A public load balancer
+    </strong>
+    : A public load balancer maps the public IP and port of incoming traffic to the private IP and port of the virtual machine (VM). You can distribute specific types of traffic across multiple VMs or services by applying load-balancing rules. For example, you can spread the load of web request traffic across multiple web servers. The load balancer maps the response traffic from the private IP and port of the VM to the public IP and port of the load balancer. Then, it transmits the response back to the requesting client.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Private IP address: An internal load balancer
+    </strong>
+    : An internal load balancer distributes traffic to resources that are inside a virtual network. Azure restricts access to the front-end IP addresses of a virtual network that are load balanced. Front-end IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources through a VPN or ExpressRoute connection.
+   </p>
+  </li>
+ </ul>
+ <h2 id="load-balancer-rules">
+  Load Balancer rules
+ </h2>
+ <p>
+  A load balancer rule defines how traffic is distributed to the back-end pool. The rule maps a given front-end IP and port combination to a set of back-end IP addresses and port combination.
+ </p>
+ <p>
+  Traffic is managed using a five-tuple hash made from the following elements:
+ </p>
+ <ul>
+  <li>
+   <strong>
+    Source IP
+   </strong>
+   : The IP address of the requesting client.
+  </li>
+  <li>
+   <strong>
+    Source port
+   </strong>
+   : The port of the requesting client.
+  </li>
+  <li>
+   <strong>
+    Destination IP
+   </strong>
+   : The destination IP address of the request.
+  </li>
+  <li>
+   <strong>
+    Destination port
+   </strong>
+   : The destination port of the request.
+  </li>
+  <li>
+   <strong>
+    Protocol type
+   </strong>
+   : The specified protocol type, Transmission Control Protocol (TCP), or User Datagram Protocol (UDP).
+  </li>
+  <li>
+   <strong>
+    Session affinity
+   </strong>
+   : Ensures that the same pool node always handles traffic for a client.
+  </li>
+ </ul>
+ <p>
+  Load Balancer allows you to load balance services on multiple ports, multiple IP addresses, or both. You can configure different load balancing rules for each front-end IP. Multiple front-end configurations are only supported with IaaS VMs.
+ </p>
+ <p>
+  Load Balancer can't apply different rules based on internal traffic content because it operates at Layer 4 (transport layer) of the OSI model. If you need to manage traffic based on its Layer 7 (application layer) properties, you need to deploy a solution like Azure Application Gateway.
+ </p>
+ <h2 id="back-end-pool">
+  Back-end pool
+ </h2>
+ <p>
+  The back-end pool is a group of VMs or instances in a Virtual Machine Scale Set that responds to the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the back-end pool.
+ </p>
+ <p>
+  Load Balancer implements automatic reconfiguration to redistribute load across the altered number of instances when you scale instances up or down. For example, if you added two more VMs instances to the back-end pool, Load Balancer would reconfigure itself to start balancing traffic to those instances based on the already configured load balancing rules.
+ </p>
+ <h2 id="health-probes">
+  Health probes
+ </h2>
+ <p>
+  A health probe is used to determine the health status of the instances in the back-end pool. This health probe determines if an instance is healthy and can receive traffic. You can define the unhealthy threshold for your health probes. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. A probe failure doesn't affect existing connections. The connection continues until:
+ </p>
+ <ul>
+  <li>
+   The application ends the flow.
+  </li>
+  <li>
+   Idle timeout occurs.
+  </li>
+  <li>
+   The VM shuts down.
+  </li>
+ </ul>
+ <p>
+  Load Balancer allows you to configure different health probe types for endpoints: TCP, HTTP, and HTTPS.
+ </p>
+ <ul>
+  <li>
+   <strong>
+    TCP custom probe
+   </strong>
+   : This probe relies on establishing a successful TCP session to a defined probe port. If the specified listener on the VM exists, the probe succeeds. If the connection is refused, the probe fails. You can specify the Port, Interval, and Unhealthy threshold.
+  </li>
+  <li>
+   <strong>
+    HTTP or HTTPS custom probe
+   </strong>
+   : The load balancer regularly probes your endpoint (every 15 seconds, by default). The instance is healthy if it responds with an HTTP 200 within the timeout period (default of 31 seconds). Any status other than HTTP 200 causes the probe to fail. You can specify the port (Port), the URI for requesting the health status from the back end (URI), amount of time between probe attempts (Interval), and the number of failures that must occur for the instance to be considered unhealthy (Unhealthy threshold).
+  </li>
+ </ul>
+ <h2 id="session-persistence">
+  Session persistence
+ </h2>
+ <p>
+  By default, Load Balancer distributes network traffic equally among multiple VM instances. It provides stickiness only within a transport session. Session persistence specifies how traffic from a client should be handled. The default behavior (None) is that any healthy VM can handle successive requests from a client.
+ </p>
+ <p>
+  Session persistence is also known as session affinity, source IP affinity, or client IP affinity. This distribution mode uses a two-tuple (source IP and destination IP) or three-tuple (source IP, destination IP, and protocol type) hash to route to back-end instances. When you use session persistence, connections from the same client go to the same back-end instance within the back-end pool. You can configure one of the following session persistence options:
+ </p>
+ <ul>
+  <li>
+   <strong>
+    None (default)
+   </strong>
+   : Specifies that any healthy VM can handle the request.
+  </li>
+  <li>
+   <strong>
+    Client IP (2-tuple)
+   </strong>
+   : Specifies that the same back-end instance can handle successive requests from the same client IP address.
+  </li>
+  <li>
+   <strong>
+    Client IP and protocol (3-tuple)
+   </strong>
+   : Specifies that the same back-end instance can handle successive requests from the same client IP address and protocol combination.
+  </li>
+ </ul>
+ <p>
+  You can change this behavior by configuring one of the options that are described in the following sections.
+ </p>
+ <h2 id="high-availability-ports">
+  High availability ports
+ </h2>
+ <p>
+  A load balancer rule configured with
+  <code>
+   protocol - all and port - 0
+  </code>
+  is known as a
+  <em>
+   high availability (HA) port rule
+  </em>
+  . This rule enables a single rule to load balance all TCP and UDP flows that arrive on all ports of an internal standard load balancer.
+ </p>
+ <p>
+  The load-balancing decision is made per flow. This action is based on the following five-tuple connection:
+ </p>
+ <ul>
+  <li>
+   Source IP address
+  </li>
+  <li>
+   Source port
+  </li>
+  <li>
+   Destination IP address
+  </li>
+  <li>
+   Destination port
+  </li>
+  <li>
+   Protocol
+  </li>
+ </ul>
+ <p>
+  HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can help when a large number of ports must be load balanced.
+ </p>
+ <h2 id="inbound-nat-rules">
+  Inbound NAT rules
+ </h2>
+ <p>
+  You can use load balancing rules in combination with Network Address Translation (NAT) rules. For example, you could use NAT from the load balancer's public address to TCP 3389 on a specific VM. This rule combination allows remote desktop access from outside of Azure.
+ </p>
+ <h2 id="outbound-rules">
+  Outbound rules
+ </h2>
+ <p>
+  An outbound rule configures Source Network Address Translation (SNAT) for all VMs or instances identified by the back-end pool. This rule enables instances in the back end to communicate (outbound) to the internet or other public endpoints.
+ </p>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create custom domain names - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Create custom domain names</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/8-create-custom-domain-names/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  When you create a web app, Azure assigns the app to a subdomain of
+  <code>
+   azurewebsites.net
+  </code>
+  . Suppose your web app is named
+  <code>
+   contoso
+  </code>
+  . Azure creates a URL for your web app as
+  <code>
+   contoso.azurewebsites.net
+  </code>
+  . Azure also assigns a virtual IP address for your app. For a production web app, you might want users to see a custom domain name.
+ </p>
+ <h3 id="what-is-a-custom-domain">
+  What is a custom domain?
+ </h3>
+ <p>
+  A domain name is the address people type into a web browser to reach your website. A custom domain is a domain name that you own and configure to point to your Azure-hosted app, replacing the default Azure domain.
+ </p>
+ <p>
+  For example:
+ </p>
+ <ul>
+  <li>
+   Default Azure domain:
+   <code>
+    myapp-00000.westus.azurewebsites.net
+   </code>
+  </li>
+  <li>
+   Custom domain:
+   <code>
+    www.contoso.com
+   </code>
+  </li>
+ </ul>
+ <p>
+  Using a custom domain allows you to:
+ </p>
+ <ul>
+  <li>
+   Establish a branded, user-friendly web address.
+  </li>
+  <li>
+   Improve trust and credibility with customers.
+  </li>
+  <li>
+   Manage and secure traffic to your application.
+  </li>
+ </ul>
+ <h3 id="steps-to-configure-a-custom-domain-name-for-your-app">
+  Steps to configure a custom domain name for your app
+ </h3>
+ <p>
+  Creating a custom domain name requires providers, security, and naming information.
+ </p>
+ <p>
+  There are three steps to create a custom domain name.
+ </p>
+ <ol>
+  <li>
+   <p>
+    <strong>
+     Reserve your domain name
+    </strong>
+    . The easiest way to set up a custom domain is to buy one directly in the Azure portal. (This name isn't the Azure assigned name of
+    <code>
+     \*.azurewebsites.net
+    </code>
+    .) The registration process enables you to manage your web app's domain name directly in the Azure portal instead of going to a third-party site. Configuring the domain name in your web app is also a simple process in the Azure portal.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Create DNS records to map the domain to your Azure web app
+    </strong>
+    . The Domain Name System (DNS) uses data records to map domain names to IP addresses. There are several types of DNS records.
+   </p>
+   <ul>
+    <li>
+     <p>
+      For web apps, you create either an
+      <code>
+       A
+      </code>
+      (Address) record or a
+      <code>
+       CNAME
+      </code>
+      (Canonical Name) record.
+     </p>
+     <ul>
+      <li>
+       An
+       <code>
+        A
+       </code>
+       record maps a domain name to an IP address.
+      </li>
+      <li>
+       A
+       <code>
+        CNAME
+       </code>
+       record maps a domain name to another domain name. DNS uses the second name to look up the address. Users still see the first domain name in their browser. As an example, you could map
+       <code>
+        contoso.com
+       </code>
+       to your
+       <code>
+        webapp.azurewebsites.net
+       </code>
+       URL.
+      </li>
+     </ul>
+    </li>
+    <li>
+     <p>
+      If the IP address changes, a
+      <code>
+       CNAME
+      </code>
+      entry is still valid, whereas an
+      <code>
+       A
+      </code>
+      record must be updated.
+     </p>
+    </li>
+    <li>
+     <p>
+      Some domain registrars don't allow
+      <code>
+       CNAME
+      </code>
+      records for the root domain or for wildcard domains. In such cases, you must use an
+      <code>
+       A
+      </code>
+      record.
+     </p>
+    </li>
+   </ul>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Enable the custom domain
+    </strong>
+    . After you have your domain and create your DNS record, use the Azure portal to validate your custom domain and add it to your web app. Be sure to test your domain before publishing.
+   </p>
+  </li>
+ </ol>
+ <div class="alert is-primary">
+  <p class="alert-title">
+   Important
+  </p>
+  <p>
+   To
+   <a data-linktype="absolute-path" href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">
+    map a custom DNS name to your app
+   </a>
+   , you need a paid tier of an App Service plan for your app.
+  </p>
+ </div>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

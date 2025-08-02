@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - assign licenses to users - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Exercise - assign licenses to users</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/3-exercise-assign-licenses-users/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  <strong>
+   Exercise environment needs
+  </strong>
+  - this lab assumes you have a basic Microsoft Entra tenant with at least User Administrator rights to complete it.  You can get a free trial subscription for at
+  <a data-linktype="external" href="https://azure.microsoft.com/free">
+   Try Azure for Free
+  </a>
+  .
+ </p>
+ <h2 id="create-a-new-user-in-microsoft-entra-id">
+  Create a new user in Microsoft Entra ID
+ </h2>
+ <p>
+  You can skip creating this user if you created the same user in the earlier module.
+ </p>
+ <ol>
+  <li>
+   <p>
+    Browse to the Identity menu in the
+    <a data-linktype="external" href="https://entra.microsoft.com/">
+     Microsoft Entra admin center
+    </a>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    In the left navigation, under select
+    <strong>
+     Users
+    </strong>
+    , then
+    <strong>
+     All Users.
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    Within the Users page, on the menu, select +
+    <strong>
+     New user
+    </strong>
+    and
+    <strong>
+     Create new user
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Create a user using the following information:
+   </p>
+   <div class="has-inner-focus">
+    <table aria-label="Table 1" class="table">
+     <thead>
+      <tr>
+       <th>
+        <strong>
+         Setting
+        </strong>
+       </th>
+       <th>
+        <strong>
+         Value
+        </strong>
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td>
+        User principal name
+       </td>
+       <td>
+        ChrisG
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Name
+       </td>
+       <td>
+        Chris Green
+       </td>
+      </tr>
+      <tr>
+       <td>
+        First name
+       </td>
+       <td>
+        Chris
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Last name
+       </td>
+       <td>
+        Green
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Password
+       </td>
+       <td>
+        make up a unique password
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </li>
+  <li>
+   <p>
+    When complete, verify the account for Chris Green is shown in the
+    <strong>
+     All users
+    </strong>
+    list.
+   </p>
+  </li>
+ </ol>
+ <h2 id="create-a-security-group-in-microsoft-entra-id">
+  Create a security group in Microsoft Entra ID
+ </h2>
+ <ol>
+  <li>
+   <p>
+    Browse to the Microsoft Entra admin center screen.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the left navigation, under
+    <strong>
+     Identity
+    </strong>
+    , select
+    <strong>
+     Groups
+    </strong>
+    and then
+    <strong>
+     All groups
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    In the Groups screen, on the menu, select
+    <strong>
+     New group
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Create a group using the following information:
+   </p>
+   <div class="has-inner-focus">
+    <table aria-label="Table 2" class="table">
+     <thead>
+      <tr>
+       <th>
+        <strong>
+         Setting
+        </strong>
+       </th>
+       <th>
+        <strong>
+         Value
+        </strong>
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td>
+        Group type
+       </td>
+       <td>
+        Security
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Group name
+       </td>
+       <td>
+        Marketing
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Membership type
+       </td>
+       <td>
+        Assigned
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Owners
+       </td>
+       <td>
+        Assign your own administrator account as the group owner
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Members
+       </td>
+       <td>
+        Chris Green
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </li>
+  <li>
+   <p>
+    When complete, verify the group named
+    <strong>
+     Marketing
+    </strong>
+    is shown in the
+    <strong>
+     All groups
+    </strong>
+    list.
+   </p>
+  </li>
+ </ol>
+ <h2 id="assign-a-license-to-a-group">
+  Assign a license to a group
+ </h2>
+ <ol>
+  <li>
+   In the
+   <strong>
+    All groups
+   </strong>
+   list, select
+   <strong>
+    Marketing
+   </strong>
+   .
+  </li>
+  <li>
+   In the Marketing window, under
+   <strong>
+    Manage
+   </strong>
+   , select
+   <strong>
+    Licenses
+   </strong>
+   .
+  </li>
+  <li>
+   Notices that no licenses are currently assigned to this group.
+  </li>
+  <li>
+   Open a new tab in your browser.
+  </li>
+  <li>
+   Go to the Microsoft 365 admin center at
+   <a data-linktype="external" href="https://admin.microsoft.com">
+    http://admin.microsoft.com
+   </a>
+   .
+  </li>
+  <li>
+   Select
+   <strong>
+    Billing
+   </strong>
+   from the menu on the left.
+  </li>
+  <li>
+   Select
+   <strong>
+    Licenses
+   </strong>
+   .
+  </li>
+  <li>
+   From the list of licenses you have available, select one.
+  </li>
+  <li>
+   Next you select
+   <strong>
+    Groups
+   </strong>
+   from the list near the top of the screen.
+  </li>
+  <li>
+   On the Groups page, select +
+   <strong>
+    Assign license
+   </strong>
+   .
+  </li>
+  <li>
+   Search for and select the
+   <strong>
+    Marketing
+   </strong>
+   group we created earlier.
+  </li>
+  <li>
+   Select the
+   <strong>
+    Assign
+   </strong>
+   button at the bottom of the dialog.
+  </li>
+  <li>
+   You should get a message that licenses were successfully assigned.
+  </li>
+ </ol>
+ <h2 id="restore-or-remove-a-recently-deleted-user-with-microsoft-entra-id">
+  Restore or remove a recently deleted user with Microsoft Entra ID
+ </h2>
+ <p>
+  After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the permanent deletion process is automatically started.
+ </p>
+ <p>
+  You can view your restorable users, restore a deleted user, or permanently delete a user using Microsoft Entra ID user interface.
+ </p>
+ <div class="alert is-primary">
+  <p class="alert-title">
+   Important
+  </p>
+  <p>
+   You can't restore a permanently deleted user.
+  </p>
+ </div>
+ <h2 id="required-permissions">
+  Required permissions
+ </h2>
+ <p>
+  You must have one of the following roles to restore or permanently delete users.
+ </p>
+ <ul>
+  <li>
+   Global administrator
+  </li>
+  <li>
+   Partner Tier-1 Support
+  </li>
+  <li>
+   Partner Tier-2 Support
+  </li>
+  <li>
+   User administrator
+  </li>
+ </ul>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Create an Azure resource - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Exercise - Create an Azure resource</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/7-exercise-create-azure-resource/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  In this exercise, you’ll use the Azure portal to create a resource. The focus of the exercise is observing how Azure resource groups populate with created resources.
+ </p>
+ <div class="alert is-primary">
+  <p class="alert-title">
+   Important
+  </p>
+  <p>
+   The sandbox should already be activated, but if the sandbox closed, reactivate the sandbox before continuing.
+  </p>
+ </div>
+ <h2 id="task-1-create-a-virtual-machine">
+  Task 1: Create a virtual machine
+ </h2>
+ <p>
+  In this task, you’ll create a virtual machine using the Azure portal.
+ </p>
+ <ol>
+  <li>
+   <p>
+    Sign in to the
+    <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/learn.docs.microsoft.com" target="az-portal">
+     Azure portal
+    </a>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Select Create a resource &gt; Virtual Machine &gt; Create.
+   </p>
+  </li>
+  <li>
+   <p>
+    The Create a virtual machine pane opens to the basics tab.
+   </p>
+  </li>
+  <li>
+   <p>
+    Verify or enter the following values for each setting. If a setting isn’t specified, leave the default value.
+   </p>
+   <p>
+    <strong>
+     Basics tab
+    </strong>
+   </p>
+   <div class="has-inner-focus">
+    <table aria-label="Table 1" class="table">
+     <thead>
+      <tr>
+       <th>
+        <strong>
+         Setting
+        </strong>
+       </th>
+       <th>
+        <strong>
+         Value
+        </strong>
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td>
+        Subscription
+       </td>
+       <td>
+        Concierge Subscription
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Resource group
+       </td>
+       <td>
+        Select the resource group name that begins with
+        <strong>
+         learn
+        </strong>
+        .
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Virtual machine name
+       </td>
+       <td>
+        my-VM
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Region
+       </td>
+       <td>
+        Leave default
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Availability options
+       </td>
+       <td>
+        Leave default
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Security type
+       </td>
+       <td>
+        Leave default
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Image
+       </td>
+       <td>
+        Leave default
+       </td>
+      </tr>
+      <tr>
+       <td>
+        VM architecture
+       </td>
+       <td>
+        Leave default
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Run with Azure Spot discount
+       </td>
+       <td>
+        Unchecked
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Size
+       </td>
+       <td>
+        Leave default
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Authentication type
+       </td>
+       <td>
+        Password
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Username
+       </td>
+       <td>
+        azureuser
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Password
+       </td>
+       <td>
+        Enter a custom password
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Confirm password
+       </td>
+       <td>
+        Reenter the custom password
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Public inbound ports
+       </td>
+       <td>
+        None
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </li>
+  <li>
+   <p>
+    Select Review and Create.
+   </p>
+  </li>
+ </ol>
+ <div class="alert is-primary">
+  <p class="alert-title">
+   Important
+  </p>
+  <p>
+   Product details will include a cost associated with creating the virtual machine. This is a system function. If you’re creating the VM in the Learn sandbox, you won’t actually incur any costs.
+  </p>
+ </div>
+ <ol start="6">
+  <li>
+   Select Create
+  </li>
+ </ol>
+ <p>
+  Wait while the VM is provisioned. Deployment is in progress will change to Deployment is complete when the VM is ready.
+ </p>
+ <h2 id="task-2-verify-resources-created">
+  Task 2: Verify resources created
+ </h2>
+ <p>
+  Once the deployment is created, you can verify that Azure created not only a VM, but all of the associated resources the VM needs.
+ </p>
+ <ol>
+  <li>
+   Select Home.
+  </li>
+  <li>
+   Select Resource groups.
+  </li>
+  <li>
+   Select the [sandbox resource group name] resource group.
+  </li>
+ </ol>
+ <p>
+  You should see a list of resources in the resource group. The storage account and virtual network are associated with the Learn sandbox. However, the rest of the resources were created when you created the virtual machine. By default, Azure gave them all a similar name to help with association and grouped them in the same resource group.
+ </p>
+ <p>
+  Congratulations! You've created a resource in Azure and had a chance to see how resources get grouped on creation.
+ </p>
+ <h2 id="clean-up">
+  Clean up
+ </h2>
+ <p>
+  The sandbox automatically cleans up your resources when you're finished with this module.
+ </p>
+ <p>
+  When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources that you leave running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+ </p>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

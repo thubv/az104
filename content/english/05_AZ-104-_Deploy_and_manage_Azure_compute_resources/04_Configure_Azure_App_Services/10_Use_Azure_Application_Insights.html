@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Azure Application Insights - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Use Azure Application Insights</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/10-use-application-insights/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  <a data-linktype="absolute-path" href="/en-us/azure/azure-monitor/app/app-insights-overview">
+   Azure Application Insights
+  </a>
+  is a feature of Azure Monitor that lets you monitor your live applications. You can integrate Application Insights with your App Service configure to automatically detect performance anomalies in your apps.
+ </p>
+ <p>
+  Application Insights is designed to help you continuously improve the performance and usability of your apps. The feature offers powerful analytics tools to help you diagnose issues and understand what users actually do with your apps.
+ </p>
+ <h3 id="things-to-know-about-application-insights">
+  Things to know about Application Insights
+ </h3>
+ <p>
+  Let's examine some characteristics of Application Insights for Azure Monitor.
+ </p>
+ <ul>
+  <li>
+   <p>
+    Application Insights works on various platforms including .NET, Node.js, and Java EE.
+   </p>
+  </li>
+  <li>
+   <p>
+    The feature can be used for configurations that are hosted on-premises, in a hybrid environment, or in any public cloud.
+   </p>
+  </li>
+  <li>
+   <p>
+    Application Insights integrates with your Azure Pipeline processes, and has connection points to many development tools.
+   </p>
+  </li>
+  <li>
+   <p>
+    You can monitor and analyze data from mobile apps by integrating with Visual Studio App Center.
+   </p>
+  </li>
+ </ul>
+ <h3 id="things-to-consider-when-using-application-insights">
+  Things to consider when using Application Insights
+ </h3>
+ <p>
+  Application Insights is ideal for supporting your development team. The feature helps developers understand how your app is performing and how it's being used. Consider monitoring the following items in your App Service configuration scenario.
+ </p>
+ <ul>
+  <li>
+   <p>
+    <strong>
+     Consider Request rates, response times, and failure rates
+    </strong>
+    . Find out which pages are most popular, at what times of day, and where your users are. See which pages perform best. If your response times and failure rates go high when there are more requests, then perhaps you have a resourcing problem.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Consider Dependency rates, response times, and failure rates
+    </strong>
+    . Use Application Insights to discover if external services are degrading your app performance.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Consider Exceptions
+    </strong>
+    . Analyze the aggregated statistics, or pick specific instances and drill into the stack trace and related requests. Both server and browser exceptions are reported.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Consider Page views and load performance
+    </strong>
+    . Collect the number of page views reported by your users' browsers and analyze the load performance.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Consider User and session counts
+    </strong>
+    . Application Insights can help you keep track of the number of users and sessions connected to your app.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Consider Performance counters
+    </strong>
+    . Add Application Insights performance counters from your Windows or Linux server machines. Monitor performance output for the CPU, memory, network usage, and so on.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Consider Host diagnostics
+    </strong>
+    . Integrate diagnostics from Docker or Azure into your app Application Insights.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Consider Diagnostic trace logs
+    </strong>
+    . Implement trace logs from your app to help correlate trace events with requests and diagnose issues.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Consider Custom events and metrics
+    </strong>
+    . Write your own custom events and metric tracking algorithms as client or server code. Track business events such as number of items sold, or number of games won.
+   </p>
+  </li>
+ </ul>
+ <div class="alert is-success">
+  <p class="alert-title">
+   Tip
+  </p>
+  <p>
+   Consider extending your learning with the
+   <a data-linktype="absolute-path" href="/en-us/training/paths/az-204-instrument-solutions-support-monitoring-logging/">
+    <em>
+     Troubleshoot solutions by using Application Insights
+    </em>
+   </a>
+   training module.
+  </p>
+ </div>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

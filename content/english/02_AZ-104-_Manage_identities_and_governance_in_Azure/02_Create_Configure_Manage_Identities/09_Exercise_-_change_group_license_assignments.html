@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - change group license assignments - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Exercise - change group license assignments</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/9-exercise-change-group-license-assignments/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  <strong>
+   Exercise environment needs
+  </strong>
+  - this lab assumes you have a basic Microsoft Entra tenant with at least User Administrator rights to complete it.  You can get a free trial subscription for at
+  <a data-linktype="external" href="https://azure.microsoft.com/free">
+   Try Azure for Free
+  </a>
+  .
+ </p>
+ <h2 id="change-group-license-assignment">
+  Change group license assignment
+ </h2>
+ <ol>
+  <li>
+   Open
+   <a data-linktype="external" href="https://entra.microsoft.com">
+    https://entra.microsoft.com
+   </a>
+   to get to the Microsoft Entra admin center.
+  </li>
+  <li>
+   In the left navigation, open
+   <strong>
+    Groups
+   </strong>
+   .
+  </li>
+  <li>
+   Select
+   <strong>
+    All groups
+   </strong>
+   , then select one of the available groups.
+  </li>
+  <li>
+   In the left navigation, under
+   <strong>
+    Manage
+   </strong>
+   , select
+   <strong>
+    Licenses
+   </strong>
+   .
+  </li>
+ </ol>
+ <p>
+  You will see a list of any license assignments that are currently made.  And you will find that you have to use the Microsoft 365 Admin Center to make any updates.
+ </p>
+ <ol start="5">
+  <li>
+   Review the current assignments and then, on the menu, select
+   <strong>
+    + Assignments
+   </strong>
+   .
+  </li>
+  <li>
+   Open
+   <a data-linktype="external" href="https://admin.microsoft.com">
+    https://admin.microsoft.com
+   </a>
+   to open the Microsoft 365 admin center.
+  </li>
+  <li>
+   Select
+   <strong>
+    Billing
+   </strong>
+   . Then select
+   <strong>
+    Licenses
+   </strong>
+   ."
+  </li>
+  <li>
+   Select an available license from the list.
+  </li>
+  <li>
+   Select
+   <strong>
+    Groups
+   </strong>
+   from the menu near the top of the page.
+  </li>
+  <li>
+   Select the
+   <strong>
+    + Assign licenses
+   </strong>
+   option.
+  </li>
+  <li>
+   Pick the group you were looking at earlier in Microsoft Entra.  Then select the
+   <strong>
+    Assign
+   </strong>
+   button at the bottom of the page.
+  </li>
+  <li>
+   On the group’s Licenses page, review the change.  You should be able to see the change in both the Microsoft Entra admin center and the Microsoft 365 admin center.
+  </li>
+ </ol>
+ <h2 id="identify-and-resolve-license-assignment-problems-for-a-group-in-microsoft-entra-id">
+  Identify and resolve license assignment problems for a group in Microsoft Entra ID
+ </h2>
+ <p>
+  Group-based licensing in Microsoft Entra ID introduces the concept of users in a licensing error state. In this section, we explain the reasons why users might end up in this state.
+ </p>
+ <p>
+  When you assign licenses directly to individual users, without using group-based licensing, the assignment operation might fail. For example, when you execute the PowerShell cmdlet
+  <code>
+   Set-MgUserLicense
+  </code>
+  on a user object, the cmdlet can fail for many reasons that are related to business logic. For example, there might be an insufficient number of licenses or a conflict between two service plans that can't be assigned at the same time. The problem is immediately reported back to you.
+ </p>
+ <p>
+  When you're using group-based licensing the same errors can occur, but they happen in the background while the Microsoft Entra service is assigning licenses. For this reason, the errors can't be communicated to you immediately. Instead, they're recorded on the user object and then reported via the administrative portal. The original intent to license the user is never lost, but it's recorded in an error state for future investigation and resolution.
+ </p>
+ <h2 id="not-enough-licenses">
+  Not enough licenses
+ </h2>
+ <p>
+  <strong>
+   Problem
+  </strong>
+  : There aren't enough available licenses for one of the products that's specified in the group. You need to either purchase more licenses for the product or free up unused licenses from other users or groups.
+ </p>
+ <p>
+  To see how many licenses are available, go to
+  <strong>
+   Microsoft Entra - Identity - Billing
+  </strong>
+  , then
+  <strong>
+   Licenses
+  </strong>
+  , then
+  <strong>
+   All products
+  </strong>
+  .
+ </p>
+ <p>
+  To see which users and groups are consuming licenses, select a product. Under
+  <strong>
+   Licensed users
+  </strong>
+  , you see a list of all users who have had licenses assigned directly or via one or more groups. Under
+  <strong>
+   Licensed groups
+  </strong>
+  , you see all groups with product licenses assigned.
+ </p>
+ <p>
+  <strong>
+   PowerShell
+  </strong>
+  : PowerShell cmdlets report this error as
+  <em>
+   CountViolation
+  </em>
+  .
+ </p>
+ <h2 id="service-plans-that-conflict">
+  Service plans that conflict
+ </h2>
+ <p>
+  <strong>
+   Problem
+  </strong>
+  : One of the products that's specified in the group contains a service plan that conflicts with another service plan that's already assigned to the user via a different product. Some service plans are configured in a way that they can't be assigned to the same user as another, related service plan.
+ </p>
+ <p>
+  Consider the following example. A user has a license for Office 365 Enterprise
+  <em>
+   E1
+  </em>
+  assigned directly, with all the plans enabled. The user has been added to a group that has the Office 365 Enterprise
+  <em>
+   E3
+  </em>
+  product assigned to it. The E3 product contains service plans that can't overlap with the plans that are included in E1, so the group license assignment fails with the
+  <strong>
+   Conflicting service plans
+  </strong>
+  error. In this example, the conflicting service plans are:
+ </p>
+ <ul>
+  <li>
+   SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
+  </li>
+  <li>
+   Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
+  </li>
+ </ul>
+ <p>
+  To solve this conflict, you need to disable two of the plans. You can disable the E1 license that's directly assigned to the user. Or, you need to modify the entire group license assignment and disable the plans in the E3 license. Alternatively, you might decide to remove the E1 license from the user if it's redundant in the context of the E3 license.
+ </p>
+ <p>
+  The decision about how to resolve conflicting product licenses always belongs to the administrator. Microsoft Entra ID doesn't automatically resolve license conflicts.
+ </p>
+ <p>
+  <strong>
+   PowerShell
+  </strong>
+  : PowerShell cmdlets report this error as
+  <em>
+   MutuallyExclusiveViolation
+  </em>
+  .
+ </p>
+ <h2 id="other-products-depend-on-this-license">
+  Other products depend on this license
+ </h2>
+ <p>
+  <strong>
+   Problem
+  </strong>
+  : One of the products that's specified in the group contains a service plan that must be enabled for another service plan, in another product, to function. This error occurs when Microsoft Entra ID attempts to remove the underlying service plan. For example, this can happen when you remove the user from the group.
+ </p>
+ <p>
+  To solve this problem, you need to make sure that the required plan is still assigned to users through some other method or that the dependent services are disabled for those users. After doing that, you can properly remove the group license from those users.
+ </p>
+ <p>
+  <strong>
+   PowerShell
+  </strong>
+  : PowerShell cmdlets report this error as
+  <em>
+   DependencyViolation
+  </em>
+  .
+ </p>
+ <h2 id="usage-location-isnt-allowed">
+  Usage location isn't allowed
+ </h2>
+ <p>
+  <strong>
+   Problem
+  </strong>
+  : Some Microsoft services aren't available in all locations because of local laws and regulations. Before you can assign a license to a user, you must specify the
+  <strong>
+   Usage location
+  </strong>
+  property for the user. You can specify the location under the
+  <strong>
+   User
+  </strong>
+  , then
+  <strong>
+   Profile
+  </strong>
+  , then
+  <strong>
+   Edit
+  </strong>
+  the section in the Azure portal.
+ </p>
+ <p>
+  When Microsoft Entra ID attempts to assign a group license to a user whose usage location isn't supported, it fails and records an error on the user.
+ </p>
+ <p>
+  To solve this problem, remove users from unsupported locations from the licensed group. Alternatively, if the current usage location values don't represent the actual user location, you can modify them so that the licenses are correctly assigned next time (if the new location is supported).
+ </p>
+ <p>
+  <strong>
+   PowerShell
+  </strong>
+  : PowerShell cmdlets report this error as
+  <em>
+   ProhibitedInUsageLocationViolation
+  </em>
+  .
+ </p>
+ <div class="alert is-info">
+  <p class="alert-title">
+   Note
+  </p>
+  <p>
+   When Microsoft Entra ID assigns group licenses, any users without a specified usage location inherit the location of the directory. We recommend that administrators set the correct usage location values on users before using group-based licensing to comply with local laws and regulations.
+  </p>
+ </div>
+ <h2 id="duplicate-proxy-addresses">
+  Duplicate proxy addresses
+ </h2>
+ <p>
+  If you use Exchange Online, some users in your organization might be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it fails and shows “Proxy address is already being used.”
+ </p>
+ <p>
+  After you resolve any proxy address problems for the affected users, make sure to force license processing on the group to ensure that the licenses can now be applied.
+ </p>
+ <h2 id="microsoft-entra-mail-and-proxyaddresses-attribute-change">
+  Microsoft Entra Mail and ProxyAddresses attribute change
+ </h2>
+ <p>
+  <strong>
+   Problem
+  </strong>
+  : While updating license assignment on a user or a group, you might see that the Microsoft Entra Mail and ProxyAddresses attribute of some users are changed.
+ </p>
+ <p>
+  Updating license assignment on a user causes the proxy address calculation to be triggered, which can change user attributes.
+ </p>
+ <h2 id="licenseassignmentattributeconcurrencyexception-in-audit-logs">
+  LicenseAssignmentAttributeConcurrencyException in audit logs
+ </h2>
+ <p>
+  <strong>
+   Problem
+  </strong>
+  : User has LicenseAssignmentAttributeConcurrencyException for license assignment in audit logs. When group-based licensing tries to process concurrent license assignment of the same license to a user, this exception is recorded on the user. This typically happens when a user is a member of more than one group with same assigned license. Microsoft Entra ID will retry processing the user license and will resolve the issue. There is no action required from the customer to fix this issue.
+ </p>
+ <h2 id="more-than-one-product-license-assigned-to-a-group">
+  More than one product license assigned to a group
+ </h2>
+ <p>
+  You can assign more than one product license to a group. For example, you can assign Office 365 Enterprise E3 and Enterprise Mobility + Security to a group to easily enable all included services for users.
+ </p>
+ <p>
+  Microsoft Entra ID attempts to assign all licenses that are specified in the group to each user. If Microsoft Entra ID can't assign one of the products because of business logic problems, it won't assign the other licenses in the group either. An example is if there aren't enough licenses for all, or if there are conflicts with other services that are enabled on the user.
+ </p>
+ <p>
+  You can see the users who failed to get assigned and check which products are affected by this problem.
+ </p>
+ <h2 id="when-a-licensed-group-is-deleted">
+  When a licensed group is deleted
+ </h2>
+ <p>
+  You must remove all licenses assigned to a group before you can delete the group. However, removing licenses from all the users in the group may take time. There can be failures if user has a dependent license assigned. If a user has a license that is dependent on a license which is being removed due to group deletion, the license assignment to the user is converted from inherited to direct.
+ </p>
+ <p>
+  For example, consider a group that has Office 365 E3/E5 assigned with a Skype for Business service plan enabled. Also imagine that a few members of the group have Audio Conferencing licenses assigned directly. When the group is deleted, group-based licensing will try to remove Office 365 E3/E5 from all users. Because Audio Conferencing is dependent on Skype for Business, for any users with Audio Conferencing assigned, group-based licensing converts the Office 365 E3/E5 licenses to direct license assignment.
+ </p>
+ <h2 id="manage-licenses-for-products-with-prerequisites">
+  Manage licenses for products with prerequisites
+ </h2>
+ <p>
+  Some Microsoft Online products you might own are
+  <em>
+   add-ons
+  </em>
+  . Add-ons require a prerequisite service plan to be enabled for a user or a group before they can be assigned a license. With group-based licensing, the system requires that both the prerequisite and add-on service plans be present in the same group to ensure that any users who are added to the group can receive the fully working product. Let's consider the following example:
+ </p>
+ <p>
+  Microsoft Workplace Analytics is an add-on product. It contains a single service plan with the same name. We can only assign this service plan to a user, or group, when one of the following prerequisites is also assigned:
+ </p>
+ <ul>
+  <li>
+   Exchange Online (Plan 1)
+  </li>
+  <li>
+   Exchange Online (Plan 2)
+  </li>
+ </ul>
+ <p>
+  If we try to assign this product on its own to a group, the portal returns a notification message. If we select the item details, it shows the following error message:
+ </p>
+ <p>
+  License operation failed. Make sure that the group has necessary services before adding or removing a dependent service.
+  <strong>
+   The service Microsoft Workplace Analytics requires Exchange Online (Plan 2) to be enabled as well
+  </strong>
+  .
+ </p>
+ <p>
+  To assign this add-on license to a group, we must ensure that the group also contains the prerequisite service plan. For example, we might update an existing group that already contains the full Office 365 E3 product, and then add the add-on product to it.
+ </p>
+ <p>
+  It is also possible to create a standalone group that contains only the minimum required products to make the add-on work. It can then be used to license only selected users for the add-on product. Based on the previous example, you would assign the following products to the same group:
+ </p>
+ <ul>
+  <li>
+   Office 365 Enterprise E3 with only the Exchange Online (Plan 2) service plan enabled
+  </li>
+  <li>
+   Microsoft Workplace Analytics
+  </li>
+ </ul>
+ <p>
+  From now on, any users added to this group consume one license of the E3 product and one license of the Workplace Analytics product. At the same time, those users can be members of another group that gives them the full E3 product, and they still consume only one license for that product.
+ </p>
+ <div class="alert is-success">
+  <p class="alert-title">
+   Tip
+  </p>
+  <p>
+   You can create multiple groups for each prerequisite service plan. For example, if you use both Office 365 Enterprise E1 and Office 365 Enterprise E3 for your users, you can create two groups to license Microsoft Workplace Analytics: one that uses E1 as a prerequisite and the other that uses E3. This lets you distribute the add-on to E1 and E3 users without consuming additional licenses.
+  </p>
+ </div>
+ <h2 id="force-the-group-license-process-to-resolve-errors">
+  Force the group license process to resolve errors
+ </h2>
+ <p>
+  Depending on what steps you've taken to resolve the errors, it might be necessary to manually trigger the processing of a group to update the user state.
+ </p>
+ <p>
+  For example, if you free up some licenses by removing direct license assignments from users, you need to trigger the processing of groups that previously failed to fully license all user members. To reprocess a group, go to the group pane, open
+  <strong>
+   Licenses
+  </strong>
+  , and then select the
+  <strong>
+   Reprocess
+  </strong>
+  button on the toolbar.
+ </p>
+ <h2 id="force-the-user-license-process-to-resolve-errors">
+  Force the user license process to resolve errors
+ </h2>
+ <p>
+  Depending on what steps you've taken to resolve the errors, it might be necessary to manually trigger the processing of a user to update the user's state.
+ </p>
+ <p>
+  For example, after you resolve duplicate proxy address problem for an affected user, you need to trigger the processing of the user. To reprocess a user, go to the user pane, open
+  <strong>
+   Licenses
+  </strong>
+  , and then select the
+  <strong>
+   Reprocess
+  </strong>
+  button on the toolbar.
+ </p>
+ <h2 id="how-to-migrate-users-with-individual-licenses-to-group-licenses">
+  How to migrate users with individual licenses to group licenses
+ </h2>
+ <p>
+  You may have existing licenses deployed to users in the organizations via direct assignment; that is, using PowerShell scripts or other tools to assign individual user licenses. Before you begin using group-based licensing to manage licenses in your organization, you can use this migration plan to seamlessly replace existing solutions with group-based licensing.
+ </p>
+ <p>
+  Keep in mind that you should avoid a situation in which migrating to group-based licensing will result in users temporarily losing their currently assigned licenses. Any process that may result in removal of licenses should be avoided to remove the risk of users losing access to services and their data.
+ </p>
+ <h3 id="recommended-migration-process">
+  Recommended migration process
+ </h3>
+ <ol>
+  <li>
+   <p>
+    You have existing automation (for example, PowerShell) managing license assignment and removal for users. Leave it running as is.
+   </p>
+  </li>
+  <li>
+   <p>
+    Create a new licensing group (or decide which existing groups to use) and make sure that all required users are added as members.
+   </p>
+  </li>
+  <li>
+   <p>
+    Assign the required licenses to those groups; your goal should be to reflect the same licensing state your existing automation (for example, PowerShell) is applying to those users.
+   </p>
+  </li>
+  <li>
+   <p>
+    Verify that licenses have been applied to all users in those groups. This application can be done by checking the processing state on each group and by checking Audit Logs.
+   </p>
+   <ul>
+    <li>
+     You can perform a random check of a few individual users by looking at their license details. You will see that they have the same licenses assigned “directly” and “inherited” from groups.
+    </li>
+    <li>
+     You can run a PowerShell script to
+     <a data-linktype="absolute-path" href="/en-us/azure/active-directory/enterprise-users/licensing-group-advanced">
+      verify how licenses are assigned to users
+     </a>
+     .
+    </li>
+    <li>
+     When the same product license is assigned to the user both directly and through a group, only one license is consumed by the user. Hence no additional licenses are required to perform migration.
+    </li>
+   </ul>
+  </li>
+  <li>
+   <p>
+    Verify that no license assignments failed by checking each group for users in error state.
+   </p>
+  </li>
+ </ol>
+ <p>
+  Consider removing the original direct assignments. We recommend that you do it gradually, and monitor the outcome on a subset of users first. If you leave the original direct assignments on users, when the users leave their licensed groups they retain the directly assigned licenses, which might not be what you want.
+ </p>
+ <h3 id="an-example">
+  An example
+ </h3>
+ <p>
+  An organization has 1,000 users. All users require Office 365 Enterprise E3 licenses. Currently the organization has a PowerShell script running on premises, adding and removing licenses from users as they come and go. However, the organization wants to replace the script with group-based licensing so licenses can be managed automatically by Microsoft Entra ID.
+ </p>
+ <p>
+  Here is what the migration process could look like:
+ </p>
+ <ol>
+  <li>
+   <p>
+    Using the Azure portal, assign the Office 365 E3 license to the
+    <strong>
+     All users
+    </strong>
+    group in Microsoft Entra ID.
+   </p>
+  </li>
+  <li>
+   <p>
+    Confirm that license assignment has completed for all users. Go to the overview page for the group, select
+    <strong>
+     Licenses
+    </strong>
+    , and check the processing status at the top of the
+    <strong>
+     Licenses
+    </strong>
+    page.
+   </p>
+   <ul>
+    <li>
+     Look for “Latest license changes have been applied to all users" to confirm processing has completed.
+    </li>
+    <li>
+     Look for a notification on top about any users for whom licenses may have not been successfully assigned. Did we run out of licenses for some users? Do some users have conflicting license plans that prevent them from inheriting group licenses?
+    </li>
+   </ul>
+  </li>
+  <li>
+   <p>
+    You need to check a few users to verify that they have both the direct and group licenses applied. Go to the profile page for a user, select Licenses, and examine the state of licenses.
+   </p>
+  </li>
+ </ol>
+ <ul>
+  <li>
+   This is the expected user state during migration:
+  </li>
+ </ul>
+ <ol start="4">
+  <li>
+   After confirming that both direct and group licenses are equivalent, you can start removing direct licenses from users. You can test this by removing them for individual users in the portal and then run automation scripts to have them removed in bulk. Here is an example of the same user with the direct licenses removed through the portal. Notice that the license state remains unchanged, but we no longer see direct assignments.
+  </li>
+ </ol>
+ <h2 id="change-license-assignments-for-a-user-or-group-in-microsoft-entra-id">
+  Change license assignments for a user or group in Microsoft Entra ID
+ </h2>
+ <p>
+  This section describes how to move users and groups between service license plans in Microsoft Entra ID. The goal is to ensure that there's no loss of service or data during the license change. Users should switch between services seamlessly. The license plan assignment steps in this section describe changing a user or group on Office 365 E1 to Office 365 E3, but the steps apply to all license plans. When you update license assignments for a user or group, the license assignment removals and new assignments are made simultaneously so that users do not lose access to their services during license changes or see license conflicts between plans.
+ </p>
+ <p>
+  Before you update the license assignments, verify certain assumptions are true for all of the users or groups to be updated. If the assumptions aren't true for all of the users in a group, the migration might fail for some. As a result, some of the users might lose access to services or data. Ensure that:
+ </p>
+ <ul>
+  <li>
+   Users have the current license plan that's assigned to a group and inherited by the user and not assigned directly.
+  </li>
+  <li>
+   You have enough available licenses for the license plan you're assigning. If you don't have enough licenses, some users might not be assigned the new license plan. You can check the number of available licenses.
+  </li>
+  <li>
+   Always confirm users don't have assigned service licenses that can conflict with the desired license or prevent removal of the current license. For example, a license from a service such as Workplace Analytics or Project Online that has a dependency on other services.
+  </li>
+  <li>
+   If you manage groups on-premises and sync them into Microsoft Entra ID via Microsoft Entra Connect, then you add or remove users by using your on-premises system. It can take some time for the changes to sync with Microsoft Entra ID to be picked up by group licensing.
+  </li>
+  <li>
+   If you're using Microsoft Entra dynamic group memberships, you add or remove users by changing their attributes, but the update process for license assignments remains the same.
+  </li>
+ </ul>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

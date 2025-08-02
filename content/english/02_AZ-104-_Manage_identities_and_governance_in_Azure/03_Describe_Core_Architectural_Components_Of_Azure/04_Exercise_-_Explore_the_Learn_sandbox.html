@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Explore the Learn sandbox - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Exercise - Explore the Learn sandbox</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/4-exercise-explore-learn-sandbox/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  In this exercise, you explore the Learn sandbox. You can interact with the Learn sandbox in three different ways. During exercises, you'll be provided for instructions for at least one of the methods below.
+ </p>
+ <p>
+  You start by activating the Learn sandbox. Then, you’ll investigate each of the methods to work in the Learn sandbox.
+ </p>
+ <h2 id="activate-the-learn-sandbox">
+  Activate the Learn Sandbox
+ </h2>
+ <p>
+  If you haven’t already, use the Activate sandbox button above to activate the Learn sandbox.
+ </p>
+ <p>
+  If you receive a notice saying Microsoft Learn needs your permission to create Azure resource, use the Review permission button to review and accept the permissions. Once you approve the permissions, it may take a few minutes for the sandbox to activate.
+ </p>
+ <h2 id="task-1-use-the-powershell-cli">
+  Task 1: Use the PowerShell CLI
+ </h2>
+ <p>
+  Once the sandbox launches, half the screen will be in PowerShell command line interface (CLI) mode. If you’re familiar with PowerShell, you can manage your Azure environment using PowerShell commands.
+ </p>
+ <div class="alert is-success">
+  <p class="alert-title">
+   Tip
+  </p>
+  <p>
+   You can tell you're in PowerShell mode by the PS before your directory on the command line.
+  </p>
+ </div>
+ <p>
+  Use the PowerShell Get-date command to get the current date and time.
+ </p>
+ <pre class="has-inner-focus"><code class="lang-powershell" data-author-content="Get-date
+"><span><span class="hljs-pscommand">Get-date</span>
+</span></code></pre>
+ <p>
+  Most Azure specific commands will start with the letters az. The Get-date command you just ran is a PowerShell specific command. Let's try an Azure command to check what version of the CLI you're using right now.
+ </p>
+ <pre class="has-inner-focus"><code class="lang-powershell" data-author-content="az version
+"><span>az version
+</span></code></pre>
+ <h2 id="task-2-use-the-bash-cli">
+  Task 2: Use the BASH CLI
+ </h2>
+ <p>
+  If you’re more familiar with BASH, you can use BASH command instead by shifting to the BASH CLI.
+ </p>
+ <p>
+  Enter bash to switch to the BASH CLI.
+ </p>
+ <pre class="has-inner-focus"><code class="lang-powershell" data-author-content="bash
+"><span>bash
+</span></code></pre>
+ <div class="alert is-success">
+  <p class="alert-title">
+   Tip
+  </p>
+  <p>
+   You can tell you're in BASH mode by the username displayed on the command line. It will be your username@azure.
+  </p>
+ </div>
+ <p>
+  Again, use the Get-date command to get the current date and time.
+ </p>
+ <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="Get-date
+"><span>Get<span class="hljs-parameter">-date</span>
+</span></code></pre>
+ <p>
+  You received an error because Get-date is a PowerShell specific command.
+ </p>
+ <p>
+  Use the date command to get the current date and time.
+ </p>
+ <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="date
+"><span>date
+</span></code></pre>
+ <p>
+  Just like in the PowerShell mode of the CLI, you can use the letters az to start an Azure command in the BASH mode. Try to run an update to the CLI with az upgrade.
+ </p>
+ <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az upgrade
+"><span><span class="hljs-keyword">az upgrade</span>
+</span></code></pre>
+ <p>
+  You can change back to PowerShell mode by entering pwsh on the BASH command line.
+ </p>
+ <h2 id="task-3-use-azure-cli-interactive-mode">
+  Task 3: Use Azure CLI interactive mode
+ </h2>
+ <p>
+  Another way to interact is using the Azure CLI interactive mode. This changes CLI behavior to more closely resemble an integrated development environment (IDE). Interactive mode provides autocompletion, command descriptions, and even examples. If you’re unfamiliar with BASH and PowerShell, but want to use the command line, interactive mode may help you.
+ </p>
+ <p>
+  Enter az interactive to enter interactive mode.
+ </p>
+ <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az interactive
+"><span><span class="hljs-keyword">az interactive</span>
+</span></code></pre>
+ <p>
+  Decide whether you wish to send telemetry data and enter YES or NO.
+ </p>
+ <p>
+  You may have to wait a minute or two to allow the interactive mode to fully initialize. Then, enter the letter “a” and auto-completion should start to work. If auto-completion isn’t working, erase what you’ve entered, wait a bit longer, and try again.
+ </p>
+ <p>
+  Once initialized, you can use the arrow keys or tab to help complete your commands. Interactive mode is set up specifically for Azure, so you don't need to enter az to start a command (but you can if you want to or are used to it). Try the upgrade or version commands again, but this time without az in front.
+ </p>
+ <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="version
+"><span>version
+</span></code></pre>
+ <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="upgrade
+"><span>upgrade
+</span></code></pre>
+ <p>
+  The commands should have worked the same as before, and given you the same results. Use the exit command to leave interactive mode.
+ </p>
+ <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="exit
+"><span>exit
+</span></code></pre>
+ <h2 id="task-4-use-the-azure-portal">
+  Task 4: Use the Azure portal
+ </h2>
+ <p>
+  You’ll also have the option of using the Azure portal during sandbox exercises. You need to use the link provided in the exercise to access the Azure portal. Using the provided link, instead of opening the portal yourself, ensures the correct subscription is used and the exercise remains free for you to complete.
+ </p>
+ <p>
+  Sign in to the
+  <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/learn.docs.microsoft.com" target="az-portal">
+   Azure portal
+  </a>
+  to check out the Azure web interface. Once in the portal, you can see all the services Azure has to offer as well as look around at resource groups and so on.
+ </p>
+ <h2 id="continue">
+  Continue
+ </h2>
+ <p>
+  You're all set for now. We'll come back to this sandbox later in this module and actually create an Azure resource!
+ </p>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

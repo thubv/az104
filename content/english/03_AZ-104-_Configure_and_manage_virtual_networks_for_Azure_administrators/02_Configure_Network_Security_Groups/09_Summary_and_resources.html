@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary and resources - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Summary and resources</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/9-summary-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  In this module, you learned about network security groups (NSGs) in Azure. NSGs are used to limit network traffic to resources in your virtual network by containing a list of security rules. You can associate NSGs with subnets or network interfaces and define rules to control inbound and outbound traffic.
+ </p>
+ <p>
+  You also learned how NSG rules are evaluated and processed. Lastly, you learned how application security groups,  allow for grouping virtual machines based on workload.
+ </p>
+ <p>
+  The main takeaways from this module are:
+ </p>
+ <ul>
+  <li>
+   <p>
+    Network security groups are essential for controlling network traffic in Azure virtual networks.
+   </p>
+  </li>
+  <li>
+   <p>
+    NSG rules are evaluated and processed based on priority and can be created for subnets and network interfaces.
+   </p>
+  </li>
+  <li>
+   <p>
+    Effective NSG rules can be achieved by considering rule precedence, intra-subnet traffic, and managing rule priority.
+   </p>
+  </li>
+  <li>
+   <p>
+    Application security groups provide an application-centric view of infrastructure and simplify rule management.
+   </p>
+  </li>
+ </ul>
+ <h2 id="learn-more-with-copilot">
+  Learn more with Copilot
+ </h2>
+ <p>
+  Copilot can assist you in designing Azure infrastructure solutions. Copilot can compare, recommend, explain, and research products and services where you need more information. Open a Microsoft Edge browser and choose Copilot (top right) or navigate to copilot.microsoft.com. Take a few minutes to try these prompts and extend your learning with Copilot.
+ </p>
+ <ul>
+  <li>
+   <p>
+    What is the difference between an Azure network security group and an application security group? Provide usage examples.
+   </p>
+  </li>
+  <li>
+   <p>
+    Can you explain NSG rules in detail?
+   </p>
+  </li>
+  <li>
+   <p>
+    How can I troubleshoot network security group rules?
+   </p>
+  </li>
+ </ul>
+ <h2 id="learn-more-with-documentation">
+  Learn more with documentation
+ </h2>
+ <ul>
+  <li>
+   <p>
+    <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/security-overview">
+     Read about network security groups
+    </a>
+    . This article describes the properties of a network security group rule, the default security rules that are applied, and the rule properties that you can modify.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/tutorial-filter-network-traffic">
+     Filter network traffic with network security groups in the Azure portal
+    </a>
+    . Learn how to create a network security group and an application security group.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal">
+     Create, change, or delete a network security group
+    </a>
+    . Learn how to work with network and application security groups.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/application-security-groups">
+     Application security groups
+    </a>
+    . Learn about application security groups and traffic control with rules.
+   </p>
+  </li>
+ </ul>
+ <h2 id="learn-more-with-self-paced-training">
+  Learn more with self-paced training
+ </h2>
+ <ul>
+  <li>
+   <p>
+    <a data-linktype="absolute-path" href="/en-us/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/">
+     Secure and isolate access to Azure resources with network security groups and service endpoints (sandbox)
+    </a>
+    . Learn how to secure your virtual machines and Azure services from unauthorized network access.
+   </p>
+  </li>
+  <li>
+   <p>
+    <a data-linktype="absolute-path" href="/en-us/training/modules/filter-network-traffic-network-security-group-using-azure-portal/">
+     Filter network traffic with a network security group using the Azure portal
+    </a>
+    . Learn how to create, configure, and apply NSGs for improved network security.
+   </p>
+  </li>
+ </ul>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

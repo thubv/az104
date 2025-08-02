@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Policy definitions - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Azure Policy definitions</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/azure-policy-definitions/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+ <p>
+  <strong>
+   Azure Policy definition
+  </strong>
+  describes resource compliance conditions and the action or effects that take place if those conditions are met. The policy consists of two parts:
+ </p>
+ <ul>
+  <li>
+   A
+   <strong>
+    condition
+   </strong>
+   that compares a resource property field or a value, accessed by using aliases, to a required value.
+  </li>
+  <li>
+   The
+   <strong>
+    effect
+   </strong>
+   determines what happens when the policy rule is evaluated to match the condition. For each new resource, an updated resource, or an existing resource, the effects behave differently.
+  </li>
+ </ul>
+ <h2 id="anatomy-of-a-policy-definition">
+  Anatomy of a policy definition
+ </h2>
+ <p>
+  You use JSON to create a policy definition that contains the elements shown in the following table.
+ </p>
+ <div class="has-inner-focus">
+  <table aria-label="Anatomy of a policy definition" class="table">
+   <thead>
+    <tr>
+     <th style="text-align: left;">
+      Element
+     </th>
+     <th style="text-align: left;">
+      Description
+     </th>
+     <th style="text-align: left;">
+      Properties or values
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       displayName (string, max 128 characters)
+      </em>
+     </td>
+     <td style="text-align: left;">
+      Used to identify the policy definition.
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       description (string, max 512 characters)
+      </em>
+     </td>
+     <td style="text-align: left;">
+      Provides context for when the definition is used.
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       policyType (read-only string)
+      </em>
+     </td>
+     <td style="text-align: left;">
+      Indicates the origin of the policy definition. This property can't be set, but SDK returns three values which are visible in the portal.
+     </td>
+     <td style="text-align: left;">
+      ● Built in: Provided and maintained by Microsoft.
+           ● Custom: Custom definitions created by the customer.
+           ● Static: Regulatory Compliance policy with Microsoft ownership.
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       mode (string)
+      </em>
+     </td>
+     <td style="text-align: left;">
+      Configured depending on the target of the policy: an Azure Resource Manager property or a Resource Provider property.
+     </td>
+     <td style="text-align: left;">
+      ● Resource Manager Modes:
+           o On All: Evaluates resource groups, subscriptions, and all resource types.
+           o Indexed: Evaluates resource groups, subscriptions, and all resource types.
+           ● Resource Provider Modes (limited to Built in policies and fully supported):
+           o Microsoft.Kubernetes.Data
+           o Microsoft.KeyVault.Data
+           o Microsoft.Network.Data
+           ● Resource Provider Modes (limited to Built in policies and in preview mode):
+           o Microsoft.ManagedHSM.Data
+           o Microsoft.DataFactory.Data
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       version (string, optional)
+      </em>
+     </td>
+     <td style="text-align: left;">
+      Built-in policy definitions can host multiple versions with the same definitionID. If no version number is specified, all experiences show the latest version of the definition.
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       metadata (object, optional, max 1,024 characters)
+      </em>
+     </td>
+     <td style="text-align: left;">
+      Stores information about the policy definition.
+     </td>
+     <td style="text-align: left;">
+      Common properties (for Built-in policies):
+           ●
+      <em>
+       version (string)
+      </em>
+      : Tracks details about the version of the contents of a policy definition.
+           ●
+      <em>
+       category (string)
+      </em>
+      : Determines under which category in the Azure portal the policy definition is displayed.
+           ●
+      <em>
+       preview (Boolean)
+      </em>
+      : True or false flag that indicates if the policy definition is in preview.
+           ●
+      <em>
+       deprecated (Boolean)
+      </em>
+      : True or false flag that indicates if the policy definition is deprecated.
+           ●
+      <em>
+       portalReview (string)
+      </em>
+      : Determines if parameters require review in the portal.
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       parameters (object, optional)
+      </em>
+     </td>
+     <td style="text-align: left;">
+      Help simplify your policy management by reducing the number of policy definitions. By including parameters in a policy definition, you can reuse that policy for different scenarios by using different values.
+     </td>
+     <td style="text-align: left;">
+      Properties:
+           ● name
+           ● type (String, Array, Object, Boolean, Integer, Float, DateTime)
+           ● metadata (description, displayName, strongType, assignPermissions)
+           ● defaultValue
+           ● allowedValues
+           ● schema
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       policyRule (object)
+      </em>
+     </td>
+     <td style="text-align: left;">
+      The effect of a policy is defined in the
+      <em>
+       policyRule
+      </em>
+      . The policy rule consists of the
+      <em>
+       if and then
+      </em>
+      blocks.
+           ● In the
+      <em>
+       if
+      </em>
+      block, you define one or more conditions that specify when the policy applies.
+           ● In the
+      <em>
+       then
+      </em>
+      block, you define the effect that happens when the
+      <em>
+       if
+      </em>
+      conditions result true.
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-json" data-author-content="{
+  &quot;displayName&quot;: &quot;Allowed locations&quot;,
+  &quot;description&quot;: &quot;This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.&quot;,
+  &quot;policyType&quot;: &quot;BuiltIn&quot;,
+  &quot;mode&quot;: &quot;Indexed&quot;,
+  &quot;metadata&quot;: {
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;category&quot;: &quot;General&quot;
+  },
+  &quot;parameters&quot;: {
+    &quot;listOfAllowedLocations&quot;: {
+      &quot;type&quot;: &quot;Array&quot;,
+      &quot;metadata&quot;: {
+        &quot;description&quot;: &quot;The list of locations that can be specified when deploying resources.&quot;,
+        &quot;strongType&quot;: &quot;location&quot;,
+        &quot;displayName&quot;: &quot;Allowed locations&quot;
+      }
+    }
+  },
+    &quot;policyRule&quot;: {
+      &quot;if&quot;: {
+        &quot;allOf&quot;: [
+          {
+            &quot;field&quot;: &quot;location&quot;,
+            &quot;notIn&quot;: &quot;[parameters('listOfAllowedLocations')]&quot;
+          },
+          {
+            &quot;field&quot;: &quot;location&quot;,
+            &quot;notEquals&quot;: &quot;global&quot;
+          },
+          {
+            &quot;field&quot;: &quot;type&quot;,
+            &quot;notEquals&quot;: &quot;Microsoft.AzureActiveDirectory/b2cDirectories&quot;
+          }
+        ]
+      },
+      &quot;then&quot;: {
+        &quot;effect&quot;: &quot;deny&quot;
+      }
+    }
+  }
+
+"><span>{
+  <span class="hljs-attr">"displayName"</span>: <span class="hljs-string">"Allowed locations"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region."</span>,
+  <span class="hljs-attr">"policyType"</span>: <span class="hljs-string">"BuiltIn"</span>,
+  <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"Indexed"</span>,
+  <span class="hljs-attr">"metadata"</span>: {
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0.0"</span>,
+    <span class="hljs-attr">"category"</span>: <span class="hljs-string">"General"</span>
+  },
+  <span class="hljs-attr">"parameters"</span>: {
+    <span class="hljs-attr">"listOfAllowedLocations"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Array"</span>,
+      <span class="hljs-attr">"metadata"</span>: {
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The list of locations that can be specified when deploying resources."</span>,
+        <span class="hljs-attr">"strongType"</span>: <span class="hljs-string">"location"</span>,
+        <span class="hljs-attr">"displayName"</span>: <span class="hljs-string">"Allowed locations"</span>
+      }
+    }
+  },
+    <span class="hljs-attr">"policyRule"</span>: {
+      <span class="hljs-attr">"if"</span>: {
+        <span class="hljs-attr">"allOf"</span>: [
+          {
+            <span class="hljs-attr">"field"</span>: <span class="hljs-string">"location"</span>,
+            <span class="hljs-attr">"notIn"</span>: <span class="hljs-string">"[parameters('listOfAllowedLocations')]"</span>
+          },
+          {
+            <span class="hljs-attr">"field"</span>: <span class="hljs-string">"location"</span>,
+            <span class="hljs-attr">"notEquals"</span>: <span class="hljs-string">"global"</span>
+          },
+          {
+            <span class="hljs-attr">"field"</span>: <span class="hljs-string">"type"</span>,
+            <span class="hljs-attr">"notEquals"</span>: <span class="hljs-string">"Microsoft.AzureActiveDirectory/b2cDirectories"</span>
+          }
+        ]
+      },
+      <span class="hljs-attr">"then"</span>: {
+        <span class="hljs-attr">"effect"</span>: <span class="hljs-string">"deny"</span>
+      }
+    }
+  }
+
+</span></code></pre>
+ <p>
+  In the given example,
+  <em>
+   b2cDirectories
+  </em>
+  is excluded from the policy logic because its location field isn't a region (it can be "United States," "Europe," "Asia Pacific," or "Australia"). This logic can be enforced with a separate policy.
+ </p>
+ <h2 id="logical-operators-and-conditions-if-blocks">
+  Logical operators and conditions (
+  <em>
+   if
+  </em>
+  blocks)
+ </h2>
+ <p>
+  The first part of the
+  <em>
+   policyRule
+  </em>
+  in an Azure Policy definition is the
+  <em>
+   if
+  </em>
+  block. This block defines the conditions for which the policy evaluates the resources. A policy definition can contain several conditional statements. Depending on your evaluation requirements, you might or might not need each statement to be true, and you might only need some of them to be true.
+ </p>
+ <h3 id="logical-operators-supported-in-the-if-block">
+  Logical operators supported in the
+  <em>
+   if
+  </em>
+  block
+ </h3>
+ <p>
+  In the
+  <em>
+   if
+  </em>
+  condition, you can put different logical operators.
+ </p>
+ <div class="has-inner-focus">
+  <table aria-label="Logical operators supported in the if block" class="table">
+   <thead>
+    <tr>
+     <th style="text-align: left;">
+      Operator
+     </th>
+     <th style="text-align: left;">
+      Type
+     </th>
+     <th style="text-align: left;">
+      Description
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       not
+      </em>
+     </td>
+     <td style="text-align: left;">
+      {condition or operator}
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       not
+      </em>
+      syntax inverts the result of the condition.
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       allOf
+      </em>
+     </td>
+     <td style="text-align: left;">
+      [{condition or operator}, {condition or operator}]
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       allOf
+      </em>
+      syntax (like the logical
+      <em>
+       and
+      </em>
+      operation) requires all conditions to be true.
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       anyOf
+      </em>
+     </td>
+     <td style="text-align: left;">
+      [{condition or operator}, {condition or operator}]
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       anyOf
+      </em>
+      syntax (like the logical
+      <em>
+       or
+      </em>
+      operation) requires one or more conditions to be true.
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <p>
+  The following example shows use of the
+  <em>
+   allOf
+  </em>
+  logical operator:
+ </p>
+ <pre class="has-inner-focus"><code class="lang-json" data-author-content="{
+  &quot;if&quot;: {
+    &quot;allOf&quot;: [
+      {
+        &quot;field&quot;: &quot;location&quot;,
+        &quot;notIn&quot;: &quot;[parameters('listOfAllowedLocations')]&quot;
+      },
+      {
+        &quot;field&quot;: &quot;location&quot;,
+        &quot;notEquals&quot;: &quot;global&quot;
+      },
+      {
+        &quot;field&quot;: &quot;type&quot;,
+        &quot;notEquals&quot;: &quot;Microsoft.AzureActiveDirectory/b2cDirectories&quot;
+      }
+    ]
+  },
+  &quot;then&quot;: {
+    &quot;effect&quot;: &quot;deny&quot;
+  }
+}
+"><span>{
+  <span class="hljs-attr">"if"</span>: {
+    <span class="hljs-attr">"allOf"</span>: [
+      {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"location"</span>,
+        <span class="hljs-attr">"notIn"</span>: <span class="hljs-string">"[parameters('listOfAllowedLocations')]"</span>
+      },
+      {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"location"</span>,
+        <span class="hljs-attr">"notEquals"</span>: <span class="hljs-string">"global"</span>
+      },
+      {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"type"</span>,
+        <span class="hljs-attr">"notEquals"</span>: <span class="hljs-string">"Microsoft.AzureActiveDirectory/b2cDirectories"</span>
+      }
+    ]
+  },
+  <span class="hljs-attr">"then"</span>: {
+    <span class="hljs-attr">"effect"</span>: <span class="hljs-string">"deny"</span>
+  }
+}
+</span></code></pre>
+ <h3 id="nested-logical-operations">
+  Nested logical operations
+ </h3>
+ <p>
+  Logical operations are optional and can be nested to create complex scenarios.
+ </p>
+ <p>
+  The following example shows a
+  <em>
+   not
+  </em>
+  operation nested in an
+  <em>
+   allOf
+  </em>
+  operation:
+ </p>
+ <pre class="has-inner-focus"><code class="lang-json" data-author-content='"if": {
+    "allOf": [
+      {
+        "not": {
+          "field": "tags",
+          "containsKey": "application"
+        }
+      },
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      }
+    ]
+  },
+'><span><span class="hljs-string">"if"</span>: {
+    <span class="hljs-attr">"allOf"</span>: [
+      {
+        <span class="hljs-attr">"not"</span>: {
+          <span class="hljs-attr">"field"</span>: <span class="hljs-string">"tags"</span>,
+          <span class="hljs-attr">"containsKey"</span>: <span class="hljs-string">"application"</span>
+        }
+      },
+      {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"type"</span>,
+        <span class="hljs-attr">"equals"</span>: <span class="hljs-string">"Microsoft.Storage/storageAccounts"</span>
+      }
+    ]
+  },
+</span></code></pre>
+ <h3 id="conditions">
+  Conditions
+ </h3>
+ <p>
+  Properties like fields, values, or counts can be evaluated within a condition.
+ </p>
+ <div class="has-inner-focus">
+  <table aria-label="Conditions" class="table">
+   <tbody>
+    <tr>
+     <td>
+      <b>
+       Fields
+      </b>
+     </td>
+     <td>
+      Conditions that evaluate whether the values of properties in the resource request payload meet certain criteria can be formed by using a field expression.
+     </td>
+     <td>
+      Name, fullName, kind, type, location, ID, identity.type, tags, tags['tagName'], property aliases
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <b>
+       Value
+      </b>
+     </td>
+     <td>
+      Conditions that evaluate whether a value meets certain criteria can be formed by using a value expression.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <b>
+       Count
+      </b>
+     </td>
+     <td>
+      Conditions that count how many members of an array meet certain criteria can be formed by using a count expression.
+     </td>
+     <td>
+      ● Field count, value count
+           ● The current () function returns the value of the array member that's being evaluated
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <p>
+  The condition in an Azure Policy assesses whether the evaluated values for the properties, such as Fields, Value, or Count, meets certain criteria. If the result of a function is an error, the policy results in a deny effect. This result can be avoided while testing by disabling
+  <em>
+   enforcementMode
+  </em>
+  in the assignment. For more information, see
+  <a data-linktype="absolute-path" href="/en-us/azure/governance/policy/concepts/assignment-structure#enforcement-mode">
+   Enforcement Mode
+  </a>
+  .
+ </p>
+ <div class="has-inner-focus">
+  <table aria-label="Conditions" class="table">
+   <thead>
+    <tr>
+     <th style="text-align: left;">
+      Evaluation criteria
+     </th>
+     <th style="text-align: left;">
+      Value type
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       equals
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       notEquals
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       like
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       notLike
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       match
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       notMatch
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       matchInsensitively
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       notMatchInsensitively
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       contains
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       notContains
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       In
+      </em>
+     </td>
+     <td style="text-align: left;">
+      ["stringValue1", "stringValue2"]
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       notIn
+      </em>
+     </td>
+     <td style="text-align: left;">
+      ["stringValue1", "stringValue2"]
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       containsKey
+      </em>
+     </td>
+     <td style="text-align: left;">
+      keyName
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       notContainsKey
+      </em>
+     </td>
+     <td style="text-align: left;">
+      keyName
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       less
+      </em>
+     </td>
+     <td style="text-align: left;">
+      dateValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       less
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       less
+      </em>
+     </td>
+     <td style="text-align: left;">
+      intValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       lessOrEquals
+      </em>
+     </td>
+     <td style="text-align: left;">
+      dateValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       lessOrEquals
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       lessOrEquals
+      </em>
+     </td>
+     <td style="text-align: left;">
+      intValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       greater
+      </em>
+     </td>
+     <td style="text-align: left;">
+      dateValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       greater
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       greater
+      </em>
+     </td>
+     <td style="text-align: left;">
+      intValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       greaterOrEquals
+      </em>
+     </td>
+     <td style="text-align: left;">
+      dateValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       greaterOrEquals
+      </em>
+     </td>
+     <td style="text-align: left;">
+      stringValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       greaterOrEquals
+      </em>
+     </td>
+     <td style="text-align: left;">
+      intValue
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       exists
+      </em>
+     </td>
+     <td style="text-align: left;">
+      bool
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <p>
+  The following JSON is an example of using conditions:
+ </p>
+ <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-json" data-author-content="{
+  &quot;if&quot;: {
+    &quot;allOf&quot;: [
+      {
+        &quot;value&quot;: &quot;[resourceGroup().name]&quot;,
+        &quot;like&quot;: &quot;*netrq&quot;
+      },
+      {
+        &quot;field&quot;: &quot;type&quot;,
+        &quot;notLike&quot;: &quot;Network/*&quot;
+      }
+    ]
+  },
+  &quot;then&quot;: {
+    &quot;effect&quot;: &quot;deny&quot;,
+    &quot;details&quot;: {
+      &quot;count&quot;: {
+        &quot;field&quot;: &quot;Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]&quot;,
+        &quot;where&quot;: {
+          &quot;value&quot;: &quot;[ipRangeContains('10.0.0.0/24', current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]&quot;,
+          &quot;equals&quot;: &quot;greater&quot;
+        }
+      }
+    }
+  }
+}
+
+"><span>{
+  <span class="hljs-attr">"if"</span>: {
+    <span class="hljs-attr">"allOf"</span>: [
+      {
+        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"[resourceGroup().name]"</span>,
+        <span class="hljs-attr">"like"</span>: <span class="hljs-string">"*netrq"</span>
+      },
+      {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"type"</span>,
+        <span class="hljs-attr">"notLike"</span>: <span class="hljs-string">"Network/*"</span>
+      }
+    ]
+  },
+  <span class="hljs-attr">"then"</span>: {
+    <span class="hljs-attr">"effect"</span>: <span class="hljs-string">"deny"</span>,
+    <span class="hljs-attr">"details"</span>: {
+      <span class="hljs-attr">"count"</span>: {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]"</span>,
+        <span class="hljs-attr">"where"</span>: {
+          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"[ipRangeContains('10.0.0.0/24', current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]"</span>,
+          <span class="hljs-attr">"equals"</span>: <span class="hljs-string">"greater"</span>
+        }
+      }
+    }
+  }
+}
+
+</span></code></pre>
+ <h3 id="policy-functions">
+  Policy functions
+ </h3>
+ <p>
+  Functions can be used to introduce extra logic into a policy rule. They're resolved in the policy rule of a policy definition and in the parameter values that are assigned to the policy definitions in an initiative.
+ </p>
+ <p>
+  The Resource Manager template functions are available to use in a policy rule except a
+  <a data-linktype="absolute-path" href="/en-us/azure/governance/policy/concepts/definition-structure-policy-rule#policy-functions">
+   few policy functions and user-defined functions
+  </a>
+  .
+ </p>
+ <p>
+  The
+  <em>
+   utcNow()
+  </em>
+  function is available to use in a policy rule but differs from use in an Azure Resource Manager template (ARM template). Unlike an ARM template, this function can be used outside
+  <em>
+   defaultValue
+  </em>
+  . It returns a string set to the current date and time in Universal ISO 8601 DateTime format
+  <code>
+   yyyy-MM-ddTHH:mm:ss.fffffffZ
+  </code>
+  .
+ </p>
+ <p>
+  The following table describes the functions that are only available in policy rules.
+ </p>
+ <div class="has-inner-focus">
+  <table aria-label="Policy functions" class="table">
+   <thead>
+    <tr>
+     <th>
+      Function
+     </th>
+     <th>
+      Description
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      <code>
+       addDays(dateTime, numberOfDaysToAdd)
+      </code>
+     </td>
+     <td>
+      ●
+      <code>
+       dateTime
+      </code>
+      : [Required] string - String in the Universal ISO 8601 DateTime format 'yyyy-MM-ddTHH:mm:ss.FFFFFFFZ'.
+           ●
+      <code>
+       numberOfDaysToAdd
+      </code>
+      : [Required] integer - Number of days to add.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <code>
+       Field(fieldName)
+      </code>
+     </td>
+     <td>
+      ●
+      <code>
+       fieldName
+      </code>
+      : [Required] string - Name of the
+      <a data-linktype="absolute-path" href="/en-us/azure/governance/policy/concepts/definition-structure-policy-rule#fields">
+       field
+      </a>
+      to retrieve.
+           ● Returns the value of that field from the resource evaluated by the
+      <em>
+       If
+      </em>
+      condition.
+           ●
+      <code>
+       field
+      </code>
+      is primarily used with
+      <code>
+       auditIfNotExists
+      </code>
+      and
+      <code>
+       deployIfNotExists
+      </code>
+      to reference fields on the resource that are being evaluated.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <code>
+       requestContext().apiVersion
+      </code>
+     </td>
+     <td>
+      Returns the API version of the request that triggered policy evaluation. This value is the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <code>
+       policy()
+      </code>
+     </td>
+     <td>
+      Returns the following information about the policy that's being evaluated. Properties can be accessed from the returned object.
+      <code>
+       "assignmentId": ""
+      </code>
+      ,
+      <code>
+       "definitionId": ""
+      </code>
+      ,
+      <code>
+       "setDefinitionId": ""
+      </code>
+      ,
+      <code>
+       "definitionReferenceId": ""
+      </code>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <code>
+       ipRangeContains(range, targetRange)
+      </code>
+     </td>
+     <td>
+      ●
+      <code>
+       range
+      </code>
+      : [Required] string - String specifying a range of IP addresses to check if the
+      <em>
+       targetRange
+      </em>
+      is within range.
+           ●
+      <code>
+       targetRange
+      </code>
+      : [Required] string - String specifying a range of IP addresses to validate as included within the
+      <em>
+       range
+      </em>
+      .
+           Returns a
+      <em>
+       boolean
+      </em>
+      for whether the
+      <em>
+       range
+      </em>
+      IP address range contains the
+      <em>
+       targetRange
+      </em>
+      IP address range. Empty ranges or mixing between IP families isn't allowed and results in evaluation failure.
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <code>
+       current(indexName)
+      </code>
+     </td>
+     <td>
+      Special function that can only be used inside count expressions.
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <h2 id="effect-types-then-blocks">
+  Effect types (
+  <em>
+   then
+  </em>
+  blocks)
+ </h2>
+ <p>
+  The second part of the
+  <em>
+   policyRule
+  </em>
+  in an Azure Policy definition is the
+  <em>
+   then
+  </em>
+  block. This block defines the effect that takes place when the policy rule is evaluated to match the condition resources. More than one effect can be valid for a given policy definition. Parameters are often used to specify allowed effect values (
+  <em>
+   allowedValues
+  </em>
+  ) in such cases so that a single definition can be more versatile during assignment. Resource properties and logic in the policy rule can determine whether a certain effect is considered valid to the policy definition.
+ </p>
+ <div class="has-inner-focus">
+  <table aria-label="Effect types (then blocks)" class="table">
+   <thead>
+    <tr>
+     <th style="text-align: left;">
+      Effect
+     </th>
+     <th style="text-align: left;">
+      Description
+     </th>
+     <th style="text-align: left;">
+      Type
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       disabled
+      </em>
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       disabled
+      </em>
+      effect is a way to deactivate the policy. If a policy definition has
+      <em>
+       Disabled
+      </em>
+      as its effect, any assignments of that policy aren't active. This effect is checked first to determine if the policy rule should be evaluated. This flexibility makes it possible to deactivate a single assignment instead of deactivating all of that policy's assignments.
+     </td>
+     <td style="text-align: left;">
+      Synchronous evaluation
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       append
+      </em>
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       append
+      </em>
+      effect is used to add more fields to the requested resource during creation or update. It's mostly obsolete because
+      <em>
+       Modify
+      </em>
+      can also be used to add fields to the request.
+     </td>
+     <td style="text-align: left;">
+      Synchronous evaluation
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       modify
+      </em>
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       modify
+      </em>
+      effect is used to add, update, or remove properties or tags on a subscription or resource during creation or update. It allows Azure Policy to modify requests to Azure Resource Manager by altering fields to ensure compliance.
+     </td>
+     <td style="text-align: left;">
+      Synchronous evaluation
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       deny
+      </em>
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       deny
+      </em>
+      effect is used to prevent a resource request that doesn't match defined standards through a policy definition and fails the request.
+     </td>
+     <td style="text-align: left;">
+      Synchronous evaluation
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       denyAction
+      </em>
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       denyAction
+      </em>
+      effect is used to block requests based on intended action to resources at scale. Currently, the only supported action is DELETE.
+     </td>
+     <td style="text-align: left;">
+      Synchronous evaluation
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       audit
+      </em>
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       audit
+      </em>
+      effect is used to create a warning event in the activity log when you're evaluating a noncompliant resource, but it doesn't stop the request.
+     </td>
+     <td style="text-align: left;">
+      Asynchronous evaluation
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       auditIfNotExists
+      </em>
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       auditIfNotExists
+      </em>
+      effect allows the auditing of resources that are related to the resource that matches the
+      <em>
+       if
+      </em>
+      condition but doesn't have the properties specified in the details of the
+      <em>
+       then
+      </em>
+      condition.
+     </td>
+     <td style="text-align: left;">
+      Asynchronous evaluation
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       deployIfNotExists
+      </em>
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       deployIfNotExists
+      </em>
+      policy definition runs a template deployment when the condition is met. It can trigger deployment of a related resource based on the compliance state of the currently evaluated resource.
+     </td>
+     <td style="text-align: left;">
+      Asynchronous evaluation
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left;">
+      <em>
+       manual
+      </em>
+     </td>
+     <td style="text-align: left;">
+      The
+      <em>
+       manual
+      </em>
+      effect allows you to self-attest the compliance of resources or scopes. When a policy definition with
+      <em>
+       Manual
+      </em>
+      effect is assigned, you can set the compliance states of targeted resources or scopes through custom attestations.
+     </td>
+     <td style="text-align: left;">
+      Manual attestation
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <p>
+  The following list provides general guidance around interchangeable effects:
+ </p>
+ <ul>
+  <li>
+   <em>
+    audit
+   </em>
+   ,
+   <em>
+    deny
+   </em>
+   , and either
+   <em>
+    modify
+   </em>
+   or
+   <em>
+    append
+   </em>
+   are often interchangeable.
+  </li>
+  <li>
+   <em>
+    auditIfNotExists
+   </em>
+   and
+   <em>
+    deployIfNotExists
+   </em>
+   are often interchangeable.
+  </li>
+  <li>
+   <em>
+    manual
+   </em>
+   isn't interchangeable.
+  </li>
+  <li>
+   <em>
+    disabled
+   </em>
+   is interchangeable with any effect.
+  </li>
+ </ul>
+ <p>
+  Multiple policies can be assigned to a single resource at the same scope or at different scopes. Each policy mostly has a different effect defined. The condition and effect for each policy is independently evaluated. The net result of layering policy definitions is considered
+  <strong>
+   cumulative most restrictive
+  </strong>
+  .
+ </p>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>
