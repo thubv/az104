@@ -14,7 +14,7 @@
 ### Phase 1: Foundation Setup (Week 1-2)
 - [x] Content crawling and cleaning
 - [x] Project structure setup
-- [x] Git Flow implementation
+- [x] Content cleanup and formatting
 - [ ] Translation workflow establishment
 - [ ] Terminology glossary creation
 
@@ -31,38 +31,24 @@
 - [ ] Language consistency check
 - [ ] Final proofreading
 
-## 🔄 Git Flow Translation Workflow
+## 🔄 Translation Workflow
 
-### 1. Start Translation Feature
+### 1. Setup Translation Structure
 ```bash
-# Start translating a learning path
-git flow feature start translate-path-01-prerequisites
-
-# Or start translating a specific module
-git flow feature start translate-identity-management
+# Create Vietnamese file templates
+python scripts/create_translation_template.py
 ```
 
 ### 2. Translation Process
-```bash
-# Work on translation files
-# Edit files in content/vietnamese/ directory
+- Edit files in `az104_course_content/vietnamese_translation/` directory
+- Maintain HTML structure and formatting
+- Replace English content with Vietnamese translations
+- Preserve all links and technical references
 
-# Commit progress regularly
-git add content/vietnamese/01_Prerequisites/
-git commit -m "Translate Prerequisites Path: Modules 1-2 completed"
-
-# Push feature branch for backup/collaboration
-git push origin feature/translate-path-01-prerequisites
-```
-
-### 3. Complete Translation Feature
-```bash
-# Finish the feature (merges to develop)
-git flow feature finish translate-path-01-prerequisites
-
-# Push updated develop branch
-git push origin develop
-```
+### 3. Quality Control
+- Review technical accuracy
+- Ensure consistent terminology
+- Test all links and formatting
 
 ## 📝 Translation Guidelines
 
@@ -200,8 +186,8 @@ python scripts/translation_progress.py
 ### Tools
 - HTML editors with Vietnamese support
 - Translation memory tools
-- Git Flow extensions
 - Markdown editors
+- Text editors with syntax highlighting
 
 ---
 

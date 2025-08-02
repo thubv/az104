@@ -122,8 +122,8 @@ class TranslationTemplateCreator:
 
 ## Next Steps
 1. Begin translating content in Vietnamese files
-2. Use Git Flow feature branches for each learning path
-3. Regular commits and progress tracking
+2. Start with Learning Path 1 (Prerequisites)
+3. Maintain HTML structure and formatting
 
 Generated: {__import__('time').strftime('%Y-%m-%d %H:%M:%S')}
 """
@@ -144,9 +144,9 @@ def main():
         print("\n🎉 Translation template creation completed!")
         print("\n📝 Next steps:")
         print("1. Review created Vietnamese files")
-        print("2. Start translating content using Git Flow:")
-        print("   git flow feature start translate-path-01")
-        print("3. Begin with Learning Path 1 (Prerequisites)")
+        print("2. Begin translating content systematically")
+        print("3. Start with Learning Path 1 (Prerequisites)")
+        print("4. Maintain HTML structure and formatting")
 
 if __name__ == "__main__":
     main()

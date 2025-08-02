@@ -27,12 +27,8 @@ Successfully crawled **260 units** across **31 modules** in **6 learning paths**
 
 ### Installation
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/az104.git
-cd az104
-
 # Install dependencies
-python scripts/setup.py
+python setup_and_run.py
 
 # Or manually:
 pip install -r requirements.txt
@@ -43,28 +39,26 @@ playwright install chromium
 
 #### Crawl Course Content
 ```bash
-python scripts/az104_crawler.py
+python az104_complete_crawler.py
 ```
 
 #### Clean Existing Content
 ```bash
-python scripts/content_cleaner.py
+python advanced_cleanup.py
 ```
 
 ## 📁 Project Structure
 ```
 az104/
-├── content/
-│   ├── english/           # Original English content
-│   ├── vietnamese/        # Vietnamese translations
-│   └── assets/           # CSS, images, resources
-├── scripts/
-│   ├── az104_crawler.py  # Main crawler script
-│   ├── content_cleaner.py # Content cleanup utility
-│   └── setup.py          # Environment setup
-├── docs/                 # Documentation
-├── requirements.txt      # Python dependencies
-└── README.md            # This file
+├── az104_course_content/
+│   ├── english_original/     # Crawled English content
+│   ├── vietnamese_translation/ # Vietnamese translations
+│   ├── assets/              # Images and resources
+│   ├── course_structure.json # Course metadata
+│   └── CRAWL_SUMMARY.md     # Crawl statistics
+├── *.py                     # Crawler and utility scripts
+├── requirements.txt         # Python dependencies
+└── README.md               # This file
 ```
 
 ## 🌐 Course Structure
@@ -77,30 +71,12 @@ az104/
 5. **Deploy and manage Azure compute resources** (5 modules, 48 units)
 6. **Monitor and back up Azure resources** (3 modules, 22 units)
 
-## 🔄 Git Flow Workflow
+## 🛠️ Available Scripts
 
-This project uses Git Flow for development:
-
-- `main`: Production-ready code
-- `develop`: Integration branch for features
-- `feature/*`: Feature development branches
-- `release/*`: Release preparation branches
-- `hotfix/*`: Critical bug fixes
-
-### Development Workflow
-```bash
-# Start a new feature
-git flow feature start translation-engine
-
-# Finish a feature
-git flow feature finish translation-engine
-
-# Start a release
-git flow release start v1.0.0
-
-# Finish a release
-git flow release finish v1.0.0
-```
+- `az104_complete_crawler.py` - Main crawler for all course content
+- `advanced_cleanup.py` - Advanced content cleaning and formatting
+- `setup_and_run.py` - Automated setup and installation
+- `test_crawler.py` - Test crawler functionality
 
 ## 🇻🇳 Translation Guidelines
 
@@ -118,11 +94,10 @@ git flow release finish v1.0.0
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git flow feature start feature-name`)
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+1. Review the existing content structure
+2. Follow the established naming conventions
+3. Test any changes thoroughly
+4. Maintain the original Microsoft Learn formatting
 
 ## 📄 License
 
@@ -132,10 +107,6 @@ This project is for educational purposes. All original content belongs to Micros
 
 - [Microsoft Learn AZ-104](https://learn.microsoft.com/en-us/training/courses/az-104t00)
 - [Azure Administrator Certification](https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/)
-
-## 📞 Support
-
-For issues and questions, please open a GitHub issue or contact the maintainers.
 
 ---
 
