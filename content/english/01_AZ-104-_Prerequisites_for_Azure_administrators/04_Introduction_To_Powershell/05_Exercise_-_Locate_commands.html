@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Locate commands - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Locate commands - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,41 +168,40 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Locate commands</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/5-exercise-cmdlets/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Locate commands</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/5-exercise-cmdlets/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/5-exercise-cmdlets/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   In this unit, you use the Azure Cloud Shell on the right-hand side as your Linux terminal. You can access Cloud Shell through the Azure portal or the
   <a data-linktype="external" href="https://shell.azure.com">
    Cloud Shell sign-in
   </a>
   . You don't have to install anything on your PC or laptop to use it.
  </p>
- <p>
+<p>
   Here, you run commands that help you learn more about PowerShell. PowerShell isn't something you learn overnight; it's learned command by command. You can speed up your learning by effectively using the core cmdlets.
  </p>
- <h2 id="locate-a-command">
+<h2 id="locate-a-command">
   Locate a command
  </h2>
- <p>
+<p>
   Locate commands by running the
   <code>
    Get-Command
   </code>
   cmdlet. This cmdlet helps you search all of the cmdlets installed on your system. Use flags to narrow down your search results to just the cmdlets that fit your scenario.
  </p>
- <p>
+<p>
   In this scenario, you're looking for a cmdlet that can help you work with files.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Run the command
     <code>
      Get-Command
@@ -216,13 +216,13 @@
     </code>
     to find anything related to files.
    </p>
-   <pre class="has-inner-focus"><code class="lang-powershell" data-author-content=" Get-Command -Noun File*
+<pre class="has-inner-focus"><code class="lang-powershell" data-author-content=" Get-Command -Noun File*
 "><span> <span class="hljs-pscommand">Get-Command</span><span class="hljs-parameter"> -Noun</span> File*
 </span></code></pre>
-   <p>
+<p>
     The response shows something similar to the following text:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content="CommandType     Name                                               Version    Source
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content="CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
 Cmdlet          Get-FileHash                                       7.0.0.0    Microsoft.PowerShell.Utility
 Cmdlet          Out-File                                           7.0.0.0    Microsoft.PowerShell.Utility
@@ -233,7 +233,7 @@ Cmdlet          Get-FileHash                                       7.0.0.0    Mi
 Cmdlet          Out-File                                           7.0.0.0    Microsoft.PowerShell.Utility
 Cmdlet          Unblock-File                                       7.0.0.0    Microsoft.PowerShell.Utility
 </code></pre>
-   <p>
+<p>
     The cmdlets
     <code>
      Get-FileHash
@@ -252,9 +252,9 @@ Cmdlet          Unblock-File                                       7.0.0.0    Mi
     </code>
     parameter to your query.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run
     <code>
      Get-Command
@@ -269,20 +269,20 @@ Cmdlet          Unblock-File                                       7.0.0.0    Mi
     </code>
     .
    </p>
-   <pre class="has-inner-focus"><code class="lang-powershell" data-author-content="Get-Command -Verb Get -Noun File*
+<pre class="has-inner-focus"><code class="lang-powershell" data-author-content="Get-Command -Verb Get -Noun File*
 "><span><span class="hljs-pscommand">Get-Command</span><span class="hljs-parameter"> -Verb</span> Get<span class="hljs-parameter"> -Noun</span> File*
 </span></code></pre>
-   <p>
+<p>
     The result is similar to the following output:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content="CommandType     Name                                               Version    Source
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content="CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
 Cmdlet          Get-FileHash                                       7.0.0.0    Microsoft.PowerShell.Utility
 ">CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
 Cmdlet          Get-FileHash                                       7.0.0.0    Microsoft.PowerShell.Utility
 </code></pre>
-   <p>
+<p>
     This time, only one record matches your search, because you specified both the
     <code>
      -Noun
@@ -293,9 +293,9 @@ Cmdlet          Get-FileHash                                       7.0.0.0    Mi
     </code>
     parameter.
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   Because the domain you work in is file management, you specified
   <code>
    File
@@ -307,13 +307,11 @@ Cmdlet          Get-FileHash                                       7.0.0.0    Mi
   parameters. By using one or possibly two parameters, you can quickly find the cmdlet you need.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configure Azure App Service autoscale - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configure Azure App Service autoscale - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,144 +168,141 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Configure Azure App Service autoscale</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/5-plan-scaling/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Configure Azure App Service autoscale</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/5-plan-scaling/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/5-plan-scaling/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   The autoscale process allows you to have the right amount of resources running to handle the load on your application. You can add resources to support increases in load and save money by removing idle resources.
  </p>
- <h3 id="things-to-know-about-autoscale">
+<h3 id="things-to-know-about-autoscale">
   Things to know about autoscale
  </h3>
- <p>
+<p>
   Let's take a closer look at how to use autoscale for your Azure App Service plan and applications.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     To use autoscale, you specify the minimum, and maximum number of instances to run by using a set of rules and conditions.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     When your application runs under autoscale conditions, the number of virtual machine instances are automatically adjusted based on your rules. When rule conditions are met, one or more autoscale actions are triggered.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     An autoscale setting is used by the autoscale engine to determine whether to scale out or in. Autoscale settings are grouped into profiles.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Autoscale rules include a trigger and a scale action (in or out). The trigger can be metric-based or time-based.
    </p>
-   <ul>
-    <li>
-     <p>
-      <strong>
+<ul>
+<li>
+<p>
+<strong>
        Metric-based
       </strong>
       rules measure application load and add or remove virtual machines based on the load, such as "do this action when CPU usage is above 50%." Example metrics include CPU time, Average response time, and Requests.
      </p>
-    </li>
-    <li>
-     <p>
-      <strong>
+</li>
+<li>
+<p>
+<strong>
        Time-based
       </strong>
       rules (or, schedule-based) allow you to scale when you see time patterns in your load and want to scale before a possible load increase or decrease occurs. An example is "trigger a webhook every 8:00 AM on Saturday in a given time zone."
      </p>
-    </li>
-   </ul>
-  </li>
-  <li>
-   <p>
+</li>
+</ul>
+</li>
+<li>
+<p>
     The autoscale engine uses notification settings.
    </p>
-   <p>
+<p>
     A notification setting defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of an autoscale setting profile. Autoscale can notify one or more email addresses or make calls to one or more webhooks.
    </p>
-  </li>
- </ul>
- <h3 id="things-to-consider-when-configuring-autoscale">
+</li>
+</ul>
+<h3 id="things-to-consider-when-configuring-autoscale">
   Things to consider when configuring autoscale
  </h3>
- <p>
+<p>
   There are several considerations to keep in mind when you configure autoscale for your Azure App Service plan and applications.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Minimum instance count
     </strong>
     . Set a minimum instance count to make sure your application is always running even when there's no load.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Maximum instance count
     </strong>
     . Set a maximum instance count to limit your total possible hourly cost.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Adequate scale margin
     </strong>
     . Make sure your maximum and minimum instance count values are different, and set an adequate margin between the two values. You can automatically scale between the minimum and maximum by using rules you create.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Scale rule combinations
     </strong>
     . Always use a scale-out and scale-in rule combination that performs an increase and decrease. If you don't set a scale-out rule, your application might fail, or performance might degrade under increased loads. If you don't set a scale-in rule, you can experience unnecessary and extensive costs when the load decreases.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Metric statistics
     </strong>
     . Carefully choose the appropriate statistic for your diagnostic metrics, including Average, Minimum, Maximum, and Total.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Default instance count
     </strong>
     . Always select a safe default instance count. The default instance count is important because autoscale scales your service to the count you specify when metrics aren't available.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Notifications
     </strong>
     . Always configure autoscale notifications. It's important to maintain awareness of how your application is performing as the load changes.
    </p>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

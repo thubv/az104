@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>When to use Azure Network Watcher - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>When to use Azure Network Watcher - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,83 +168,80 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> When to use Azure Network Watcher</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/4-when-to-use-azure-network-watcher/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> When to use Azure Network Watcher</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/4-when-to-use-azure-network-watcher/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/intro-to-azure-network-watcher/4-when-to-use-azure-network-watcher/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Azure Network Watcher is useful when you're attempting to troubleshoot networking issues related to Azure IaaS products. For example, you can use the tools included in Azure Network Watcher in the following scenarios:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Resolve connectivity issues related to IaaS VMs.
   </li>
-  <li>
+<li>
    Troubleshoot VPN connections.
   </li>
-  <li>
+<li>
    Determine cross region network latencies.
   </li>
- </ul>
- <h2 id="resolve-connectivity-issues-related-to-iaas-vms">
+</ul>
+<h2 id="resolve-connectivity-issues-related-to-iaas-vms">
   Resolve connectivity issues related to IaaS VMs
  </h2>
- <p>
+<p>
   Recently, a Windows Server IaaS VM was deployed to Azure. The developers who deployed the VM are unable to establish a remote PowerShell session to this IaaS VM from another IaaS VM on the same virtual network.
  </p>
- <p>
+<p>
   You can troubleshoot this issue using the IP flow verify tool. This tool lets you specify a local and remote port, the protocol (TCP/UDP), the local IP, and the remote IP to check the connection status. It also lets you specify the direction of the connection (inbound or outbound). IP flow verify runs a logical test on the rules in place on your network.
  </p>
- <p>
+<p>
   In this case, you can use IP flow verify to specify the VM's IP address and the TCP port 5986 (used by PowerShell when using HTTPS). Then, specify the remote VM's IP address and port. Choose the TCP protocol, then select
   <strong>
    Check
   </strong>
   . If an NSG rule is blocking traffic, the IP flow verify rule reports which rule is responsible for the dropped traffic.
  </p>
- <h2 id="troubleshoot-vpn-connections">
+<h2 id="troubleshoot-vpn-connections">
   Troubleshoot VPN connections
  </h2>
- <p>
+<p>
   An IaaS VM is deployed on an Azure virtual network. Connections to this IaaS VM from on-premises hosts are made through a site-to-site VPN connection.
  </p>
- <p>
+<p>
   You can troubleshoot this VPN connection using the Azure VPN troubleshoot tool. This tool runs diagnostics on a virtual network gateway connection, and returns a health diagnosis. You can run this tool from the Azure portal, PowerShell, or the Azure CLI.
  </p>
- <p>
+<p>
   When you run the tool, it checks the gateway for common issues and returns the health diagnosis. You can also view the log file to get more information. The diagnosis shows whether the VPN connection is working. If the VPN connection isn't working, the Azure VPN troubleshoot tool suggests ways to resolve the issue.
  </p>
- <h2 id="determine-cross-region-network-latency">
+<h2 id="determine-cross-region-network-latency">
   Determine cross-region network latency
  </h2>
- <p>
+<p>
   You can use Network Watcher tools to determine the best location to place IaaS resources based on network latencies. For example, you can use Network Watcher to have IaaS VMs in different regions regularly ping each other to determine cross region network latency. This information can allow you to determine whether all your IaaS VMs need to be located in a single region. Or, if they can be spread across different regions to support specific application architectures.
  </p>
- <p>
+<p>
   Let's say you have an on-premises hybrid application and an application running in an Azure IaaS VM that connects to the same storage account endpoint. You could use Network Watcher to perform a comparison of latencies for the two applications. If the latency for the on-premises application is too high, it might strengthen a case for migrating that application to Azure. If the latency for the Azure IaaS VM is too high, it might strengthen a case for migrating the VM to another region with lower latency.
  </p>
- <h2 id="when-not-to-use-network-watcher">
+<h2 id="when-not-to-use-network-watcher">
   When not to use Network Watcher
  </h2>
- <p>
+<p>
   Network Watcher tools provide intermediate levels of network diagnostic functionality. These tools don't provide some of the advanced features available in some third-party tools. If your organization needs access to this advanced functionality, you might need to deploy a third-party tool that includes this advanced functionality to accomplish your diagnostic goals.
  </p>
- <p>
+<p>
   It's important to realize that Network Watcher is mostly used for IaaS resources on Azure virtual networks. You can't use Azure Network Watcher to diagnose connectivity issues related to PaaS services or Web analytics. If you're encountering problems related to these services, you should check the Azure status or service health dashboard.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

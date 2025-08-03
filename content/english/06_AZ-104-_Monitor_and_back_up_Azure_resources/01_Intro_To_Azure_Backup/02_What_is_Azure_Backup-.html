@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is Azure Backup - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>What is Azure Backup - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,158 +168,155 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> What is Azure Backup?</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-backup/2-what-is-azure-backup/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> What is Azure Backup?</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-backup/2-what-is-azure-backup/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/intro-to-azure-backup/2-what-is-azure-backup/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Let's start by defining Azure Backup and taking a quick tour of the core features. This overview should help you decide whether Azure Backup might be a good fit for your data-protection needs.
  </p>
- <h2 id="what-is-azure-backup">
+<h2 id="what-is-azure-backup">
   What is Azure Backup?
  </h2>
- <p>
+<p>
   The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
  </p>
- <h2 id="azure-backup-definition">
+<h2 id="azure-backup-definition">
   Azure Backup definition
  </h2>
- <p>
+<p>
   Azure Backup is an Azure service that provides cost effective, secure, and zero-infrastructure backup solutions for all Azure-managed data assets.
  </p>
- <p>
+<p>
   The centralized management interface makes it easy to define backup policies and protect a wide range of enterprise workloads, including Azure Virtual Machines, Azure Disks, SQL and SAP databases, Azure file shares, and blobs.
  </p>
- <h2 id="when-to-use-azure-backup">
+<h2 id="when-to-use-azure-backup">
   When to use Azure Backup
  </h2>
- <p>
+<p>
   As the IT admin of your organization, you're responsible for meeting the compliance needs for all the data assets of the firm, and backup is a critical aspect. There are also various application admins in your company who need to do self-service backup and restore to take care of issues like data corruption or rogue-admin scenarios. You're looking for an enterprise-class backup solution to protect all your workloads and manage them from a central place.
  </p>
- <p>
+<p>
   Azure Backup can provide backup services for the following data assets:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    On-premises files, folders, and system state
   </li>
-  <li>
+<li>
    Azure Virtual Machines (VMs)
   </li>
-  <li>
+<li>
    Azure Managed Disks
   </li>
-  <li>
+<li>
    Azure Files Shares
   </li>
-  <li>
+<li>
    SQL Server in Azure VMs
   </li>
-  <li>
+<li>
    SAP HANA (High-performance Analytic Appliance) databases in Azure VMs
   </li>
-  <li>
+<li>
    Azure Database for PostgreSQL servers
   </li>
-  <li>
+<li>
    Azure Blobs
   </li>
-  <li>
+<li>
    Azure Database for PostgreSQL - Flexible servers
   </li>
-  <li>
+<li>
    Azure Database for MySQL - Flexible servers
   </li>
-  <li>
+<li>
    Azure Kubernetes cluster
   </li>
- </ul>
- <h2 id="key-features">
+</ul>
+<h2 id="key-features">
   Key features
  </h2>
- <p>
+<p>
   Let's look at some key features of Azure Backup.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Key features" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Key features" class="table">
+<thead>
+<tr>
+<th>
       Feature
      </th>
-     <th>
+<th>
       Description
      </th>
-     <th>
+<th>
       Usage
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
       Zero-infrastructure backup solution
      </td>
-     <td>
+<td>
       Unlike conventional backup solutions, no backup server or infrastructure is needed. Similarly, no backup storage needs to be deployed, because Azure Backup automatically manages and scales it.
      </td>
-     <td>
+<td>
       Zero-infrastructure solution eliminates capital expenses and reduces operational expenses. It increases ease of use by automating storage management.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       At-scale management
      </td>
-     <td>
+<td>
       Natively manage your entire backup estate from a central console called Backup Center. Use APIs, PowerShell, and Azure CLI to automate Backup policy and security configurations.
      </td>
-     <td>
+<td>
       Backup center simplifies data protection management at-scale by enabling you to discover, govern, monitor, operate, and optimize backup management from one unified console, which helps you to drive operational efficiency with Azure.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Security
      </td>
-     <td>
+<td>
       Azure Backup provides built-in security to your backup environment, both when your data is in transit and at rest by using capabilities encryption, private endpoints, alerts, and so on.
      </td>
-     <td>
+<td>
       Your backups are automatically secured against ransomware, malicious admins, and accidental deletions.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <h2 id="how-do-recovery-time-objective-and-recovery-point-objective-work">
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="how-do-recovery-time-objective-and-recovery-point-objective-work">
   How do Recovery Time Objective and Recovery Point Objective work?
  </h2>
- <p>
+<p>
   Recovery Time Objective (RTO) is the target time within which a business process must be restored after a disaster occurs to avoid unacceptable consequences. For instance, if a critical application goes down due to a server failure and the business can only tolerate a maximum of four hours of downtime, then the RTO is four hours.
  </p>
- <p>
+<p>
   Recovery Point Objective (RPO) is the maximum amount of data loss, measured in time, that your organization can sustain during an event.
  </p>
- <p>
+<p>
   The following example scenario describes both the RPO and RTO concepts:
  </p>
- <p>
+<p>
   Your organization has an RPO of one hour for your customer database, which means you perform backups every hour. If a data-loss incident occurs, you lose not more than one hour of data. When you set RTO to three hours, then if a system failure occurs, you aim to restore access to the database within three hours to minimize the impact on operations.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

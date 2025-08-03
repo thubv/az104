@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan for maintenance and downtime - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Plan for maintenance and downtime - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,67 +168,64 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Plan for maintenance and downtime</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/2-plan-for-maintenance-downtime/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Plan for maintenance and downtime</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/2-plan-for-maintenance-downtime/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/2-plan-for-maintenance-downtime/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Azure Administrators prepare for planned and unplanned failures.
  </p>
- <h3 id="things-to-know-about-maintenance-planning">
+<h3 id="things-to-know-about-maintenance-planning">
   Things to know about maintenance planning
  </h3>
- <p>
+<p>
   An availability plan for Azure virtual machines needs to include strategies for unplanned hardware maintenance, unexpected downtime, and planned maintenance.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     An
     <strong>
      unplanned hardware maintenance
     </strong>
     event occurs when the Azure platform predicts that the hardware or any platform component associated to a physical machine is about to fail. When the platform predicts a failure, it issues an unplanned hardware maintenance event. Azure uses Live Migration technology to migrate your virtual machines from the failing hardware to a healthy physical machine. Live Migration is a virtual machine preserving operation that only pauses the virtual machine for a short time, but performance might be reduced before or after the event.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Unexpected downtime
     </strong>
     occurs when the hardware or the physical infrastructure for your virtual machine fails unexpectedly. Unexpected downtime can include local network failures, local disk failures, or other rack level failures. When detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine in the same datacenter. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Planned maintenance
     </strong>
     events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
    </p>
-  </li>
- </ul>
- <div class="alert is-info">
-  <p class="alert-title">
+</li>
+</ul>
+<div class="alert is-info">
+<p class="alert-title">
    Note
   </p>
-  <p>
+<p>
    Microsoft doesn't automatically update your virtual machine operating system or other software. You have complete control and responsibility for those updates. However, the underlying software host and hardware are periodically patched to ensure reliability and high performance.
   </p>
- </div>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

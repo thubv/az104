@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage the availability of your Azure VMs - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manage the availability of your Azure VMs - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,74 +168,73 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Manage the availability of your Azure VMs</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/5-high-availability/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Manage the availability of your Azure VMs</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/5-high-availability/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/5-high-availability/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Frequently, the success of a services company is directly related to the service level agreements (SLA) the company has with its customers. Your customers expect the services you provide always to be available, and their data kept safe. This security is something that Microsoft takes seriously. Azure provides tools you can use to manage availability, data security, and monitoring, so you know your services are always available for your customers.
  </p>
- <p>
+<p>
   Administration of an Azure VM isn't limited to managing the operating system, or software that runs on the VM. It helps to know which services Azure provides that ensure service availability and support automation. These services help you to plan your organization's business continuity and disaster recovery strategy.
  </p>
- <p>
+<p>
   Here, we cover an Azure service that helps you improve VM availability, streamlines VM management tasks, and keeps your VM data backed up and safe. Let's start by defining availability.
  </p>
- <h2 id="what-is-availability">
+<h2 id="what-is-availability">
   What is availability?
  </h2>
- <p>
+<p>
   Availability is the percentage of time a service is available for use.
  </p>
- <p>
+<p>
   Let's assume you have a website, and you want your customers to be able to always access information. Your expectation is 100% availability concerning website access.
  </p>
- <h3 id="why-do-i-need-to-think-about-availability-when-using-azure">
+<h3 id="why-do-i-need-to-think-about-availability-when-using-azure">
   Why do I need to think about availability when using Azure?
  </h3>
- <p>
+<p>
   Azure VMs run on physical servers hosted within the Azure datacenter. As with most physical devices, there's a chance that there could be a failure. If the physical server fails, the virtual machines hosted on that server also fail. If a failure happens, Azure moves the VM to a healthy host server automatically. However, this self-healing migration could take several minutes, during which the application(s) hosted on that VM aren't available.
  </p>
- <p>
+<p>
   Periodic updates initiated by Azure itself can also affect the VMs. These maintenance events range from software updates to hardware upgrades and are required to improve platform reliability and performance. These events usually are performed without impacting any guest VMs, but sometimes the virtual machines reboot to complete an update or upgrade.
  </p>
- <h2 id="availability-zones">
+<h2 id="availability-zones">
   Availability zones
  </h2>
- <p>
-  <a data-linktype="absolute-path" href="/en-us/azure/reliability/availability-zones-overview">
+<p>
+<a data-linktype="absolute-path" href="/en-us/azure/reliability/availability-zones-overview">
    Availability zones
   </a>
   expands the level of control you have to maintain the availability of the applications and data on your VMs. An Availability Zone is a physically separate zone, within an Azure region. There are three Availability Zones per supported Azure region.
  </p>
- <p>
+<p>
   Each Availability Zone has a distinct power source, network, and cooling. By designing your solutions to use replicated VMs in zones, you can protect your apps and data from the loss of a data center. If one zone is compromised, then replicated apps and data are instantly available in another zone.
  </p>
- <h2 id="virtual-machines-scale-sets">
+<h2 id="virtual-machines-scale-sets">
   Virtual Machines Scale Sets
  </h2>
- <p>
-  <a data-linktype="absolute-path" href="/en-us/azure/virtual-machines/flexible-virtual-machine-scale-sets">
+<p>
+<a data-linktype="absolute-path" href="/en-us/azure/virtual-machines/flexible-virtual-machine-scale-sets">
    Azure virtual machine scale sets
   </a>
   let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There's no cost for the scale set itself, you only pay for each VM instance that you create.
  </p>
- <p>
+<p>
   Virtual machines in a scale set can also be deployed into multiple availability zones, a single availability zone, or regionally. Availability zone deployment options may differ based on the
   <a data-linktype="absolute-path" href="/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes">
    orchestration mode
   </a>
   .
  </p>
- <h2 id="load-balancer">
+<h2 id="load-balancer">
   Load balancer
  </h2>
- <p>
+<p>
   Combine the
   <a data-linktype="absolute-path" href="/en-us/azure/load-balancer/load-balancer-overview">
    Azure Load Balancer
@@ -253,72 +253,70 @@
   </a>
   .
  </p>
- <h2 id="azure-storage-redundancy">
+<h2 id="azure-storage-redundancy">
   Azure Storage redundancy
  </h2>
- <p>
+<p>
   Azure Storage always stores multiple copies of your data so that it's protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures.
  </p>
- <p>
+<p>
   When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. The factors that help determine which redundancy option you should choose include:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    How your data is replicated in the primary region
   </li>
-  <li>
+<li>
    Whether your data is replicated to a second region that is geographically distant to the primary region, to protect against regional disasters
   </li>
-  <li>
+<li>
    Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason
   </li>
- </ul>
- <p>
+</ul>
+<p>
   For more information, see
   <a data-linktype="absolute-path" href="/en-us/azure/storage/common/storage-redundancy">
    Azure Storage redundancy
   </a>
   .
  </p>
- <h2 id="failover-across-locations">
+<h2 id="failover-across-locations">
   Failover across locations
  </h2>
- <p>
+<p>
   You can also replicate your infrastructure across sites to handle regional failover.
   <strong>
    Azure Site Recovery
   </strong>
   replicates workloads from a primary site to a secondary location. If an outage happens at your primary site, you can fail over to a secondary location. This failover enables users to continue to access your applications without interruption. You can then fail back to the primary location after it's up and running again. Azure Site Recovery is about replication of virtual or physical machines; it keeps your workloads available in an outage.
  </p>
- <p>
+<p>
   While there are many attractive technical features to Site Recovery, there are at least two significant business advantages:
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     Site Recovery enables the use of Azure as a destination for recovery, thus eliminating the cost and complexity of maintaining a secondary physical datacenter.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Site Recovery makes it incredibly simple to test failovers for recovery drills without impacting production environments. This feature makes it easy to test your planned or unplanned failovers. After all, you don’t have a good disaster recovery plan if you’ve never tried to fail over.
    </p>
-  </li>
- </ul>
- <p>
+</li>
+</ul>
+<p>
   The recovery plans you create with Site Recovery can be as simple or as complex as your scenario requires. They can include custom PowerShell scripts, Azure Automation runbooks, or manual intervention steps. You can use the recovery plans to replicate workloads to Azure, easily enabling new opportunities for migration, temporary bursts during surge periods, or development and testing of new applications.
  </p>
- <p>
+<p>
   Azure Site Recovery works with Azure resources, or Hyper-V, VMware, and physical servers in your on-premises infrastructure. It can be a key part of your organization’s business continuity and disaster recovery (BCDR) strategy by orchestrating the replication, failover, and recovery of workloads and applications if the primary location fails.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

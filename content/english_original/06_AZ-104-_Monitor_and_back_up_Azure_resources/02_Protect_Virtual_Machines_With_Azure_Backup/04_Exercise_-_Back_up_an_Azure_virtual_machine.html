@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Back up an Azure virtual machine - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 4 Exercise Back Up Azure Virtual Machine</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/4-exercise-back-up-azure-virtual-machine/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/4-exercise-back-up-azure-virtual-machine/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ Your company runs a combination of Windows and Linux workloads. You're asked to prove that Azure Backup is a good fit for both kinds of virtual machines (VMs). By using a combination of the Azure CLI and the Azure portal, you help protect both kinds of virtual machines with Azure Backup.
+</p>
+<p>
+ Azure Backup can be quickly enabled for virtual machines in Azure. You can enable Azure Backup from the portal, from the Azure CLI, or by using PowerShell commands.
+</p>
+<p>
+ In this exercise, you create a virtual machine (VM), set up a backup, and start a backup.
+</p>
+<div class="alert is-info">
+ <p class="alert-title">
+  Note
+ </p>
+ <p>
+  This exercise is optional. If you don't have an Azure account, you can read through the instructions so you understand how to back up virtual machines by using Azure Backup.
+If you want to complete this exercise, but you don't have an Azure subscription or you prefer not to use your own account, create a
+  <a class="has-external-link-indicator" data-linktype="external" href="https://azure.microsoft.com/free/" target="az-portal">
+   free account
+  </a>
+  before you begin.
+ </p>
+</div>
+<h2 id="create-a-backup-for-azure-virtual-machines">
+ Create a backup for Azure virtual machines
+</h2>
+<h3 id="set-up-the-environment">
+ Set up the environment
+</h3>
+<ol>
+ <li>
+  <p>
+   Sign in to the
+   <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/" target="az-portal">
+    Azure portal
+   </a>
+   , and select the icon to open Azure Cloud Shell.
+  </p>
+  <p>
+   <img alt="Screenshot of the Cloud Shell icon in the Azure portal." data-linktype="relative-path" loading="lazy" src="../../../assets/4-azure-portal-cloudshell_c5255dfc.png"/>
+  </p>
+ </li>
+ <li>
+  <p>
+   Create a resource group to contain all the resources for this exercise.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-0">
+   <span class="language">
+    Azure CLI
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="RGROUP=$(az group create --name vmbackups --location westus2 --output tsv --query name)
+"><span>RGROUP=$(az group create <span class="hljs-parameter">--name</span> vmbackups <span class="hljs-parameter">--location</span> westus2 <span class="hljs-parameter">--output</span> tsv <span class="hljs-parameter">--query</span> name)
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   Use Cloud Shell to create the
+   <strong>
+    NorthwindInternal
+   </strong>
+   virtual network and the
+   <strong>
+    NorthwindInternal1
+   </strong>
+   subnet.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-1">
+   <span class="language">
+    Azure CLI
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az network vnet create \
+    --resource-group $RGROUP \
+    --name NorthwindInternal \
+    --address-prefixes 10.0.0.0/16 \
+    --subnet-name NorthwindInternal1 \
+    --subnet-prefixes 10.0.0.0/24
+"><span><span class="hljs-keyword">az network vnet create </span>\
+    <span class="hljs-parameter">--resource-group</span> <span class="hljs-variable">$RGROUP</span> \
+    <span class="hljs-parameter">--name</span> NorthwindInternal \
+    <span class="hljs-parameter">--address-prefixes</span> <span class="hljs-number">10.0.0.0</span>/<span class="hljs-number">16</span> \
+    <span class="hljs-parameter">--subnet-name</span> NorthwindInternal1 \
+    <span class="hljs-parameter">--subnet-prefixes</span> <span class="hljs-number">10.0.0.0</span>/<span class="hljs-number">24</span>
+</span></code></pre>
+ </li>
+</ol>
+<h3 id="create-a-windows-virtual-machine-by-using-the-azure-cli">
+ Create a Windows virtual machine by using the Azure CLI
+</h3>
+<p>
+ Create the
+ <em>
+  NW-APP01
+ </em>
+ virtual machine by running the following command. Replace
+ <code>
+  &lt;password&gt;
+ </code>
+ with a password of your choice, enclosed in double quotes. For example,
+ <code>
+  --admin-password "PassWord123!"
+ </code>
+ .
+</p>
+<div class="codeHeader" data-bi-name="code-header" id="code-try-2">
+ <span class="language">
+  Azure CLI
+ </span>
+</div>
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az vm create \
+    --resource-group $RGROUP \
+    --name NW-APP01 \
+    --size Standard_DS1_v2 \
+    --public-ip-sku Standard \
+    --vnet-name NorthwindInternal \
+    --subnet NorthwindInternal1 \
+    --image Win2016Datacenter \
+    --admin-username admin123 \
+    --no-wait \
+    --admin-password &lt;password&gt;
+"><span><span class="hljs-keyword">az vm create </span>\
+    <span class="hljs-parameter">--resource-group</span> <span class="hljs-variable">$RGROUP</span> \
+    <span class="hljs-parameter">--name</span> NW<span class="hljs-parameter">-APP</span>01 \
+    <span class="hljs-parameter">--size</span> Standard_DS1_v2 \
+    <span class="hljs-parameter">--public-ip-sku</span> Standard \
+    <span class="hljs-parameter">--vnet-name</span> NorthwindInternal \
+    <span class="hljs-parameter">--subnet</span> NorthwindInternal1 \
+    <span class="hljs-parameter">--image</span> Win2016Datacenter \
+    <span class="hljs-parameter">--admin-username</span> admin123 \
+    <span class="hljs-parameter">--no-wait</span> \
+    <span class="hljs-parameter">--admin-password</span> <span class="hljs-string">&lt;password&gt;</span>
+</span></code></pre>
+<h3 id="create-a-linux-virtual-machine-by-using-the-azure-cli">
+ Create a Linux virtual machine by using the Azure CLI
+</h3>
+<p>
+ Create the
+ <em>
+  NW-RHEL01
+ </em>
+ virtual machine by running the following command.
+</p>
+<div class="codeHeader" data-bi-name="code-header" id="code-try-3">
+ <span class="language">
+  Azure CLI
+ </span>
+</div>
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az vm create \
+    --resource-group $RGROUP \
+    --name NW-RHEL01 \
+    --size Standard_DS1_v2 \
+    --image RedHat:RHEL:8-gen2:latest \
+    --authentication-type ssh \
+    --generate-ssh-keys \
+    --vnet-name NorthwindInternal \
+    --subnet NorthwindInternal1
+"><span><span class="hljs-keyword">az vm create </span>\
+    <span class="hljs-parameter">--resource-group</span> <span class="hljs-variable">$RGROUP</span> \
+    <span class="hljs-parameter">--name</span> NW<span class="hljs-parameter">-RHEL</span>01 \
+    <span class="hljs-parameter">--size</span> Standard_DS1_v2 \
+    <span class="hljs-parameter">--image</span> RedHat:RHEL:<span class="hljs-number">8</span><span class="hljs-parameter">-gen</span>2:latest \
+    <span class="hljs-parameter">--authentication-type</span> ssh \
+    <span class="hljs-parameter">--generate-ssh-keys</span> \
+    <span class="hljs-parameter">--vnet-name</span> NorthwindInternal \
+    <span class="hljs-parameter">--subnet</span> NorthwindInternal1
+</span></code></pre>
+<div class="alert is-info">
+ <p class="alert-title">
+  Note
+ </p>
+ <p>
+  If you get a
+  <code>
+   securityProfile.securityType is invalid
+  </code>
+  error running the preceding command, run the following commands to register
+  <code>
+   UseStandardSecurityType
+  </code>
+  , then re-run the preceding command.
+ </p>
+ <div class="codeHeader" data-bi-name="code-header" id="code-try-4">
+  <span class="language">
+   Azure CLI
+  </span>
+ </div>
+ <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az feature register --name UseStandardSecurityType --namespace Microsoft.Compute
+az feature show --name UseStandardSecurityType --namespace Microsoft.Compute
+"><span><span class="hljs-keyword">az feature register </span><span class="hljs-parameter">--name</span> UseStandardSecurityType <span class="hljs-parameter">--namespace</span> Microsoft.Compute
+<span class="hljs-keyword">az feature show </span><span class="hljs-parameter">--name</span> UseStandardSecurityType <span class="hljs-parameter">--namespace</span> Microsoft.Compute
+</span></code></pre>
+</div>
+<p>
+ The command can take a few minutes to complete. Wait for it to finish before moving on to the next step.
+</p>
+<h3 id="enable-backup-for-a-virtual-machine-by-using-the-azure-portal">
+ Enable backup for a virtual machine by using the Azure portal
+</h3>
+<ol>
+ <li>
+  <p>
+   In the Azure portal, search for and select
+   <strong>
+    Virtual machines
+   </strong>
+   .
+  </p>
+  <p>
+   <img alt="Screenshot that shows searching for virtual machines." data-linktype="relative-path" loading="lazy" src="../../../assets/4-portal-vms_45486d97.png"/>
+  </p>
+  <p>
+   The
+   <strong>
+    Virtual machines
+   </strong>
+   pane appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   From the list, select the
+   <strong>
+    NW-RHEL01
+   </strong>
+   virtual machine that you created.
+  </p>
+  <p>
+   <img alt="Screenshot that shows selecting a virtual machine." data-linktype="relative-path" loading="lazy" src="../../../assets/4-portal-select-linux-vm_adcee21c.png"/>
+  </p>
+  <p>
+   The
+   <strong>
+    NW-RHEL01
+   </strong>
+   virtual machine pane appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   In the middle menu pane, select the
+   <strong>
+    Capabilities
+   </strong>
+   tab, then scroll down to and select
+   <strong>
+    Backup
+   </strong>
+   . The
+   <strong>
+    Backup
+   </strong>
+   pane for the
+   <em>
+    NW-RHEL01
+   </em>
+   virtual machine appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the radio button for
+   <strong>
+    Standard
+   </strong>
+   . You can accept the defaults for the following options:
+  </p>
+  <ul>
+   <li>
+    <strong>
+     Backup vault
+    </strong>
+    :
+    <strong>
+     vaultXXX
+    </strong>
+    for the name.
+   </li>
+   <li>
+    <strong>
+     Backup policy
+    </strong>
+    :
+    <strong>
+     DailyPolicy-xxxxxxxx
+    </strong>
+    , which creates a daily backup at 12:00 PM UTC with a retention range of 180 days.
+   </li>
+  </ul>
+  <p>
+   <img alt="Screenshot that shows the backup options." data-linktype="relative-path" loading="lazy" src="../../../assets/4-portal-azure-backup_233a85c4.png"/>
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    Enable backup
+   </strong>
+   button.
+  </p>
+ </li>
+ <li>
+  <p>
+   Once deployment completes, go back to the
+   <strong>
+    NW-RHEL01
+   </strong>
+   virtual machine, select the
+   <strong>
+    Capabilities
+   </strong>
+   tab, then scroll down to and select
+   <strong>
+    Backup
+   </strong>
+   . The
+   <strong>
+    Backup
+   </strong>
+   pane for the
+   <em>
+    NW-RHEL01
+   </em>
+   virtual machine appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   To perform the first backup for this server, in the top menu bar, select
+   <strong>
+    Backup now
+   </strong>
+   .
+  </p>
+  <p>
+   The
+   <strong>
+    Backup Now
+   </strong>
+   pane for
+   <em>
+    NW-RHEL01
+   </em>
+   appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select
+   <strong>
+    OK
+   </strong>
+   .
+  </p>
+ </li>
+</ol>
+<h3 id="enable-a-backup-by-using-the-azure-cli">
+ Enable a backup by using the Azure CLI
+</h3>
+<ol>
+ <li>
+  <p>
+   First, create the azure-backup vault by using Cloud Shell:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-5">
+   <span class="language">
+    Azure CLI
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az backup vault create \
+    --resource-group vmbackups \
+    --location westus2 \
+    --name azure-backup
+"><span><span class="hljs-keyword">az backup vault create </span>\
+    <span class="hljs-parameter">--resource-group</span> vmbackups \
+    <span class="hljs-parameter">--location</span> westus2 \
+    <span class="hljs-parameter">--name</span> azure<span class="hljs-parameter">-backup</span>
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   Using Cloud Shell, enable a backup for the
+   <em>
+    NW-APP01
+   </em>
+   virtual machine.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-6">
+   <span class="language">
+    Azure CLI
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az backup protection enable-for-vm \
+    --resource-group vmbackups \
+    --vault-name azure-backup \
+    --vm NW-APP01 \
+    --policy-name EnhancedPolicy
+"><span><span class="hljs-keyword">az backup protection enable-for-vm </span>\
+    <span class="hljs-parameter">--resource-group</span> vmbackups \
+    <span class="hljs-parameter">--vault-name</span> azure<span class="hljs-parameter">-backup</span> \
+    <span class="hljs-parameter">--vm</span> NW<span class="hljs-parameter">-APP</span>01 \
+    <span class="hljs-parameter">--policy-name</span> EnhancedPolicy
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   Monitor the progress of the setup using the Azure CLI.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-7">
+   <span class="language">
+    Azure CLI
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az backup job list \
+    --resource-group vmbackups \
+    --vault-name azure-backup \
+    --output table
+"><span><span class="hljs-keyword">az backup job list </span>\
+    <span class="hljs-parameter">--resource-group</span> vmbackups \
+    <span class="hljs-parameter">--vault-name</span> azure<span class="hljs-parameter">-backup</span> \
+    <span class="hljs-parameter">--output</span> table
+</span></code></pre>
+  <p>
+   Keep running the preceding command until you see that
+   <code>
+    ConfigureBackup
+   </code>
+   is finished.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-8">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content="Name                                  Operation        Status      Item Name    Start Time UTC                    Duration
+------------------------------------  ---------------  ----------  -----------  --------------------------------  --------------
+a3df79b4-be4f-4cc9-8b2c-a5ead44a6a12  ConfigureBackup  Completed   NW-APP01     2019-08-01T06:19:12.101048+00:00  0:00:31.305975
+5e1531a9-8b3d-4983-a642-86ee982f7036  Backup           InProgress  NW-RHEL01    2019-08-01T06:18:35.955118+00:00  0:01:22.734182
+860d4dca-9603-4a4e-9f3b-93f242a0a64d  ConfigureBackup  Completed   NW-RHEL01    2019-08-01T06:13:33.860598+00:00  0:00:31.256773    
+">Name                                  Operation        Status      Item Name    Start Time UTC                    Duration
+------------------------------------  ---------------  ----------  -----------  --------------------------------  --------------
+a3df79b4-be4f-4cc9-8b2c-a5ead44a6a12  ConfigureBackup  Completed   NW-APP01     2019-08-01T06:19:12.101048+00:00  0:00:31.305975
+5e1531a9-8b3d-4983-a642-86ee982f7036  Backup           InProgress  NW-RHEL01    2019-08-01T06:18:35.955118+00:00  0:01:22.734182
+860d4dca-9603-4a4e-9f3b-93f242a0a64d  ConfigureBackup  Completed   NW-RHEL01    2019-08-01T06:13:33.860598+00:00  0:00:31.256773    
+</code></pre>
+ </li>
+ <li>
+  <p>
+   Do an initial backup of the virtual machine, instead of waiting for the schedule to run it.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-9">
+   <span class="language">
+    Azure CLI
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az backup protection backup-now \
+    --resource-group vmbackups \
+    --vault-name azure-backup \
+    --container-name NW-APP01 \
+    --item-name NW-APP01 \
+    --retain-until 18-10-2030 \
+    --backup-management-type AzureIaasVM
+"><span><span class="hljs-keyword">az backup protection backup-now </span>\
+    <span class="hljs-parameter">--resource-group</span> vmbackups \
+    <span class="hljs-parameter">--vault-name</span> azure<span class="hljs-parameter">-backup</span> \
+    <span class="hljs-parameter">--container-name</span> NW<span class="hljs-parameter">-APP</span>01 \
+    <span class="hljs-parameter">--item-name</span> NW<span class="hljs-parameter">-APP</span>01 \
+    <span class="hljs-parameter">--retain-until</span> <span class="hljs-number">18</span><span class="hljs-parameter">-</span><span class="hljs-number">10</span><span class="hljs-parameter">-</span><span class="hljs-number">2030</span> \
+    <span class="hljs-parameter">--backup-management-type</span> AzureIaasVM
+</span></code></pre>
+  <p>
+   There's no need to wait for the backup to finish, because the next section shows you how to monitor the progress in the portal.
+  </p>
+ </li>
+</ol>
+<h2 id="monitor-backups-in-the-portal">
+ Monitor backups in the portal
+</h2>
+<h3 id="view-the-status-of-a-backup-for-a-single-virtual-machine">
+ View the status of a backup for a single virtual machine
+</h3>
+<ol>
+ <li>
+  <p>
+   On the Azure portal menu or from the
+   <strong>
+    Home
+   </strong>
+   page, select
+   <strong>
+    All resources
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Enter
+   <em>
+    Virtual machines
+   </em>
+   in the search field at the top of the page and select
+   <strong>
+    Virtual machines
+   </strong>
+   from the results.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    NW-APP01
+   </strong>
+   virtual machine. The
+   <em>
+    NW-APP01
+   </em>
+   virtual machine pane appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   In the middle menu pane, select the
+   <strong>
+    Capabilities
+   </strong>
+   tab, then scroll to and select
+   <strong>
+    Backup
+   </strong>
+   . The
+   <strong>
+    Backup
+   </strong>
+   pane for the
+   <em>
+    NW-APP01
+   </em>
+   virtual machine appears.
+  </p>
+  <p>
+   Under the
+   <strong>
+    Backup status
+   </strong>
+   section, the
+   <strong>
+    Last backup status
+   </strong>
+   field displays the current status of the backup.
+  </p>
+  <p>
+   <img alt="Screenshot of the Backup page after it has been set up." data-linktype="relative-path" loading="lazy" src="../../../assets/4-portal-backup-setup_bf47fb90.png"/>
+  </p>
+ </li>
+</ol>
+<h3 id="view-the-status-of-backups-in-the-recovery-services-vault">
+ View the status of backups in the Recovery Services vault
+</h3>
+<ol>
+ <li>
+  <p>
+   On the Azure portal menu or from the
+   <strong>
+    Home
+   </strong>
+   page, select
+   <strong>
+    All resources
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Sort the list by
+   <em>
+    Type
+   </em>
+   , and then select the
+   <strong>
+    azure-backup
+   </strong>
+   Recovery Services vault. The
+   <strong>
+    Azure-backup
+   </strong>
+   recovery services vault pane appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   On the
+   <strong>
+    Overview
+   </strong>
+   pane, select the interior
+   <strong>
+    Backup
+   </strong>
+   tab to display a summary of all the backup items, the storage being used, and the current status of any backup jobs.
+  </p>
+  <p>
+   <img alt="Screenshot of the Backup dashboard." data-linktype="relative-path" loading="lazy" src="../../../assets/4-recovery-services-vault_6a7aed4c.png"/>
+  </p>
+ </li>
+</ol>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

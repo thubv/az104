@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare vertical and horizontal scaling - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 6 Compare Vertical Horizontal Scaling</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/6-compare-vertical-horizontal-scaling/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/6-compare-vertical-horizontal-scaling/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ A robust virtual machine configuration includes support for scalability. Scalability allows throughput for a virtual machine in proportion to the availability of the associated hardware resources. A scalable virtual machine can handle increases in requests without adversely affecting response time and throughput. For most scaling operations, there are two implementation options:
+ <em>
+  vertical
+ </em>
+ and
+ <em>
+  horizontal
+ </em>
+ .
+</p>
+<h3 id="things-to-know-about-vertical-scaling">
+ Things to know about vertical scaling
+</h3>
+<p>
+ Vertical scaling, also known as
+ <em>
+  scale up and scale down
+ </em>
+ , involves increasing or decreasing the virtual machine
+ <strong>
+  size
+ </strong>
+ in response to a workload. Vertical scaling makes a virtual machine more (scale up) or less (scale down) powerful.
+</p>
+<p>
+ <img alt="Illustration that shows vertical scaling where a single virtual machine increases or decreases in size by scaling up or scaling down." data-linktype="relative-path" loading="lazy" src="../../../assets/vertical-scaling-cdafa792_b161d9ab.png"/>
+</p>
+<p>
+ Here are some scenarios where using vertical scaling can be advantageous:
+</p>
+<ul>
+ <li>
+  <p>
+   If you have a service built on a virtual machine that's under-utilized such as on the weekend, you can use vertical scaling to decrease the virtual machine size and reduce your monthly costs.
+  </p>
+ </li>
+ <li>
+  <p>
+   You can implement vertical scaling to increase your virtual machine size to support larger demand without having to create extra virtual machines.
+  </p>
+ </li>
+</ul>
+<h3 id="things-to-know-about-horizontal-scaling">
+ Things to know about horizontal scaling
+</h3>
+<p>
+ Horizontal scaling, also referred to as
+ <em>
+  scale out and scale in
+ </em>
+ , is used to adjust the
+ <strong>
+  number
+ </strong>
+ of virtual machines in your configuration to support the changing workload. When you implement horizontal scaling, there's an increase (scale out) or decrease (scale in) in the number of virtual machine instances.
+</p>
+<p>
+ <img alt="Illustration that shows horizontal scaling where virtual machines are added to scale out the system to support the workload." data-linktype="relative-path" loading="lazy" src="../../../assets/horizontal-scaling-3e457e75_6b41f5f6.png"/>
+</p>
+<h3 id="things-to-consider-when-using-vertical-and-horizontal-scaling">
+ Things to consider when using vertical and horizontal scaling
+</h3>
+<p>
+ Review the following considerations regarding vertical and horizontal scaling. Think about which implementation might be required to support your company website.
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    Consider limitations
+   </strong>
+   . Generally speaking, horizontal scaling has fewer limitations than vertical scaling. A vertical scaling implementation depends on the availability of larger hardware, which quickly hits an upper limit and can vary by region. Vertical scaling also usually requires a virtual machine to stop and restart, which can temporarily limit access to applications or data.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider flexibility
+   </strong>
+   . When operating in the cloud, horizontal scaling is more flexible. A horizontal scaling implementation allows you to run potentially thousands of virtual machines to manage changes in workload and throughput.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider reprovisioning
+   </strong>
+   .
+   <em>
+    Reprovisioning
+   </em>
+   is the process of removing an existing virtual machine and replacing it with a new machine. A robust availability plan considers where reprovisioning might be required and plans for interruptions to service. If reprovisioning might be required, determine if any data needs to be maintained and migrated to the new machine.
+  </p>
+ </li>
+</ul>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Microsoft Entra ID P1 and P2 plans - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 5 Compare Azure Premium P1 P2 Plans</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/understand-azure-active-directory/5-compare-azure-premium-p1-p2-plans/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">https://learn.microsoft.com/en-us/training/modules/understand-azure-active-directory/5-compare-azure-premium-p1-p2-plans/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ The Microsoft Entra ID P1 or P2 tier provides extra functionality as compared to the Free and Office 365 editions. However, premium versions require additional cost per user provisioning. Microsoft Entra ID P1 or P2 comes in two versions P1 and P2. You can procure it as an extra license or as a part of the Microsoft Enterprise Mobility + Security, which also includes the license for Azure Information Protection and Intune.
+</p>
+<p>
+ Microsoft provides a free trial period that can be used to experience the full functionality of the Microsoft Entra ID P2 edition. The following features are available with the Microsoft Entra ID P1 edition:
+</p>
+<ul>
+ <li>
+  <strong>
+   Self-service group management
+  </strong>
+  . It simplifies the administration of groups where users are given the rights to create and manage the groups. End users can create requests to join other groups, and group owners can approve requests and maintain their groups’ memberships.
+ </li>
+ <li>
+  <strong>
+   Advanced security reports and alerts
+  </strong>
+  . You can monitor and protect access to your cloud applications by viewing detailed logs that show advanced anomalies and inconsistent access pattern reports. Advanced reports are machine learning based and can help you gain new insights to improve access security and respond to potential threats.
+ </li>
+ <li>
+  <strong>
+   Multi-factor authentication
+  </strong>
+  . Full multi-factor authentication (MFA) works with on-premises applications (using virtual private network [VPN], RADIUS, and others), Azure, Microsoft 365, Dynamics 365, and third-party Microsoft Entra gallery applications. It doesn't work with non-browser off-the-shelf apps, such as Microsoft Outlook. Full multi-factor authentication is covered in more detail in the following units in this lesson.
+ </li>
+ <li>
+  <strong>
+   Microsoft Identity Manager (MIM) licensing
+  </strong>
+  . MIM integrates with Microsoft Entra ID P1 or P2 to provide hybrid identity solutions. MIM can bridge multiple on-premises authentication stores such as AD DS, LDAP, Oracle, and other applications with Microsoft Entra ID. This provides consistent experiences to on-premises line-of-business (LOB) applications and SaaS solutions.
+ </li>
+ <li>
+  <strong>
+   Enterprise SLA of 99.9%
+  </strong>
+  . You're guaranteed at least 99.9% availability of the Microsoft Entra ID P1 or P2 service. The same SLA applies to Microsoft Entra Basic.
+ </li>
+ <li>
+  <strong>
+   Password reset with writeback
+  </strong>
+  . Self-service password reset follows the Active Directory on-premises password policy.
+ </li>
+ <li>
+  <strong>
+   Cloud App Discovery feature of Microsoft Entra ID
+  </strong>
+  . This feature discovers the most frequently used cloud-based applications.
+ </li>
+ <li>
+  <strong>
+   Conditional Access based on device, group, or location
+  </strong>
+  . This lets you configure conditional access for critical resources, based on several criteria.
+ </li>
+ <li>
+  <strong>
+   Microsoft Entra Connect Health
+  </strong>
+  . You can use this tool to gain operational insight into Microsoft Entra ID. It works with alerts, performance counters, usage patterns, and configuration settings, and presents the collected information in the Microsoft Entra Connect Health portal.
+ </li>
+</ul>
+<p>
+ In addition to these features, the Microsoft Entra ID P2 license provides extra functionalities:
+</p>
+<ul>
+ <li>
+  <strong>
+   Microsoft Entra ID Protection
+  </strong>
+  . This feature provides enhanced functionalities for monitoring and protecting user accounts. You can define user risk policies and sign-in policies. In addition, you can review users’ behavior and flag users for risk.
+ </li>
+ <li>
+  <strong>
+   Microsoft Entra Privileged Identity Management
+  </strong>
+  . This functionality lets you configure additional security levels for privileged users such as administrators. With Privileged Identity Management, you define permanent and temporary administrators. You also define a policy workflow that activates whenever someone wants to use administrative privileges to perform some task.
+ </li>
+</ul>
+<div class="alert is-info">
+ <p class="alert-title">
+  Note
+ </p>
+ <p>
+  Plans change frequently. Check Microsoft's website for the current plans and capabilities.
+ </p>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

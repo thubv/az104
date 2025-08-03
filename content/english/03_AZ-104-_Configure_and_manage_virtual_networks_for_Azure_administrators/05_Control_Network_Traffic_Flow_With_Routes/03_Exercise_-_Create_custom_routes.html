@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Create custom routes - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Create custom routes - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,48 +168,47 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Create custom routes</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/3-exercise-create-custom-routes/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Create custom routes</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/3-exercise-create-custom-routes/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/3-exercise-create-custom-routes/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   As you implement your security strategy, you want to control how network traffic is routed across your Azure infrastructure.
  </p>
- <p>
+<p>
   In the following exercise, you use a network virtual appliance (NVA) to help secure and monitor traffic. You want to ensure communication between front-end public servers and internal private servers is always routed through the appliance.
  </p>
- <p>
+<p>
   You configure the network so that all traffic flowing from a public subnet to a private subnet will be routed through the NVA. To make this flow happen, you create a custom route for the public subnet to route this traffic to a perimeter-network subnet. Later, you deploy an NVA to the perimeter-network subnet.
  </p>
- <p>
+<p>
   In this exercise, you create the route table, custom route, and subnets. You'll then associate the route table with a subnet.
  </p>
- <h2 id="create-a-route-table-and-custom-route">
+<h2 id="create-a-route-table-and-custom-route">
   Create a route table and custom route
  </h2>
- <p>
+<p>
   The first task is to create a new routing table and then add a custom route for all traffic intended for the private subnet.
  </p>
- <div class="alert is-info">
-  <p class="alert-title">
+<div class="alert is-info">
+<p class="alert-title">
    Note
   </p>
-  <p>
+<p>
    You might get an error that reads:
    <em>
     This command is implicitly deprecated
    </em>
    . Please ignore this error for this learning module. We're working on it!
   </p>
- </div>
- <ol>
-  <li>
-   <p>
+</div>
+<ol>
+<li>
+<p>
     In the Cloud Shell window on the right side of the screen, select the
     <strong>
      More
@@ -227,12 +227,12 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In Azure Cloud Shell, run the following command to create a route table:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network route-table create \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network route-table create \
         --name publictable \
         --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
         --disable-bgp-route-propagation false
@@ -241,12 +241,12 @@
         <span class="hljs-parameter">--resource-group</span> <span class="hljs-string">"[sandbox resource group name]"</span> \
         <span class="hljs-parameter">--disable-bgp-route-propagation</span> <span class="hljs-literal">false</span>
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command in Cloud Shell to create a custom route:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network route-table route create \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network route-table route create \
         --route-table-name publictable \
         --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
         --name productionsubnet \
@@ -261,12 +261,12 @@
         <span class="hljs-parameter">--next-hop-type</span> VirtualAppliance \
         <span class="hljs-parameter">--next-hop-ip-address</span> <span class="hljs-number">10.0.2.4</span>
 </span></code></pre>
-  </li>
- </ol>
- <h2 id="create-a-virtual-network-and-subnets">
+</li>
+</ol>
+<h2 id="create-a-virtual-network-and-subnets">
   Create a virtual network and subnets
  </h2>
- <p>
+<p>
   The next task is to create the
   <strong>
    vnet
@@ -285,9 +285,9 @@
   </strong>
   .
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Run the following command to create the
     <strong>
      vnet
@@ -298,7 +298,7 @@
     </strong>
     subnet:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network vnet create \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network vnet create \
         --name vnet \
         --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
         --address-prefixes 10.0.0.0/16 \
@@ -311,16 +311,16 @@
         <span class="hljs-parameter">--subnet-name</span> publicsubnet \
         <span class="hljs-parameter">--subnet-prefixes</span> <span class="hljs-number">10.0.0.0</span>/<span class="hljs-number">24</span>
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command in Cloud Shell to create the
     <strong>
      privatesubnet
     </strong>
     subnet:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network vnet subnet create \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network vnet subnet create \
         --name privatesubnet \
         --vnet-name vnet \
         --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
@@ -331,16 +331,16 @@
         <span class="hljs-parameter">--resource-group</span> <span class="hljs-string">"[sandbox resource group name]"</span> \
         <span class="hljs-parameter">--address-prefixes</span> <span class="hljs-number">10.0.1.0</span>/<span class="hljs-number">24</span>
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command to create the
     <strong>
      dmzsubnet
     </strong>
     subnet:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network vnet subnet create \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network vnet subnet create \
         --name dmzsubnet \
         --vnet-name vnet \
         --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
@@ -351,16 +351,16 @@
         <span class="hljs-parameter">--resource-group</span> <span class="hljs-string">"[sandbox resource group name]"</span> \
         <span class="hljs-parameter">--address-prefixes</span> <span class="hljs-number">10.0.2.0</span>/<span class="hljs-number">24</span>
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You should now have three subnets. Run the following command to show all of the subnets in the
     <strong>
      vnet
     </strong>
     virtual network:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network vnet subnet list \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='    az network vnet subnet list \
         --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
         --vnet-name vnet \
         --output table
@@ -369,22 +369,22 @@
         <span class="hljs-parameter">--vnet-name</span> vnet \
         <span class="hljs-parameter">--output</span> table
 </span></code></pre>
-  </li>
- </ol>
- <h2 id="associate-the-route-table-with-the-public-subnet">
+</li>
+</ol>
+<h2 id="associate-the-route-table-with-the-public-subnet">
   Associate the route table with the public subnet
  </h2>
- <p>
+<p>
   The final task in this exercise is to associate the route table with the
   <strong>
    publicsubnet
   </strong>
   subnet.
  </p>
- <p>
+<p>
   Run the following command to associate the route table with the public subnet.
  </p>
- <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='    az network vnet subnet update \
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='    az network vnet subnet update \
         --name publicsubnet \
         --vnet-name vnet \
         --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
@@ -396,13 +396,11 @@
         <span class="hljs-parameter">--route-table</span> publictable
 </span></code></pre>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

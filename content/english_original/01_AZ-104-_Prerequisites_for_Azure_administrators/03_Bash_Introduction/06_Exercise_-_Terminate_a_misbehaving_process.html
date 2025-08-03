@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Terminate a misbehaving process - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 5 Exercise Terminate Process</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/bash-introduction/5-exercise-terminate-process/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/bash-introduction/5-exercise-terminate-process/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ Computers are imperfect. Sooner or later, something
+ <em>
+  will
+ </em>
+ go wrong. That's why you have a job as a sysadmin; it's up to you to troubleshoot and fix system problems.
+</p>
+<p>
+ Imagine that a Python application is causing problems. Perhaps it's taking up too much CPU time, or maybe it stopped responding. In either case, you want to stop the application. To identify a process or application, you can use
+ <code>
+  ps
+ </code>
+ and
+ <code>
+  grep
+ </code>
+ . Then, to stop it, you can use the
+ <code>
+  kill
+ </code>
+ command. Let's practice this in your Linux virtual machine.
+</p>
+<h2 id="start-a-misbehaving-process">
+ Start a misbehaving process
+</h2>
+<p>
+ If you're going to kill a process, you need a process to kill. Let's create one.
+</p>
+<ol>
+ <li>
+  <p>
+   Get back to your home base by typing the following command:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-0">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd ~
+"><span><span class="hljs-built_in">cd</span> ~
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   In Azure Cloud Shell, enter the following command to start Linux's
+   <a data-linktype="external" href="https://wikipedia.org/wiki/Vi">
+    <code>
+     vi
+    </code>
+   </a>
+   editor:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-1">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="vi bad.py
+"><span>vi bad.py
+</span></code></pre>
+  <p>
+   <code>
+    vi
+   </code>
+   is a widely used text editor that Linux inherited from Unix. Love it or hate it, a Bash user needs to know the basics of
+   <code>
+    vi
+   </code>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    i
+   </strong>
+   key to put
+   <code>
+    vi
+   </code>
+   in insert mode. Then type in the following Python program:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-2">
+   <span class="language">
+    Python
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-python" data-author-content="i = 0
+while i == 0:
+    pass
+"><span>i = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> i == <span class="hljs-number">0</span>:
+    <span class="hljs-keyword">pass</span>
+</span></code></pre>
+  <p>
+   This program, when executed, runs in an infinite loop—clearly not something you want running on your server.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    Esc
+   </strong>
+   key to exit insert mode. Then type the following command followed by the
+   <strong>
+    Enter
+   </strong>
+   key to save the program and exit
+   <code>
+    vi
+   </code>
+   :
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-3">
+   <span class="language">
+    vim
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-vim" data-author-content=":wq
+"><span>:<span class="hljs-keyword">wq</span>
+</span></code></pre>
+  <p>
+   Be sure to include the colon at the beginning of the command. As for the remainder of the command,
+   <code>
+    w
+   </code>
+   stands for "write" and
+   <code>
+    q
+   </code>
+   stands for "quit."
+  </p>
+ </li>
+ <li>
+  <p>
+   Now use the following command to start the program and leave it running in the background:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-4">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="python3 bad.py &amp;
+"><span>python3 bad.py &amp;
+</span></code></pre>
+  <p>
+   Be sure to include the ampersand (
+   <code>
+    &amp;
+   </code>
+   ) at the end of the command. Otherwise, you won't return to the Bash prompt. In Bash, the ampersand runs a command and returns to the command line, even if the command hasn't finished running.
+  </p>
+ </li>
+</ol>
+<p>
+ It's not obvious, but
+ <strong>
+  bad.py
+ </strong>
+ is now running in the background and stealing CPU cycles from other processes. Let's take a close look at what's happening.
+</p>
+<h2 id="kill-the-process">
+ Kill the process
+</h2>
+<p>
+ To kill a process, you need the process name or process ID. This is a job for
+ <code>
+  ps
+ </code>
+ .
+</p>
+<ol>
+ <li>
+  <p>
+   To refresh your memory, a
+   <code>
+    ps -ef
+   </code>
+   command lists all running processes and displays a great deal of information about each. Use the following command to list all running processes and filter the results to lines that contain "python":
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-5">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef | grep python
+"><span>ps -ef | grep python
+</span></code></pre>
+  <p>
+   The results should look something like this:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-6">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content="yourname+    342    254 99 23:34 pts/1    00:00:31 python3 bad.py
+yourname+    344    254  0 23:35 pts/1    00:00:00 grep --color=auto python
+">yourname+    342    254 99 23:34 pts/1    00:00:31 python3 bad.py
+yourname+    344    254  0 23:35 pts/1    00:00:00 grep --color=auto python
+</code></pre>
+ </li>
+ <li>
+  <p>
+   From the listing, it appears that
+   <strong>
+    bad.py
+   </strong>
+   is consuming 99 percent of the server's CPU time. The program is living up to its name.
+  </p>
+  <p>
+   The
+   <code>
+    kill
+   </code>
+   command kills a running process based on its process ID. (A related command named
+   <code>
+    killall
+   </code>
+   kills a process based on the process name.) When you call
+   <code>
+    kill
+   </code>
+   , you have to decide what kind of "signal" to use to kill the process. Use the following command to display a list of signal types:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-7">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="kill -l
+"><span><span class="hljs-built_in">kill</span> -l
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   If you were killing a daemon process—one that runs in the background and provides vital services to the operating system—you might want to kill it and immediately restart it. To do that, you could use a
+   <code>
+    SIGHUP
+   </code>
+   signal.
+  </p>
+  <p>
+   In this example, you want to kill the process without restarting it. Therefore, you want to use the
+   <code>
+    SIGKILL
+   </code>
+   signal, which corresponds to the number 9. To that end, grab
+   <strong>
+    bad.py
+   </strong>
+   's process ID from the
+   <code>
+    ps -ef
+   </code>
+   output (it's in the second column) and use the following command to terminate the process. Replace
+   <code>
+    PROCESS_ID
+   </code>
+   with the process ID.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-8">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="kill -9 PROCESS_ID
+"><span><span class="hljs-built_in">kill</span> -9 PROCESS_ID
+</span></code></pre>
+  <p>
+   The same command can also be entered as
+   <code>
+    kill -s SIGKILL PROCESS_ID
+   </code>
+   . Whether you use a signal's name or number is up to you.
+  </p>
+ </li>
+ <li>
+  <p>
+   Finish by running
+   <code>
+    ps
+   </code>
+   again to confirm that
+   <strong>
+    bad.py
+   </strong>
+   is no longer running.
+  </p>
+ </li>
+</ol>
+<p>
+ Another common use for
+ <code>
+  ps
+ </code>
+ and
+ <code>
+  kill
+ </code>
+ is to identify and terminate "zombie processes," which are child processes left behind by poorly written programs.
+</p>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

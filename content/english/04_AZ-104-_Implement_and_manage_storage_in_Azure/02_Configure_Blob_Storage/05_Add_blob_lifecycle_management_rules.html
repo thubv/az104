@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add blob lifecycle management rules - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add blob lifecycle management rules - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,68 +168,67 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Add blob lifecycle management rules</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/5-add-blob-lifecycle-management-rules/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Add blob lifecycle management rules</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/5-add-blob-lifecycle-management-rules/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/5-add-blob-lifecycle-management-rules/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Every data set has a unique lifecycle. Early in the lifecycle, users tend to access some of the data in the set, but not all of the data. As the data set ages, access to all of the data in the set tends to dramatically reduce. Some data set stays idle in the cloud and is rarely accessed. Some data expires within a few days or months after creation. Other data is actively read and modified throughout the data set lifetime.
  </p>
- <p>
+<p>
   Azure Blob Storage supports
   <a data-linktype="absolute-path" href="/en-us/azure/storage/blobs/lifecycle-management-policy-configure">
    lifecycle management
   </a>
   for data sets. It offers a rich rule-based policy for GPv2 and Blob Storage accounts. You can use lifecycle policy rules to transition your data to the appropriate access tiers, and set expiration times for the end of a data set's lifecycle.
  </p>
- <h3 id="things-to-know-about-lifecycle-management">
+<h3 id="things-to-know-about-lifecycle-management">
   Things to know about lifecycle management
  </h3>
- <p>
+<p>
   You can use Azure Blob Storage lifecycle management policy rules to accomplish several tasks.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     Transition blobs to a cooler storage tier (Hot to Cool, Hot to Archive, Cool to Archive) to optimize for performance and cost.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Apply rules to an entire storage account, to select containers, or to a subset of blobs using name prefixes or blob index tags as filters.
    </p>
-  </li>
- </ul>
- <h4 id="business-scenario">
+</li>
+</ul>
+<h4 id="business-scenario">
   Business scenario
  </h4>
- <p>
+<p>
   Consider a scenario where data is frequently accessed in the early stages of the lifecycle, but only occasionally after two weeks. After the first month, the data set is rarely accessed. In this scenario, the Hot tier of Blob Storage is best during the early stages. Cool tier storage is most appropriate for occasional access. Archive tier storage is the best option after the data ages over a month. To achieve this transition, lifecycle management policy rules are available to move aging data to cooler tiers.
  </p>
- <h3 id="configure-lifecycle-management-policy-rules">
+<h3 id="configure-lifecycle-management-policy-rules">
   Configure lifecycle management policy rules
  </h3>
- <p>
+<p>
   In the Azure portal, you create lifecycle management policy rules for your Azure storage account by specifying several settings. For each rule, you create
   <strong>
    If - Then
   </strong>
   block conditions to transition or expire data based on your specifications. As you review these details, consider how you can set up lifecycle management policy rules for your data sets.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      If
     </strong>
     : The
@@ -249,18 +249,18 @@
     </strong>
     clause to set the time period to apply to the blob data. The lifecycle management feature checks if the data is accessed or modified according to the specified time.
    </p>
-   <ul>
-    <li>
-     <strong>
+<ul>
+<li>
+<strong>
       More than (days ago)
      </strong>
      : The number of days to use in the evaluation condition.
     </li>
-   </ul>
-  </li>
-  <li>
-   <p>
-    <strong>
+</ul>
+</li>
+<li>
+<p>
+<strong>
      Then
     </strong>
     : The
@@ -281,57 +281,55 @@
     </strong>
     clause to set the transition action for the blob data. The lifecycle management feature transitions the data based on the setting.
    </p>
-   <ul>
-    <li>
-     <strong>
+<ul>
+<li>
+<strong>
       Move to cool storage
      </strong>
      : The blob data is transitioned to Cool tier storage.
     </li>
-    <li>
-     <strong>
+<li>
+<strong>
       Move to cold storage
      </strong>
      : The blob data is transitioned to Cold tier storage.
     </li>
-    <li>
-     <strong>
+<li>
+<strong>
       Move to archive storage
      </strong>
      : The blob data is transitioned to Archive tier storage.
     </li>
-    <li>
-     <strong>
+<li>
+<strong>
       Delete the blob
      </strong>
      : The blob data is deleted.
     </li>
-   </ul>
-  </li>
- </ul>
- <p>
+</ul>
+</li>
+</ul>
+<p>
   By designing policy rules to adjust storage tiers in respect to the age of data, you can design the least expensive storage options for your needs.
  </p>
- <div class="alert is-success">
-  <p class="alert-title">
+<div class="alert is-success">
+<p class="alert-title">
    Tip
   </p>
-  <p>
+<p>
    Expand your knowledge in the
    <a data-linktype="absolute-path" href="/en-us/training/modules/manage-azure-blob-storage-lifecycle/">
     Manage the Azure Blob storage lifecycle
    </a>
    training module.
   </p>
- </div>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

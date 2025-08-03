@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create deployment slots - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 5 Create Deployment Slots</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/5-create-deployment-slots/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/5-create-deployment-slots/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ When you deploy your web app, web app on Linux, mobile backend, or API app to Azure App Service, you can use a separate deployment slot instead of the default production slot.
+</p>
+<div class="embeddedvideo">
+ <iframe allowfullscreen="true" data-linktype="external" frameborder="0" src="https://learn-video.azurefd.net/vod/player?id=f88e06a9-2871-4953-920e-3fcc1f618b64&amp;locale=en-us&amp;embedUrl=%2Ftraining%2Fmodules%2Fconfigure-azure-app-services%2F5-create-deployment-slots" title="Video Player">
+ </iframe>
+</div>
+<h3 id="things-to-know-about-deployment-slots">
+ Things to know about deployment slots
+</h3>
+<p>
+ Let's take a closer look at the characteristics of deployment slots.
+</p>
+<ul>
+ <li>
+  <p>
+   Deployment slots are live apps that have their own hostnames.
+  </p>
+ </li>
+ <li>
+  <p>
+   Deployment slots are available in the Standard, Premium, and Isolated App Service pricing tiers. Your app needs to be running in one of these tiers to use deployment slots.
+  </p>
+ </li>
+ <li>
+  <p>
+   The Standard, Premium, and Isolated tiers offer different numbers of deployment slots.
+  </p>
+ </li>
+ <li>
+  <p>
+   App content and configuration elements can be swapped between two deployment slots, including the production slot.
+  </p>
+ </li>
+</ul>
+<p>
+ <span class="mx-imgBorder">
+  <img alt="Screenshot that shows how to work with deployment slots in the Azure portal." data-linktype="relative-path" loading="lazy" src="../../../assets/deployment-slots-5b3660cc_d3ff5c81.png"/>
+ </span>
+</p>
+<h3 id="things-to-consider-when-using-deployment-slots">
+ Things to consider when using deployment slots
+</h3>
+<p>
+ There are several advantages to using deployment slots with your App Service app. Review the following benefits and think about how they can support your App Service implementation.
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    Consider validation
+   </strong>
+   . You can validate changes to your app in a staging deployment slot before swapping the app changes with the content in the production slot.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider reductions in downtime
+   </strong>
+   . Deploying an app to a slot first and swapping it into production ensures that all instances are ready. This option eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped because of swap operations. The entire workflow can be automated by configuring
+   <strong>
+    Auto swap
+   </strong>
+   when preswap validation isn't needed.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider restoring to last known good site
+   </strong>
+   . After a swap, the slot with the previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expected, you can perform the same swap immediately to return to your "last known good site."
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider Auto swap
+   </strong>
+   . Auto swap streamlines Azure Pipeline scenarios where you want to deploy your app continuously with zero cold starts and zero downtime for app customers. When Auto swap is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically swaps the app into production after it's warmed up in the source slot. Auto swap isn't currently supported for Web Apps on Linux.
+  </p>
+ </li>
+</ul>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

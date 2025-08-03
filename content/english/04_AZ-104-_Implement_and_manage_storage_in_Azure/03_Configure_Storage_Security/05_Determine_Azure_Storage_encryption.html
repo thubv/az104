@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Determine Azure Storage encryption - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Determine Azure Storage encryption - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,67 +168,66 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Determine Azure Storage encryption</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-storage-security/5-determine-storage-service-encryption/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Determine Azure Storage encryption</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-storage-security/5-determine-storage-service-encryption/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-storage-security/5-determine-storage-service-encryption/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Azure Storage encryption for data at rest protects your data by ensuring your organizational security and compliance commitments are met. The encryption and decryption processes happen automatically. Because your data is secured by default, you don't need to modify your code or applications.
  </p>
- <p>
+<p>
   When you create a storage account, Azure generates two 512-bit storage account access keys for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.
  </p>
- <p>
+<p>
   Microsoft recommends that you use Azure Key Vault to manage your access keys, and that you regularly rotate and regenerate your keys. Using Azure Key Vault makes it easy to rotate your keys without interruption to your applications. You can also manually rotate your keys.
  </p>
- <h3 id="things-to-know-about-azure-storage-encryption">
+<h3 id="things-to-know-about-azure-storage-encryption">
   Things to know about Azure Storage encryption
  </h3>
- <p>
+<p>
   Examine the following characteristics of Azure Storage encryption.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     Data is automatically encrypted before written to Azure storage.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Data is automatically decrypted when retrieved.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Azure Storage encryption, encryption at rest, decryption, and key management are transparent to users.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     All data written to Azure Storage is encrypted through 256-bit advanced encryption standard (AES) encryption. AES is one of the strongest block ciphers available.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Azure Storage encryption is enabled for all new and existing storage accounts and can't be disabled.
    </p>
-  </li>
- </ul>
- <h2 id="configure-azure-storage-encryption">
+</li>
+</ul>
+<h2 id="configure-azure-storage-encryption">
   Configure Azure Storage encryption
  </h2>
- <p>
+<p>
   In the Azure portal, you configure Azure Storage encryption by specifying the encryption type. You can manage the keys yourself, or you can have the keys managed by Microsoft. Consider how you might implement Azure Storage encryption for your storage security.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Infrastructure encryption
     </strong>
     .
@@ -236,32 +236,30 @@
     </a>
     can be enabled for the entire storage account, or for an encryption scope within an account. When infrastructure encryption is enabled for a storage account or an encryption scope, data is encrypted twice—once at the service level and once at the infrastructure level—with two different encryption algorithms and two different keys.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Platform-managed keys
     </strong>
     . Platform-managed keys (PMKs) are encryption keys generated, stored, and managed entirely by Azure. Customers don't interact with PMKs. The keys used for Azure Data Encryption-at-Rest, for instance, are PMKs by default.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Customer-managed keys
     </strong>
     . Customer managed keys (CMK), on the other hand, are keys read, created, deleted, updated, and/or administered by one or more customers. Keys stored in a customer-owned key vault or hardware security module (HSM) are CMKs. Bring Your Own Key (BYOK) is a CMK scenario in which a customer imports (brings) keys from an outside storage location. This topic is discussed in more detail on the next page.
    </p>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

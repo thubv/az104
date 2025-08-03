@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Describe the options available to create and manage an Azure Virtual Machine - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 4 Describe Other Create Vm Options</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/4-describe-other-create-vm-options/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/4-describe-other-create-vm-options/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ The Azure portal is the easiest way to create resources such as VMs when you're getting started. However, it's not necessarily the most efficient or quickest way to work with Azure, particularly if you need to create several resources together. In our case, we eventually create dozens of VMs to handle different tasks. Creating them manually in the Azure portal wouldn't be a fun task!
+</p>
+<p>
+ Let's look at some other ways to create and administer resources in Azure:
+</p>
+<ul>
+ <li>
+  Azure Resource Manager templates
+ </li>
+ <li>
+  Azure PowerShell
+ </li>
+ <li>
+  Azure CLI
+ </li>
+ <li>
+  Azure REST API
+ </li>
+ <li>
+  Azure Client SDK
+ </li>
+ <li>
+  Azure VM Extensions
+ </li>
+ <li>
+  Azure Automation Services
+ </li>
+</ul>
+<h2 id="resource-manager-templates">
+ Resource Manager templates
+</h2>
+<p>
+ Let's assume you want to create a copy of a VM with the same settings. You could create a VM image, upload it to Azure, and reference it as the basis for your new VM. This process is inefficient and time-consuming. Azure provides you with the option to create a template from which to create an exact copy of a VM.
+</p>
+<p>
+ <strong>
+  Resource Manager templates
+ </strong>
+ are JSON files that define the resources you need to deploy for your solution.
+</p>
+<p>
+ You can create a resource template for your VM. From the VM menu, under
+ <strong>
+  Automation
+ </strong>
+ select
+ <strong>
+  Export template
+ </strong>
+ .
+</p>
+<p>
+ <img alt="Screenshot showing Export template option for a VM." data-linktype="relative-path" loading="lazy" src="../../../assets/4-automation-script_149c77b6.png"/>
+</p>
+<div class="alert is-info">
+ <p class="alert-title">
+  Note
+ </p>
+ <p>
+  The policies for the resources included in the sandbox for this Learn module prevent you from being able to export the VM you just created; that said, an exported template is an easy-to-edit JSON file.
+You have the option to download or save a template for later use, or immediately deploy a new VM based on the template. For example, you might create a VM from a template in a test environment, and find it doesn’t quite work to replace your on-premises machine. You can delete the resource group, which deletes all of the resources, tweak the template, and try again. If you only want to make changes to the existing deployed resources, you can change the template used to create it, and redeploy it. Resource Manager will change the resources to match the new template.
+ </p>
+</div>
+<p>
+ After you have it working the way you want it, you can use that template to easily replicate multiple versions of your infrastructure, such as staging and production. You can parameterize fields such as the VM name, network name, storage account name, and so on, and load the template repeatedly, using different parameters to customize each environment.
+</p>
+<p>
+ For more information about using templates, see
+ <a data-linktype="absolute-path" href="/en-us/azure/virtual-machines/linux/quick-create-template">
+  Quickstart: Create an Ubuntu Linux virtual machine using an ARM template
+ </a>
+ .
+</p>
+<h2 id="azure-cli">
+ Azure CLI
+</h2>
+<p>
+ An option for scripting and command-line Azure interaction is the
+ <strong>
+  Azure CLI
+ </strong>
+ .
+</p>
+<p>
+ The Azure CLI is Microsoft's cross-platform command-line tool for managing Azure resources such as virtual machines and disks from the command line. It's available for Linux, macOS, Windows, or in a browser using the Cloud Shell.
+</p>
+<p>
+ For example, from the CLI, you can create an Azure VM with the
+ <code>
+  az vm create
+ </code>
+ command.
+</p>
+<div class="codeHeader" data-bi-name="code-header" id="code-try-0">
+ <span class="language">
+  Azure CLI
+ </span>
+</div>
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az vm create \
+    --resource-group TestResourceGroup \
+    --name test-wp1-eus-vm \
+    --image Ubuntu2204 \
+    --admin-username azureuser \
+    --generate-ssh-keys
+"><span><span class="hljs-keyword">az vm create </span>\
+    <span class="hljs-parameter">--resource-group</span> TestResourceGroup \
+    <span class="hljs-parameter">--name</span> test<span class="hljs-parameter">-wp</span>1<span class="hljs-parameter">-eus-vm</span> \
+    <span class="hljs-parameter">--image</span> Ubuntu2204 \
+    <span class="hljs-parameter">--admin-username</span> azureuser \
+    <span class="hljs-parameter">--generate-ssh-keys</span>
+</span></code></pre>
+<p>
+ The Azure CLI can be used with other scripting languages, like Ruby and Python.
+</p>
+<p>
+ Learn more about creating and managing VMs in the
+ <strong>
+  Manage virtual machines with the Azure CLI tool
+ </strong>
+ module.
+</p>
+<p>
+ For more information about using the Azure CLI to create VMs, see
+ <a data-linktype="absolute-path" href="/en-us/azure/virtual-machines/linux/quick-create-cli">
+  Quickstart: Create a Linux virtual machine using the CLI
+ </a>
+ .
+</p>
+<h2 id="azure-powershell">
+ Azure PowerShell
+</h2>
+<p>
+ <strong>
+  Azure PowerShell
+ </strong>
+ is ideal for one-off interactive tasks and/or the automation of repeated tasks.
+</p>
+<div class="alert is-info">
+ <p class="alert-title">
+  Note
+ </p>
+ <p>
+  PowerShell is a cross-platform shell that provides services like the shell window and command parsing. Azure PowerShell is an optional add-on package that adds the Azure-specific commands (referred to as
+  <strong>
+   cmdlets
+  </strong>
+  ). You can learn more about installing and using Azure PowerShell in a separate training module.
+ </p>
+</div>
+<p>
+ For example, you can use the
+ <code>
+  New-AzVM
+ </code>
+ cmdlet to create a new Debian-based Azure virtual machine.
+</p>
+<div class="codeHeader" data-bi-name="code-header" id="code-try-1">
+ <span class="language">
+  PowerShell
+ </span>
+</div>
+<pre class="has-inner-focus"><code class="lang-powershell" data-author-content='New-AzVm `
+    -ResourceGroupName "TestResourceGroup" `
+    -Name "test-wp1-eus-vm" `
+    -Location "East US" `
+    -Image Debian11 `
+    -VirtualNetworkName "test-wp1-eus-network" `
+    -SubnetName "default" `
+    -SecurityGroupName "test-wp1-eus-nsg" `
+    -PublicIpAddressName "test-wp1-eus-pubip" `
+    -GenerateSshKey `
+    -SshKeyName myPSKey
+    -OpenPorts 22
+'><span><span class="hljs-pscommand">New-AzVm</span> `
+   <span class="hljs-parameter"> -ResourceGroupName</span> <span class="hljs-string">"TestResourceGroup"</span> `
+   <span class="hljs-parameter"> -Name</span> <span class="hljs-string">"test-wp1-eus-vm"</span> `
+   <span class="hljs-parameter"> -Location</span> <span class="hljs-string">"East US"</span> `
+   <span class="hljs-parameter"> -Image</span> Debian11 `
+   <span class="hljs-parameter"> -VirtualNetworkName</span> <span class="hljs-string">"test-wp1-eus-network"</span> `
+   <span class="hljs-parameter"> -SubnetName</span> <span class="hljs-string">"default"</span> `
+   <span class="hljs-parameter"> -SecurityGroupName</span> <span class="hljs-string">"test-wp1-eus-nsg"</span> `
+   <span class="hljs-parameter"> -PublicIpAddressName</span> <span class="hljs-string">"test-wp1-eus-pubip"</span> `
+   <span class="hljs-parameter"> -GenerateSshKey</span> `
+   <span class="hljs-parameter"> -SshKeyName</span> myPSKey
+   <span class="hljs-parameter"> -OpenPorts</span> <span class="hljs-number">22</span>
+</span></code></pre>
+<p>
+ As shown here, you supply various parameters to handle the large number of VM configuration settings available. Most of the parameters have reasonable values; you only need to specify the required parameters. Learn more about creating and managing VMs with Azure PowerShell in the
+ <strong>
+  Automate Azure tasks using scripts with PowerShell
+ </strong>
+ module.
+</p>
+<p>
+ For more information about using PowerShell to create VMs, see
+ <a data-linktype="absolute-path" href="/en-us/azure/virtual-machines/linux/quick-create-powershell">
+  Quickstart: Create a Linux virtual machine using PowerShell
+ </a>
+ .
+</p>
+<h2 id="terraform">
+ Terraform
+</h2>
+<p>
+ Azure also has a Terraform provider, so you can easily use Terraform to create and manage your VMs. Terraform enables the definition, preview, and deployment of cloud infrastructure. Using Terraform, you create configuration files using HCL syntax. The HCL syntax allows you to specify the cloud provider - such as Azure - and the elements that make up your cloud infrastructure. After you create your configuration files, you create an execution plan that allows you to preview your infrastructure changes before they're deployed. Once you verify the changes, you apply the execution plan to deploy the infrastructure.
+</p>
+<p>
+ For more information, see the
+ <a data-linktype="external" href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs">
+  Azure Terraform Provider
+ </a>
+ and
+ <a data-linktype="absolute-path" href="/en-us/azure/virtual-machines/linux/quick-create-terraform">
+  Quickstart: Use Terraform to create a VM
+ </a>
+ .
+</p>
+<h2 id="programmatic-apis">
+ Programmatic (APIs)
+</h2>
+<p>
+ Generally speaking, both Azure PowerShell and Azure CLI are good options if you have simple scripts to run and want to stick to command-line tools. When it comes to more complex scenarios, where the creation and management of VMs form part of a larger application with complex logic, another approach is needed.
+</p>
+<p>
+ You can interact with every type of resource in Azure programmatically.
+</p>
+<h3 id="azure-rest-api">
+ Azure REST API
+</h3>
+<p>
+ The Azure REST API provides developers with operations categorized by resource and the ability to create and manage VMs. Operations are exposed as URIs with corresponding HTTP methods (
+ <code>
+  GET
+ </code>
+ ,
+ <code>
+  PUT
+ </code>
+ ,
+ <code>
+  POST
+ </code>
+ ,
+ <code>
+  DELETE
+ </code>
+ , and
+ <code>
+  PATCH
+ </code>
+ ) and a corresponding response.
+</p>
+<p>
+ The Azure Compute APIs give you programmatic access to virtual machines and their supporting resources.
+</p>
+<p>
+ For more information, see the
+ <a data-linktype="absolute-path" href="/en-us/rest/api/compute/virtual-machines">
+  Virtual Machines REST API reference
+ </a>
+ .
+</p>
+<h3 id="azure-client-sdk">
+ Azure Client SDK
+</h3>
+<p>
+ Even though the REST API is platform and language agnostic, most often developers look toward a higher level of abstraction. The Azure Client SDK encapsulates the Azure REST API, making it much easier for developers to interact with Azure.
+</p>
+<p>
+ The Azure Client SDKs are available for various languages and frameworks, including .NET-based languages such as C#, Java, Node.js, PHP, Python, Ruby, and Go.
+</p>
+<p>
+ Here's an example snippet of C# code to create an Azure VM using the
+ <code>
+  Microsoft.Azure.Management.Fluent
+ </code>
+ NuGet package.
+</p>
+<div class="codeHeader" data-bi-name="code-header" id="code-try-2">
+ <span class="language">
+  C#
+ </span>
+</div>
+<pre class="has-inner-focus"><code class="lang-csharp" data-author-content='var azure = Azure
+    .Configure()
+    .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
+    .Authenticate(credentials)
+    .WithDefaultSubscription();
+// ...
+var vmName = "test-wp1-eus-vm";
+
+azure.VirtualMachines.Define(vmName)
+    .WithRegion(Region.USEast)
+    .WithExistingResourceGroup("TestResourceGroup")
+    .WithExistingPrimaryNetworkInterface(networkInterface)
+    .WithLatestWindowsImage("MicrosoftWindowsServer", "WindowsServer", "2012-R2-Datacenter")
+    .WithAdminUsername("jonc")
+    .WithAdminPassword("aReallyGoodPasswordHere")
+    .WithComputerName(vmName)
+    .WithSize(VirtualMachineSizeTypes.StandardDS1)
+    .Create();
+'><span><span class="hljs-keyword">var</span> azure = Azure
+    .Configure()
+    .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
+    .Authenticate(credentials)
+    .WithDefaultSubscription();
+<span class="hljs-comment">// ...</span>
+<span class="hljs-keyword">var</span> vmName = <span class="hljs-string">"test-wp1-eus-vm"</span>;
+
+azure.VirtualMachines.Define(vmName)
+    .WithRegion(Region.USEast)
+    .WithExistingResourceGroup(<span class="hljs-string">"TestResourceGroup"</span>)
+    .WithExistingPrimaryNetworkInterface(networkInterface)
+    .WithLatestWindowsImage(<span class="hljs-string">"MicrosoftWindowsServer"</span>, <span class="hljs-string">"WindowsServer"</span>, <span class="hljs-string">"2012-R2-Datacenter"</span>)
+    .WithAdminUsername(<span class="hljs-string">"jonc"</span>)
+    .WithAdminPassword(<span class="hljs-string">"aReallyGoodPasswordHere"</span>)
+    .WithComputerName(vmName)
+    .WithSize(VirtualMachineSizeTypes.StandardDS1)
+    .Create();
+</span></code></pre>
+<p>
+ Here's the same snippet in Java using the
+ <strong>
+  Azure Java SDK
+ </strong>
+ .
+</p>
+<div class="codeHeader" data-bi-name="code-header" id="code-try-3">
+ <span class="language">
+  Java
+ </span>
+</div>
+<pre class="has-inner-focus"><code class="lang-java" data-author-content='String vmName = "test-wp1-eus-vm";
+// ...
+VirtualMachine virtualMachine = azure.virtualMachines()
+    .define(vmName)
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("TestResourceGroup")
+    .withExistingPrimaryNetworkInterface(networkInterface)
+    .withLatestWindowsImage("MicrosoftWindowsServer", "WindowsServer", "2012-R2-Datacenter")
+    .withAdminUsername("jonc")
+    .withAdminPassword("aReallyGoodPasswordHere")
+    .withComputerName(vmName)
+    .withSize("Standard_DS1")
+    .create();
+'><span>String vmName = <span class="hljs-string">"test-wp1-eus-vm"</span>;
+<span class="hljs-comment">// ...</span>
+VirtualMachine virtualMachine = azure.virtualMachines()
+    .define(vmName)
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup(<span class="hljs-string">"TestResourceGroup"</span>)
+    .withExistingPrimaryNetworkInterface(networkInterface)
+    .withLatestWindowsImage(<span class="hljs-string">"MicrosoftWindowsServer"</span>, <span class="hljs-string">"WindowsServer"</span>, <span class="hljs-string">"2012-R2-Datacenter"</span>)
+    .withAdminUsername(<span class="hljs-string">"jonc"</span>)
+    .withAdminPassword(<span class="hljs-string">"aReallyGoodPasswordHere"</span>)
+    .withComputerName(vmName)
+    .withSize(<span class="hljs-string">"Standard_DS1"</span>)
+    .create();
+</span></code></pre>
+<h2 id="azure-vm-extensions">
+ Azure VM extensions
+</h2>
+<p>
+ Let's assume you want to configure and install more software on your virtual machine after the initial deployment. You want this task to use a specific configuration, monitored and executed automatically.
+</p>
+<p>
+ <strong>
+  Azure VM extensions
+ </strong>
+ are small applications that enable you to configure and automate tasks on Azure VMs after initial deployment.
+</p>
+<p>
+ For more information, see
+ <a data-linktype="absolute-path" href="/en-us/azure/virtual-machines/extensions/overview">
+  Azure virtual machine extensions and features
+ </a>
+ .
+</p>
+<h2 id="azure-automation-services">
+ Azure Automation services
+</h2>
+<p>
+ Saving time, reducing errors, and increasing efficiency are some of the most significant operational management challenges faced when managing remote infrastructure. If you have numerous infrastructure services, you might want to consider using higher-level services in Azure to help you operate from a higher level.
+</p>
+<p>
+ <strong>
+  Azure Automation
+ </strong>
+ enables you to integrate services that allow you to automate frequent, time-consuming, and error-prone management tasks with ease. These services include
+ <strong>
+  process automation
+ </strong>
+ ,
+ <strong>
+  configuration management
+ </strong>
+ , and
+ <strong>
+  update management
+ </strong>
+ .
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    Process Automation
+   </strong>
+   . Let's assume you have a VM that is monitored for a specific error event. You want to take action, and fix the problem as soon as it's reported. Process automation enables you to set up watcher tasks that can respond to events that may occur in your datacenter.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Configuration Management
+   </strong>
+   .  Perhaps you want to track software updates that become available for the operating system that runs on your VM. There are specific updates you may want to include or exclude. Configuration management enables you to track these updates, and take action as required. You use
+   <strong>
+    Microsoft Endpoint Configuration Manager
+   </strong>
+   to manage your company's PC, servers, and mobile devices. You can extend this support to your Azure VMs with Configuration Manager.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Update Management
+   </strong>
+   . Use this service to manage updates and patches for your VMs. With this service, you're able to assess the status of available updates, schedule installation, and review deployment results to verify updates applied successfully. Update management incorporates services that provide process and configuration management. You enable update management for a VM directly from your
+   <strong>
+    Azure Automation
+   </strong>
+   account. You can also enable update management for a single virtual machine from the virtual machine pane in the portal.
+  </p>
+ </li>
+</ul>
+<h2 id="auto-shutdown">
+ Auto-shutdown
+</h2>
+<p>
+ Auto-shutdown is a feature in Azure that allows you to automatically shut down your VMs on a schedule. Use Auto-shutdown to save costs by ensuring that your VMs are not running when they aren't needed. You can set the schedule for auto-shutdown to occur daily or weekly, and you can also specify the time zone for the schedule.
+</p>
+<p>
+ To navigate to the Auto-shutdown feature in a VM in the Azure portal, go to the VM's blade in the portal, click on "Auto-shutdown" under the "Operations" section, and then configure the auto-shutdown settings according to your preferences.
+</p>
+<p>
+ <img alt="Screenshot showing Auto-shutdown option for a VM." data-linktype="relative-path" loading="lazy" src="../../../assets/4-auto-shutdown-option_d6be6b79.png"/>
+</p>
+<p>
+ For more information, see
+ <a data-linktype="absolute-path" href="/en-us/azure/virtual-machines/auto-shutdown-vm">
+  Auto-shutdown
+ </a>
+ .
+</p>
+<p>
+ As you can see, Azure provides various tools to create and administer resources so that you can integrate management operations into a process
+ <em>
+  that works for you
+ </em>
+ . Let's examine some of the other Azure services to make sure your infrastructure resources are running smoothly.
+</p>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

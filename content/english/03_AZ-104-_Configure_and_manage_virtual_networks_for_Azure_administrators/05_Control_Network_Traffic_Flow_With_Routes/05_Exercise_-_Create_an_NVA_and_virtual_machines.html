@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Create an NVA and virtual machines - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Create an NVA and virtual machines - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,22 +168,21 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Create an NVA and virtual machines</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/5-exercise-create-nva-vm/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Create an NVA and virtual machines</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/5-exercise-create-nva-vm/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/5-exercise-create-nva-vm/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   In the next stage of your security implementation, you'll deploy a network virtual appliance (NVA) to secure and monitor traffic between your front-end public servers and internal private servers.
  </p>
- <p>
+<p>
   First, configure the appliance to forward IP traffic. If IP forwarding isn't enabled, traffic that is routed through your appliance will never be received by its intended destination servers.
  </p>
- <p>
+<p>
   In this exercise, you deploy the
   <strong>
    nva
@@ -193,28 +193,28 @@
   </strong>
   subnet. Then you enable IP forwarding so that traffic from
   <strong>
-   <code>
+<code>
     *
    </code>
-  </strong>
+</strong>
   and traffic that uses the custom route is sent to the
   <strong>
    privatesubnet
   </strong>
   subnet.
  </p>
- <p>
+<p>
   In the following steps, you'll deploy an NVA. You'll then update the Azure virtual NIC and the network settings within the appliance to enable IP forwarding.
  </p>
- <h2 id="deploy-the-network-virtual-appliance">
+<h2 id="deploy-the-network-virtual-appliance">
   Deploy the network virtual appliance
  </h2>
- <p>
+<p>
   To build the NVA, deploy an Ubuntu LTS instance.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In Cloud Shell, run the following command to deploy the appliance. Replace
     <code>
      &lt;password&gt;
@@ -225,7 +225,7 @@
     </strong>
     admin account.
    </p>
-   <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az vm create \
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az vm create \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --name nva \
     --vnet-name vnet \
@@ -242,24 +242,24 @@
     <span class="hljs-parameter">--admin-username</span> azureuser \
     <span class="hljs-parameter">--admin-password</span> <span class="hljs-string">&lt;password&gt;</span>
 </span></code></pre>
-  </li>
- </ol>
- <h2 id="enable-ip-forwarding-for-the-azure-network-interface">
+</li>
+</ol>
+<h2 id="enable-ip-forwarding-for-the-azure-network-interface">
   Enable IP forwarding for the Azure network interface
  </h2>
- <p>
+<p>
   In the next steps, you enable IP forwarding for the
   <strong>
    nva
   </strong>
   network appliance. When traffic flows to the NVA but is meant for another target, the NVA will route that traffic to its correct destination.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Run the following command to get the NVA network interface's ID:
    </p>
-   <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='NICID=$(az vm nic list \
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='NICID=$(az vm nic list \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --vm-name nva \
     --query "[].{id:id}" --output tsv)
@@ -272,12 +272,12 @@ echo $NICID
 
 echo <span class="hljs-variable">$NICID</span>
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command to get the NVA network interface's name:
    </p>
-   <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='NICNAME=$(az vm nic show \
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='NICNAME=$(az vm nic show \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --vm-name nva \
     --nic $NICID \
@@ -292,33 +292,33 @@ echo $NICNAME
 
 echo <span class="hljs-variable">$NICNAME</span>
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command to enable IP forwarding for the network interface:
    </p>
-   <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az network nic update --name $NICNAME \
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az network nic update --name $NICNAME \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --ip-forwarding true
 '><span><span class="hljs-keyword">az network nic update </span><span class="hljs-parameter">--name</span> <span class="hljs-variable">$NICNAME</span> \
     <span class="hljs-parameter">--resource-group</span> <span class="hljs-string">"[sandbox resource group name]"</span> \
     <span class="hljs-parameter">--ip-forwarding</span> <span class="hljs-literal">true</span>
 </span></code></pre>
-  </li>
- </ol>
- <h2 id="enable-ip-forwarding-in-the-appliance">
+</li>
+</ol>
+<h2 id="enable-ip-forwarding-in-the-appliance">
   Enable IP forwarding in the appliance
  </h2>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Run the following command to save the NVA virtual machine's public IP address to the variable
     <code>
      NVAIP
     </code>
     :
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='NVAIP="$(az vm list-ip-addresses \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='NVAIP="$(az vm list-ip-addresses \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --name nva \
     --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" \
@@ -333,27 +333,25 @@ echo $NVAIP
 
 echo <span class="hljs-variable">$NVAIP</span>
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command to enable IP forwarding within the NVA:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="ssh -t -o StrictHostKeyChecking=no azureuser@$NVAIP 'sudo sysctl -w net.ipv4.ip_forward=1; exit;'
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="ssh -t -o StrictHostKeyChecking=no azureuser@$NVAIP 'sudo sysctl -w net.ipv4.ip_forward=1; exit;'
 "><span>ssh -t -o StrictHostKeyChecking=no azureuser@<span class="hljs-variable">$NVAIP</span> <span class="hljs-string">'sudo sysctl -w net.ipv4.ip_forward=1; exit;'</span>
 </span></code></pre>
-   <p>
+<p>
     When prompted, enter the password you used when you created the virtual machine.
    </p>
-  </li>
- </ol>
+</li>
+</ol>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

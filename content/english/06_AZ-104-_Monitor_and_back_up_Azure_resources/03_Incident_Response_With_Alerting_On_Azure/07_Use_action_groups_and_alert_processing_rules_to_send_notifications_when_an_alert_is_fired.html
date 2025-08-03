@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use action groups and alert processing rules to send notifications when an alert is fired - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Use action groups and alert processing rules to send notifications when an alert is fired - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,94 +168,91 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Use action groups and alert processing rules to send notifications when an alert is fired</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/7-actions-and-alert-processing-rules/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Use action groups and alert processing rules to send notifications when an alert is fired</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/7-actions-and-alert-processing-rules/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/7-actions-and-alert-processing-rules/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Azure Monitor, Azure Service Health, and Azure Advisor use
   <em>
    action groups
   </em>
   to notify users about the alert, and to take an action when an alert is fired. An action group is a collection of notification preferences and actions that are executed when the alert is fired. You can run one or more actions for each triggered alert.
  </p>
- <p>
+<p>
   Azure Monitor can perform any of the following actions:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Send an email
   </li>
-  <li>
+<li>
    Send a Short Message Service (SMS) message
   </li>
-  <li>
+<li>
    Create an Azure app push notification
   </li>
-  <li>
+<li>
    Make a voice call to a number
   </li>
-  <li>
+<li>
    Call an Azure function
   </li>
-  <li>
+<li>
    Trigger a logic app
   </li>
-  <li>
+<li>
    Send a notification to a webhook
   </li>
-  <li>
+<li>
    Create an IT Service Management (ITSM) ticket
   </li>
-  <li>
+<li>
    Use a runbook (to restart a virtual machine (VM) or scale a VM up or down)
   </li>
- </ul>
- <p>
+</ul>
+<p>
   Once you create an action group, you can reuse that action group as often as you want. For example, after you create an action to email your company's operations team, you can add that action group to all service-health events.
  </p>
- <p>
+<p>
   While you're creating the alert rule, you can either create a new action group or add an existing action group to the alert rule. You can also edit an existing alert to add an action group.
  </p>
- <h2 id="alert-processing-rules">
+<h2 id="alert-processing-rules">
   Alert processing rules
  </h2>
- <p>
+<p>
   Use alert processing rules to override the normal behavior of a fired alert by adding or suppressing an action group. You can use alert processing rules to add action groups or remove (suppress) action groups from your fired alerts. Alert processing rules are different from alert rules. Alert rules trigger alerts when a condition is met in your monitored resources. Alert processing rules modify the alerts as they're being fired.
  </p>
- <p>
+<p>
   You can use alert processing rules to:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Suppress notifications during planned maintenance windows.
   </li>
-  <li>
+<li>
    Implement management at scale, by specifying commonly used logic in a single rule, instead of having to set it consistently in all your alert rules.
   </li>
-  <li>
+<li>
    Add an action group to all alert types.
   </li>
- </ul>
- <p>
+</ul>
+<p>
   You can apply alert processing rules to different resource scopes, from a single resource, or to an entire subscription. You can also use them to apply various filters or have the rule work on a predefined schedule.
  </p>
- <p>
+<p>
   You can control when the alert processing rule applies. By default the rule is always active. But, you can select a one-time window for this rule to apply, or you can set a recurrence such as a weekly recurrence.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

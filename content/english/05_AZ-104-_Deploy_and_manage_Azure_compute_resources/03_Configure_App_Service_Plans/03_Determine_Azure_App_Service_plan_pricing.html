@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Determine Azure App Service plan pricing - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Determine Azure App Service plan pricing - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,268 +168,265 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Determine Azure App Service plan pricing</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/3-determine-plan-pricing/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Determine Azure App Service plan pricing</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/3-determine-plan-pricing/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/3-determine-plan-pricing/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   The pricing tier of an Azure App Service plan determines what App Service features you get and how much you pay for the plan. Pricing tier examples are: Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, Isolated, and IsolatedV2.
  </p>
- <h2 id="how-applications-run-and-scale-in-app-service-plans">
+<h2 id="how-applications-run-and-scale-in-app-service-plans">
   How applications run and scale in App Service plans
  </h2>
- <p>
+<p>
   The Azure App Service plan is the scale unit of App Service applications. Depending on the pricing tier for your Azure App Service plan, your applications run and scale in a different manner. If your plan is configured to run five virtual machine instances, then all applications in the plan run on all five instances. If your plan is configured for autoscaling, then all applications in the plan are scaled out together based on the autoscale settings.
  </p>
- <p>
+<p>
   The pricing tiers are grouped into three categories:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Shared compute
    </strong>
    :
    <ul>
-    <li>
+<li>
      Free and Shared, the two base tiers, run an app on the same Azure VM as other App Service apps, including apps of other customers.
     </li>
-    <li>
+<li>
      These tiers allocate CPU quotas to each app that runs on the shared resources, and the resources can't scale out.
     </li>
-    <li>
+<li>
      These tiers are intended to be used only for development and testing purposes.
     </li>
-   </ul>
-  </li>
-  <li>
-   <strong>
+</ul>
+</li>
+<li>
+<strong>
     Dedicated compute
    </strong>
    :
    <ul>
-    <li>
+<li>
      The Basic, Standard, Premium, PremiumV2, and PremiumV3 tiers run apps on dedicated Azure VMs.
     </li>
-    <li>
+<li>
      Only apps in the same App Service plan have the same compute resources. The higher the tier, the more VM instances that are available to you for scale-out.
     </li>
-   </ul>
-  </li>
-  <li>
-   <strong>
+</ul>
+</li>
+<li>
+<strong>
     Isolated
    </strong>
    :
    <ul>
-    <li>
+<li>
      The Isolated and IsolatedV2 tiers run dedicated Azure VMs on dedicated Azure virtual networks.
     </li>
-    <li>
+<li>
      This tier provides network isolation on top of compute isolation to your apps.
     </li>
-    <li>
+<li>
      This tier provides the maximum scale-out capabilities.
     </li>
-   </ul>
-  </li>
- </ul>
- <p>
+</ul>
+</li>
+</ul>
+<p>
   Here's a sample of different
   <a data-linktype="absolute-path" href="/en-us/azure/app-service/overview-hosting-plans">
    plan details
   </a>
   .
  </p>
- <div class="has-inner-focus">
-  <table aria-label="How applications run and scale in App Service plans" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="How applications run and scale in App Service plans" class="table">
+<thead>
+<tr>
+<th>
       Feature
      </th>
-     <th>
+<th>
       Free F1
      </th>
-     <th>
+<th>
       Basic B1
      </th>
-     <th>
+<th>
       Standard S1
      </th>
-     <th>
+<th>
       Premium P1V3
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
       Usage
      </td>
-     <td>
+<td>
       Development, Testing
      </td>
-     <td>
+<td>
       Development, Testing
      </td>
-     <td>
+<td>
       Production workloads
      </td>
-     <td>
+<td>
       Enhanced scale, performance
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Staging slots
      </td>
-     <td>
+<td>
       N/A
      </td>
-     <td>
+<td>
       N/A
      </td>
-     <td>
+<td>
       5
      </td>
-     <td>
+<td>
       20
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Auto scale
      </td>
-     <td>
+<td>
       N/A
      </td>
-     <td>
+<td>
       Manual
      </td>
-     <td>
+<td>
       Rules
      </td>
-     <td>
+<td>
       Rules, Elastic
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Scale instances
      </td>
-     <td>
+<td>
       N/A
      </td>
-     <td>
+<td>
       3
      </td>
-     <td>
+<td>
       10
      </td>
-     <td>
+<td>
       30
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Daily backups
      </td>
-     <td>
+<td>
       N/A
      </td>
-     <td>
+<td>
       N/A
      </td>
-     <td>
+<td>
       10
      </td>
-     <td>
+<td>
       50
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <h3 id="free-and-shared">
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="free-and-shared">
   Free and Shared
  </h3>
- <p>
+<p>
   The Free and Shared service plans are base tiers that run on the same Azure virtual machines as other applications. Some applications might belong to other customers. These tiers are intended to be used for development and testing purposes only. No SLA is provided for the Free and Shared service plans. Free and Shared plans are metered on a per application basis.
  </p>
- <h3 id="basic">
+<h3 id="basic">
   Basic
  </h3>
- <p>
+<p>
   The Basic service plan is designed for applications that have lower traffic requirements, and don't need advanced auto scale and traffic management features. Pricing is based on the size and number of instances you run. Built-in network load-balancing support automatically distributes traffic across instances. The Basic service plan with Linux runtime environments supports Web App for Containers.
  </p>
- <h3 id="standard">
+<h3 id="standard">
   Standard
  </h3>
- <p>
+<p>
   The Standard service plan is designed for running production workloads. Pricing is based on the size and number of instances you run. Built-in network load-balancing support automatically distributes traffic across instances. The Standard plan includes auto scale that can automatically adjust the number of virtual machine instances running to match your traffic needs. The Standard service plan with Linux runtime environments supports Web App for Containers.
  </p>
- <h3 id="premium">
+<h3 id="premium">
   Premium
  </h3>
- <p>
+<p>
   The Premium service plan is designed to provide enhanced performance for production applications. The upgraded Premium plan, Premium v2, offers Dv2-series virtual machines with faster processors, SSD storage, and double memory-to-core ratio compared to the Standard tier. The new Premium plan also supports higher scale via increased instance count while still providing all the advanced capabilities of the Standard tier. The first generation of Premium plan is still available to support existing customer scaling needs.
  </p>
- <h3 id="isolated">
+<h3 id="isolated">
   Isolated
  </h3>
- <p>
+<p>
   The Isolated service plan is designed to run mission critical workloads that are required to run in a virtual network. The Isolated plan allows customers to run their applications in a private, dedicated environment in an Azure datacenter. The plan offers Dv2-series virtual machines with faster processors, SSD storage, and a double memory-to-core ratio compared to the Standard tier. The private environment used with an Isolated plan is called the App Service Environment. The plan can scale to 100 instances with more available upon request.
  </p>
- <h2 id="task-to-be-done-select-an-app-service-plan">
+<h2 id="task-to-be-done-select-an-app-service-plan">
   Task to be done: Select an App Service plan
  </h2>
- <p>
+<p>
   You can view the available App Service plans in the Azure portal. You can make your choice based on hardware or feature requirements. Hardware considerations include CPU, memory, and scaling instances. Feature considerations include backups, staging slots, and zone redundancy.
  </p>
- <div class="alert is-success">
-  <p class="alert-title">
+<div class="alert is-success">
+<p class="alert-title">
    Tip
   </p>
-  <p>
+<p>
    When selecting a service plan, consider both hardware and feature requirements.
   </p>
- </div>
- <ol>
-  <li>
+</div>
+<ol>
+<li>
    In the Azure portal search for and select
    <strong>
     App Service plans
    </strong>
    .
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Create
    </strong>
    a new App Service plan.
   </li>
-  <li>
+<li>
    Select
    <strong>
     Explore pricing plans
    </strong>
    to view the available plans.
   </li>
- </ol>
+</ol>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

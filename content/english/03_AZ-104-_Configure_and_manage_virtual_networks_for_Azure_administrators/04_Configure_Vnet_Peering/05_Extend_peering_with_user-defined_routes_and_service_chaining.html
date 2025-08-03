@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extend peering with user-defined routes and service chaining - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Extend peering with user-defined routes and service chaining - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,91 +168,88 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Extend peering with user-defined routes and service chaining</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/5-determine-service-chaining-uses/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Extend peering with user-defined routes and service chaining</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/5-determine-service-chaining-uses/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/5-determine-service-chaining-uses/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Virtual network peering is nontransitive. The communication capabilities in a peering are available to only the virtual networks and resources in the peering. Other mechanisms have to be used to enable traffic to and from resources and networks outside the private peering network.
  </p>
- <p>
+<p>
   Suppose you have three virtual networks: A, B, and C. You establish virtual network peering between networks A and B, and also between networks B and C. You don't set up peering between networks A and C. The virtual network peering capabilities that you set up between networks B and C don't automatically enable peering communication capabilities between networks A and C.
  </p>
- <h3 id="things-to-know-about-extending-peering">
+<h3 id="things-to-know-about-extending-peering">
   Things to know about extending peering
  </h3>
- <p>
+<p>
   There are a few ways to extend the capabilities of your peering for resources and virtual networks outside your peering network.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Things to know about extending peering" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Things to know about extending peering" class="table">
+<thead>
+<tr>
+<th>
       Mechanism
      </th>
-     <th>
+<th>
       Description
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
-      <strong>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
        Hub and spoke network
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       When you deploy a hub-and-spoke network, the hub virtual network can host infrastructure components like a network virtual appliance (NVA) or Azure VPN gateway. All the spoke virtual networks can then peer with the hub virtual network. Traffic can flow through NVAs or VPN gateways in the hub virtual network.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        User-defined route (UDR)
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Virtual network peering enables the next hop in a
       <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined">
        user-defined route
       </a>
       to be the IP address of a virtual machine in the peered virtual network, or a VPN gateway.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Service chaining
       </strong>
-     </td>
-     <td>
-      <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/virtual-network-peering-overview#service-chaining">
+</td>
+<td>
+<a data-linktype="absolute-path" href="/en-us/azure/virtual-network/virtual-network-peering-overview#service-chaining">
        Service chaining
       </a>
       is used to direct traffic from one virtual network to a virtual appliance or gateway. To enable service chaining, configure UDRs that point to virtual machines in peered virtual networks as the next hop IP address. UDRs could also point to virtual network gateways to enable service chaining.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <p>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
   The following diagram shows a hub and spoke virtual network with an NVA and VPN gateway. The hub and spoke network is accessible to other virtual networks via user-defined routes and service chaining.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

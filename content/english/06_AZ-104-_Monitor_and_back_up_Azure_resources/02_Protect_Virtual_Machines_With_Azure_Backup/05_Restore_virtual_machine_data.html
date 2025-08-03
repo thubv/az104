@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restore virtual machine data - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restore virtual machine data - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,96 +168,95 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Restore virtual machine data</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/5-restore-virtual-machine-data/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Restore virtual machine data</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/5-restore-virtual-machine-data/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/5-restore-virtual-machine-data/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Companies that have a business continuity and disaster recovery (BCDR) plan typically schedule test runs to ensure that the business can successfully recover from disasters. Now that you successfully backed up your virtual machines, you want to explore the options available for restoring them as part of your BCDR testing.
  </p>
- <p>
+<p>
   In this unit, you learn about the options for restoring an Azure virtual machine (VM) from a previous backup.
  </p>
- <h2 id="restore-types">
+<h2 id="restore-types">
   Restore types
  </h2>
- <p>
+<p>
   Azure Backup provides many ways to restore a VM. As explained earlier, you can either instantly restore from the snapshot tier (optimal for operational recoveries) or from the vault tier.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Restore types" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Restore types" class="table">
+<thead>
+<tr>
+<th>
       Restore option
      </th>
-     <th>
+<th>
       Details
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
-      <strong>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
        Create a new VM
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Quickly creates and gets a basic VM up and running from a restore point. The new VM must be created in the same region as the source VM.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Restore disk
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Restores a VM disk, which can then be used to create a new VM. The disks are copied to the resource group you specify. Azure Backup provides a template to help you customize and create a VM. Alternatively, you can attach the disk to an existing VM, or create a new VM.
            This option is useful if you want to customize the VM, add configuration settings that weren't there at the time of backup. Or, add settings that must be configured using the template or PowerShell.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Replace existing
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       You can restore a disk and use it to replace a disk on the existing VM. Azure Backup takes a snapshot of the existing VM before replacing the disk and stores it in the staging location you specify. Existing disks connected to the VM are replaced with the selected restore point. The current VM must exist. You can't use this option if the VM is deleted.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Cross region (secondary region)
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Cross region restore can be used to restore Azure VMs in the secondary region, which is an Azure paired region.
            This feature is available for the following options:
       <li>
        Create a VM
       </li>
-      <li>
+<li>
        Restore Disks
             We don't currently support the Replace existing disks option.
       </li>
-     </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</td>
+</tr>
+<tr>
+<td>
+<strong>
        Cross Subscription Restore
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Backup Admins and App admins can perform the restore operation on secondary regions.
            Cross Subscription Restore:
            - Allows you to restore Azure Virtual Machines or disks to a different subscription within the same tenant as the source subscription. As per the Azure role-based access control capabilities from restore points.
@@ -267,14 +267,14 @@
            - It's unsupported for snapshots tier recovery points.
            - It's unsupported for unmanaged VMs and VMs encrypted with Advanced Digital Encryption (ADE).
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Cross Zonal Restore
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Allows you to restore Azure Virtual Machines or disks pinned to any zone to different available zones (as per the Azure Role-based access control capabilities) from restore points. When you select a zone to restore, it selects the logical zone (and not the physical zone) as per the Azure subscription you use to restore to.
            - You can trigger Cross Zonal Restore for managed virtual machines only.
            - Cross Zonal Restore is supported for Restore with Managed System Identities (MSI).
@@ -284,65 +284,63 @@
            - It's unsupported from snapshots restore point.
            - It's unsupported for Encrypted Azure VMs.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Selective disk backup
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Allows you to back up and restore selective VM disks through Enhanced policy. Using this capability, you can selectively back up a subset of the data disks that are attached to your VM. Then, you can restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier.
            Selective disk backup is useful when you:
            - Manage critical data in a subset of the VM disks.
            - Use database backup solutions and want to back up only their OS disk to reduce cost.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <h2 id="recover-files-from-a-backup">
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="recover-files-from-a-backup">
   Recover files from a backup
  </h2>
- <p>
+<p>
   You can also recover individual files from a recovery point by mounting the snapshot on the target machine using the iSCSI initiator in the machine. To learn more, see
   <a data-linktype="absolute-path" href="/en-us/azure/backup/backup-azure-restore-files-from-vm">
    Recover files from Azure virtual machine backup
   </a>
   .
  </p>
- <h2 id="restore-an-encrypted-virtual-machine">
+<h2 id="restore-an-encrypted-virtual-machine">
   Restore an encrypted virtual machine
  </h2>
- <p>
+<p>
   Azure Backup supports the backup and restore of machines encrypted through Azure Disk Encryption. Disk Encryption works with Azure Key Vault to manage the relevant secrets that are associated with the encrypted disk. For an extra layer of security, you can use key vault encryption keys (KEKs) to encrypt the secrets before they're written to the key vault.
  </p>
- <p>
+<p>
   Certain limitations apply when you restore encrypted VMs:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Azure Backup supports only standalone key encryption. Any key that's part of a certificate isn't currently supported.
   </li>
-  <li>
+<li>
    File-level or folder-level restores aren't supported with encrypted VMs. To restore to that level of granularity, the entire VM has to be restored. You can then manually copy the file or folders.
   </li>
-  <li>
+<li>
    The
    <strong>
     Replace existing VM
    </strong>
    option isn't available for encrypted VMs.
   </li>
- </ul>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

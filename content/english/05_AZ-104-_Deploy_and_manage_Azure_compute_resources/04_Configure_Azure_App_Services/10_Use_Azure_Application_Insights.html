@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use Azure Application Insights - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Use Azure Application Insights - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,154 +168,151 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Use Azure Application Insights</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/10-use-application-insights/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
-  <a data-linktype="absolute-path" href="/en-us/azure/azure-monitor/app/app-insights-overview">
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Use Azure Application Insights</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/10-use-application-insights/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/10-use-application-insights/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
+<a data-linktype="absolute-path" href="/en-us/azure/azure-monitor/app/app-insights-overview">
    Azure Application Insights
   </a>
   is a feature of Azure Monitor that lets you monitor your live applications. You can integrate Application Insights with your App Service configure to automatically detect performance anomalies in your apps.
  </p>
- <p>
+<p>
   Application Insights is designed to help you continuously improve the performance and usability of your apps. The feature offers powerful analytics tools to help you diagnose issues and understand what users actually do with your apps.
  </p>
- <h3 id="things-to-know-about-application-insights">
+<h3 id="things-to-know-about-application-insights">
   Things to know about Application Insights
  </h3>
- <p>
+<p>
   Let's examine some characteristics of Application Insights for Azure Monitor.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     Application Insights works on various platforms including .NET, Node.js, and Java EE.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     The feature can be used for configurations that are hosted on-premises, in a hybrid environment, or in any public cloud.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Application Insights integrates with your Azure Pipeline processes, and has connection points to many development tools.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You can monitor and analyze data from mobile apps by integrating with Visual Studio App Center.
    </p>
-  </li>
- </ul>
- <h3 id="things-to-consider-when-using-application-insights">
+</li>
+</ul>
+<h3 id="things-to-consider-when-using-application-insights">
   Things to consider when using Application Insights
  </h3>
- <p>
+<p>
   Application Insights is ideal for supporting your development team. The feature helps developers understand how your app is performing and how it's being used. Consider monitoring the following items in your App Service configuration scenario.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Consider Request rates, response times, and failure rates
     </strong>
     . Find out which pages are most popular, at what times of day, and where your users are. See which pages perform best. If your response times and failure rates go high when there are more requests, then perhaps you have a resourcing problem.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider Dependency rates, response times, and failure rates
     </strong>
     . Use Application Insights to discover if external services are degrading your app performance.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider Exceptions
     </strong>
     . Analyze the aggregated statistics, or pick specific instances and drill into the stack trace and related requests. Both server and browser exceptions are reported.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider Page views and load performance
     </strong>
     . Collect the number of page views reported by your users' browsers and analyze the load performance.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider User and session counts
     </strong>
     . Application Insights can help you keep track of the number of users and sessions connected to your app.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider Performance counters
     </strong>
     . Add Application Insights performance counters from your Windows or Linux server machines. Monitor performance output for the CPU, memory, network usage, and so on.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider Host diagnostics
     </strong>
     . Integrate diagnostics from Docker or Azure into your app Application Insights.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider Diagnostic trace logs
     </strong>
     . Implement trace logs from your app to help correlate trace events with requests and diagnose issues.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider Custom events and metrics
     </strong>
     . Write your own custom events and metric tracking algorithms as client or server code. Track business events such as number of items sold, or number of games won.
    </p>
-  </li>
- </ul>
- <div class="alert is-success">
-  <p class="alert-title">
+</li>
+</ul>
+<div class="alert is-success">
+<p class="alert-title">
    Tip
   </p>
-  <p>
+<p>
    Consider extending your learning with the
    <a data-linktype="absolute-path" href="/en-us/training/paths/az-204-instrument-solutions-support-monitoring-logging/">
-    <em>
+<em>
      Troubleshoot solutions by using Application Insights
     </em>
-   </a>
+</a>
    training module.
   </p>
- </div>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

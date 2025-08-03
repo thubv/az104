@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Azure Container Apps - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Azure Container Apps - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,186 +168,183 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Review Azure Container Apps</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/5-review-docker-platform/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Review Azure Container Apps</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/5-review-docker-platform/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/5-review-docker-platform/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   There are many options for teams to build and deploy cloud native and containerized applications on Azure. Let's understand which scenarios and use cases are best suited for Azure Container Apps and how it compares to other container options on Azure. Listen to a developer's view of Azure Container Instances.
  </p>
- <h3 id="things-to-know-about-azure-container-apps">
+<h3 id="things-to-know-about-azure-container-apps">
   Things to know about Azure Container Apps
  </h3>
- <p>
-  <a data-linktype="absolute-path" href="/en-us/azure/container-apps/overview">
+<p>
+<a data-linktype="absolute-path" href="/en-us/azure/container-apps/overview">
    Azure Container Apps
   </a>
   is a serverless platform that allows you to maintain less infrastructure and save costs while running containerized applications. Instead of worrying about server configuration, container orchestration, and deployment details, Container Apps provides all the up-to-date server resources required to keep your applications stable and secure.
  </p>
- <p>
+<p>
   Common uses of Azure Container Apps include:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Deploying API endpoints
   </li>
-  <li>
+<li>
    Hosting background processing jobs
   </li>
-  <li>
+<li>
    Handling event-driven processing
   </li>
-  <li>
+<li>
    Running microservices
   </li>
- </ul>
- <p>
+</ul>
+<p>
   Applications built on Azure Container Apps can dynamically scale based on the following characteristics:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    HTTP traffic
   </li>
-  <li>
+<li>
    Event-driven processing
   </li>
-  <li>
+<li>
    CPU or memory load
   </li>
-  <li>
+<li>
    Any KEDA-supported scaler
   </li>
- </ul>
- <h3 id="things-to-consider-when-using-azure-container-apps">
+</ul>
+<h3 id="things-to-consider-when-using-azure-container-apps">
   Things to consider when using Azure Container Apps
  </h3>
- <p>
+<p>
   Azure Container Apps enables you to build serverless microservices and jobs based on containers. Distinctive features of Container Apps include:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
   </li>
-  <li>
+<li>
    Powered by Kubernetes and open-source technologies like Dapr, KEDA, and envoy.
   </li>
-  <li>
+<li>
    Supports Kubernetes-style apps and microservices with features like service discovery and traffic splitting.
   </li>
-  <li>
+<li>
    Enables event-driven application architectures by supporting scale based on traffic and pulling from event sources like queues, including scale to zero.
   </li>
-  <li>
+<li>
    Supports running on demand, scheduled, and event-driven jobs.
   </li>
- </ul>
- <p>
+</ul>
+<p>
   Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams prefer to start building container microservices with Azure Container Apps.
  </p>
- <h4 id="compare-container-management-solutions">
+<h4 id="compare-container-management-solutions">
   Compare container management solutions
  </h4>
- <p>
+<p>
   Azure Container Instances (ACI) can be managed in several ways. Azure Container Apps (ACA) is one way, and Azure Kubernetes Service (AKS) is another. Here’s a comparison table for when to use ACA and AKS.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Compare container management solutions" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Compare container management solutions" class="table">
+<thead>
+<tr>
+<th>
       Feature
      </th>
-     <th>
+<th>
       Azure Container Apps (ACA)
      </th>
-     <th>
+<th>
       Azure Kubernetes Service (AKS)
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
       Overview
      </td>
-     <td>
+<td>
       ACA is a serverless container platform that simplifies the deployment and management of microservices-based applications by abstracting away the underlying infrastructure.
      </td>
-     <td>
+<td>
       AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. It’s suitable for complex applications that require orchestration.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Deployment
      </td>
-     <td>
+<td>
       ACA provides a PaaS experience with quick deployment and management capabilities.
      </td>
-     <td>
+<td>
       AKS offers more control and customization options for Kubernetes environments, making it suitable for complex applications and microservices.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Management
      </td>
-     <td>
+<td>
       ACA builds upon AKS and offers a simplified PaaS experience for running containers.
      </td>
-     <td>
+<td>
       AKS provides a more granular control over the Kubernetes environment, suitable for teams with Kubernetes expertise.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Scalability
      </td>
-     <td>
+<td>
       ACA supports both HTTP-based autoscaling and event-driven scaling, making it ideal for applications that need to respond quickly to changes in demand.
      </td>
-     <td>
+<td>
       AKS offers horizontal pod autoscaling and cluster autoscaling, providing robust scalability options for containerized applications.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Use Cases
      </td>
-     <td>
+<td>
       ACA is designed for microservices and serverless applications that benefit from rapid scaling and simplified management.
      </td>
-     <td>
+<td>
       AKS is best for complex, long-running applications. These applications require full Kubernetes features and tight integration with other Azure services.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Integration
      </td>
-     <td>
+<td>
       ACA integrates with Azure Logic Apps, Functions, and Event Grid for event-driven architectures.
      </td>
-     <td>
+<td>
       AKS provides features like Azure Policy for Kubernetes, Azure Monitor for containers, and Azure Defender for Kubernetes for comprehensive security and governance.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
+</tr>
+</tbody>
+</table>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

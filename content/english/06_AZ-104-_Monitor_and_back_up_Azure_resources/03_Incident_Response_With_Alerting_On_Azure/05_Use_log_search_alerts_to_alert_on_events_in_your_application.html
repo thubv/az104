@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use log search alerts to alert on events in your application - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Use log search alerts to alert on events in your application - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,78 +168,77 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Use log search alerts to alert on events in your application</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/5-log-alerts/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Use log search alerts to alert on events in your application</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/5-log-alerts/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/5-log-alerts/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   You can use Azure Monitor to capture important information from log files. Applications, operating systems, other hardware, or Azure services can create these log files.
  </p>
- <p>
+<p>
   As a solution architect, you want to explore ways that monitoring log data can detect issues before they become issues for your customers. You know that Azure Monitor supports the use of log data.
  </p>
- <p>
+<p>
   In this unit, you understand how using log data can improve resilience in your system.
  </p>
- <h2 id="when-to-use-log-search-alerts">
+<h2 id="when-to-use-log-search-alerts">
   When to use log search alerts
  </h2>
- <p>
+<p>
   Log search alerts use log data to assess the rule logic and, if necessary, trigger an alert. This data can come from any Azure resource: server logs, application server logs, or application logs.
  </p>
- <p>
+<p>
   By its nature, log data is historical, so usage is focused on analytics and trends.
  </p>
- <p>
+<p>
   You can use these types of logs to assess if any of your servers exceeded their CPU utilization by a given threshold during the last 30 minutes. Or, you could evaluate response codes issued on your web application server in the last hour.
  </p>
- <h2 id="how-log-search-alerts-work">
+<h2 id="how-log-search-alerts-work">
   How log search alerts work
  </h2>
- <p>
+<p>
   Log search alerts behave in a slightly different way than other alert mechanisms. The first part of a log search alert defines the log search rule. The rule defines how often it should run, the time period under evaluation, and the query to be run.
  </p>
- <p>
+<p>
   When a log search evaluates as positive, it creates an alert record and triggers any associated actions.
  </p>
- <h2 id="composition-of-log-search-rules">
+<h2 id="composition-of-log-search-rules">
   Composition of log search rules
  </h2>
- <p>
+<p>
   Every log search alert has an associated search rule with the following composition:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Log query
    </strong>
    : Query that runs every time the alert rule fires.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Time period
    </strong>
    : Time range for the query.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Frequency
    </strong>
    : How often the query should run.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Threshold
    </strong>
    : Trigger point for an alert to be created.
   </li>
- </ul>
- <p>
+</ul>
+<p>
   Log search results are one of two types:
   <em>
    number of records
@@ -249,27 +249,27 @@
   </em>
   .
  </p>
- <h3 id="number-of-records">
+<h3 id="number-of-records">
   Number of records
  </h3>
- <p>
+<p>
   Consider using the number-of-records type of log search when you're working with an event or event-driven data. Examples are syslog and web-app responses.
  </p>
- <p>
+<p>
   This type of log search returns a single alert when the number of records in a search result reaches or exceeds the value for the number of records (threshold). For example, when the threshold for the search rule is greater or equal to five, the query results have to return five or more rows of data before the alert is triggered.
  </p>
- <h3 id="metric-measurement">
+<h3 id="metric-measurement">
   Metric measurement
  </h3>
- <p>
+<p>
   Metric measurement logs offer the same basic functionality as metric alert logs.
  </p>
- <p>
+<p>
   Unlike number-of-records search logs, metric measurement logs require further criteria to be set:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Aggregate function
    </strong>
    : The calculation to be made against the result data. An example is count or average. The result of the function is called
@@ -278,35 +278,35 @@
    </strong>
    .
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Group field
    </strong>
    : Indicates how the result should be grouped. This criterion is used with the aggregated value. For example, you might specify that you want the average grouped by computer.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Interval
    </strong>
    : The time interval by which data is aggregated. For example, if you specify 10 minutes, an alert record is created for each aggregated block of 10 minutes.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Threshold
    </strong>
    : A point defined by an aggregated value and the total number of breaches.
   </li>
- </ul>
- <p>
+</ul>
+<p>
   Consider using this type of alert when you need to add a level of tolerance to the results found. One use for this type of alert is to respond if a particular trend or pattern is found. For example, if the number of breaches is five, and any server in your group exceeds 85 percent CPU utilization more than five times within the given time period, an alert fires.
  </p>
- <p>
+<p>
   As you can see, metric measurements greatly reduce the volume of alerts that are produced. Still, give careful consideration when you're setting the threshold parameters to avoid missing critical alerts.
  </p>
- <h2 id="log-search-alerts-and-state">
+<h2 id="log-search-alerts-and-state">
   Log search alerts and state
  </h2>
- <p>
+<p>
   Alerts can be
   <a data-linktype="absolute-path" href="/en-us/azure/azure-monitor/alerts/alerts-types#log-alerts">
    stateful or stateless
@@ -314,13 +314,11 @@
   . Stateless alerts fire each time the condition is met, even if fired previously. Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

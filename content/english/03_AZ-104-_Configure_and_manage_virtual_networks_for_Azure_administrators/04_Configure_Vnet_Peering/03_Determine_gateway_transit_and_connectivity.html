@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Determine gateway transit and connectivity - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Determine gateway transit and connectivity - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,29 +168,28 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Determine gateway transit and connectivity</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/3-determine-gateway-transit-connectivity/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Determine gateway transit and connectivity</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/3-determine-gateway-transit-connectivity/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/3-determine-gateway-transit-connectivity/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   When virtual networks are peered, you can configure Azure VPN Gateway in the peered virtual network as a
   <em>
    transit point
   </em>
   . In this scenario, a peered virtual network uses the remote VPN gateway to gain access to other resources.
  </p>
- <h3 id="transit-and-connectivity-use">
+<h3 id="transit-and-connectivity-use">
   Transit and connectivity use
  </h3>
- <p>
+<p>
   Consider a scenario where three virtual networks in the same region are connected by virtual network peering. Virtual network A and virtual network B are each peered with a hub virtual network. The hub virtual network contains several resources, including a gateway subnet and an Azure VPN gateway. The VPN gateway is configured to allow VPN gateway transit. Virtual network B accesses resources in the hub, including the gateway subnet, by using a remote VPN gateway.
  </p>
- <p>
+<p>
   The Azure portal doesn't specifically mention
   <em>
    gateway transit
@@ -200,58 +200,56 @@
   </em>
   . Instead, you have choices for allowing and forwarding network traffic. Can you tell the differences in the selections?
  </p>
- <h3 id="things-to-know-about-azure-vpn-gateway">
+<h3 id="things-to-know-about-azure-vpn-gateway">
   Things to know about Azure VPN Gateway
  </h3>
- <p>
+<p>
   Let's take a closer look at how Azure VPN Gateway is implemented with Azure Virtual Network peering.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     A virtual network can have only one VPN gateway.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Gateway transit is supported for both regional and global virtual network peering.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     When you allow VPN gateway transit, the virtual network can communicate to resources outside the peering. In our sample illustration, the gateway subnet gateway within the hub virtual network can complete tasks such as:
    </p>
-   <ul>
-    <li>
+<ul>
+<li>
      Use a site-to-site VPN to connect to an on-premises network.
     </li>
-    <li>
+<li>
      Use a vnet-to-vnet connection to another virtual network.
     </li>
-    <li>
+<li>
      Use a point-to-site VPN to connect to a client.
     </li>
-   </ul>
-  </li>
-  <li>
-   <p>
+</ul>
+</li>
+<li>
+<p>
     Gateway transit allows peered virtual networks to share the gateway and get access to external resources. With this implementation, you don't need to deploy a VPN gateway in the peered virtual network.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You can apply network security groups in a virtual network to block or allow access to other virtual networks or subnets. When you configure virtual network peering, you can choose to open or close the network security group rules between the virtual networks.
    </p>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

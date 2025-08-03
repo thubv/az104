@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Azure file shares - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manage Azure file shares - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,120 +168,119 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Manage Azure file shares</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/3-manage-file-shares/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Manage Azure file shares</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/3-manage-file-shares/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/3-manage-file-shares/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the Server Message Block (SMB) protocol and the Network File System (NFS) protocol. Azure file shares don't support both the SMB and NFS protocols on the same file share, although you can create SMB and NFS Azure file shares within the same storage account.
  </p>
- <h2 id="types-of-azure-file-shares">
+<h2 id="types-of-azure-file-shares">
   Types of Azure file shares
  </h2>
- <p>
+<p>
   Azure Files supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv2) storage accounts, while premium file shares are created in FileStorage storage accounts. The two storage tiers have the attributes described in the following table.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Types of Azure file shares" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Types of Azure file shares" class="table">
+<thead>
+<tr>
+<th>
       Storage tier
      </th>
-     <th>
+<th>
       Description
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
       Premium
      </td>
-     <td>
+<td>
       Premium file shares store data on solid-state drives (SSDs), and are available only in the FileStorage storage account kind. They provide consistent high performance and low latency, and are available in LRS redundancy, with ZRS available in some regions. Not available in all Azure regions.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Standard
      </td>
-     <td>
+<td>
       Standard file shares store data on hard disk drives (HDDs) and deploy in the general-purpose version 2 (GPv2) storage account type. Provide performance for workloads such as general-purpose file shares and dev/test environments. Standard file shares are available for LRS, ZRS, GRS, and GZRS, in all Azure regions.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <h2 id="types-of-authentication">
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="types-of-authentication">
   Types of authentication
  </h2>
- <p>
+<p>
   There are three main authentications methods that Azure Files supports.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Types of authentication" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Types of authentication" class="table">
+<thead>
+<tr>
+<th>
       Authentication method
      </th>
-     <th>
+<th>
       Description
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
       Identity-based authentication over SMB
      </td>
-     <td>
+<td>
       Provides the same seamless single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Access key
      </td>
-     <td>
+<td>
       An access key is an older and less flexible option. An Azure storage account has two access keys that can be used when making a request to the storage account, including to Azure Files. Access keys are static and provide full control access to Azure Files. Access keys should be secured and not shared with users, because they bypass all access control restrictions. A best practice is to avoid sharing storage account keys and use identity-based authentication whenever possible.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       A Shared Access Signature (SAS) token
      </td>
-     <td>
+<td>
       SAS is a dynamically generated Uniform Resource Identifier (URI) that's based on the storage access key. SAS provides restricted access rights to an Azure storage account. Restrictions include allowed permissions, start and expiry time, allowed IP addresses from where requests can be sent, and allowed protocols. With Azure Files, a SAS token is only used to provide REST API access from code.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <h2 id="creating-smb-azure-file-shares">
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="creating-smb-azure-file-shares">
   Creating SMB Azure file shares
  </h2>
- <p>
+<p>
   There are two important settings that you need to be aware of when creating and configuring SMB Azure file shares.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Open port 445
     </strong>
     . SMB communicates over TCP port 445. Make sure port 445 is open. Also, make sure your firewall isn't blocking TCP port 445 from the client machine. If you can't unblock port 445, then a VPN or ExpressRoute connection from on-premises to your Azure network is required, with Azure Files exposed on your internal network using private endpoints.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Enable secure transfer
     </strong>
     . The
@@ -289,12 +289,12 @@
     </code>
     setting enhances the security of your storage account by limiting requests to your storage account from secure connections only. Consider the scenario where you use REST APIs to access your storage account. If you attempt to connect, and secure transfer required is enabled, you must connect by using HTTPS. If you try to connect to your account by using HTTP, and secure transfer required is enabled, the connection is rejected.
    </p>
-  </li>
- </ul>
- <h2 id="mount-an-smb-azure-file-share-on-windows">
+</li>
+</ul>
+<h2 id="mount-an-smb-azure-file-share-on-windows">
   Mount an SMB Azure file share on Windows
  </h2>
- <p>
+<p>
   You can use Azure file shares seamlessly in Windows and Windows Server. You can connect to your Azure file share with Windows or Windows Server in the Azure portal. Specify the
   <strong>
    Drive
@@ -305,10 +305,10 @@
   </strong>
   . The Azure portal supplies you with PowerShell commands to run when you're ready to work with the file share. This video shows you how to mount the SMB file share on Windows.
  </p>
- <h2 id="mount-smb-azure-file-share-on-linux">
+<h2 id="mount-smb-azure-file-share-on-linux">
   Mount SMB Azure file share on Linux
  </h2>
- <p>
+<p>
   You can also connect to Azure file shares from Linux machines. From your virtual machine page, select
   <strong>
    Connect
@@ -320,13 +320,11 @@
   command or on-boot (persistent) by creating an entry in /etc/fstab.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

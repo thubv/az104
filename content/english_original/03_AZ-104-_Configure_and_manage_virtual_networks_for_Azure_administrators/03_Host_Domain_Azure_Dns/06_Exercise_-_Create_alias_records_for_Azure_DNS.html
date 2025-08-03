@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Create alias records for Azure DNS - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 6 Exercise Create Alias Records</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/6-exercise-create-alias-records/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/6-exercise-create-alias-records/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ Your new website's deployment was a huge success. Usage volumes are higher than anticipated. The single web server on which the website runs is showing signs of strain. Your organization wants to increase the number of servers and distribute the load using a load balancer.
+</p>
+<p>
+ You now know you can use an Azure alias record to provide a dynamic, automatically refreshing link between the zone apex and the load balancer.
+</p>
+<p>
+ In this unit, you'll:
+</p>
+<ul>
+ <li>
+  Set up a virtual network with two VMs and a load balancer.
+ </li>
+ <li>
+  Learn how to configure an Azure alias at the zone apex to direct to the load balancer.
+ </li>
+ <li>
+  Verify that the domain name resolves to one or either of the VMs on your virtual network.
+ </li>
+</ul>
+<h2 id="set-up-a-virtual-network-load-balancer-and-vms-in-azure">
+ Set up a virtual network, load balancer, and VMs in Azure
+</h2>
+<p>
+ When you manually create a virtual network, load balancer, and two VMs, it takes some time. To reduce this time, you can use a Bash setup script that's available on GitHub. Follow these instructions to create a test environment for your alias record.
+</p>
+<ol>
+ <li>
+  <p>
+   In Azure Cloud Shell, run the following setup script:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-0">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="git clone https://github.com/MicrosoftDocs/mslearn-host-domain-azure-dns.git
+"><span>git <span class="hljs-built_in">clone</span> https://github.com/MicrosoftDocs/mslearn-host-domain-azure-dns.git
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   To run the setup script, run the following commands:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-1">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd mslearn-host-domain-azure-dns
+chmod +x setup.sh
+./setup.sh
+"><span><span class="hljs-built_in">cd</span> mslearn-host-domain-azure-dns
+chmod +x setup.sh
+./setup.sh
+</span></code></pre>
+  <p>
+   The setup script takes a few minutes to run. The script:
+  </p>
+  <ul>
+   <li>
+    Creates a network security group.
+   </li>
+   <li>
+    Creates two network interface controllers (NICs) and two VMs.
+   </li>
+   <li>
+    Creates a virtual network and assigns the VMs.
+   </li>
+   <li>
+    Creates a public IP address and updates the configuration of the VMs.
+   </li>
+   <li>
+    Creates a load balancer that references the VMs, including rules for the load balancer.
+   </li>
+   <li>
+    Links the NICs to the load balancer.
+   </li>
+  </ul>
+  <p>
+   After the script completes, it shows you the public IP address for the load balancer. Copy the IP address to use it later.
+  </p>
+ </li>
+</ol>
+<h2 id="create-an-alias-record-in-your-zone-apex">
+ Create an alias record in your zone apex
+</h2>
+<p>
+ Now that you created a test environment, you're ready to set up the Azure alias record in your zone apex.
+</p>
+<ol>
+ <li>
+  <p>
+   In the
+   <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/learn.docs.microsoft.com" target="az-portal">
+    Azure portal
+   </a>
+   , select
+   <strong>
+    Resource groups
+   </strong>
+   . The
+   <strong>
+    Resource groups
+   </strong>
+   pane appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the resource group:
+   <rgn data-author-content="[sandbox resource group]">
+    [sandbox resource group]
+   </rgn>
+   . The
+   <strong>
+    Resource group
+   </strong>
+   pane appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   In the list of resources, select the DNS zone you created in the previous exercise, wideworldimportsXXXX.com. The
+   <strong>
+    wideworldimportsXXXX.com DNS zone
+   </strong>
+   pane appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   In the menu bar, select
+   <strong>
+    + Record set
+   </strong>
+   . The
+   <strong>
+    Add record set
+   </strong>
+   pane appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   Enter the following values for each setting to create an alias record.
+  </p>
+  <div class="buttons buttons-right margin-bottom-none margin-top-sm">
+   <!-- -->
+   <!-- -->
+  </div>
+  <div class="has-inner-focus">
+   <table aria-label="Table 1" class="table">
+    <thead>
+     <tr>
+      <th>
+       Setting
+      </th>
+      <th>
+       Value
+      </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td>
+       Name
+      </td>
+      <td>
+       Leave the name blank. Blank indicates the DNS zone for wideworldimportsXXXX.com.
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Type
+      </td>
+      <td>
+       A. Even though we're creating an alias, the base record type must still be either A, AAAA, or CNAME.
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Alias record set
+      </td>
+      <td>
+       Yes
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Alias type
+      </td>
+      <td>
+       Azure resource
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Azure resource
+      </td>
+      <td>
+       From the list of resources, select
+       <strong>
+        myPublicIP
+       </strong>
+       . It can take up to 15 minutes for the deployments to propagate. If this resource isn't listed, wait several minutes, refresh the portal, and try again.
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+  <p>
+   <span class="mx-imgBorder">
+    <img alt="Screenshot of Add record set." data-linktype="relative-path" loading="lazy" src="../../../assets/6-aliasrecord-azurelb_7f6226e2.png"/>
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   Select
+   <strong>
+    OK
+   </strong>
+   to add the record to your zone.
+  </p>
+ </li>
+</ol>
+<p>
+ When the new alias record is created, it should look something like this:
+</p>
+<p>
+ <span class="mx-imgBorder">
+  <img alt="Screenshot of the DNS zone, with an alias record created." data-linktype="relative-path" loading="lazy" src="../../../assets/6-aliasrecord04_cbf20db5.png"/>
+ </span>
+</p>
+<h2 id="verify-that-the-alias-resolves-to-the-load-balancer">
+ Verify that the alias resolves to the load balancer
+</h2>
+<p>
+ Now, you need to verify that the alias record is set up correctly. In a real-world scenario, you'd have an actual domain, and would complete the domain delegation to Azure DNS. You'd use the registered domain name for this exercise. Because this unit assumes there's no registered domain, you use the public IP address.
+</p>
+<ol>
+ <li>
+  <p>
+   In the Azure portal, go to the resource group,  select
+   <strong>
+    myPublicIP
+   </strong>
+   , then select the
+   <strong>
+    Copy
+   </strong>
+   icon next to the IP address.
+  </p>
+  <p>
+   <span class="mx-imgBorder">
+    <img alt="Screenshot of the DNS zone with an alias record created." data-linktype="relative-path" loading="lazy" src="../../../assets/6-publicipaddress_f3c03691.png"/>
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   In a web browser, paste the Public IP address as the URL.
+  </p>
+ </li>
+ <li>
+  <p>
+   You see a basic web page that shows the name of the virtual machine (VM) to which the load balancer sent the request.
+  </p>
+ </li>
+</ol>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

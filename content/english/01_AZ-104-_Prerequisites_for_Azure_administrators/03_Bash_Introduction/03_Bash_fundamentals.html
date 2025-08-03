@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bash fundamentals - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bash fundamentals - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,45 +168,44 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Bash fundamentals</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/bash-introduction/2-bash-fundamentals/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Bash fundamentals</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/bash-introduction/2-bash-fundamentals/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/bash-introduction/2-bash-fundamentals/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   An understanding of Bash starts with an understanding of Bash syntax. After you know the syntax, you can apply it to every Bash command you run.
  </p>
- <p>
+<p>
   The full syntax for a Bash command is:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="command [options] [arguments]
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="command [options] [arguments]
 "><span><span class="hljs-built_in">command</span> [options] [arguments]
 </span></code></pre>
- <p>
+<p>
   Bash treats the first string it encounters as a command. The following command uses Bash's
   <code>
    ls
   </code>
   (for "list") command to display the contents of the current working directory:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls
 "><span><span class="hljs-built_in">ls</span>
 </span></code></pre>
- <p>
+<p>
   Arguments often accompany Bash commands. For example, you can include a path name in an
   <code>
    ls
   </code>
   command to list the contents of another directory:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls /etc
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls /etc
 "><span><span class="hljs-built_in">ls</span> /etc
 </span></code></pre>
- <p>
+<p>
   Most Bash commands have options for modifying how they work. Options, also called
   <em>
    flags
@@ -224,10 +224,10 @@
   </code>
   command and see everything in the target directory:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -a /etc
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -a /etc
 "><span><span class="hljs-built_in">ls</span> -a /etc
 </span></code></pre>
- <p>
+<p>
   You can even combine flags for brevity. For example, rather than enter
   <code>
    ls -a -l /etc
@@ -238,16 +238,16 @@
   </strong>
   directory in long form, you can enter this instead:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -al /etc
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -al /etc
 "><span><span class="hljs-built_in">ls</span> -al /etc
 </span></code></pre>
- <p>
+<p>
   Bash is concise. It's sometimes remarkable (and a point of pride among Bash aficionados) how much you can accomplish with a single command.
  </p>
- <h2 id="get-help">
+<h2 id="get-help">
   Get help
  </h2>
- <p>
+<p>
   Which options and arguments can be used, or must be used, varies from command to command. Fortunately, Bash documentation is built into the operating system. Help is never more than a command away. To learn about the options for a command, use the
   <code>
    man
@@ -258,11 +258,11 @@
   </code>
   ("make directory") command, do this:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="man mkdir
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="man mkdir
 "><span>man <span class="hljs-built_in">mkdir</span>
 </span></code></pre>
- <p>
-  <code>
+<p>
+<code>
    man
   </code>
   is your best friend as you learn Bash.
@@ -271,7 +271,7 @@
   </code>
   is how you find the information you need to understand how any command works.
  </p>
- <p>
+<p>
   Most Bash and Linux commands support the
   <code>
    --help
@@ -282,7 +282,7 @@
   </code>
   . The output looks something like this:
  </p>
- <pre class="has-inner-focus"><code class="lang-output" data-author-content="Usage: mkdir [OPTION]... DIRECTORY...
+<pre class="has-inner-focus"><code class="lang-output" data-author-content="Usage: mkdir [OPTION]... DIRECTORY...
 Create the DIRECTORY(ies), if they do not already exist.
     
 Mandatory arguments to long options are mandatory for short options too.
@@ -319,31 +319,31 @@ Report mkdir translation bugs to &lt;http://translationproject.org/team/&gt;
 Full documentation at: &lt;http://www.gnu.org/software/coreutils/mkdir&gt;
 or available locally via: info '(coreutils) mkdir invocation'
 </code></pre>
- <p>
+<p>
   Help obtained this way is typically more concise than help obtained with
   <code>
    man
   </code>
   .
  </p>
- <h2 id="use-wildcards">
+<h2 id="use-wildcards">
   Use wildcards
  </h2>
- <p>
+<p>
   Wildcards are symbols that represent one or more characters in Bash commands. The most frequently used wildcard is the asterisk. It represents zero characters or a sequence of characters. Suppose your current directory contains hundreds of image files, but you only want to see the PNG files; the ones whose file names end with
   <strong>
    .png
   </strong>
   . Here's the command to list only those files:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls *.png
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls *.png
 "><span><span class="hljs-built_in">ls</span> *.png
 </span></code></pre>
- <div class="alert is-info">
-  <p class="alert-title">
+<div class="alert is-info">
+<p class="alert-title">
    Note
   </p>
-  <p>
+<p>
    Linux has no formal concept of a file-name extension as other operating systems do. This doesn't mean that PNG files won't have a
    <strong>
     .png
@@ -354,8 +354,8 @@ or available locally via: info '(coreutils) mkdir invocation'
    </strong>
    .
   </p>
- </div>
- <p>
+</div>
+<p>
   Now let's say the current directory also contains JPEG files. Some end in
   <strong>
    .jpg
@@ -366,16 +366,16 @@ or available locally via: info '(coreutils) mkdir invocation'
   </strong>
   Here's one way to list all the JPEG files:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls *.jpg *.jpeg
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls *.jpg *.jpeg
 "><span><span class="hljs-built_in">ls</span> *.jpg *.jpeg
 </span></code></pre>
- <p>
+<p>
   And here's another:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls *.jp*g
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls *.jp*g
 "><span><span class="hljs-built_in">ls</span> *.jp*g
 </span></code></pre>
- <p>
+<p>
   The
   <code>
    *
@@ -398,10 +398,10 @@ or available locally via: info '(coreutils) mkdir invocation'
   </strong>
   , the following command lists them all:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls 000?.jpg
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls 000?.jpg
 "><span><span class="hljs-built_in">ls</span> 000?.jpg
 </span></code></pre>
- <p>
+<p>
   Yet another way to use wildcards to filter output is to use square brackets, which denote groups of characters. The following command lists all the files in the current directory whose names contain a period immediately followed a lowercase J or P. It lists all the
   <strong>
    .jpg
@@ -420,65 +420,63 @@ or available locally via: info '(coreutils) mkdir invocation'
   </strong>
   files:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls *.[jp]*
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls *.[jp]*
 "><span><span class="hljs-built_in">ls</span> *.[jp]*
 </span></code></pre>
- <p>
+<p>
   In Linux, file names and the commands that operate upon them are case-sensitive. So to list all the files in the current directory whose names contain periods followed by an uppercase
   <em>
    or
   </em>
   lowercase J or P, you could enter this:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls *.[jpJP]*
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls *.[jpJP]*
 "><span><span class="hljs-built_in">ls</span> *.[jpJP]*
 </span></code></pre>
- <p>
+<p>
   Expressions in square brackets can represent ranges of characters. For example, the following command lists all the files in the current directory whose names begin with a lowercase letter:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls [a-z]*
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls [a-z]*
 "><span><span class="hljs-built_in">ls</span> [a-z]*
 </span></code></pre>
- <p>
+<p>
   This command, by contrast, lists all the files in the current directory whose names begin with an uppercase letter:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls [A-Z]*
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls [A-Z]*
 "><span><span class="hljs-built_in">ls</span> [A-Z]*
 </span></code></pre>
- <p>
+<p>
   And this one lists all the files in the current directory whose names begin with a lowercase
   <em>
    or
   </em>
   uppercase letter:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls [a-zA-Z]*
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls [a-zA-Z]*
 "><span><span class="hljs-built_in">ls</span> [a-zA-Z]*
 </span></code></pre>
- <p>
+<p>
   Based on all this, can you guess what the following commands do?
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls [0-9]*
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls [0-9]*
 ls *[0-9]*
 ls *[0-9]
 "><span><span class="hljs-built_in">ls</span> [0-9]*
 <span class="hljs-built_in">ls</span> *[0-9]*
 <span class="hljs-built_in">ls</span> *[0-9]
 </span></code></pre>
- <p>
+<p>
   If you need to use one of the wildcard characters as an ordinary character, you make it literal or "escape it" by prefacing it with a backslash. So, if for some reason you had an asterisk as part of a file name—something you should never do intentionally—you could search for it by using a command such as:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="$ ls *\**
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="$ ls *\**
 "><span>$ <span class="hljs-built_in">ls</span> *\**
 </span></code></pre>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

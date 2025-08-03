@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is PowerShell? - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>What is PowerShell? - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,60 +168,59 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> What is PowerShell?</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/2-what-is-powershell/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> What is PowerShell?</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/2-what-is-powershell/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/2-what-is-powershell/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   PowerShell consists of two parts: a command-line shell and a scripting language. It started out as a framework to automate administrative tasks in Windows. PowerShell has grown into a cross-platform tool that's used for many kinds of tasks.
  </p>
- <p>
+<p>
   A command-line shell lacks a graphical interface, where you use a mouse to interact with graphical elements. Instead, you type text commands into a computer console. Here are some of the benefits of using a console:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Interacting with a console is often faster than using a graphical interface.
   </li>
-  <li>
+<li>
    In a console, you can run batches of commands, so it's ideal for task automation for continuous-integration pipelines.
   </li>
-  <li>
+<li>
    You can use a console to interact with cloud resources and other resources.
   </li>
-  <li>
+<li>
    You can store commands and scripts in a text file and use a source-control system. This capability is probably one of the biggest benefits, because your commands are repeatable and auditable. In many systems, especially government systems, everything must be traced and evaluated, or
    <em>
     audited
    </em>
    . Audits cover everything from database changes to changes done by a script.
   </li>
- </ul>
- <h2 id="features">
+</ul>
+<h2 id="features">
   Features
  </h2>
- <p>
+<p>
   PowerShell shares some features with traditional shells:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Built-in help system
    </strong>
    : Most shells have some kind of help system, in which you can learn more about a command. For example, you can learn what the command does and what parameters it supports. The help system in PowerShell provides information about commands and also integrates with online help articles.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Pipeline
    </strong>
    : Traditional shells use a pipeline to run many commands sequentially. The output of one command is the input for the next command. PowerShell implements this concept like traditional shells, but it differs because it operates on objects over text. You learn more about this feature later in this module.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Aliases
    </strong>
    : Aliases are alternate names that can be used to run commands. PowerShell supports the use of common aliases such as
@@ -233,19 +233,19 @@
    </code>
    (list the files). Therefore, new users can use their knowledge of other frameworks and don't necessarily have to remember the PowerShell name for familiar commands.
   </li>
- </ul>
- <p>
+</ul>
+<p>
   PowerShell differs from a traditional command-line shell in a few ways:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     It operates on objects over text.
    </strong>
    In a command-line shell, you have to run scripts whose output and input might differ, so you end up spending time formatting the output and extracting the data you need. By contrast, in PowerShell you use objects as input and output. That means you spend less time formatting and extracting.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     It has cmdlets.
    </strong>
    Commands in PowerShell are called cmdlets (pronounced
@@ -254,8 +254,8 @@
    </em>
    ). In PowerShell, cmdlets are built on a common runtime rather than separate executables as they are in many other shell environments. This characteristic provides a consistent experience in parameter parsing and pipeline behavior. Cmdlets typically take object input and return objects. The core cmdlets in PowerShell are built in .NET Core, and are open source. You can extend PowerShell by using more cmdlets, scripts, and functions from the community and other sources, or you can build your own cmdlets in .NET Core or PowerShell.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     It has many types of commands.
    </strong>
    Commands in PowerShell can be native executables, cmdlets, functions, scripts, or aliases. Every command you run belongs to one of these types. The words
@@ -268,40 +268,40 @@
    </em>
    are often used interchangeably, because a cmdlet is a type of command.
   </li>
- </ul>
- <h2 id="installation">
+</ul>
+<h2 id="installation">
   Installation
  </h2>
- <p>
+<p>
   In this module, you practice using PowerShell on your computer. PowerShell is available across platforms. However, if you use a computer that runs Linux, macOS, or an older version of Windows, you need to install it.
  </p>
- <h3 id="windows">
+<h3 id="windows">
   Windows
  </h3>
- <p>
+<p>
   If you're running Windows 8 or later, a version of PowerShell called
   <em>
    Windows PowerShell
   </em>
   should already be installed. This version differs slightly from the most up-to-date PowerShell release, but it works fine for learning purposes.
  </p>
- <p>
+<p>
   You can open Windows PowerShell from the Start menu.
  </p>
- <h3 id="other-operating-systems">
+<h3 id="other-operating-systems">
   Other operating systems
  </h3>
- <p>
+<p>
   If your computer runs something other than Windows 8 or later, you need to install PowerShell. To find the installation instructions for your OS, see
   <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell" target="az-portal">
    Install various versions of PowerShell
   </a>
   .
  </p>
- <h3 id="powershell-extension-for-visual-studio-code">
+<h3 id="powershell-extension-for-visual-studio-code">
   PowerShell extension for Visual Studio Code
  </h3>
- <p>
+<p>
   We recommend that you use the
   <a class="has-external-link-indicator" data-linktype="external" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell" target="az-portal">
    PowerShell extension for Visual Studio Code
@@ -309,13 +309,11 @@
   to author your PowerShell scripts and to run the commands in this module. This extension lets you run commands, and also helps you with snippets, code completion, and syntax highlighting.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

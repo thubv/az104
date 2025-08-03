@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Use the Azure portal - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 5 Exercise Navigate The Portal</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/5-exercise-navigate-the-portal/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/5-exercise-navigate-the-portal/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ Let's look at some of the more common areas you'll typically use in the Azure portal.
+</p>
+<h2 id="all-services">
+ All services
+</h2>
+<ol>
+ <li>
+  <p>
+   In the top left-hand corner of the Azure portal, select the
+   <strong>
+    Show portal menu
+   </strong>
+   icon.
+  </p>
+  <p>
+   <span class="mx-imgBorder">
+    <img alt="Screenshot of the Show portal menu option in the Azure portal." data-linktype="relative-path" loading="lazy" src="../../../assets/5-show-portal-icon_a150532e.png"/>
+   </span>
+  </p>
+  <p>
+   Selecting this icon expands the portal menu.
+  </p>
+  <p>
+   <img alt="Screenshot of the portal menu option on the left-hand side of the portal." data-linktype="relative-path" loading="lazy" src="../../../assets/5-show-portal-menu_e536734b.png"/>
+  </p>
+ </li>
+ <li>
+  <p>
+   Select
+   <strong>
+    All services
+   </strong>
+   . Take a minute to browse through the list to get an idea of how many services Azure offers. You can filter the services that appear by using the search box near the top of the pane.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select
+   <strong>
+    Virtual machines
+   </strong>
+   . If you don't see it, use the search box.
+  </p>
+ </li>
+ <li>
+  <p>
+   The
+   <strong>
+    Virtual machines
+   </strong>
+   pane appears. You haven't created any virtual machines yet, so there are no results.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select
+   <strong>
+    + Create
+   </strong>
+   &gt;
+   <strong>
+    Azure virtual machine
+   </strong>
+   . The
+   <strong>
+    Create a virtual machine
+   </strong>
+   pane appears.
+  </p>
+ </li>
+ <li>
+  <p>
+   To create a virtual machine, you could enter information here. For now, select the
+   <strong>
+    X
+   </strong>
+   in the top right-hand corner to close the
+   <strong>
+    Create a virtual machine
+   </strong>
+   pane.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    X
+   </strong>
+   in the top right-hand corner to close the
+   <strong>
+    Virtual machines
+   </strong>
+   pane.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select
+   <strong>
+    Microsoft Azure
+   </strong>
+   on the top left-hand side to return to the
+   <strong>
+    Home
+   </strong>
+   page.
+  </p>
+ </li>
+</ol>
+<h2 id="global-controls">
+ Global controls
+</h2>
+<p>
+ Find the global control menu at the top of the screen.
+</p>
+<p>
+ <img alt="Screenshot of the Azure portal global control menu with icons for Azure Cloud Shell, notifications, portal settings, help, and feedback." data-linktype="relative-path" loading="lazy" src="../../../assets/5-portal-icon-bar_6a29e451.png"/>
+</p>
+<p>
+ These options are always available in the portal, no matter what service you're using.
+</p>
+<p>
+ Hover over each icon until you see a tooltip pop up. These tooltips show the name of each menu item.
+</p>
+<p>
+ Next, we'll explore each of these items.
+</p>
+<h2 id="azure-cloud-shell">
+ Azure Cloud Shell
+</h2>
+<p>
+ <img alt="Icon that represents the Azure Cloud Shell option on the global control menu in the Azure portal." data-linktype="relative-path" loading="lazy" src="../../../assets/5-cloud-shell-icon_516dfe20.png"/>
+</p>
+<p>
+ The Azure Cloud Shell is available in the Sandbox environment that we're using for this exercise, but the Sandbox version of the shell has reduced functionality. To explore all of the Azure Cloud Shell features, use your own Azure subscription.
+</p>
+<ol>
+ <li>
+  <p>
+   Select the
+   <strong>
+    Cloud Shell
+   </strong>
+   (
+   <strong>
+    &gt;_
+   </strong>
+   ) icon in the toolbar. Azure Cloud Shell launches at the bottom of the screen.
+  </p>
+ </li>
+ <li>
+  <p>
+   Read the welcome menu that appears, then select either
+   <strong>
+    Bash
+   </strong>
+   or
+   <strong>
+    PowerShell
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Because we won't use the shell further in this exercise, select
+   <strong>
+    Close
+   </strong>
+   .
+  </p>
+ </li>
+</ol>
+<h2 id="notifications">
+ Notifications
+</h2>
+<p>
+ <img alt="Icon representing the notifications option on the global control menu in the Azure portal." data-linktype="relative-path" loading="lazy" src="../../../assets/5-notifications-icon_f7e5303f.png"/>
+</p>
+<ol>
+ <li>
+  <p>
+   On the icon bar menu bar, select the
+   <strong>
+    Notifications
+   </strong>
+   (
+   <strong>
+    bell
+   </strong>
+   ) icon. This window shows any notifications related to your account, such as confirming whether resources were deployed correctly.
+  </p>
+  <p>
+   <img alt="Screenshot of notifications window on the global control menu in the Azure portal." data-linktype="relative-path" loading="lazy" src="../../../assets/5-notifications-pane_2feda28f.png"/>
+  </p>
+ </li>
+ <li>
+  <p>
+   If any notifications appear, hover your mouse over one of them. Select the
+   <strong>
+    X
+   </strong>
+   that appears in that notification to dismiss it.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    X
+   </strong>
+   in the top right-hand corner to close the
+   <strong>
+    Notifications
+   </strong>
+   pane.
+  </p>
+ </li>
+</ol>
+<h2 id="settings">
+ Settings
+</h2>
+<p>
+ <img alt="Icon representing the settings option on the global control menu in the Azure portal." data-linktype="relative-path" loading="lazy" src="../../../assets/5-settings-icon_57a389b1.png"/>
+</p>
+<ol>
+ <li>
+  <p>
+   Select the
+   <strong>
+    Settings
+   </strong>
+   (gear) icon to open the
+   <strong>
+    Portal settings
+   </strong>
+   pane. The
+   <strong>
+    Directories + subscriptions
+   </strong>
+   section is shown by default. This is where you can apply subscription filters or change directories. We won't use this section for this exercise.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    Signing out + notifications
+   </strong>
+   tab at the left. In the
+   <strong>
+    Sign me out when inactive
+   </strong>
+   drop-down menu, select
+   <strong>
+    After one hour
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Select
+   <strong>
+    Show pop-up notifications
+   </strong>
+   . When this option is checked, notifications will appear as pop-up "toast"-style notifications. They'll still show up in the Notifications pane as well.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select
+   <strong>
+    Apply
+   </strong>
+   to save your
+   <strong>
+    Signing out + notifications
+   </strong>
+   selections.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    Appearance + startup views
+   </strong>
+   tab at the left. Under
+   <strong>
+    Theme
+   </strong>
+   , select one of the different colored themes and select
+   <strong>
+    Apply
+   </strong>
+   . Observe the changes to the portal, and leave it set to the one you like the best.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    Language + region
+   </strong>
+   tab at the left. In the
+   <strong>
+    Language
+   </strong>
+   drop-down box, select
+   <strong>
+    Español
+   </strong>
+   . Select the
+   <strong>
+    Apply
+   </strong>
+   button, then select
+   <strong>
+    OK
+   </strong>
+   to confirm your changes. If a
+   <strong>
+    Translate this page
+   </strong>
+   dialog box appears, close the box. The whole Azure portal now appears in Spanish. You can select
+   <strong>
+    Microsoft Azure
+   </strong>
+   to view the
+   <strong>
+    Home
+   </strong>
+   page in Spanish, or navigate to other pages.
+  </p>
+ </li>
+ <li>
+  <p>
+   To revert back to English, select the
+   <strong>
+    Settings
+   </strong>
+   (gear) icon in the top menu bar, then select the
+   <strong>
+    Idioma y región
+   </strong>
+   tab at the left. In the
+   <strong>
+    Idioma
+   </strong>
+   drop-down box, select
+   <strong>
+    English
+   </strong>
+   . Select the
+   <strong>
+    Aplicar
+   </strong>
+   button, then select
+   <strong>
+    Aceptar
+   </strong>
+   to confirm. The portal will now appear in English again.
+  </p>
+ </li>
+</ol>
+<h2 id="support--troubleshooting-pane">
+ Support + troubleshooting pane
+</h2>
+<p>
+ <img alt="Icon representing the support + troubleshooting option on the global control menu in the Azure portal." data-linktype="relative-path" loading="lazy" src="../../../assets/5-help-icon_7da5c705.png"/>
+</p>
+<ol>
+ <li>
+  <p>
+   Select the
+   <strong>
+    Support + troubleshooting
+   </strong>
+   (
+   <code>
+    ?
+   </code>
+   ) icon to show the
+   <strong>
+    Support + troubleshooting
+   </strong>
+   pane.
+  </p>
+ </li>
+ <li>
+  <p>
+   In the dialog box, enter a few words to describe a potential problem. For example, you could type "Billing question" or "Unable to create storage account". Select
+   <strong>
+    Go
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Make additional selections when prompted, then review the information provided. This information can often help resolve common issues or questions.
+  </p>
+ </li>
+ <li>
+  <p>
+   Near the top of the pane, select
+   <strong>
+    Create a support request
+   </strong>
+   . Support requests can only be created using an active subscription. Creating support requests from a free Microsoft Learn sandbox is not supported, but you can click some of the steps on the
+   <strong>
+    New support request
+   </strong>
+   screen, such as
+   <strong>
+    Problem description
+   </strong>
+   and
+   <strong>
+    Recommended solution
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Because you aren't submitting a real support request, select
+   <strong>
+    Home
+   </strong>
+   in the top left corner. If you're prompted about unsaved edits, select
+   <strong>
+    OK
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    Support + troubleshooting
+   </strong>
+   (
+   <code>
+    ?
+   </code>
+   ) icon to reopen the pane, then select
+   <strong>
+    Start again
+   </strong>
+   to clear your previous entry.
+  </p>
+ </li>
+ <li>
+  <p>
+   Under
+   <strong>
+    Health Events
+   </strong>
+   , select
+   <strong>
+    View service health
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Review the information on the screen about any current service issues or planned maintenance.
+  </p>
+ </li>
+ <li>
+  <p>
+   In the
+   <strong>
+    Support + troubleshooting
+   </strong>
+   pane, explore the options in the
+   <strong>
+    Support resources
+   </strong>
+   section, such as
+   <strong>
+    Ask the Azure community
+   </strong>
+   ,
+   <strong>
+    Explore Azure documentation
+   </strong>
+   , or
+   <strong>
+    Visit Quickstart Center
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   When you're finished, select the
+   <strong>
+    X
+   </strong>
+   in the top right-hand corner to close the
+   <strong>
+    Help
+   </strong>
+   pane.
+  </p>
+ </li>
+</ol>
+<h2 id="feedback-pane">
+ Feedback pane
+</h2>
+<p>
+ <img alt="Icon representing the feedback option on the global control menu in the Azure portal." data-linktype="relative-path" loading="lazy" src="../../../assets/5-feedback-icon_81393678.png"/>
+</p>
+<ol>
+ <li>
+  <p>
+   Select the
+   <strong>
+    Feedback
+   </strong>
+   (person with dialog box) icon to open the
+   <strong>
+    Send feedback to Microsoft
+   </strong>
+   pane.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select one of the icons to indicate whether you are satisfied with your experience.
+  </p>
+ </li>
+ <li>
+  <p>
+   Type your impressions of Azure in the
+   <strong>
+    Tell us about your experience
+   </strong>
+   box.
+  </p>
+ </li>
+ <li>
+  <p>
+   Optionally, select the box that says
+   <strong>
+    It's OK to contact me about my feedback
+   </strong>
+   . Then select
+   <strong>
+    Submit feedback
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   A
+   <strong>
+    Feedback sent
+   </strong>
+   notification will appear. You can view this notification again by selecting the
+   <strong>
+    Notifications
+   </strong>
+   (
+   <strong>
+    bell
+   </strong>
+   ) icon, as described earlier.
+  </p>
+ </li>
+</ol>
+<h2 id="profile-settings">
+ Profile settings
+</h2>
+<ol>
+ <li>
+  <p>
+   Select your name in the top right-hand corner of the portal.
+  </p>
+ </li>
+ <li>
+  <p>
+   Select
+   <strong>
+    More options
+   </strong>
+   (
+   <strong>
+    ...
+   </strong>
+   ), then select
+   <strong>
+    My permissions
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Review the information that appears to see the role you've been assigned on the
+   <strong>
+    Concierge Subscription
+   </strong>
+   .
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the
+   <strong>
+    X
+   </strong>
+   in the top right-hand corner to close the
+   <strong>
+    My permissions
+   </strong>
+   page.
+  </p>
+ </li>
+</ol>
+<p>
+ Now that we've explored some of the key areas of the Azure portal, let's learn about one of the most useful features: Dashboards.
+</p>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

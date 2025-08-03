@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamically resolve resource name by using alias record - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dynamically resolve resource name by using alias record - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,28 +168,27 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Dynamically resolve resource name by using alias record</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/5-resolve-name-alias-record/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Dynamically resolve resource name by using alias record</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/5-resolve-name-alias-record/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/5-resolve-name-alias-record/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   In the previous exercise, you successfully delegated the domain from the domain registrar to your Azure DNS and configured an A record to link the domain to your web server.
  </p>
- <p>
+<p>
   The next phase of the deployment is to improve resiliency by using a load balancer. Load balancers distribute inbound data requests and traffic across one or more servers. They reduce the load on any one server and improve performance. This technology is well established. You can use it throughout your on-premises network.
  </p>
- <p>
+<p>
   You know that the A record and CNAME record don't support direct connection to Azure resources like your load balancers. You're tasked with finding out how to link the apex domain with a load balancer.
  </p>
- <h2 id="what-is-an-apex-domain">
+<h2 id="what-is-an-apex-domain">
   What is an apex domain?
  </h2>
- <p>
+<p>
   The apex domain is your domain's highest level. In our case, that's wideworldimports.com. The apex domain is also sometimes referred to as the
   <em>
    zone apex
@@ -204,108 +204,106 @@ The
   </strong>
   symbol often represents the apex domain in your DNS zone records.
  </p>
- <p>
+<p>
   If you check the DNS zone for wideworldimports.com, you see that there are two apex domain records: NS and SOA. The NS and SOA records are automatically created when you created the DNS zone.
  </p>
- <p>
+<p>
   CNAME records that you might need for an Azure Traffic Manager profile or Azure Content Delivery Network endpoints aren't supported at the zone apex level. However, other
   <em>
    alias records
   </em>
   are supported at the zone apex level.
  </p>
- <h2 id="what-are-alias-records">
+<h2 id="what-are-alias-records">
   What are alias records?
  </h2>
- <p>
+<p>
   Azure alias records enable a zone apex domain to reference other Azure resources from the DNS zone. You don't need to create complex redirection policies. You can also use an Azure alias to route all traffic through Traffic Manager.
  </p>
- <p>
+<p>
   The Azure alias record can point to the following Azure resources:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    A Traffic Manager profile
   </li>
-  <li>
+<li>
    Azure Content Delivery Network endpoints
   </li>
-  <li>
+<li>
    A public IP resource
   </li>
-  <li>
+<li>
    A front-door profile
   </li>
- </ul>
- <p>
+</ul>
+<p>
   Alias records provide lifecycle tracking of target resources, ensuring that changes to any target resource are automatically applied to the DNS zone. Alias records also provide support for load-balanced applications in the zone apex.
  </p>
- <p>
+<p>
   The alias record set supports the following DNS zone record types:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     A
    </strong>
    : The IPv4 domain name-mapping record.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     AAAA
    </strong>
    : The IPv6 domain name-mapping record.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     CNAME
    </strong>
    : The alias for your domain, which links to the A record.
   </li>
- </ul>
- <h2 id="uses-for-alias-records">
+</ul>
+<h2 id="uses-for-alias-records">
   Uses for alias records
  </h2>
- <p>
+<p>
   The following are some of the advantages of using alias records:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Prevents dangling DNS records
    </strong>
    : A dangling DNS record occurs when the DNS zone records aren't up to date with changes to IP addresses. Alias records prevent dangling references by tightly coupling the lifecycle of a DNS record with an Azure resource.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Updates DNS record set automatically when IP addresses change
    </strong>
    : When the underlying IP address of a resource, service, or application is changed, the alias record ensures that any associated DNS records are automatically refreshed.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Hosts load-balanced applications at the zone apex
    </strong>
    : Alias records allow for zone apex resource routing to Traffic Manager.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Points zone apex to Azure Content Delivery Network endpoints
    </strong>
    : With alias records, you can now directly reference your Azure Content Delivery Network instance.
   </li>
- </ul>
- <p>
+</ul>
+<p>
   An alias record allows you to link the zone apex (wideworldimports.com) to a load balancer. It creates a link to the Azure resource rather than a direct IP-based connection. So, if the IP address of your load balancer changes, the zone apex record continues to work.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

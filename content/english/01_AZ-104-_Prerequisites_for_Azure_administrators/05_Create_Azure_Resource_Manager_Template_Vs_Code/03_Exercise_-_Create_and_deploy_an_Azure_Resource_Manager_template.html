@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Create and deploy an Azure Resource Manager template - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Create and deploy an Azure Resource Manager template - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,57 +168,56 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Create and deploy an Azure Resource Manager template</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/3-exercise-create-and-deploy-template/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <div class="alert is-info">
-  <p class="alert-title">
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Create and deploy an Azure Resource Manager template</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/3-exercise-create-and-deploy-template/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/3-exercise-create-and-deploy-template/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<div class="alert is-info">
+<p class="alert-title">
    Note
   </p>
-  <p>
+<p>
    The first time you activate a sandbox and accept the terms, your Microsoft account is associated with a new Azure directory named Microsoft Learn Sandbox. You're also added to a special subscription named Concierge Subscription.
   </p>
- </div>
- <p>
+</div>
+<p>
   In this exercise, you create an Azure Resource Manager (ARM) template, deploy it to Azure, and then update that ARM template to add parameters and outputs.
  </p>
- <p>
+<p>
   This exercise uses
   <a data-linktype="external" href="https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools">
    Azure Resource Manager Tools for Visual Studio Code
   </a>
   . Be sure to install this extension in Visual Studio Code before starting the exercise.
  </p>
- <h2 id="create-an-arm-template">
+<h2 id="create-an-arm-template">
   Create an ARM template
  </h2>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Open Visual Studio Code and create a new file called
     <em>
      azuredeploy.json
     </em>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     The Visual Studio Code ARM template extension comes configured with snippets to help you develop templates. Let's start by adding a blank template. On line 1 of the file, enter
     <em>
      arm
     </em>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Visual Studio Code automatically displays several potential choices that start with
     <strong>
      arm!
@@ -228,10 +228,10 @@
     </strong>
     . Visual Studio Code automatically processes the schemas and languages for your template.
    </p>
-   <p>
+<p>
     Your file now looks like this:
    </p>
-   <pre class="has-inner-focus"><code class="lang-json" data-author-content='{
+<pre class="has-inner-focus"><code class="lang-json" data-author-content='{
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
@@ -250,123 +250,123 @@
   <span class="hljs-attr">"outputs"</span>: {}
 }
 </span></code></pre>
-   <p>
+<p>
     Notice that this file has all of the sections of an ARM template that we described in the previous unit.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Save the changes to the file by pressing
     <kbd>
      Ctrl+S
     </kbd>
     .
    </p>
-  </li>
- </ol>
- <h2 id="deploy-the-arm-template-to-azure">
+</li>
+</ol>
+<h2 id="deploy-the-arm-template-to-azure">
   Deploy the ARM template to Azure
  </h2>
- <div class="zone has-pivot" data-pivot="cli">
-  <p>
+<div class="zone has-pivot" data-pivot="cli">
+<p>
    To deploy this template to Azure, you need to sign in to your Azure account from the Visual Studio Code terminal. Be sure you have the
    <a data-linktype="absolute-path" href="/en-us/cli/azure/install-azure-cli">
     Azure CLI
    </a>
    tools installed, and sign in with the same account you used to activate the sandbox.
   </p>
-  <ol>
-   <li>
-    <p>
+<ol>
+<li>
+<p>
      Select
      <strong>
       Terminal &gt; New Terminal
      </strong>
      to open a terminal window.
     </p>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      If the command bar of the terminal window says
      <strong>
       bash
      </strong>
      , you have the right shell to work from and you can skip to the next section.
     </p>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      If not, select the drop-down and choose
      <strong>
       Select Default Profile
      </strong>
      .
     </p>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      Select
      <strong>
       Git Bash
      </strong>
      .
     </p>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      Select
      <strong>
       Terminal &gt; New Terminal
      </strong>
      to open a bash shell terminal window.
     </p>
-   </li>
-  </ol>
-  <h3 data-id="sign-in-to-azure">
+</li>
+</ol>
+<h3 data-id="sign-in-to-azure">
    Sign in to Azure
   </h3>
-  <ol>
-   <li>
-    <p>
+<ol>
+<li>
+<p>
      In the terminal window, run this command to sign in to Azure.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az login
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az login
 "><span><span class="hljs-keyword">az login</span>
 </span></code></pre>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      In the browser window that opens, sign in to your account. After you sign in, a list of the subscriptions associated with this account displays in the terminal. If you activated the sandbox, you should see one called
      <em>
       Concierge Subscription
      </em>
      . Use this one for the rest of the exercise.
     </p>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      In the bash shell, run the following command to set the default subscription for all of the Azure CLI commands you run in this session.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az account set --subscription "Concierge Subscription"
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az account set --subscription "Concierge Subscription"
 '><span><span class="hljs-keyword">az account set </span><span class="hljs-parameter">--subscription</span> <span class="hljs-string">"Concierge Subscription"</span>
 </span></code></pre>
-    <p>
+<p>
      If you used more than one sandbox recently, more than one
      <em>
       Concierge Subscription
      </em>
      might be listed. If so, use the next two steps to identify and set the default subscription.
     </p>
-    <ol>
-     <li>
+<ol>
+<li>
       Run the following command to obtain the
       <em>
        Concierge Subscription
       </em>
       IDs.
      </li>
-    </ol>
-    <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content=" az account list \
+</ol>
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content=" az account list \
    --refresh \
    --query &quot;[?contains(name, 'Concierge Subscription')].id&quot; \
    --output table
@@ -375,36 +375,36 @@
    <span class="hljs-parameter">--query</span> <span class="hljs-string">"[?contains(name, 'Concierge Subscription')].id"</span> \
    <span class="hljs-parameter">--output</span> table
 </span></code></pre>
-    <ol>
-     <li>
+<ol>
+<li>
       Set the default subscription by running the following command, replacing
       <em>
        {your subscription ID}
       </em>
       with the latest Concierge Subscription ID.
      </li>
-    </ol>
-    <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az account set --subscription {your subscription ID}
+</ol>
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az account set --subscription {your subscription ID}
 "><span><span class="hljs-keyword">az account set </span><span class="hljs-parameter">--subscription</span> {your subscription ID}
 </span></code></pre>
-   </li>
-  </ol>
-  <h3 data-id="set-the-default-resource-group">
+</li>
+</ol>
+<h3 data-id="set-the-default-resource-group">
    Set the default resource group
   </h3>
-  <p>
+<p>
    By setting the default resource group to the one created when you activated the sandbox, you can omit that parameter from the Azure CLI commands in this exercise. To set the resource group, run the following command.
   </p>
-  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az configure --defaults group="&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;"
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az configure --defaults group="&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;"
 '><span><span class="hljs-keyword">az configure </span><span class="hljs-parameter">--defaults</span> <span class="hljs-parameter">group=</span><span class="hljs-string">"[sandbox resource group name]"</span>
 </span></code></pre>
-  <h3 data-id="deploy-the-template-to-azure">
+<h3 data-id="deploy-the-template-to-azure">
    Deploy the template to Azure
   </h3>
-  <p>
+<p>
    Run the following commands to deploy the ARM template to Azure. The ARM template doesn't have any resources yet, so there aren't any resources created. You should get a successful deployment.
   </p>
-  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
 today=$(date +"%d-%b-%Y")
 DeploymentName="blanktemplate-"$today
 
@@ -419,7 +419,7 @@ D<span class="hljs-parameter">eploymentName=</span><span class="hljs-string">"bl
  <span class="hljs-parameter">--name</span> <span class="hljs-variable">$DeploymentName</span> \
  <span class="hljs-parameter">--template-file</span> <span class="hljs-variable">$templateFile</span>
 </span></code></pre>
-  <p>
+<p>
    The top section of the preceding code sets the Azure CLI variables, which include the path to the template file to deploy and the name of the deployment. The bottom section,
    <code>
     az  deployment group create
@@ -430,107 +430,107 @@ D<span class="hljs-parameter">eploymentName=</span><span class="hljs-string">"bl
    </code>
    with the date as a suffix.
   </p>
-  <p>
+<p>
    You should see
    <code>
     Running...
    </code>
    in the terminal.
   </p>
- </div>
- <div class="zone has-pivot" data-pivot="powershell">
-  <p>
+</div>
+<div class="zone has-pivot" data-pivot="powershell">
+<p>
    To deploy this template to Azure, you need to sign in to your Azure account from the Visual Studio Code terminal. Be sure that Azure PowerShell Tools are installed from the Visual Studio Code Extensions, and sign in to the same account that activated the sandbox.
   </p>
-  <ol>
-   <li>
-    <p>
+<ol>
+<li>
+<p>
      In the command bar, select
      <strong>
       Terminal &gt; New Terminal
      </strong>
      to open a PowerShell window.
     </p>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      If the command bar of the terminal window shows
      <strong>
       PowerShell
      </strong>
      , you have the right shell from which to work, and you can skip to the next section.
     </p>
-    <ol>
-     <li>
-      <p>
+<ol>
+<li>
+<p>
        If not, select the down arrow and in the dropdown list select PowerShell. If that option is missing, then select
        <strong>
         Select Default Profile
        </strong>
        .
       </p>
-     </li>
-     <li>
-      <p>
+</li>
+<li>
+<p>
        In the input field, scroll down and select
        <strong>
         PowerShell
        </strong>
        .
       </p>
-     </li>
-     <li>
-      <p>
+</li>
+<li>
+<p>
        Select
        <strong>
         Terminal &gt; New Terminal
        </strong>
        to open a PowerShell terminal window.
       </p>
-     </li>
-    </ol>
-   </li>
-  </ol>
-  <h3 id="sign-in-to-azure-by-using-azure-powershell">
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="sign-in-to-azure-by-using-azure-powershell">
    Sign in to Azure by using Azure PowerShell
   </h3>
-  <ol>
-   <li>
-    <p>
+<ol>
+<li>
+<p>
      From the terminal in Visual Studio Code, run the following command to sign in to Azure. A browser opens so you can sign in to your account.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content="Connect-AzAccount
+<pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content="Connect-AzAccount
 "><span><span class="hljs-pscommand">Connect-AzAccount</span>
 </span></code></pre>
-    <div class="alert is-success">
-     <p class="alert-title">
+<div class="alert is-success">
+<p class="alert-title">
       Tip
      </p>
-     <p>
+<p>
       The
       <a data-linktype="absolute-path" href="/en-us/powershell/azure/new-azureps-module-az">
        Az PowerShell module
       </a>
       is the replacement of AzureRM and is the recommended version to use for interacting with Azure.
      </p>
-    </div>
-   </li>
-   <li>
-    <p>
+</div>
+</li>
+<li>
+<p>
      Sign in using the account you used to activate the sandbox. After you sign in, Visual Studio Code lists the subscriptions associated with your account in the terminal window. If you activated the sandbox, you see a code block that contains
      <code>
       "name": "Concierge Subscription"
      </code>
      . You use this subscription for the rest of the exercise.
     </p>
-   </li>
-  </ol>
-  <h3 id="set-the-default-subscription-for-all-powershell-commands-in-this-session">
+</li>
+</ol>
+<h3 id="set-the-default-subscription-for-all-powershell-commands-in-this-session">
    Set the default subscription for all PowerShell commands in this session
   </h3>
-  <ol>
-   <li>
-    <p>
+<ol>
+<li>
+<p>
      Run the following command to obtain your subscription(s) and their ID(s). The subscription ID is the second column. Look for
      <em>
       Concierge Subscription
@@ -541,40 +541,40 @@ D<span class="hljs-parameter">eploymentName=</span><span class="hljs-string">"bl
      </em>
      :
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content="Get-AzSubscription
+<pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content="Get-AzSubscription
 "><span><span class="hljs-pscommand">Get-AzSubscription</span>
 </span></code></pre>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      Run the following command, replacing
      <em>
       {Your subscription ID}
      </em>
      with the one you copied in the previous step. This command changes your active subscription to the Concierge Subscription.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content="$context = Get-AzSubscription -SubscriptionId {Your subscription ID}
+<pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content="$context = Get-AzSubscription -SubscriptionId {Your subscription ID}
 Set-AzContext $context
 "><span><span class="hljs-variable">$context</span> = <span class="hljs-pscommand">Get-AzSubscription</span><span class="hljs-parameter"> -SubscriptionId</span> {Your subscription ID}
 <span class="hljs-pscommand">Set-AzContext</span> <span class="hljs-variable">$context</span>
 </span></code></pre>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      Run the following command to let the default resource group be the resource group created for you in the sandbox environment. This action lets you omit that parameter from the rest of the Azure PowerShell commands in this exercise.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content="Set-AzDefault -ResourceGroupName &lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;
+<pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content="Set-AzDefault -ResourceGroupName &lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;
 "><span><span class="hljs-pscommand">Set-AzDefault</span><span class="hljs-parameter"> -ResourceGroupName</span> [sandbox resource group name]
 </span></code></pre>
-   </li>
-  </ol>
-  <h3 id="deploy-the-template-to-azure-1">
+</li>
+</ol>
+<h3 id="deploy-the-template-to-azure-1">
    Deploy the template to Azure
   </h3>
-  <p>
+<p>
    Deploy the template to Azure by running the following commands. The ARM template doesn't have any resources yet, so there aren't any resources created.
   </p>
-  <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$templateFile="azuredeploy.json"
+<pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$templateFile="azuredeploy.json"
 $today=Get-Date -Format "MM-dd-yyyy"
 $deploymentName="blanktemplate-"+"$today"
 New-AzResourceGroupDeployment `
@@ -587,7 +587,7 @@ New-AzResourceGroupDeployment `
  <span class="hljs-parameter"> -Name</span> <span class="hljs-variable">$deploymentName</span> `
  <span class="hljs-parameter"> -TemplateFile</span> <span class="hljs-variable">$templateFile</span>
 </span></code></pre>
-  <p>
+<p>
    The top section of the preceding code sets Azure PowerShell variables, which includes the path to the deployment file and the name of the deployment. Then, the
    <code>
     New-AzResourceGroupDeployment
@@ -598,8 +598,8 @@ New-AzResourceGroupDeployment `
    </code>
    with the date as a suffix.
   </p>
- </div>
- <p>
+</div>
+<p>
   When you deploy your ARM template to Azure, go to the
   <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/" target="az-portal">
    Azure portal
@@ -614,69 +614,69 @@ New-AzResourceGroupDeployment `
   </strong>
   directory.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the resource menu, select
     <strong>
      Resource groups
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select the
     <em>
-     <rgn data-author-content="[sandbox resource group name]">
+<rgn data-author-content="[sandbox resource group name]">
       [sandbox resource group name]
      </rgn>
-    </em>
+</em>
     resource group.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Overview
     </strong>
     pane, you see that one deployment succeeded.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      1 Succeeded
     </strong>
     to see the details of the deployment.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <code>
      blanktemplate
     </code>
     to see what resources were deployed. In this case, it's empty because you didn't specify any resources in the template yet.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Leave the page open in your browser so that you can check on deployments again.
    </p>
-  </li>
- </ol>
- <h2 id="add-a-resource-to-the-arm-template">
+</li>
+</ol>
+<h2 id="add-a-resource-to-the-arm-template">
   Add a resource to the ARM template
  </h2>
- <p>
+<p>
   In the previous task, you learned how to create a blank template and deploy it. Now, you're ready to deploy an actual resource. In this task, you add an Azure storage account resource to the ARM template, by using a snippet from the Azure Resource Manager Tools extension for Visual Studio Code.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the
     <em>
      azuredeploy.json
@@ -687,9 +687,9 @@ New-AzResourceGroupDeployment `
     </code>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Enter
     <em>
      storage
@@ -700,10 +700,10 @@ New-AzResourceGroupDeployment `
     </strong>
     .
    </p>
-   <p>
+<p>
     Your file looks like this:
    </p>
-   <pre class="has-inner-focus"><code class="lang-json" data-author-content='{
+<pre class="has-inner-focus"><code class="lang-json" data-author-content='{
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
@@ -750,14 +750,14 @@ New-AzResourceGroupDeployment `
   <span class="hljs-attr">"outputs"</span>: {}
 }
 </span></code></pre>
-   <p>
+<p>
     Values that you should edit are highlighted in the new section of your file, and you can navigate them by pressing the
     <kbd>
      Tab
     </kbd>
     key.
    </p>
-   <p>
+<p>
     Notice the
     <code>
      tags
@@ -772,9 +772,9 @@ New-AzResourceGroupDeployment `
     </code>
     attribute uses a function to set the location of the resource to the location of the resource group. You'll learn about tags and functions in the next module.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Change the values of the resource
     <em>
      name
@@ -789,9 +789,9 @@ New-AzResourceGroupDeployment `
     </strong>
     ). This name must be unique across all of Azure, so choose something unique to you.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Change the value of the sku
     <em>
      name
@@ -814,29 +814,29 @@ New-AzResourceGroupDeployment `
     </strong>
     . Notice that Visual Studio Code gives you the proper choices for your attribute values in IntelliSense. Delete the default value including the quotation marks, and enter quotation marks to see this work.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     The resource location is set to the same location as the resource group where the resource is deployed. Leave the default here.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Save the file.
    </p>
-  </li>
- </ol>
- <h3 id="deploy-the-updated-arm-template">
+</li>
+</ol>
+<h3 id="deploy-the-updated-arm-template">
   Deploy the updated ARM template
  </h3>
- <p>
+<p>
   Here, you change the name of the deployment to better reflect what this deployment does.
  </p>
- <div class="zone has-pivot" data-pivot="cli">
-  <p>
+<div class="zone has-pivot" data-pivot="cli">
+<p>
    Run the following Azure CLI commands in the terminal. This snippet is the same code you used previously, but the name of the deployment is changed.
   </p>
-  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
 today=$(date +"%d-%b-%Y")
 DeploymentName="addstorage-"$today
 
@@ -851,12 +851,12 @@ D<span class="hljs-parameter">eploymentName=</span><span class="hljs-string">"ad
   <span class="hljs-parameter">--name</span> <span class="hljs-variable">$DeploymentName</span> \
   <span class="hljs-parameter">--template-file</span> <span class="hljs-variable">$templateFile</span>
 </span></code></pre>
- </div>
- <div class="zone has-pivot" data-pivot="powershell">
-  <p>
+</div>
+<div class="zone has-pivot" data-pivot="powershell">
+<p>
    Run the following Azure PowerShell commands in the terminal. This snippet is the same code you used previously, but the name of the deployment is changed.
   </p>
-  <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$templateFile="azuredeploy.json"
+<pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$templateFile="azuredeploy.json"
 $today=Get-Date -Format "MM-dd-yyyy"
 $deploymentName="addstorage-"+"$today"
 New-AzResourceGroupDeployment `
@@ -869,44 +869,42 @@ New-AzResourceGroupDeployment `
  <span class="hljs-parameter"> -Name</span> <span class="hljs-variable">$deploymentName</span> `
  <span class="hljs-parameter"> -TemplateFile</span> <span class="hljs-variable">$templateFile</span>
 </span></code></pre>
- </div>
- <h3 id="check-your-deployment">
+</div>
+<h3 id="check-your-deployment">
   Check your deployment
  </h3>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     When the deployment finishes, go back to the Azure portal in your browser. Go to your resource group, and you see that there are now
     <strong>
      2 Succeeded
     </strong>
     deployments. Select this link.
    </p>
-   <p>
+<p>
     Notice that both deployments are in the list.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      addstorage
     </strong>
     .
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   Notice that the storage account is deployed.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

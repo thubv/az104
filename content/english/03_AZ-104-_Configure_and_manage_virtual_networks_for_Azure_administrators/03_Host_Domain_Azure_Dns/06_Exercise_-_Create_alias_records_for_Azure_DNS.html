@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Create alias records for Azure DNS - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Create alias records for Azure DNS - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,98 +168,97 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Create alias records for Azure DNS</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/6-exercise-create-alias-records/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Create alias records for Azure DNS</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/6-exercise-create-alias-records/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/6-exercise-create-alias-records/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Your new website's deployment was a huge success. Usage volumes are higher than anticipated. The single web server on which the website runs is showing signs of strain. Your organization wants to increase the number of servers and distribute the load using a load balancer.
  </p>
- <p>
+<p>
   You now know you can use an Azure alias record to provide a dynamic, automatically refreshing link between the zone apex and the load balancer.
  </p>
- <p>
+<p>
   In this unit, you'll:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Set up a virtual network with two VMs and a load balancer.
   </li>
-  <li>
+<li>
    Learn how to configure an Azure alias at the zone apex to direct to the load balancer.
   </li>
-  <li>
+<li>
    Verify that the domain name resolves to one or either of the VMs on your virtual network.
   </li>
- </ul>
- <h2 id="set-up-a-virtual-network-load-balancer-and-vms-in-azure">
+</ul>
+<h2 id="set-up-a-virtual-network-load-balancer-and-vms-in-azure">
   Set up a virtual network, load balancer, and VMs in Azure
  </h2>
- <p>
+<p>
   When you manually create a virtual network, load balancer, and two VMs, it takes some time. To reduce this time, you can use a Bash setup script that's available on GitHub. Follow these instructions to create a test environment for your alias record.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In Azure Cloud Shell, run the following setup script:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="git clone https://github.com/MicrosoftDocs/mslearn-host-domain-azure-dns.git
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="git clone https://github.com/MicrosoftDocs/mslearn-host-domain-azure-dns.git
 "><span>git <span class="hljs-built_in">clone</span> https://github.com/MicrosoftDocs/mslearn-host-domain-azure-dns.git
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     To run the setup script, run the following commands:
    </p>
-   <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd mslearn-host-domain-azure-dns
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd mslearn-host-domain-azure-dns
 chmod +x setup.sh
 ./setup.sh
 "><span><span class="hljs-built_in">cd</span> mslearn-host-domain-azure-dns
 chmod +x setup.sh
 ./setup.sh
 </span></code></pre>
-   <p>
+<p>
     The setup script takes a few minutes to run. The script:
    </p>
-   <ul>
-    <li>
+<ul>
+<li>
      Creates a network security group.
     </li>
-    <li>
+<li>
      Creates two network interface controllers (NICs) and two VMs.
     </li>
-    <li>
+<li>
      Creates a virtual network and assigns the VMs.
     </li>
-    <li>
+<li>
      Creates a public IP address and updates the configuration of the VMs.
     </li>
-    <li>
+<li>
      Creates a load balancer that references the VMs, including rules for the load balancer.
     </li>
-    <li>
+<li>
      Links the NICs to the load balancer.
     </li>
-   </ul>
-   <p>
+</ul>
+<p>
     After the script completes, it shows you the public IP address for the load balancer. Copy the IP address to use it later.
    </p>
-  </li>
- </ol>
- <h2 id="create-an-alias-record-in-your-zone-apex">
+</li>
+</ol>
+<h2 id="create-an-alias-record-in-your-zone-apex">
   Create an alias record in your zone apex
  </h2>
- <p>
+<p>
   Now that you created a test environment, you're ready to set up the Azure alias record in your zone apex.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the
     <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/learn.docs.microsoft.com" target="az-portal">
      Azure portal
@@ -273,9 +273,9 @@ chmod +x setup.sh
     </strong>
     pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select the resource group:
     <rgn data-author-content="[sandbox resource group]">
      [sandbox resource group]
@@ -286,18 +286,18 @@ chmod +x setup.sh
     </strong>
     pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the list of resources, select the DNS zone you created in the previous exercise, wideworldimportsXXXX.com. The
     <strong>
      wideworldimportsXXXX.com DNS zone
     </strong>
     pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the menu bar, select
     <strong>
      + Record set
@@ -308,94 +308,94 @@ chmod +x setup.sh
     </strong>
     pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Enter the following values for each setting to create an alias record.
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 1" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 1" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
         Name
        </td>
-       <td>
+<td>
         Leave the name blank. Blank indicates the DNS zone for wideworldimportsXXXX.com.
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Type
        </td>
-       <td>
+<td>
         A. Even though we're creating an alias, the base record type must still be either A, AAAA, or CNAME.
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Alias record set
        </td>
-       <td>
+<td>
         Yes
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Alias type
        </td>
-       <td>
+<td>
         Azure resource
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Azure resource
        </td>
-       <td>
+<td>
         From the list of resources, select
         <strong>
          myPublicIP
         </strong>
         . It can take up to 15 minutes for the deployments to propagate. If this resource isn't listed, wait several minutes, refresh the portal, and try again.
        </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Select
     <strong>
      OK
     </strong>
     to add the record to your zone.
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   When the new alias record is created, it should look something like this:
  </p>
- <h2 id="verify-that-the-alias-resolves-to-the-load-balancer">
+<h2 id="verify-that-the-alias-resolves-to-the-load-balancer">
   Verify that the alias resolves to the load balancer
  </h2>
- <p>
+<p>
   Now, you need to verify that the alias record is set up correctly. In a real-world scenario, you'd have an actual domain, and would complete the domain delegation to Azure DNS. You'd use the registered domain name for this exercise. Because this unit assumes there's no registered domain, you use the public IP address.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the Azure portal, go to the resource group,  select
     <strong>
      myPublicIP
@@ -406,26 +406,24 @@ chmod +x setup.sh
     </strong>
     icon next to the IP address.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In a web browser, paste the Public IP address as the URL.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You see a basic web page that shows the name of the virtual machine (VM) to which the load balancer sent the request.
    </p>
-  </li>
- </ol>
+</li>
+</ol>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

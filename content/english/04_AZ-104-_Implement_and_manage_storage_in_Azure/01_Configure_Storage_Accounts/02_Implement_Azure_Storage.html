@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Implement Azure Storage - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Implement Azure Storage - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,148 +168,145 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Implement Azure Storage</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/2-implement-azure-storage/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
-  <a data-linktype="absolute-path" href="/en-us/azure/storage/common/storage-introduction">
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Implement Azure Storage</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/2-implement-azure-storage/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/2-implement-azure-storage/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
+<a data-linktype="absolute-path" href="/en-us/azure/storage/common/storage-introduction">
    Azure Storage
   </a>
   is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers a massively scalable object store for data objects. It provides a file system service for the cloud, a messaging store for reliable messaging, and a NoSQL store.
  </p>
- <p>
+<p>
   Azure Storage is an AI-ready service that you can use to store files, messages, tables, and other types of information. You use Azure Storage for applications like file shares. Developers use Azure Storage for working data. Working data includes websites, mobile apps, and desktop applications. Azure Storage is also used by IaaS virtual machines, and PaaS cloud services.
  </p>
- <h3 id="things-to-know-about-azure-storage">
+<h3 id="things-to-know-about-azure-storage">
   Things to know about Azure Storage
  </h3>
- <p>
+<p>
   You can think of Azure Storage as supporting three categories of data: structured data, unstructured data, and virtual machine data. Review the following categories and think about which types of storage are used in your organization.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Things to know about Azure Storage" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Things to know about Azure Storage" class="table">
+<thead>
+<tr>
+<th>
       Category
      </th>
-     <th>
+<th>
       Description
      </th>
-     <th>
+<th>
       Storage examples
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
-      <strong>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
        Virtual machine data
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Virtual machine data storage includes disks and files. Disks are persistent block storage for Azure IaaS virtual machines. Files are fully managed file shares in the cloud.
      </td>
-     <td>
+<td>
       Storage for virtual machine data is provided through Azure managed disks. Data disks are used by virtual machines to store data like database files, website static content, or custom application code. The number of data disks you can add depends on the virtual machine size.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Unstructured data
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Unstructured data is the least organized. The format of unstructured data is referred to as
       <em>
        nonrelational
       </em>
       .
      </td>
-     <td>
+<td>
       Unstructured data can be stored by using Azure Blob Storage and Azure Data Lake Storage. Blob Storage is a highly scalable, REST-based cloud object store. Azure Data Lake Storage is the Hadoop Distributed File System (HDFS) as a service.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Structured data
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Structured data is stored in a relational format that has a shared schema. Structured data is often contained in a database table with rows, columns, and keys. Tables are an autoscaling NoSQL store.
      </td>
-     <td>
+<td>
       Structured data can be stored by using Azure Table Storage, Azure Cosmos DB, and Azure SQL Database. Azure Cosmos DB is a globally distributed database service. Azure SQL Database is a fully managed database-as-a-service built on SQL.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <h3 id="things-to-consider-when-using-azure-storage">
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="things-to-consider-when-using-azure-storage">
   Things to consider when using Azure Storage
  </h3>
- <p>
+<p>
   As you think about your configuration plan for Azure Storage, consider these prominent features.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Consider durability and availability
     </strong>
     . Azure Storage is durable and highly available. Redundancy ensures your data is safe during transient hardware failures. You replicate data across datacenters or geographical regions for protection from local catastrophe or natural disaster. Replicated data remains highly available during an unexpected outage.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider secure access
     </strong>
     . Azure Storage encrypts all data. Azure Storage provides you with fine-grained control over who has access to your data.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider scalability
     </strong>
     . Azure Storage is designed to be massively scalable to meet the data storage and performance needs of modern applications.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider manageability
     </strong>
     . Microsoft Azure handles hardware maintenance, updates, and critical issues for you.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider data accessibility
     </strong>
     . Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides SDKs for Azure Storage in various languages. You can use .NET, Java, Node.js, Python, PHP, Ruby, Go, and the REST API. Azure Storage supports scripting in Azure PowerShell or the Azure CLI. The Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.
    </p>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan virtual networks - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Plan virtual networks - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,118 +168,115 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Plan virtual networks</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/2-plan-virtual-networks/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Plan virtual networks</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/2-plan-virtual-networks/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/2-plan-virtual-networks/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   A major incentive for adopting cloud solutions like Azure is to enable information technology departments to transition server resources to the cloud. Moving resources to the cloud can save money and simplify administrative operations. Relocating resources removes the need to maintain expensive datacenters with uninterruptible power supplies, generators, multiple fail-safes, or clustered database servers. For small and medium-sized companies, which might not have the expertise to maintain their own robust infrastructure, moving to the cloud is particularly appealing.
  </p>
- <h3 id="things-to-know-about-azure-virtual-networks">
+<h3 id="things-to-know-about-azure-virtual-networks">
   Things to know about Azure virtual networks
  </h3>
- <p>
+<p>
   You can implement Azure Virtual Network to create a virtual representation of your network in the cloud. With some
   <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm">
    planning
   </a>
   , you can deploy virtual networks and connect the resources you need more effectively. Let's examine some characteristics of virtual networks in Azure.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     An Azure virtual network is a logical isolation of the Azure cloud resources.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You can use virtual networks to provision and manage virtual private networks (VPNs) in Azure.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Each virtual network has its own Classless Inter-Domain Routing (CIDR) block and can be linked to other virtual networks and on-premises networks.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You can link virtual networks with an on-premises IT infrastructure to create hybrid or cross-premises solutions, when the CIDR blocks of the connecting networks don't overlap.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You control the DNS server settings for virtual networks, and segmentation of the virtual network into subnets.
    </p>
-  </li>
- </ul>
- <p>
+</li>
+</ul>
+<p>
   The next illustration depicts a virtual network that has a subnet containing two virtual machines. The virtual network has connections to an on-premises infrastructure and a separate virtual network.
  </p>
- <h3 id="things-to-consider-when-using-virtual-networks">
+<h3 id="things-to-consider-when-using-virtual-networks">
   Things to consider when using virtual networks
  </h3>
- <p>
+<p>
   Virtual networks can be used in many ways. As you think about the configuration plan for your virtual networks and subnets, consider the following scenarios.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Things to consider when using virtual networks" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Things to consider when using virtual networks" class="table">
+<thead>
+<tr>
+<th>
       Scenario
      </th>
-     <th>
+<th>
       Description
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
-      <em>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<em>
        Create a dedicated private cloud-only virtual network
       </em>
-     </td>
-     <td>
+</td>
+<td>
       Sometimes you don't require a cross-premises configuration for your solution. When you create a virtual network, your services and virtual machines within your virtual network can communicate directly and securely with each other in the cloud. You can still configure endpoint connections for the virtual machines and services that require internet communication, as part of your solution.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <em>
+</tr>
+<tr>
+<td>
+<em>
        Securely extend your data center with virtual networks
       </em>
-     </td>
-     <td>
+</td>
+<td>
       You can build traditional site-to-site VPNs to securely scale your datacenter capacity. Site-to-site VPNs use IPSEC to provide a secure connection between your corporate VPN gateway and Azure.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <em>
+</tr>
+<tr>
+<td>
+<em>
        Enable hybrid cloud scenarios
       </em>
-     </td>
-     <td>
+</td>
+<td>
       Virtual networks give you the flexibility to support a range of hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system, such as mainframes and Unix systems.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
+</tr>
+</tbody>
+</table>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

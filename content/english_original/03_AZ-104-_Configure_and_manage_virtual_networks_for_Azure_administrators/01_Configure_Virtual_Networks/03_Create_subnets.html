@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create subnets - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 3 Create Subnets</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/3-create-subnets/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/3-create-subnets/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ Azure
+ <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal">
+  Subnets
+ </a>
+ provide a way for you to implement logical divisions within your virtual network. Your network can be segmented into subnets to help improve security, increase performance, and make it easier to manage.
+</p>
+<div class="embeddedvideo">
+ <iframe allowfullscreen="true" data-linktype="external" frameborder="0" src="https://learn-video.azurefd.net/vod/player?id=c3bcd0d1-eb99-4605-ad1f-bcfab9ad2b5b&amp;locale=en-us&amp;embedUrl=%2Ftraining%2Fmodules%2Fconfigure-virtual-networks%2F3-create-subnets" title="Video Player">
+ </iframe>
+</div>
+<h3 id="things-to-know-about-subnets">
+ Things to know about subnets
+</h3>
+<p>
+ There are certain conditions for the IP addresses in a virtual network when you apply segmentation with subnets.
+</p>
+<ul>
+ <li>
+  <p>
+   Each subnet contains a range of IP addresses that fall within the virtual network address space.
+  </p>
+ </li>
+ <li>
+  <p>
+   The address range for a subnet must be unique within the address space for the virtual network.
+  </p>
+ </li>
+ <li>
+  <p>
+   The range for one subnet can't overlap with other subnet IP address ranges in the same virtual network.
+  </p>
+ </li>
+ <li>
+  <p>
+   The IP address space for a subnet must be specified by using CIDR notation.
+  </p>
+ </li>
+ <li>
+  <p>
+   You can segment a virtual network into one or more subnets in the Azure portal. Characteristics about the IP addresses for the subnets are listed.
+  </p>
+  <p>
+   <span class="mx-imgBorder">
+    <img alt="Screenshot that shows multiple subnets for a virtual network in the Azure portal." data-linktype="relative-path" loading="lazy" src="../../../assets/azure-subnets-a5c893d5_c9dbbc24.png"/>
+   </span>
+  </p>
+ </li>
+</ul>
+<h4 id="reserved-addresses">
+ Reserved addresses
+</h4>
+<p>
+ For each subnet, Azure reserves five IP addresses. The first four addresses and the last address are reserved.
+</p>
+<p>
+ Let's examine the reserved addresses in an IP address range of
+ <code>
+  192.168.1.0/24
+ </code>
+ .
+</p>
+<div class="buttons buttons-right margin-bottom-none margin-top-sm">
+ <!-- -->
+ <!-- -->
+</div>
+<div class="has-inner-focus">
+ <table aria-label="Reserved addresses" class="table">
+  <thead>
+   <tr>
+    <th>
+     Reserved address
+    </th>
+    <th>
+     Reason
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td>
+     <code>
+      192.168.1.0
+     </code>
+    </td>
+    <td>
+     This value identifies the virtual network address.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <code>
+      192.168.1.1
+     </code>
+    </td>
+    <td>
+     Azure configures this address as the default gateway.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <code>
+      192.168.1.2
+     </code>
+     <em>
+      and
+     </em>
+     <code>
+      192.168.1.3
+     </code>
+    </td>
+    <td>
+     Azure maps these Azure DNS IP addresses to the virtual network space.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <code>
+      192.168.1.255
+     </code>
+    </td>
+    <td>
+     This value supplies the virtual network broadcast address.
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h3 id="things-to-consider-when-using-subnets">
+ Things to consider when using subnets
+</h3>
+<p>
+ When you plan for adding subnet segments within your virtual network, there are several factors to consider.
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    Consider service requirements
+   </strong>
+   . Each service directly deployed into a virtual network has specific requirements for routing and the types of traffic that must be allowed into and out of associated subnets. A service might require or create their own subnet. There must be enough unallocated space to meet the service requirements. Suppose you connect a virtual network to an on-premises network by using Azure VPN Gateway. The virtual network must have a dedicated subnet for the gateway.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider network virtual appliances
+   </strong>
+   . Azure routes network traffic between all subnets in a virtual network, by default. You can override Azure's default routing to prevent Azure routing between subnets. You can also override the default to route traffic between subnets through a network virtual appliance. If you require traffic between resources in the same virtual network to flow through a network virtual appliance, deploy the resources to different subnets.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider network security groups
+   </strong>
+   . You can associate zero or one network security group to each subnet in a virtual network. You can associate the same or a different network security group to each subnet. Each network security group contains rules that allow or deny traffic to and from sources and destinations.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider private links
+   </strong>
+   . Azure Private Link provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. Private Link simplifies the network architecture and secures the connection between endpoints in Azure. The service eliminates data exposure to the public internet.
+  </p>
+ </li>
+</ul>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

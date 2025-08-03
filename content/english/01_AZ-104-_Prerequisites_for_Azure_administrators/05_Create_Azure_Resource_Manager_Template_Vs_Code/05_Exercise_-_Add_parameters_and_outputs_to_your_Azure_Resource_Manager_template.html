@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Add parameters and outputs to your Azure Resource Manager template - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Add parameters and outputs to your Azure Resource Manager template - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,31 +168,30 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Add parameters and outputs to your Azure Resource Manager template</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/5-exercise-parameters-output/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Add parameters and outputs to your Azure Resource Manager template</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/5-exercise-parameters-output/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/5-exercise-parameters-output/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   In this exercise, you add a parameter to define the Azure storage account name during deployment. Then, you add a parameter to define which storage-account SKUs are allowed, and define which one to use for this deployment. You also add usefulness to the Azure Resource Manager template (ARM template) by adding an output that you can use later in the deployment process.
  </p>
- <h2 id="create-parameters-for-the-arm-template">
+<h2 id="create-parameters-for-the-arm-template">
   Create parameters for the ARM template
  </h2>
- <p>
+<p>
   Here, you make your ARM template more flexible by adding parameters that can be set at runtime. Create a parameter for the
   <code>
    storageName
   </code>
   value.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the
     <em>
      azuredeploy.json
@@ -204,10 +204,10 @@
     <code>
      "parameters":{},
     </code>
-   </p>
-  </li>
-  <li>
-   <p>
+</p>
+</li>
+<li>
+<p>
     Select
     <kbd>
      Enter
@@ -222,7 +222,7 @@
     </strong>
     , which adds a generic parameter to the template. It looks like this example:
    </p>
-   <pre class="has-inner-focus"><code class="lang-json" data-author-content=' "parameters": {
+<pre class="has-inner-focus"><code class="lang-json" data-author-content=' "parameters": {
     "parameter1": {
     "type": "string",
     "metadata": {
@@ -239,9 +239,9 @@
   }
 },
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Change the parameter from
     <strong>
      parameter1
@@ -272,12 +272,12 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     The parameter block should now look like this example:
    </p>
-   <pre class="has-inner-focus"><code class="lang-json" data-author-content='"parameters": {
+<pre class="has-inner-focus"><code class="lang-json" data-author-content='"parameters": {
   "storageName": {
     "type": "string",
     "minLength": 3,
@@ -298,9 +298,9 @@
   }
 },
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Use the new parameter in the
     <code>
      resources
@@ -315,7 +315,7 @@
     </code>
     values. The entire file looks like this code example:
    </p>
-   <pre class="has-inner-focus"><code class="lang-json" data-author-content="{
+<pre class="has-inner-focus"><code class="lang-json" data-author-content="{
   &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&quot;,
   &quot;contentVersion&quot;: &quot;1.0.0.0&quot;,
   &quot;parameters&quot;: {
@@ -380,28 +380,28 @@
   <span class="hljs-attr">"outputs"</span>: {}
 }
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Save the file.
    </p>
-  </li>
- </ol>
- <h3 id="deploy-the-parameterized-arm-template">
+</li>
+</ol>
+<h3 id="deploy-the-parameterized-arm-template">
   Deploy the parameterized ARM template
  </h3>
- <p>
+<p>
   Here, you change the name of the deployment to better reflect what this deployment does and fill in a value for the new parameter.
  </p>
- <div class="zone has-pivot" data-pivot="cli">
-  <p>
+<div class="zone has-pivot" data-pivot="cli">
+<p>
    Run the following Azure CLI commands in the terminal. This snippet is the same code you used previously, but the name of the deployment is changed. Fill in a unique name for the
    <code>
     storageName
    </code>
    parameter. Remember, this name must be unique across all of Azure. You can use the unique name you created in the last unit. In that case, Azure updates the resource instead of creating a new one.
   </p>
-  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
 today=$(date +"%d-%b-%Y")
 DeploymentName="addnameparameter-"$today
 
@@ -418,16 +418,16 @@ D<span class="hljs-parameter">eploymentName=</span><span class="hljs-string">"ad
   <span class="hljs-parameter">--template-file</span> <span class="hljs-variable">$templateFile</span> \
   <span class="hljs-parameter">--parameters</span> <span class="hljs-parameter">storageName=</span>{your<span class="hljs-parameter">-unique-name</span>}
 </span></code></pre>
- </div>
- <div class="zone has-pivot" data-pivot="powershell">
-  <p>
+</div>
+<div class="zone has-pivot" data-pivot="powershell">
+<p>
    Run the following Azure PowerShell commands in the terminal. This snippet is the same code you used previously, but the name of the deployment is changed. Fill in a unique name for the
    <code>
     storageName
    </code>
    parameter. Remember, this name must be unique across all of Azure. You can use the unique name you created in the last unit. In that case, Azure updates the resource instead of creating a new one.
   </p>
-  <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$templateFile="azuredeploy.json"
+<pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$templateFile="azuredeploy.json"
 $today=Get-Date -Format "MM-dd-yyyy"
 $deploymentName="addnameparameter-"+"$today"
 New-AzResourceGroupDeployment `
@@ -442,42 +442,42 @@ New-AzResourceGroupDeployment `
  <span class="hljs-parameter"> -TemplateFile</span> <span class="hljs-variable">$templateFile</span> `
  <span class="hljs-parameter"> -storageName</span> {<span class="hljs-pscommand">your-unique</span>-name}
 </span></code></pre>
- </div>
- <h3 id="check-your-deployment">
+</div>
+<h3 id="check-your-deployment">
   Check your deployment
  </h3>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     When the deployment finishes, go back to the Azure portal in your browser. Go to your resource group, and see that there are now
     <strong>
      3 Succeeded
     </strong>
     deployments. Select this link.
    </p>
-   <p>
+<p>
     Notice that all three deployments are in the list.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Explore the
     <em>
      addnameparameter
     </em>
     deployment as you did previously.
    </p>
-  </li>
- </ol>
- <h3 id="add-another-parameter-that-limits-allowed-values">
+</li>
+</ol>
+<h3 id="add-another-parameter-that-limits-allowed-values">
   Add another parameter that limits allowed values
  </h3>
- <p>
+<p>
   Here, you use parameters to limit the values allowed for a parameter.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Place your cursor after the closing brace for the
     <code>
      storageName
@@ -488,9 +488,9 @@ New-AzResourceGroupDeployment `
     </kbd>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Again, enter
     <strong>
      par
@@ -501,12 +501,12 @@ New-AzResourceGroupDeployment `
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Change the new generic parameter to the following code:
    </p>
-   <pre class="has-inner-focus"><code class="lang-json" data-author-content='"storageSKU": {
+<pre class="has-inner-focus"><code class="lang-json" data-author-content='"storageSKU": {
    "type": "string",
    "defaultValue": "Standard_LRS",
    "allowedValues": [
@@ -535,15 +535,15 @@ New-AzResourceGroupDeployment `
    ]
  }
 </span></code></pre>
-   <p>
+<p>
     Here, you're listing the values that this parameter allows. If the template runs with a value that isn't allowed, the deployment fails.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Add a comment to this parameter.
    </p>
-   <p>
+<p>
     ARM templates support
     <code>
      //
@@ -554,9 +554,9 @@ New-AzResourceGroupDeployment `
     </code>
     comments.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Update
     <strong>
      resources
@@ -567,17 +567,17 @@ New-AzResourceGroupDeployment `
     </code>
     parameter. If you take advantage of IntelliSense in Visual Studio Code, it makes this step easier.
    </p>
-   <pre class="has-inner-focus"><code class="lang-json" data-author-content="&quot;sku&quot;: {
+<pre class="has-inner-focus"><code class="lang-json" data-author-content="&quot;sku&quot;: {
      &quot;name&quot;: &quot;[parameters('storageSKU')]&quot;
    }
 "><span><span class="hljs-string">"sku"</span>: {
      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"[parameters('storageSKU')]"</span>
    }
 </span></code></pre>
-   <p>
+<p>
     The entire file looks like this code example:
    </p>
-   <pre class="has-inner-focus"><code class="lang-json" data-author-content="{
+<pre class="has-inner-focus"><code class="lang-json" data-author-content="{
   &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&quot;,
   &quot;contentVersion&quot;: &quot;1.0.0.0&quot;,
   &quot;parameters&quot;: {
@@ -670,17 +670,17 @@ New-AzResourceGroupDeployment `
   <span class="hljs-attr">"outputs"</span>: {}
 }
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Save the file.
    </p>
-  </li>
- </ol>
- <h3 id="deploy-the-arm-template">
+</li>
+</ol>
+<h3 id="deploy-the-arm-template">
   Deploy the ARM template
  </h3>
- <p>
+<p>
   Here, you deploy successfully by using a
   <code>
    storageSKU
@@ -691,17 +691,17 @@ New-AzResourceGroupDeployment `
   </code>
   parameter that isn't in the allowed list. The second deployment fails as expected.
  </p>
- <div class="zone has-pivot" data-pivot="cli">
-  <ol>
-   <li>
-    <p>
+<div class="zone has-pivot" data-pivot="cli">
+<ol>
+<li>
+<p>
      Deploy the template by running the following commands. Fill in a unique name for the
      <code>
       storageName
      </code>
      parameter. Remember, this name must be unique across all of Azure. You can use the unique name you created in the last section. In that case, Azure updates the resource instead of creating a new one.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
 today=$(date +"%d-%b-%Y")
 DeploymentName="addSkuParameter-"$today
 
@@ -718,12 +718,12 @@ D<span class="hljs-parameter">eploymentName=</span><span class="hljs-string">"ad
   <span class="hljs-parameter">--template-file</span> <span class="hljs-variable">$templateFile</span> \
   <span class="hljs-parameter">--parameters</span> storageSKU=Standard_GRS <span class="hljs-parameter">storageName=</span>{your<span class="hljs-parameter">-unique-name</span>}
 </span></code></pre>
-    <p>
+<p>
      Allow this deployment to finish. This deployment succeeds as expected. Your list of allowed values, prevents your template's users from passing in parameter values that don't work for the resource. Let's see what happens when you provide an invalid SKU.
     </p>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      Run the following commands to deploy the template with a parameter that isn't allowed. Here, you changed the
      <code>
       storageSKU
@@ -738,7 +738,7 @@ D<span class="hljs-parameter">eploymentName=</span><span class="hljs-string">"ad
      </code>
      parameter. Remember, this name must be unique across all of Azure. You can use the unique name you created in the last section. In that case, Azure updates the resource instead of creating a new one.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
 today=$(date +"%d-%b-%Y")
 DeploymentName="addSkuParameter-"$today
 
@@ -755,23 +755,23 @@ D<span class="hljs-parameter">eploymentName=</span><span class="hljs-string">"ad
   <span class="hljs-parameter">--template-file</span> <span class="hljs-variable">$templateFile</span> \
   <span class="hljs-parameter">--parameters</span> storageSKU=Basic <span class="hljs-parameter">storageName=</span>{your<span class="hljs-parameter">-unique-name</span>}
 </span></code></pre>
-    <p>
+<p>
      This deployment fails. Notice the error.
     </p>
-   </li>
-  </ol>
- </div>
- <div class="zone has-pivot" data-pivot="powershell">
-  <ol>
-   <li>
-    <p>
+</li>
+</ol>
+</div>
+<div class="zone has-pivot" data-pivot="powershell">
+<ol>
+<li>
+<p>
      Deploy the template by running the following commands. Fill in a unique name for the
      <code>
       storageName
      </code>
      parameter. Remember, this name must be unique across all of Azure. You can use the unique name you created in the last section. In that case, Azure updates the resource instead of creating a new one.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$today=Get-Date -Format "MM-dd-yyyy"
+<pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$today=Get-Date -Format "MM-dd-yyyy"
 $deploymentName="addSkuParameter-"+"$today"
 New-AzResourceGroupDeployment `
   -Name $deploymentName `
@@ -786,12 +786,12 @@ New-AzResourceGroupDeployment `
  <span class="hljs-parameter"> -storageName</span> {<span class="hljs-pscommand">your-unique</span>-name} `
  <span class="hljs-parameter"> -storageSKU</span> Standard_GRS
 </span></code></pre>
-    <p>
+<p>
      Allow this deployment to finish. This deployment succeeds as expected. Your list of allowed values, prevents your template's users from passing in parameter values that don't work for the resource. Let's see what happens when you provide an invalid SKU.
     </p>
-   </li>
-   <li>
-    <p>
+</li>
+<li>
+<p>
      Run the following commands to deploy the template with a parameter that isn't allowed. Here, you changed the
      <code>
       storageSKU
@@ -806,7 +806,7 @@ New-AzResourceGroupDeployment `
      </code>
      parameter. Remember, this name must be unique across all of Azure. You can use the unique name you created in the last section. In that case, Azure updates the resource instead of creating a new one.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$today=Get-Date -Format "MM-dd-yyyy"
+<pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$today=Get-Date -Format "MM-dd-yyyy"
 $deploymentName="addSkuParameter-"+"$today"
 New-AzResourceGroupDeployment `
   -Name $deploymentName `
@@ -821,25 +821,25 @@ New-AzResourceGroupDeployment `
  <span class="hljs-parameter"> -storageName</span> {<span class="hljs-pscommand">your-unique</span>-name} `
  <span class="hljs-parameter"> -storageSKU</span> Basic
 </span></code></pre>
-    <p>
+<p>
      This deployment fails. Notice the error.
     </p>
-   </li>
-  </ol>
- </div>
- <h2 id="add-output-to-the-arm-template">
+</li>
+</ol>
+</div>
+<h2 id="add-output-to-the-arm-template">
   Add output to the ARM template
  </h2>
- <p>
+<p>
   Here, you add to the
   <code>
    outputs
   </code>
   section of the ARM template to output the endpoints for the storage account resource.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the
     <em>
      azuredeploy.json
@@ -850,9 +850,9 @@ New-AzResourceGroupDeployment `
     </code>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Press
     <kbd>
      Enter
@@ -867,7 +867,7 @@ New-AzResourceGroupDeployment `
     </strong>
     . It adds a generic output to the template that looks like this example:
    </p>
-   <pre class="has-inner-focus"><code class="lang-json" data-author-content='"outputs": {
+<pre class="has-inner-focus"><code class="lang-json" data-author-content='"outputs": {
   "output1": {
     "type": "string",
     "value": "value"
@@ -878,9 +878,9 @@ New-AzResourceGroupDeployment `
     <span class="hljs-attr">"value"</span>: <span class="hljs-string">"value"</span>
   }
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Change
     <strong>
      "output1"
@@ -911,7 +911,7 @@ New-AzResourceGroupDeployment `
     </em>
     as the type, it returns the object in JSON format.
    </p>
-   <pre class="has-inner-focus"><code class="lang-json" data-author-content="&quot;outputs&quot;: {
+<pre class="has-inner-focus"><code class="lang-json" data-author-content="&quot;outputs&quot;: {
   &quot;storageEndpoint&quot;: {
     &quot;type&quot;: &quot;object&quot;,
     &quot;value&quot;: &quot;[reference(parameters('storageName')).primaryEndpoints]&quot;
@@ -922,34 +922,34 @@ New-AzResourceGroupDeployment `
     <span class="hljs-attr">"value"</span>: <span class="hljs-string">"[reference(parameters('storageName')).primaryEndpoints]"</span>
   }
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Save the file.
    </p>
-  </li>
- </ol>
- <h3 id="deploy-the-arm-template-with-an-output">
+</li>
+</ol>
+<h3 id="deploy-the-arm-template-with-an-output">
   Deploy the ARM template with an output
  </h3>
- <p>
+<p>
   Here, you deploy the template and see the endpoints output as JSON. You need to fill in a unique name for the
   <code>
    storageName
   </code>
   parameter. Remember, this name must be unique across all of Azure. You can use the unique name you created in the last section. In that case, Azure updates the resource instead of creating a new one.
  </p>
- <div class="zone has-pivot" data-pivot="cli">
-  <ol>
-   <li>
-    <p>
+<div class="zone has-pivot" data-pivot="cli">
+<ol>
+<li>
+<p>
      Deploy the template by running the following commands. Be sure to replace
      <em>
       {your-unique-name}
      </em>
      with a string unique to you.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="azuredeploy.json"
 today=$(date +"%d-%b-%Y")
 DeploymentName="addoutputs-"$today
 
@@ -966,23 +966,23 @@ D<span class="hljs-parameter">eploymentName=</span><span class="hljs-string">"ad
   <span class="hljs-parameter">--template-file</span> <span class="hljs-variable">$templateFile</span> \
   <span class="hljs-parameter">--parameters</span> storageSKU=Standard_LRS <span class="hljs-parameter">storageName=</span>{your<span class="hljs-parameter">-unique-name</span>}
 </span></code></pre>
-    <p>
+<p>
      Notice the output.
     </p>
-   </li>
-  </ol>
- </div>
- <div class="zone has-pivot" data-pivot="powershell">
-  <ol>
-   <li>
-    <p>
+</li>
+</ol>
+</div>
+<div class="zone has-pivot" data-pivot="powershell">
+<ol>
+<li>
+<p>
      Deploy the template by running the following commands. Be sure to replace
      <em>
       {your-unique-name}
      </em>
      with a string unique to you.
     </p>
-    <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$today=Get-Date -Format "MM-dd-yyyy"
+<pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$today=Get-Date -Format "MM-dd-yyyy"
 $deploymentName="addOutputs-"+"$today"
 New-AzResourceGroupDeployment `
   -Name $deploymentName `
@@ -997,16 +997,16 @@ New-AzResourceGroupDeployment `
  <span class="hljs-parameter"> -storageName</span> {<span class="hljs-pscommand">your-unique</span>-name} `
  <span class="hljs-parameter"> -storageSKU</span> Standard_LRS
 </span></code></pre>
-    <p>
+<p>
      Notice the output.
     </p>
-   </li>
-  </ol>
- </div>
- <h3 id="check-your-output-deployment">
+</li>
+</ol>
+</div>
+<h3 id="check-your-output-deployment">
   Check your output deployment
  </h3>
- <p>
+<p>
   In the Azure portal, go to your
   <em>
    addOutputs
@@ -1014,13 +1014,11 @@ New-AzResourceGroupDeployment `
   deployment. You can find your output there as well.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

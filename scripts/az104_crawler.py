@@ -8,10 +8,13 @@ import asyncio
 import json
 import re
 import time
+import aiohttp
+import hashlib
 from pathlib import Path
 from playwright.async_api import async_playwright
 from bs4 import BeautifulSoup
 import aiofiles
+from urllib.parse import urljoin, urlparse
 
 class AZ104Crawler:
     def __init__(self):
@@ -136,6 +139,68 @@ class AZ104Crawler:
         print(f"📚 Found {len(units)} units in this learning path")
         return units
     
+    async def download_image(self, session, img_url, assets_dir):
+        """Download image and return local path"""
+        try:
+            # Create a hash-based filename to avoid conflicts
+            url_hash = hashlib.md5(img_url.encode()).hexdigest()[:8]
+            parsed_url = urlparse(img_url)
+            file_ext = Path(parsed_url.path).suffix or '.jpg'
+            local_filename = f"img_{url_hash}{file_ext}"
+            local_path = assets_dir / local_filename
+            
+            # Skip if already downloaded
+            if local_path.exists():
+                return f"../../../assets/{local_filename}"
+            
+            async with session.get(img_url) as response:
+                if response.status == 200:
+                    content = await response.read()
+                    async with aiofiles.open(local_path, 'wb') as f:
+                        await f.write(content)
+                    print(f"📷 Downloaded image: {local_filename}")
+                    return f"../../../assets/{local_filename}"
+                else:
+                    print(f"❌ Failed to download image: {img_url} (Status: {response.status})")
+                    return img_url
+        except Exception as e:
+            print(f"❌ Error downloading image {img_url}: {e}")
+            return img_url
+
+    async def process_images(self, soup, base_url, assets_dir):
+        """Process and download images in the content"""
+        images = soup.find_all('img')
+        if not images:
+            return soup
+        
+        print(f"🖼️  Processing {len(images)} images...")
+        
+        async with aiohttp.ClientSession() as session:
+            for img in images:
+                src = img.get('src')
+                if not src:
+                    continue
+                
+                # Convert relative URLs to absolute
+                if src.startswith('//'):
+                    img_url = 'https:' + src
+                elif src.startswith('/'):
+                    img_url = urljoin(base_url, src)
+                elif not src.startswith('http'):
+                    img_url = urljoin(base_url, src)
+                else:
+                    img_url = src
+                
+                # Download and update src
+                local_path = await self.download_image(session, img_url, assets_dir)
+                img['src'] = local_path
+                
+                # Add alt text if missing
+                if not img.get('alt'):
+                    img['alt'] = "Course content image"
+        
+        return soup
+
     async def extract_clean_content(self, page, unit_url, unit_title):
         """Extract and clean content from a unit page"""
         print(f"📖 Extracting: {unit_title}")
@@ -170,6 +235,10 @@ class AZ104Crawler:
                     for element in soup.select(selector):
                         element.decompose()
                 
+                # Process images
+                assets_dir = self.output_dir / "assets"
+                soup = await self.process_images(soup, self.base_url, assets_dir)
+                
                 # Create clean HTML
                 clean_html = self._create_clean_html(page_title, unit_title, unit_url, soup)
                 return clean_html
@@ -192,7 +261,7 @@ class AZ104Crawler:
     <div class="source-info">
         <h2>📚 Course Information</h2>
         <p><strong>Unit:</strong> {unit_title}</p>
-        <p><strong>Source:</strong> <a href="{unit_url}" target="_blank">Microsoft Learn</a></p>
+        <p><strong>Source:</strong> <a href="{unit_url}" target="_blank">{unit_url}</a></p>
         <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
     </div>
     

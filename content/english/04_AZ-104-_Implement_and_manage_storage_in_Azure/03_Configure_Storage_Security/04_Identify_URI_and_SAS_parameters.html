@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Identify URI and SAS parameters - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Identify URI and SAS parameters - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,74 +168,73 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Identify URI and SAS parameters</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-storage-security/4-identify-uri-sas-parameters/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Identify URI and SAS parameters</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-storage-security/4-identify-uri-sas-parameters/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-storage-security/4-identify-uri-sas-parameters/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   When you create your shared access signature (SAS), a uniform resource identifier (URI) is created by using parameters and tokens. The URI consists of your Azure Storage resource URI and the SAS token.
  </p>
- <h3 id="things-to-know-about-uri-definitions">
+<h3 id="things-to-know-about-uri-definitions">
   Things to know about URI definitions
  </h3>
- <p>
+<p>
   Let's look at an example URI definition and examine the parameters. This example creates a service-level SAS that grants read and write permissions to a blob. Consider how you might configure the parameters to support your Azure Storage resources.
  </p>
- <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-URI" data-author-content="https://myaccount.blob.core.windows.net/?restype=service&amp;comp=properties&amp;sv=2015-04-05&amp;ss=bf&amp;st=2015-04-29T22%3A18%3A26Z&amp;se=2015-04-30T02%3A23%3A26Z&amp;sr=b&amp;sp=rw&amp;sip=168.1.5.60-168.1.5.70&amp;spr=https&amp;sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-URI" data-author-content="https://myaccount.blob.core.windows.net/?restype=service&amp;comp=properties&amp;sv=2015-04-05&amp;ss=bf&amp;st=2015-04-29T22%3A18%3A26Z&amp;se=2015-04-30T02%3A23%3A26Z&amp;sr=b&amp;sp=rw&amp;sip=168.1.5.60-168.1.5.70&amp;spr=https&amp;sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ">https://myaccount.blob.core.windows.net/?restype=service&amp;comp=properties&amp;sv=2015-04-05&amp;ss=bf&amp;st=2015-04-29T22%3A18%3A26Z&amp;se=2015-04-30T02%3A23%3A26Z&amp;sr=b&amp;sp=rw&amp;sip=168.1.5.60-168.1.5.70&amp;spr=https&amp;sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 </code></pre>
- <div class="has-inner-focus">
-  <table aria-label="Things to know about URI definitions" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Things to know about URI definitions" class="table">
+<thead>
+<tr>
+<th>
       Parameter
      </th>
-     <th>
+<th>
       Example
      </th>
-     <th>
+<th>
       Description
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
-      <strong>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
        Resource URI
       </strong>
-     </td>
-     <td>
-      <code>
+</td>
+<td>
+<code>
        https://myaccount.
       </code>
-      <strong>
-       <code>
+<strong>
+<code>
         blob
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        .core.windows.net/
       </code>
-      <code>
+<code>
        ?restype=
       </code>
-      <strong>
-       <code>
+<strong>
+<code>
         service
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        &amp;amp;comp=properties
       </code>
-     </td>
-     <td>
+</td>
+<td>
       Defines the Azure Storage endpoint and other parameters. This example defines an endpoint for Blob Storage and indicates that the SAS applies to service-level operations. When the URI is used with
       <code>
        GET
@@ -245,215 +245,213 @@
       </code>
       , the Storage properties are configured.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Storage version
       </strong>
-     </td>
-     <td>
-      <strong>
-       <code>
+</td>
+<td>
+<strong>
+<code>
         sv
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        =2015-04-05
       </code>
-     </td>
-     <td>
+</td>
+<td>
       For Azure Storage version 2012-02-12 and later, this parameter indicates the version to use. This example indicates that version 2015-04-05 (April 5, 2015) should be used.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Storage service
       </strong>
-     </td>
-     <td>
-      <strong>
-       <code>
+</td>
+<td>
+<strong>
+<code>
         ss
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        =bf
       </code>
-     </td>
-     <td>
+</td>
+<td>
       Specifies the Azure Storage to which the SAS applies. This example indicates that the SAS applies to Blob Storage and Azure Files.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Start time
       </strong>
-     </td>
-     <td>
-      <strong>
-       <code>
+</td>
+<td>
+<strong>
+<code>
         st
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        =2015-04-29T22%3A18%3A26Z
       </code>
-     </td>
-     <td>
+</td>
+<td>
       (Optional) Specifies the start time for the SAS in UTC time. This example sets the start time as April 29, 2015 22:18:26 UTC. If you want the SAS to be valid immediately, omit the start time.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Expiry time
       </strong>
-     </td>
-     <td>
-      <strong>
-       <code>
+</td>
+<td>
+<strong>
+<code>
         se
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        =2015-04-30T02%3A23%3A26Z
       </code>
-     </td>
-     <td>
+</td>
+<td>
       Specifies the expiration time for the SAS in UTC time. This example sets the expiry time as April 30, 2015 02:23:26 UTC.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Resource
       </strong>
-     </td>
-     <td>
-      <strong>
-       <code>
+</td>
+<td>
+<strong>
+<code>
         sr
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        =b
       </code>
-     </td>
-     <td>
+</td>
+<td>
       Specifies which resources are accessible via the SAS. This example specifies that the accessible resource is in Blob Storage.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Permissions
       </strong>
-     </td>
-     <td>
-      <strong>
-       <code>
+</td>
+<td>
+<strong>
+<code>
         sp
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        =rw
       </code>
-     </td>
-     <td>
+</td>
+<td>
       Lists the permissions to grant. This example grants access to read and write operations.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        IP range
       </strong>
-     </td>
-     <td>
-      <strong>
-       <code>
+</td>
+<td>
+<strong>
+<code>
         sip
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        =168.1.5.60-168.1.5.70
       </code>
-     </td>
-     <td>
+</td>
+<td>
       Specifies a range of IP addresses from which a request is accepted. This example defines the IP address range 168.1.5.60 through 168.1.5.70.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Protocol
       </strong>
-     </td>
-     <td>
-      <strong>
-       <code>
+</td>
+<td>
+<strong>
+<code>
         spr
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        =https
       </code>
-     </td>
-     <td>
+</td>
+<td>
       Specifies the protocols from which Azure Storage accepts the SAS. This example indicates that only requests by using HTTPS are accepted.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Signature
       </strong>
-     </td>
-     <td>
-      <strong>
-       <code>
+</td>
+<td>
+<strong>
+<code>
         sig
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        =F%6GRVAZ5Cdj2Pw4tgU7Il
       </code>
-      <code>
+<code>
        STkWgn7bUkkAg8P6HESXwmf%4B
       </code>
-     </td>
-     <td>
+</td>
+<td>
       Specifies that access to the resource is authenticated by using a Hash-Based Message Authentication Code (HMAC) signature. The signature is computed with a key using the SHA256 algorithm, and encoded by using Base64 encoding.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <div class="alert is-success">
-  <p class="alert-title">
+</tr>
+</tbody>
+</table>
+</div>
+<div class="alert is-success">
+<p class="alert-title">
    Tip
   </p>
-  <p>
+<p>
    Continue your learning with the
    <a data-linktype="absolute-path" href="/en-us/training/modules/implement-shared-access-signatures/">
-    <em>
+<em>
      Implement shared access signatures
     </em>
-   </a>
+</a>
    training modules.
   </p>
- </div>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

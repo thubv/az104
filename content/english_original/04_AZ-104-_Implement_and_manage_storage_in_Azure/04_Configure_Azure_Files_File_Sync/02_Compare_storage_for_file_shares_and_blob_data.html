@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare storage for file shares and blob data - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 2 Compare Files To Blobs</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/2-compare-files-to-blobs/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/2-compare-files-to-blobs/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ <a data-linktype="absolute-path" href="/en-us/azure/storage/files/storage-files-introduction">
+  Azure Files
+ </a>
+ offers fully managed file shares in the cloud. You can access Azure file shares by using the Server Message Block (SMB), Network File System (NFS), and HTTP protocols. Clients can connect to Azure file shares from Windows, Linux, and macOS devices.
+</p>
+<h3 id="things-to-know-about-azure-files">
+ Things to know about Azure Files
+</h3>
+<p>
+ Here are some characteristics of Azure files:
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    Serverless deployment
+   </strong>
+   . An Azure file share is a PaaS offering of a fully managed file share that doesn't require any infrastructure. You don't need to take care of any VMs, operating systems, or updates.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Almost unlimited storage
+   </strong>
+   . A single Azure file share can store up to 100 tebibytes (TiB) of files, and a file can be up to 4 TiB in size. The files are organized in a hierarchical folder structure in the same way as on on-premises file servers.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Data encryption
+   </strong>
+   . The data on an Azure file share is encrypted at rest in an Azure datacenter and in transit on a network.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Access from anywhere
+   </strong>
+   . By default, clients can access Azure file shares from anywhere if they have internet connectivity.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Integration into an existing environment
+   </strong>
+   . You can control access to Azure file shares by using Microsoft Entra identities or AD DS identities that are synced to Microsoft Entra ID. This helps ensure that users can have the same experience accessing an Azure file share as when they access an on-premises file server.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Previous versions and backups
+   </strong>
+   . You can create Azure file share snapshots that integrate with the Previous Versions feature in File Explorer. You can also use Azure Backup to back up Azure file shares.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Data redundancy
+   </strong>
+   . Azure file share data replicates to multiple locations in the same Azure datacenter or across many Azure datacenters. The replication setting of the Azure storage account that includes the file share controls the data redundancy.
+  </p>
+ </li>
+</ul>
+<h3 id="things-to-consider-when-using-azure-files">
+ Things to consider when using Azure Files
+</h3>
+<p>
+ There are many common scenarios for using Azure Files. As you review the following suggestions, think about how Azure Files can provide solutions for your organization.
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    Consider replacement and supplement options
+   </strong>
+   . Replace or supplement traditional on-premises file servers or NAS devices by using Azure Files.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider global access
+   </strong>
+   . Directly access Azure file shares by using most operating systems, such as Windows, macOS, and Linux, from anywhere in the world.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider lift and shift support
+   </strong>
+   .
+   <em>
+    Lift and shift
+   </em>
+   applications to the cloud with Azure Files for apps that expect a file share to store file application or user data.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider using Azure File Sync
+   </strong>
+   . Replicate Azure file shares to Windows Servers by using Azure File Sync. You can replicate on-premises or in the cloud for performance and distributed caching of the data where it's being used. We take a closer look at Azure File Sync in a later unit.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider shared applications
+   </strong>
+   . Store shared application settings such as configuration files in Azure Files.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider diagnostic data
+   </strong>
+   . Use Azure Files to store diagnostic data such as logs, metrics, and crash dumps in a shared location.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Consider tools and utilities
+   </strong>
+   . Azure Files is a good option for storing tools and utilities that are needed for developing or administering Azure VMs or cloud services.
+  </p>
+ </li>
+</ul>
+<h2 id="compare-azure-files-to-azure-blob-storage">
+ Compare Azure Files to Azure Blob Storage
+</h2>
+<p>
+ It's important to understand when to use Azure Files to store data in file shares rather than using Azure Blob Storage to store data as blobs. The following table compares different features of these services and common implementation scenarios.
+</p>
+<div class="buttons buttons-right margin-bottom-none margin-top-sm">
+ <!-- -->
+ <!-- -->
+</div>
+<div class="has-inner-focus">
+ <table aria-label="Compare Azure Files to Azure Blob Storage" class="table">
+  <thead>
+   <tr>
+    <th>
+     Azure Files (file shares)
+    </th>
+    <th>
+     Azure Blob Storage (blobs)
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td>
+     Azure Files provides the SMB and NFS protocols, client libraries, and a REST interface that allows access from anywhere to stored files.
+    </td>
+    <td>
+     Azure Blob Storage provides client libraries and a REST interface that allows unstructured data to be stored and accessed at a massive scale in block blobs.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     - Files in an Azure Files share are true directory objects.
+     <br/>
+     - Data in Azure Files is accessed through file shares across multiple virtual machines.
+    </td>
+    <td>
+     - Blobs in Azure Blob Storage are a flat namespace.
+     <br/>
+     - Blob data in Azure Blob Storage is accessed through a container.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <em>
+      <strong>
+       Azure Files
+      </strong>
+      is ideal to lift and shift an application to the cloud that already uses the native file system APIs. Share data between the app and other applications running in Azure.
+     </em>
+     <br/>
+     <br/>
+     <em>
+      Azure Files is a good option when you want to store development and debugging tools that need to be accessed from many virtual machines.
+     </em>
+    </td>
+    <td>
+     <em>
+      <strong>
+       Azure Blob Storage
+      </strong>
+      is ideal for applications that need to support streaming and random-access scenarios.
+     </em>
+     <br/>
+     <br/>
+     <em>
+      Azure Blob Storage is a good option when you want to be able to access application data from anywhere.
+     </em>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

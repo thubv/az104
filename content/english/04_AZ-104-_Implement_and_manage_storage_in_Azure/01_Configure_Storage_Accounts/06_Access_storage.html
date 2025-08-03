@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Access storage - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Access storage - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,129 +168,128 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Access storage</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/6-access-storage/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Access storage</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/6-access-storage/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/6-access-storage/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Every object you store in Azure Storage has a unique URL address. Your storage account name forms the
   <em>
    subdomain
   </em>
   portion of the URL address. The combination of the subdomain and the domain name, which is specific to each service, forms an endpoint for your storage account.
  </p>
- <p>
+<p>
   Let's look at an example. If your storage account name is
   <em>
    mystorageaccount
   </em>
   , default endpoints for your storage account are formed for the Azure services as shown in the following table:
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Table 1" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Table 1" class="table">
+<thead>
+<tr>
+<th>
       Service
      </th>
-     <th>
+<th>
       Default endpoint
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
-      <strong>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
        Container service
       </strong>
-     </td>
-     <td>
-      <code>
+</td>
+<td>
+<code>
        //
       </code>
-      <strong>
-       <code>
+<strong>
+<code>
         mystorageaccount
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        .blob.core.windows.net
       </code>
-     </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</td>
+</tr>
+<tr>
+<td>
+<strong>
        Table service
       </strong>
-     </td>
-     <td>
-      <code>
+</td>
+<td>
+<code>
        //
       </code>
-      <strong>
-       <code>
+<strong>
+<code>
         mystorageaccount
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        .table.core.windows.net
       </code>
-     </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</td>
+</tr>
+<tr>
+<td>
+<strong>
        Queue service
       </strong>
-     </td>
-     <td>
-      <code>
+</td>
+<td>
+<code>
        //
       </code>
-      <strong>
-       <code>
+<strong>
+<code>
         mystorageaccount
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        .queue.core.windows.net
       </code>
-     </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</td>
+</tr>
+<tr>
+<td>
+<strong>
        File service
       </strong>
-     </td>
-     <td>
-      <code>
+</td>
+<td>
+<code>
        //
       </code>
-      <strong>
-       <code>
+<strong>
+<code>
         mystorageaccount
        </code>
-      </strong>
-      <code>
+</strong>
+<code>
        .file.core.windows.net
       </code>
-     </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
   We create the URL to access an object in your storage account by appending the object's location in the storage account to the endpoint.
  </p>
- <p>
+<p>
   For example, to access the
   <em>
    myblob
@@ -300,37 +300,37 @@
   </em>
   location in your storage account, we use the following URL address:
  </p>
- <p>
-  <code>
+<p>
+<code>
    //
   </code>
-  <strong>
-   <code>
+<strong>
+<code>
     mystorageaccount
    </code>
-  </strong>
-  <code>
+</strong>
+<code>
    .blob.core.windows.net/
   </code>
-  <strong>
-   <code>
+<strong>
+<code>
     mycontainer
    </code>
-  </strong>
-  <code>
+</strong>
+<code>
    /
   </code>
-  <strong>
-   <code>
+<strong>
+<code>
     myblob
    </code>
-  </strong>
+</strong>
   .
  </p>
- <h2 id="configure-custom-domains">
+<h2 id="configure-custom-domains">
   Configure custom domains
  </h2>
- <p>
+<p>
   You can configure a
   <a data-linktype="absolute-path" href="/en-us/azure/storage/blobs/storage-custom-domain-name">
    custom domain
@@ -345,8 +345,8 @@
   </code>
   , to the blob or web endpoint for your storage account, your users can use that domain to access blob data in your storage account.
  </p>
- <p>
-  <strong>
+<p>
+<strong>
    Direct mapping
   </strong>
   lets you enable a custom domain for a subdomain to an Azure storage account. For this approach, you create a
@@ -355,27 +355,27 @@
   </code>
   record that points from the subdomain to the Azure storage account.
  </p>
- <p>
+<p>
   The following example shows how a subdomain is mapped to an Azure storage account to create a
   <code>
    CNAME
   </code>
   record in the domain name system (DNS):
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Subdomain:
    <code>
     blobs.contoso.com
    </code>
-  </li>
-  <li>
+</li>
+<li>
    Azure storage account:
    <code>
     \&lt;storage account&gt;\.blob.core.windows.net
    </code>
-  </li>
-  <li>
+</li>
+<li>
    Direct
    <code>
     CNAME
@@ -384,16 +384,14 @@
    <code>
     contosoblobs.blob.core.windows.net
    </code>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

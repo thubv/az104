@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Terminate a misbehaving process - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Terminate a misbehaving process - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,23 +168,22 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Terminate a misbehaving process</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/bash-introduction/5-exercise-terminate-process/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Terminate a misbehaving process</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/bash-introduction/5-exercise-terminate-process/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/bash-introduction/5-exercise-terminate-process/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Computers are imperfect. Sooner or later, something
   <em>
    will
   </em>
   go wrong. That's why you have a job as a sysadmin; it's up to you to troubleshoot and fix system problems.
  </p>
- <p>
+<p>
   Imagine that a Python application is causing problems. Perhaps it's taking up too much CPU time, or maybe it stopped responding. In either case, you want to stop the application. To identify a process or application, you can use
   <code>
    ps
@@ -198,36 +198,36 @@
   </code>
   command. Let's practice this in your Linux virtual machine.
  </p>
- <h2 id="start-a-misbehaving-process">
+<h2 id="start-a-misbehaving-process">
   Start a misbehaving process
  </h2>
- <p>
+<p>
   If you're going to kill a process, you need a process to kill. Let's create one.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Get back to your home base by typing the following command:
    </p>
-   <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd ~
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd ~
 "><span><span class="hljs-built_in">cd</span> ~
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In Azure Cloud Shell, enter the following command to start Linux's
     <a data-linktype="external" href="https://wikipedia.org/wiki/Vi">
-     <code>
+<code>
       vi
      </code>
-    </a>
+</a>
     editor:
    </p>
-   <pre class="has-inner-focus"><code class="lang-bash" data-author-content="vi bad.py
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="vi bad.py
 "><span>vi bad.py
 </span></code></pre>
-   <p>
-    <code>
+<p>
+<code>
      vi
     </code>
     is a widely used text editor that Linux inherited from Unix. Love it or hate it, a Bash user needs to know the basics of
@@ -236,9 +236,9 @@
     </code>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select the
     <strong>
      i
@@ -249,19 +249,19 @@
     </code>
     in insert mode. Then type in the following Python program:
    </p>
-   <pre class="has-inner-focus"><code class="lang-python" data-author-content="i = 0
+<pre class="has-inner-focus"><code class="lang-python" data-author-content="i = 0
 while i == 0:
     pass
 "><span>i = <span class="hljs-number">0</span>
 <span class="hljs-keyword">while</span> i == <span class="hljs-number">0</span>:
     <span class="hljs-keyword">pass</span>
 </span></code></pre>
-   <p>
+<p>
     This program, when executed, runs in an infinite loop—clearly not something you want running on your server.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select the
     <strong>
      Esc
@@ -276,10 +276,10 @@ while i == 0:
     </code>
     :
    </p>
-   <pre class="has-inner-focus"><code class="lang-vim" data-author-content=":wq
+<pre class="has-inner-focus"><code class="lang-vim" data-author-content=":wq
 "><span>:<span class="hljs-keyword">wq</span>
 </span></code></pre>
-   <p>
+<p>
     Be sure to include the colon at the beginning of the command. As for the remainder of the command,
     <code>
      w
@@ -290,70 +290,70 @@ while i == 0:
     </code>
     stands for "quit."
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Now use the following command to start the program and leave it running in the background:
    </p>
-   <pre class="has-inner-focus"><code class="lang-bash" data-author-content="python3 bad.py &amp;
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="python3 bad.py &amp;
 "><span>python3 bad.py &amp;
 </span></code></pre>
-   <p>
+<p>
     Be sure to include the ampersand (
     <code>
      &amp;
     </code>
     ) at the end of the command. Otherwise, you won't return to the Bash prompt. In Bash, the ampersand runs a command and returns to the command line, even if the command hasn't finished running.
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   It's not obvious, but
   <strong>
    bad.py
   </strong>
   is now running in the background and stealing CPU cycles from other processes. Let's take a close look at what's happening.
  </p>
- <h2 id="kill-the-process">
+<h2 id="kill-the-process">
   Kill the process
  </h2>
- <p>
+<p>
   To kill a process, you need the process name or process ID. This is a job for
   <code>
    ps
   </code>
   .
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     To refresh your memory, a
     <code>
      ps -ef
     </code>
     command lists all running processes and displays a great deal of information about each. Use the following command to list all running processes and filter the results to lines that contain "python":
    </p>
-   <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef | grep python
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef | grep python
 "><span>ps -ef | grep python
 </span></code></pre>
-   <p>
+<p>
     The results should look something like this:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content="yourname+    342    254 99 23:34 pts/1    00:00:31 python3 bad.py
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content="yourname+    342    254 99 23:34 pts/1    00:00:31 python3 bad.py
 yourname+    344    254  0 23:35 pts/1    00:00:00 grep --color=auto python
 ">yourname+    342    254 99 23:34 pts/1    00:00:31 python3 bad.py
 yourname+    344    254  0 23:35 pts/1    00:00:00 grep --color=auto python
 </code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     From the listing, it appears that
     <strong>
      bad.py
     </strong>
     is consuming 99 percent of the server's CPU time. The program is living up to its name.
    </p>
-   <p>
+<p>
     The
     <code>
      kill
@@ -368,19 +368,19 @@ yourname+    344    254  0 23:35 pts/1    00:00:00 grep --color=auto python
     </code>
     , you have to decide what kind of "signal" to use to kill the process. Use the following command to display a list of signal types:
    </p>
-   <pre class="has-inner-focus"><code class="lang-bash" data-author-content="kill -l
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="kill -l
 "><span><span class="hljs-built_in">kill</span> -l
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     If you were killing a daemon process—one that runs in the background and provides vital services to the operating system—you might want to kill it and immediately restart it. To do that, you could use a
     <code>
      SIGHUP
     </code>
     signal.
    </p>
-   <p>
+<p>
     In this example, you want to kill the process without restarting it. Therefore, you want to use the
     <code>
      SIGKILL
@@ -399,19 +399,19 @@ yourname+    344    254  0 23:35 pts/1    00:00:00 grep --color=auto python
     </code>
     with the process ID.
    </p>
-   <pre class="has-inner-focus"><code class="lang-bash" data-author-content="kill -9 PROCESS_ID
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="kill -9 PROCESS_ID
 "><span><span class="hljs-built_in">kill</span> -9 PROCESS_ID
 </span></code></pre>
-   <p>
+<p>
     The same command can also be entered as
     <code>
      kill -s SIGKILL PROCESS_ID
     </code>
     . Whether you use a signal's name or number is up to you.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Finish by running
     <code>
      ps
@@ -422,9 +422,9 @@ yourname+    344    254  0 23:35 pts/1    00:00:00 grep --color=auto python
     </strong>
     is no longer running.
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   Another common use for
   <code>
    ps
@@ -436,13 +436,11 @@ yourname+    344    254  0 23:35 pts/1    00:00:00 grep --color=auto python
   is to identify and terminate "zombie processes," which are child processes left behind by poorly written programs.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

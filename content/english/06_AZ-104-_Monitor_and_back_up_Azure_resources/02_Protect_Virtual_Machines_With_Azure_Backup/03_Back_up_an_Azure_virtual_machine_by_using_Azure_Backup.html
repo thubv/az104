@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Back up an Azure virtual machine by using Azure Backup - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Back up an Azure virtual machine by using Azure Backup - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,134 +168,133 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Back up an Azure virtual machine by using Azure Backup</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/3-back-up-azure-virtual-machine/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Back up an Azure virtual machine by using Azure Backup</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/3-back-up-azure-virtual-machine/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/3-back-up-azure-virtual-machine/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   You want to ensure that the backup and restore jobs you put in place offer a way to recover your company's servers. With this requirement in mind, you want to investigate the best way to implement backup for your virtual machines (VMs).
  </p>
- <p>
+<p>
   VMs that are hosted on Azure can take advantage of Azure Backup. You can easily back up and restore machines without installing extra software.
  </p>
- <p>
+<p>
   In this unit, you explore all the methods of backing up Azure VMs provided by Azure Backup and make a decision on which to implement.
  </p>
- <p>
-  <strong>
+<p>
+<strong>
    Azure VMs
   </strong>
   are backed up by taking snapshots of the underlying disks at user-defined intervals and transferring those snapshots to the Recovery Services vault as per the customer-defined policy.
  </p>
- <h2 id="recovery-services-vault">
+<h2 id="recovery-services-vault">
   Recovery Services vault
  </h2>
- <p>
+<p>
   Azure Backup uses a Recovery Services vault to manage and store the backup data. A vault is a storage-management entity, which provides a simple experience to carry out and monitor backup and restore operations. With Azure Backup, you don't need to worry about deploying or managing storage accounts. In fact, all you need to specify is the vault that you want to back up the virtual machine (VM) to. The backup data is transferred to the Azure Backup storage accounts (in a separate fault domain) in the background. The vault also acts as a role-based access control boundary to allow secure access to the data.
  </p>
- <h2 id="snapshots">
+<h2 id="snapshots">
   Snapshots
  </h2>
- <p>
+<p>
   A snapshot is a point-in-time backup of all disks on the VM. For Azure VMs, Azure Backup uses different extensions for each supporting operating system:
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Snapshots" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Snapshots" class="table">
+<thead>
+<tr>
+<th>
       Extension
      </th>
-     <th>
+<th>
       OS
      </th>
-     <th>
+<th>
       Description
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
       VM Snapshot
      </td>
-     <td>
+<td>
       Windows
      </td>
-     <td>
+<td>
       The extension works with Volume Shadow Copy Service (VSS) to take a copy of the data on disk and in memory.
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       VM SnapshotLinux
      </td>
-     <td>
+<td>
       Linux
      </td>
-     <td>
+<td>
       The snapshot is a copy of the disk.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <p>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
   Depending on how the snapshot is taken and what it includes, you can achieve different levels of consistency:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Application consistent
    </strong>
-   <ul>
-    <li>
+<ul>
+<li>
      The snapshot captures the VM as a whole. It uses VSS writers to capture the content of the machine memory and any pending I/O operations.
     </li>
-    <li>
+<li>
      For Linux machines, you need to write custom pre or post scripts per app to capture the application state.
     </li>
-    <li>
+<li>
      You can get complete consistency for the VM and all running applications.
     </li>
-   </ul>
-  </li>
-  <li>
-   <strong>
+</ul>
+</li>
+<li>
+<strong>
     File system consistent
    </strong>
-   <ul>
-    <li>
+<ul>
+<li>
      If VSS fails on Windows, or the pre and post scripts fail on Linux, Azure Backup still creates a file-system-consistent snapshot.
     </li>
-    <li>
+<li>
      During a recovery, no corruption occurs within the machine. But installed applications need to do their own cleanup during startup to become consistent.
     </li>
-   </ul>
-  </li>
-  <li>
-   <strong>
+</ul>
+</li>
+<li>
+<strong>
     Crash consistent
    </strong>
-   <ul>
-    <li>
+<ul>
+<li>
      This level of consistency typically occurs if the VM is shut down at the time of the backup.
     </li>
-    <li>
+<li>
      No I/O operations or memory contents are captured during this type of backup. This method doesn't guarantee data consistency for the OS or app.
     </li>
-   </ul>
-  </li>
- </ul>
- <h2 id="backup-policy">
+</ul>
+</li>
+</ul>
+<h2 id="backup-policy">
   Backup policy
  </h2>
- <p>
+<p>
   You can define the backup frequency and retention duration for your backups. Currently, the VM backup can be triggered daily or weekly, and can be stored for multiple years. The backup policy supports two access tiers:
   <em>
    snapshot tier
@@ -305,8 +305,8 @@
   </em>
   . By using the Enhanced policy, you can trigger hourly backups.
  </p>
- <p>
-  <strong>
+<p>
+<strong>
    Selective disk backup
   </strong>
   : Azure Backup provides
@@ -319,8 +319,8 @@
   </strong>
   . By using this capability, you can selectively back up a subset of the data disks that are attached to your VM. Then, you can restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier. It helps you manage critical data in a subset of the VM disks and use database backup solutions when you want to back up only their OS disk to reduce cost.
  </p>
- <p>
-  <strong>
+<p>
+<strong>
    Snapshot tier
   </strong>
   : All the snapshots are stored locally for a maximum period of five days, in what is called the snapshot tier. For all types of operation recoveries, we recommended that you restore from the snapshots because it's faster to do so. This capability is called
@@ -329,55 +329,55 @@
   </strong>
   .
  </p>
- <p>
-  <strong>
+<p>
+<strong>
    Vault tier
   </strong>
   : All snapshots are additionally transferred to the vault for more security and longer retention. At this point, the recovery point type changes to "snapshot and vault."
  </p>
- <h2 id="backup-process-for-an-azure-virtual-machine">
+<h2 id="backup-process-for-an-azure-virtual-machine">
   Backup process for an Azure virtual machine
  </h2>
- <p>
+<p>
   Here's how Azure Backup completes a backup for Azure VMs:
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     For Azure VMs that are selected for backup, Azure Backup starts a backup job according to the backup frequency you specify in the backup policy.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     During the first backup, a backup extension is installed on the VM, if the VM is running:
    </p>
-   <ul>
-    <li>
+<ul>
+<li>
      For Windows VMs, the VM Snapshot extension is installed.
     </li>
-    <li>
+<li>
      For Linux VMs, the VM SnapshotLinux extension is installed.
     </li>
-   </ul>
-  </li>
-  <li>
-   <p>
+</ul>
+</li>
+<li>
+<p>
     After the snapshot is taken, the data is stored locally and transferred to the vault.
    </p>
-   <ul>
-    <li>
+<ul>
+<li>
      The backup is optimized by backing up each VM disk in parallel.
     </li>
-    <li>
+<li>
      For each disk that's being backed up, Azure Backup reads the blocks on the disk and identifies and transfers only the data blocks that changed (the delta) since the previous backup.
     </li>
-    <li>
+<li>
      Snapshot data might not be immediately copied to the vault. It might take several hours at peak times. Total backup time for a VM is less than 24 hours for daily backup policies.
     </li>
-   </ul>
-  </li>
- </ol>
- <p>
+</ul>
+</li>
+</ol>
+<p>
   You can additionally enable
   <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk#configuring-a-vault-to-encrypt-using-customer-managed-keys?azure-portal=true" target="az-portal">
    vault encryption with customer-managed keys (CMK)
@@ -393,13 +393,11 @@
   to prevent turning it off, thus protecting your backups from accidental deletion or from malware attacks.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

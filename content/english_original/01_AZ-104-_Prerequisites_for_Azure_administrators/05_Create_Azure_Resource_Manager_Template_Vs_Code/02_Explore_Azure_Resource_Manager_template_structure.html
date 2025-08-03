@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Azure Resource Manager template structure - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 2 Explore Template Structure</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/2-explore-template-structure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/2-explore-template-structure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ In this unit, you learn about using Azure Resource Manager templates (ARM templates) to implement infrastructure as code. You survey the sections of an ARM template, learn how to deploy your ARM template to Azure, and delve into detail on the
+ <em>
+  resources
+ </em>
+ section of the ARM template.
+</p>
+<h2 id="what-is-infrastructure-as-code">
+ What is infrastructure as code?
+</h2>
+<p>
+ <em>
+  Infrastructure as code
+ </em>
+ allows you to describe, through code, the infrastructure that you need for your application.
+</p>
+<p>
+ With infrastructure as code, you can maintain both your application code and everything you need to deploy your application in a central code repository. The advantages to infrastructure as code are:
+</p>
+<ul>
+ <li>
+  Consistent configurations
+ </li>
+ <li>
+  Improved scalability
+ </li>
+ <li>
+  Faster deployments
+ </li>
+ <li>
+  Better traceability
+ </li>
+</ul>
+<p>
+ This video explains infrastructure as code:
+</p>
+<div class="embeddedvideo">
+ <iframe allowfullscreen="true" data-linktype="external" frameborder="0" src="https://channel9.msdn.com/Blogs/One-Dev-Minute/What-is-Infrastructure-as-Code--One-Dev-Question/player?format=ny&amp;nocookie=true&amp;locale=en-us&amp;embedUrl=%2Ftraining%2Fmodules%2Fcreate-azure-resource-manager-template-vs-code%2F2-explore-template-structure" title="Video: What-is-Infrastructure-as-Code--One-Dev-Question">
+ </iframe>
+</div>
+<h2 id="what-is-an-arm-template">
+ What is an ARM template?
+</h2>
+<p>
+ ARM templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your deployment. The template uses a
+ <em>
+  declarative syntax
+ </em>
+ . The declarative syntax is a way of building the structure and elements that outline what resources look like without describing the control flow. Declarative syntax is different than
+ <em>
+  imperative syntax
+ </em>
+ , which uses commands for the computer to perform. Imperative scripting focuses on specifying each step in deploying the resources.
+</p>
+<p>
+ ARM templates allow you to declare what you intend to deploy without having to write the sequence of programming commands to create it. In an ARM template, you specify the resources and the properties for those resources.
+ <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview" target="az-portal">
+  Azure Resource Manager
+ </a>
+ then uses that information to deploy the resources in an organized and consistent manner.
+</p>
+<h3 id="benefits-of-using-arm-templates">
+ Benefits of using ARM templates
+</h3>
+<p>
+ ARM templates allow you to automate deployments and use the practice of infrastructure as code (IaC). The template code becomes part of your infrastructure and development projects. Just like application code, you can store the IaC files in a source repository and version it.
+</p>
+<p>
+ ARM templates are
+ <em>
+  idempotent
+ </em>
+ , which means you can deploy the same template many times and get the same resource types in the same state.
+</p>
+<p>
+ Resource Manager orchestrates deploying the resources so they're created in the correct order. When possible, resources are created in parallel, so ARM template deployments finish faster than scripted deployments.
+</p>
+<p>
+ <img alt="Diagram showing a mapping of the template processing procedure. There's only one call to process a template as opposed to several calls to process scripts." data-linktype="relative-path" loading="lazy" src="../../../assets/2-template-processing_254c246f.png"/>
+</p>
+<p>
+ Resource Manager also has built-in validation. It checks the template before starting the deployment to make sure the deployment succeeds.
+</p>
+<p>
+ If your deployments become more complex, you can break your ARM templates into smaller, reusable components. You can link these smaller templates together at deployment time. You can also nest templates inside other templates.
+</p>
+<p>
+ In the Azure portal, you can review your deployment history and get information about the state of the deployment. The portal displays values for all parameters and outputs.
+</p>
+<p>
+ You can also integrate your ARM templates into continuous integration and continuous deployment (CI/CD) tools like
+ <a class="has-external-link-indicator" data-linktype="external" href="https://azure.microsoft.com/services/devops/pipelines" target="az-portal">
+  Azure Pipelines
+ </a>
+ , which can automate your release pipelines for fast and reliable application and infrastructure updates. By using Azure DevOps and ARM template tasks, you can continuously build and deploy your projects.
+</p>
+<h3 id="arm-template-file-structure">
+ ARM template file structure
+</h3>
+<p>
+ When you're writing an ARM template, you need to understand all the parts that make up the template and what they do. ARM template files are made up of the following elements:
+</p>
+<div class="buttons buttons-right margin-bottom-none margin-top-sm">
+ <!-- -->
+ <!-- -->
+</div>
+<div class="has-inner-focus">
+ <table aria-label="ARM template file structure" class="table">
+  <thead>
+   <tr>
+    <th>
+     Element
+    </th>
+    <th>
+     Description
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td>
+     <strong>
+      schema
+     </strong>
+    </td>
+    <td>
+     A required section that defines the location of the JSON schema file that describes the structure of JSON data. The version number you use depends on the scope of the deployment and your JSON editor.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <strong>
+      contentVersion
+     </strong>
+    </td>
+    <td>
+     A required section that defines the version of your template (such as 1.0.0.0). You can use this value to document significant changes in your template to ensure you're deploying the right template.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <strong>
+      apiProfile
+     </strong>
+    </td>
+    <td>
+     An optional section that defines a collection of API versions for resource types. You can use this value to avoid having to specify API versions for each resource in the template.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <strong>
+      parameters
+     </strong>
+    </td>
+    <td>
+     An optional section where you define values that are provided during deployment. You can provide these values in a parameter file, by command-line parameters, or in the Azure portal.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <strong>
+      variables
+     </strong>
+    </td>
+    <td>
+     An optional section where you define values that are used to simplify template language expressions.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <strong>
+      functions
+     </strong>
+    </td>
+    <td>
+     An optional section where you can define
+     <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-user-defined-functions" target="az-portal">
+      user-defined functions
+     </a>
+     that are available within the template. User-defined functions can simplify your template when complicated expressions are used repeatedly in your template.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <strong>
+      resources
+     </strong>
+    </td>
+    <td>
+     A required section that defines the actual items you want to deploy or update in a resource group or a subscription.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <strong>
+      output
+     </strong>
+    </td>
+    <td>
+     An optional section where you specify the values that are returned at the end of the deployment.
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h2 id="deploy-an-arm-template-to-azure">
+ Deploy an ARM template to Azure
+</h2>
+<p>
+ You can deploy an ARM template to Azure in one of the following ways:
+</p>
+<ul>
+ <li>
+  Deploy a local template
+ </li>
+ <li>
+  Deploy a linked template
+ </li>
+ <li>
+  Deploy in a continuous deployment pipeline
+ </li>
+</ul>
+<p>
+ This module focuses on deploying a local ARM template. In future Learn modules, you learn how to deploy more complicated infrastructure and how to integrate with Azure Pipelines.
+</p>
+<p>
+ To deploy a local template, you need to have either
+ <a data-linktype="absolute-path" href="/en-us/powershell/azure/install-az-ps">
+  Azure PowerShell
+ </a>
+ or the
+ <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli" target="az-portal">
+  Azure CLI
+ </a>
+ installed locally.
+</p>
+<p>
+ First, sign in to Azure by using the Azure CLI or Azure PowerShell.
+</p>
+<div class="tabGroup" data-bi-name="tab-group" id="tabgroup_1">
+ <ul role="tablist">
+  <li role="presentation">
+   <a aria-controls="tabpanel_1_azure-cli" aria-selected="true" data-bi-name="tab" data-linktype="self-bookmark" data-tab="azure-cli" href="#tabpanel_1_azure-cli" role="tab" tabindex="0">
+    Azure CLI
+   </a>
+  </li>
+  <li role="presentation">
+   <a aria-controls="tabpanel_1_azure-powershell" aria-selected="false" data-bi-name="tab" data-linktype="self-bookmark" data-tab="azure-powershell" href="#tabpanel_1_azure-powershell" role="tab" tabindex="-1">
+    PowerShell
+   </a>
+  </li>
+ </ul>
+ <section data-tab="azure-cli" id="tabpanel_1_azure-cli" role="tabpanel">
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-0">
+   <span class="language">
+    Azure CLI
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az login
+"><span><span class="hljs-keyword">az login</span>
+</span></code></pre>
+ </section>
+ <section aria-hidden="true" data-tab="azure-powershell" hidden="hidden" id="tabpanel_1_azure-powershell" role="tabpanel">
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-1">
+   <span class="language">
+    Azure PowerShell
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content="Connect-AzAccount
+"><span><span class="hljs-pscommand">Connect-AzAccount</span>
+</span></code></pre>
+ </section>
+</div>
+<p>
+ Next, define your resource group. You can use an already-defined resource group or create a new one with the following command. You can obtain available location values from:
+ <code>
+  az account list-locations
+ </code>
+ (CLI) or
+ <code>
+  Get-AzLocation
+ </code>
+ (PowerShell). You can configure the default location using
+ <code>
+  az configure --defaults location=&lt;location&gt;
+ </code>
+ .
+</p>
+<div class="tabGroup" data-bi-name="tab-group" id="tabgroup_2">
+ <ul role="tablist">
+  <li role="presentation">
+   <a aria-controls="tabpanel_2_azure-cli" aria-selected="true" data-bi-name="tab" data-linktype="self-bookmark" data-tab="azure-cli" href="#tabpanel_2_azure-cli" role="tab" tabindex="0">
+    Azure CLI
+   </a>
+  </li>
+  <li role="presentation">
+   <a aria-controls="tabpanel_2_azure-powershell" aria-selected="false" data-bi-name="tab" data-linktype="self-bookmark" data-tab="azure-powershell" href="#tabpanel_2_azure-powershell" role="tab" tabindex="-1">
+    PowerShell
+   </a>
+  </li>
+ </ul>
+ <section data-tab="azure-cli" id="tabpanel_2_azure-cli" role="tabpanel">
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-2">
+   <span class="language">
+    Azure CLI
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az group create \
+  --name {name of your resource group} \
+  --location "{location}"
+'><span><span class="hljs-keyword">az group create </span>\
+  <span class="hljs-parameter">--name</span> {name of your resource group} \
+  <span class="hljs-parameter">--location</span> <span class="hljs-string">"{location}"</span>
+</span></code></pre>
+ </section>
+ <section aria-hidden="true" data-tab="azure-powershell" hidden="hidden" id="tabpanel_2_azure-powershell" role="tabpanel">
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-3">
+   <span class="language">
+    Azure PowerShell
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='New-AzResourceGroup `
+  -Name {name of your resource group} `
+  -Location "{location}"
+'><span><span class="hljs-pscommand">New-AzResourceGroup</span> `
+ <span class="hljs-parameter"> -Name</span> {name of your resource group} `
+ <span class="hljs-parameter"> -Location</span> <span class="hljs-string">"{location}"</span>
+</span></code></pre>
+ </section>
+</div>
+<p>
+ To start a template deployment at the resource group, use either the Azure CLI command
+ <a data-linktype="absolute-path" href="/en-us/cli/azure/deployment/group#az-deployment-group-create">
+  az deployment group create
+ </a>
+ or the Azure PowerShell command
+ <a data-linktype="absolute-path" href="/en-us/powershell/module/az.resources/new-azresourcegroupdeployment">
+  New-AzResourceGroupDeployment
+ </a>
+ .
+</p>
+<div class="alert is-success">
+ <p class="alert-title">
+  Tip
+ </p>
+ <p>
+  The difference between
+  <code>
+   az deployment group create
+  </code>
+  and
+  <code>
+   az group deployment create
+  </code>
+  is that
+  <code>
+   az group deployment create
+  </code>
+  is an old command to be deprecated and will be replaced by
+  <code>
+   az deployment group create
+  </code>
+  . Therefore, we recommend using
+  <code>
+   az deployment group create
+  </code>
+  to deploy resources under the resource group scope.
+ </p>
+</div>
+<p>
+ Both commands require the resource group, the region, and the name for the deployment so you can easily identify it in the deployment history. For convenience, the exercises create a variable that stores the path to the template file. This variable makes it easier for you to run deployment commands, because you don't have to retype the path every time you deploy. Here's an example:
+</p>
+<div class="tabGroup" data-bi-name="tab-group" id="tabgroup_3">
+ <ul role="tablist">
+  <li role="presentation">
+   <a aria-controls="tabpanel_3_azure-cli" aria-selected="true" data-bi-name="tab" data-linktype="self-bookmark" data-tab="azure-cli" href="#tabpanel_3_azure-cli" role="tab" tabindex="0">
+    Azure CLI
+   </a>
+  </li>
+  <li role="presentation">
+   <a aria-controls="tabpanel_3_azure-powershell" aria-selected="false" data-bi-name="tab" data-linktype="self-bookmark" data-tab="azure-powershell" href="#tabpanel_3_azure-powershell" role="tab" tabindex="-1">
+    PowerShell
+   </a>
+  </li>
+ </ul>
+ <section data-tab="azure-cli" id="tabpanel_3_azure-cli" role="tabpanel">
+  <p>
+   To run this deployment command, you must have the
+   <a data-linktype="absolute-path" href="/en-us/cli/azure/install-azure-cli">
+    latest version
+   </a>
+   of Azure CLI.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-4">
+   <span class="language">
+    Azure CLI
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='templateFile="{provide-the-path-to-the-template-file}"
+az deployment group create \
+  --name blanktemplate \
+  --resource-group myResourceGroup \
+  --template-file $templateFile
+'><span><span class="hljs-parameter">templateFile=</span><span class="hljs-string">"{provide-the-path-to-the-template-file}"</span>
+<span class="hljs-keyword">az deployment group create </span>\
+  <span class="hljs-parameter">--name</span> blanktemplate \
+  <span class="hljs-parameter">--resource-group</span> myResourceGroup \
+  <span class="hljs-parameter">--template-file</span> <span class="hljs-variable">$templateFile</span>
+</span></code></pre>
+ </section>
+ <section aria-hidden="true" data-tab="azure-powershell" hidden="hidden" id="tabpanel_3_azure-powershell" role="tabpanel">
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-5">
+   <span class="language">
+    Azure PowerShell
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content='$templateFile = "{provide-the-path-to-the-template-file}"
+New-AzResourceGroupDeployment `
+  -Name blanktemplate `
+  -ResourceGroupName myResourceGroup `
+  -TemplateFile $templateFile
+'><span><span class="hljs-variable">$templateFile</span> = <span class="hljs-string">"{provide-the-path-to-the-template-file}"</span>
+<span class="hljs-pscommand">New-AzResourceGroupDeployment</span> `
+ <span class="hljs-parameter"> -Name</span> blanktemplate `
+ <span class="hljs-parameter"> -ResourceGroupName</span> myResourceGroup `
+ <span class="hljs-parameter"> -TemplateFile</span> <span class="hljs-variable">$templateFile</span>
+</span></code></pre>
+ </section>
+</div>
+<p>
+ Use linked templates to deploy complex solutions. You can break a template into many templates and deploy these templates through a main template. When you deploy the main template, it triggers the linked template's deployment. You can store and secure the linked template by using a SAS token.
+</p>
+<p>
+ A CI/CD pipeline automates the creation and deployment of development projects, which includes ARM template projects. The two most common pipelines used for template deployment are
+ <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/training/paths/deploy-applications-with-azure-devops/" target="az-portal">
+  Azure Pipelines
+ </a>
+ or
+ <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/training/paths/github-actions/" target="az-portal">
+  GitHub Actions
+ </a>
+ .
+</p>
+<p>
+ More information on these two types of deployment is covered in other modules.
+</p>
+<h2 id="add-resources-to-the-template">
+ Add resources to the template
+</h2>
+<p>
+ To add a resource to your template, you need to know the resource provider and its types of resources. The syntax for this combination is in the form of
+ <em>
+  {resource-provider}/{resource-type}
+ </em>
+ . For example, to add a storage account resource to your template, you need the
+ <code>
+  Microsoft.Storage
+ </code>
+ resource provider. One of the types for this provider is
+ <code>
+  storageAccount
+ </code>
+ . So your resource type is displayed as
+ <code>
+  Microsoft.Storage/storageAccounts
+ </code>
+ . You can use a list of
+ <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers" target="az-portal">
+  resource providers for Azure services
+ </a>
+ to find the providers you need.
+</p>
+<p>
+ After you define the provider and resource type, you need to understand the properties for each resource type you want to use. For details, see
+ <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/azure/templates" target="az-portal">
+  Define resources in Azure Resource Manager templates
+ </a>
+ . To find the resource, view the list in the left column. Notice that the properties are sorted by API version.
+</p>
+<p>
+ <img alt="Screenshot of a Microsoft documentation page showing the storage account documentation selected." data-linktype="relative-path" loading="lazy" src="../../../assets/2-resource-type-properties_7072b956.png"/>
+</p>
+<p>
+ Here's an example of some of the listed properties from the Storage Accounts page:
+</p>
+<p>
+ <img alt="Screenshot of a Microsoft documentation page showing some of the storage account properties." data-linktype="relative-path" loading="lazy" src="../../../assets/2-storage-account-properties_28bc8e2a.png"/>
+</p>
+<p>
+ For our storage example, your template might look like this:
+</p>
+<div class="codeHeader" data-bi-name="code-header" id="code-try-6">
+ <span class="language">
+  JSON
+ </span>
+</div>
+<pre class="has-inner-focus"><code class="lang-json" data-author-content='{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.1",
+  "apiProfile": "",
+  "parameters": {},
+  "variables": {},
+  "functions": [],
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-05-01",
+      "name": "learntemplatestorage123",
+      "location": "westus",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ],
+  "outputs": {}
+}
+'><span>{
+  <span class="hljs-attr">"$schema"</span>: <span class="hljs-string">"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"</span>,
+  <span class="hljs-attr">"contentVersion"</span>: <span class="hljs-string">"1.0.0.1"</span>,
+  <span class="hljs-attr">"apiProfile"</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">"parameters"</span>: {},
+  <span class="hljs-attr">"variables"</span>: {},
+  <span class="hljs-attr">"functions"</span>: [],
+  <span class="hljs-attr">"resources"</span>: [
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Microsoft.Storage/storageAccounts"</span>,
+      <span class="hljs-attr">"apiVersion"</span>: <span class="hljs-string">"2023-05-01"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"learntemplatestorage123"</span>,
+      <span class="hljs-attr">"location"</span>: <span class="hljs-string">"westus"</span>,
+      <span class="hljs-attr">"sku"</span>: {
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Standard_LRS"</span>
+      },
+      <span class="hljs-attr">"kind"</span>: <span class="hljs-string">"StorageV2"</span>,
+      <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"supportsHttpsTrafficOnly"</span>: <span class="hljs-literal">true</span>
+      }
+    }
+  ],
+  <span class="hljs-attr">"outputs"</span>: {}
+}
+</span></code></pre>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

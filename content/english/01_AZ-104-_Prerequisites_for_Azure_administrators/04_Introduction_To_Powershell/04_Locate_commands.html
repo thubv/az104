@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locate commands - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Locate commands - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,37 +168,36 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Locate commands</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/4-cmdlets/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Locate commands</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/4-cmdlets/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/4-cmdlets/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   A
   <em>
    cmdlet
   </em>
   (pronounced "command-let") is a compiled command. A cmdlet can be developed in .NET or .NET Core and invoked as a command within PowerShell. Thousands of cmdlets are available in your PowerShell installation. The challenge lies in discovering what the cmdlets are and what they can do for you.
  </p>
- <p>
+<p>
   Cmdlets are named according to a verb-noun naming standard. This pattern can help you to understand what they do and how to search for them. It also helps cmdlet developers create consistent names. You can see the list of approved verbs by using the
   <code>
    Get-Verb
   </code>
   cmdlet. Verbs are organized according to activity type and function.
  </p>
- <p>
+<p>
   Here's a part of the output from running
   <code>
    Get-Verb
   </code>
   :
  </p>
- <pre class="has-inner-focus"><code class="lang-output" data-author-content="Verb        AliasPrefix Group          Description
+<pre class="has-inner-focus"><code class="lang-output" data-author-content="Verb        AliasPrefix Group          Description
 ----        ----------- -----          -----------
 Add         a           Common         Adds a resource to a container, or atta…
 Clear       cl          Common         Removes all the resources from a contai…
@@ -206,15 +206,15 @@ Clear       cl          Common         Removes all the resources from a contai�
 Add         a           Common         Adds a resource to a container, or atta…
 Clear       cl          Common         Removes all the resources from a contai…
 </code></pre>
- <p>
+<p>
   This listing shows the verb and its description. Cmdlet developers should use an approved verb, and also ensure that the verb description fits their cmdlet's function.
  </p>
- <p>
+<p>
   Three core cmdlets allow you to delve into what cmdlets exist and what they do:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Get-Command
    </strong>
    : The
@@ -223,8 +223,8 @@ Clear       cl          Common         Removes all the resources from a contai�
    </code>
    cmdlet lists all of the available cmdlets on your system. Filter the list to quickly find the command you need.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Get-Help
    </strong>
    : Run the
@@ -241,8 +241,8 @@ Clear       cl          Common         Removes all the resources from a contai�
    </code>
    but improve the reading experience by paginating the response.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Get-Member
    </strong>
    : When you call a command, the response is an object that contains many properties. Run the
@@ -251,18 +251,18 @@ Clear       cl          Common         Removes all the resources from a contai�
    </code>
    core cmdlet to drill down into that response and learn more about it.
   </li>
- </ul>
- <h2 id="locate-commands-by-using-get-command">
+</ul>
+<h2 id="locate-commands-by-using-get-command">
   Locate commands by using Get-Command
  </h2>
- <p>
+<p>
   When you run the
   <code>
    Get-Command
   </code>
   cmdlet in Cloud Shell, you get a list of every command that's installed in PowerShell. Because thousands of commands are installed, you need a way to filter the response so you can quickly locate the command that you need.
  </p>
- <p>
+<p>
   To filter the list, keep in mind the verb-noun naming standard for cmdlets. For example, in the
   <code>
    Get-Random
@@ -277,13 +277,13 @@ Clear       cl          Common         Removes all the resources from a contai�
   </code>
   is the noun. Use flags to target either the verb or the noun in the command you want. The flag you specify expects a value that's a string. You can add pattern-matching characters to that string to ensure you express that, for example, a flag's value should start or end with a certain string.
  </p>
- <p>
+<p>
   These examples show how to use flags to filter a command list:
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      -Noun
     </strong>
     : The
@@ -296,20 +296,20 @@ Clear       cl          Common         Removes all the resources from a contai�
     </em>
     as the noun for which we're searching:
    </p>
-   <pre class="has-inner-focus"><code class="lang-powershell" data-author-content="Get-Command -Noun alias*
+<pre class="has-inner-focus"><code class="lang-powershell" data-author-content="Get-Command -Noun alias*
 "><span><span class="hljs-pscommand">Get-Command</span><span class="hljs-parameter"> -Noun</span> alias*
 </span></code></pre>
-   <p>
+<p>
     This command searches for all cmdlets whose noun part starts with
     <code>
      alias
     </code>
     .
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      -Verb
     </strong>
     : The
@@ -326,10 +326,10 @@ Clear       cl          Common         Removes all the resources from a contai�
     </code>
     flag to create an even more detailed search query and type. Here's an example:
    </p>
-   <pre class="has-inner-focus"><code class="lang-powershell" data-author-content="Get-Command -Verb Get -Noun alias*
+<pre class="has-inner-focus"><code class="lang-powershell" data-author-content="Get-Command -Verb Get -Noun alias*
 "><span><span class="hljs-pscommand">Get-Command</span><span class="hljs-parameter"> -Verb</span> Get<span class="hljs-parameter"> -Noun</span> alias*
 </span></code></pre>
-   <p>
+<p>
     Now you've narrowed the search to specify that the verb part needs to match
     <code>
      Get
@@ -340,16 +340,14 @@ Clear       cl          Common         Removes all the resources from a contai�
     </code>
     .
    </p>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

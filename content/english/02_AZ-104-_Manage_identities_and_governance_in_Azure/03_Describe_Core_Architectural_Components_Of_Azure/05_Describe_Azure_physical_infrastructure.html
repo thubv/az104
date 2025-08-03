@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Describe Azure physical infrastructure - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Describe Azure physical infrastructure - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,155 +168,152 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Describe Azure physical infrastructure</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/5-describe-azure-physical-infrastructure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Describe Azure physical infrastructure</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/5-describe-azure-physical-infrastructure/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/5-describe-azure-physical-infrastructure/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-identities-governance</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Throughout your journey with Microsoft Azure, you’ll hear and use terms like Regions, Availability Zones, Resources, Subscriptions, and more. This module focuses on the core architectural components of Azure. The core architectural components of Azure may be broken down into two main groupings: the physical infrastructure, and the management infrastructure.
  </p>
- <h2 id="physical-infrastructure">
+<h2 id="physical-infrastructure">
   Physical infrastructure
  </h2>
- <p>
+<p>
   The physical infrastructure for Azure starts with datacenters. Conceptually, the datacenters are the same as large corporate datacenters. They’re facilities with resources arranged in racks, with dedicated power, cooling, and networking infrastructure.
  </p>
- <p>
+<p>
   As a global cloud provider, Azure has datacenters around the world. However, these individual datacenters aren’t directly accessible. Datacenters are grouped into Azure Regions or Azure Availability Zones that are designed to help you achieve resiliency and reliability for your business-critical workloads.
  </p>
- <p>
+<p>
   The
   <a data-linktype="external" href="https://infrastructuremap.microsoft.com/">
    Global infrastructure
   </a>
   site gives you a chance to interactively explore the underlying Azure infrastructure.
  </p>
- <h3 id="regions">
+<h3 id="regions">
   Regions
  </h3>
- <p>
+<p>
   A region is a geographical area on the planet that contains at least one, but potentially multiple datacenters that are nearby and networked together with a low-latency network. Azure intelligently assigns and controls the resources within each region to ensure workloads are appropriately balanced.
  </p>
- <p>
+<p>
   When you deploy a resource in Azure, you'll often need to choose the region where you want your resource deployed.
  </p>
- <div class="alert is-info">
-  <p class="alert-title">
+<div class="alert is-info">
+<p class="alert-title">
    Note
   </p>
-  <p>
+<p>
    Some services or virtual machine (VM) features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that don't require you to select a particular region, such as Microsoft Entra ID, Azure Traffic Manager, and Azure DNS.
   </p>
- </div>
- <h3 id="availability-zones">
+</div>
+<h3 id="availability-zones">
   Availability Zones
  </h3>
- <p>
+<p>
   Availability zones are physically separate datacenters within an Azure region. Each availability zone is made up of one or more datacenters equipped with independent power, cooling, and networking. An availability zone is set up to be an isolation boundary. If one zone goes down, the other continues working. Availability zones are connected through high-speed, private fiber-optic networks.
  </p>
- <div class="alert is-primary">
-  <p class="alert-title">
+<div class="alert is-primary">
+<p class="alert-title">
    Important
   </p>
-  <p>
+<p>
    To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions. However, not all Azure Regions currently support availability zones.
   </p>
- </div>
- <h4 id="use-availability-zones-in-your-apps">
+</div>
+<h4 id="use-availability-zones-in-your-apps">
   Use availability zones in your apps
  </h4>
- <p>
+<p>
   You want to ensure your services and data are redundant so you can protect your information in case of failure. When you host your infrastructure, setting up your own redundancy requires that you create duplicate hardware environments. Azure can help make your app highly available through availability zones.
  </p>
- <p>
+<p>
   You can use availability zones to run mission-critical applications and build high-availability into your application architecture by co-locating your compute, storage, networking, and data resources within an availability zone and replicating in other availability zones. Keep in mind that there could be a cost to duplicating your services and transferring data between availability zones.
  </p>
- <p>
+<p>
   Availability zones are primarily for VMs, managed disks, load balancers, and SQL databases. Azure services that support availability zones fall into three categories:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Zonal services: You pin the resource to a specific zone (for example, VMs, managed disks, IP addresses).
   </li>
-  <li>
+<li>
    Zone-redundant services: The platform replicates automatically across zones (for example, zone-redundant storage, SQL Database).
   </li>
-  <li>
+<li>
    Non-regional services: Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages.
   </li>
- </ul>
- <p>
+</ul>
+<p>
   Even with the additional resiliency that availability zones provide, it’s possible that an event could be so large that it impacts multiple availability zones in a single region. To provide even further resilience, Azure has Region Pairs.
  </p>
- <h3 id="region-pairs">
+<h3 id="region-pairs">
   Region pairs
  </h3>
- <p>
+<p>
   Most Azure regions are paired with another region within the same geography (such as US, Europe, or Asia) at least 300 miles away. This approach allows for the replication of resources across a geography that helps reduce the likelihood of interruptions because of events such as natural disasters, civil unrest, power outages, or physical network outages that affect an entire region. For example, if a region in a pair was affected by a natural disaster, services would automatically fail over to the other region in its region pair.
  </p>
- <div class="alert is-primary">
-  <p class="alert-title">
+<div class="alert is-primary">
+<p class="alert-title">
    Important
   </p>
-  <p>
+<p>
    Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. In these scenarios, recovery and replication must be configured by the customer.
   </p>
- </div>
- <p>
+</div>
+<p>
   Examples of region pairs in Azure are West US paired with East US and South-East Asia paired with East Asia. Because the pair of regions are directly connected and far enough apart to be isolated from regional disasters, you can use them to provide reliable services and data redundancy.
  </p>
- <h4 id="additional-advantages-of-region-pairs">
+<h4 id="additional-advantages-of-region-pairs">
   Additional advantages of region pairs:
  </h4>
- <ul>
-  <li>
+<ul>
+<li>
    If an extensive Azure outage occurs, one region out of every pair is prioritized to make sure at least one is restored as quickly as possible for applications hosted in that region pair.
   </li>
-  <li>
+<li>
    Planned Azure updates are rolled out to paired regions one region at a time to minimize downtime and risk of application outage.
   </li>
-  <li>
+<li>
    Data continues to reside within the same geography as its pair (except for Brazil South) for tax- and law-enforcement jurisdiction purposes.
   </li>
- </ul>
- <div class="alert is-primary">
-  <p class="alert-title">
+</ul>
+<div class="alert is-primary">
+<p class="alert-title">
    Important
   </p>
-  <p>
+<p>
    Most regions are paired in two directions, meaning they are the backup for the region that provides a backup for them (West US and East US back each other up). However, some regions, such as West India and Brazil South, are paired in only one direction. In a one-direction pairing, the Primary region does not provide backup for its secondary region. So, even though West India’s secondary region is South India, South India does not rely on West India. West India's secondary region is South India, but South India's secondary region is Central India. Brazil South is unique because it's paired with a region outside of its geography. Brazil South's secondary region is South Central US. The secondary region of South Central US isn't Brazil South.
   </p>
- </div>
- <h3 id="sovereign-regions">
+</div>
+<h3 id="sovereign-regions">
   Sovereign Regions
  </h3>
- <p>
+<p>
   In addition to regular regions, Azure also has sovereign regions. Sovereign regions are instances of Azure that are isolated from the main instance of Azure. You may need to use a sovereign region for compliance or legal purposes.
  </p>
- <p>
+<p>
   Azure sovereign regions include:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    US DoD Central, US Gov Virginia, US Gov Iowa and more: These regions are physical and logical network-isolated instances of Azure for U.S. government agencies and partners. These datacenters are operated by screened U.S. personnel and include additional compliance certifications.
   </li>
-  <li>
+<li>
    China East, China North, and more: These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft doesn't directly maintain the datacenters.
   </li>
- </ul>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

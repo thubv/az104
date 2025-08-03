@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure and manage device registration - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 7 Configure Manage Device Registration</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/7-configure-manage-device-registration/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/7-configure-manage-device-registration/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ With the proliferation of devices of all shapes and sizes and the proliferation of bring-your-own-device (BYOD), IT professionals are faced with two somewhat opposing goals:
+</p>
+<ul>
+ <li>
+  Allow end users to be productive wherever and whenever and on any device
+ </li>
+ <li>
+  Protect the organization's assets
+ </li>
+</ul>
+<p>
+ To protect these assets, IT-staff needs to first manage the device identities. IT-staff can build on the device identity with tools like Microsoft Intune to ensure standards for security and compliance are met. Microsoft Entra ID enables single sign-on to devices, apps, and services from anywhere through these devices.
+</p>
+<ul>
+ <li>
+  Your users get access to your organization's assets they need.
+ </li>
+ <li>
+  Your IT-staff gets the controls they need to secure your organization.
+ </li>
+</ul>
+<h2 id="microsoft-entra-registered-devices">
+ Microsoft Entra registered devices
+</h2>
+<p>
+ The goal of Microsoft Entra registered devices is to provide your users with support for the BYOD or mobile device scenarios. In these scenarios, a user can access your organization’s Microsoft Entra ID controlled resources using a personal device.
+</p>
+<div class="buttons buttons-right margin-bottom-none margin-top-sm">
+ <!-- -->
+ <!-- -->
+</div>
+<div class="has-inner-focus">
+ <table aria-label="Microsoft Entra registered devices" class="table">
+  <thead>
+   <tr>
+    <th>
+     <strong>
+      Microsoft Entra registered
+     </strong>
+    </th>
+    <th>
+     <strong>
+      Description
+     </strong>
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td>
+     Definition
+    </td>
+    <td>
+     Registered to Microsoft Entra ID without requiring organizational account to sign in to the device
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Primary audience
+    </td>
+    <td>
+     Applicable to Bring your own device (BYOD), and Mobile devices
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Device ownership
+    </td>
+    <td>
+     User or Organization
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Operating systems
+    </td>
+    <td>
+     Windows 10, Windows 11, iOS, Android, and macOS
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Device sign in options
+    </td>
+    <td>
+     End-user local credentials, Password, Windows Hello, PIN Biometrics
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Device management
+    </td>
+    <td>
+     Mobile Device Management (example: Microsoft Intune)
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Key capabilities
+    </td>
+    <td>
+     SSO to cloud resources, Conditional Access
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+ <span class="mx-imgBorder">
+  <img alt="Diagram of Microsoft Entra registered devices. Shows a laptop and cell registered." data-linktype="relative-path" loading="lazy" src="../../../assets/azure-active-directory-registered-device_c115129d.png"/>
+ </span>
+</p>
+<p>
+ Microsoft Entra registered devices are signed in to using a local account like a Microsoft account on a Windows 10 device, but additionally have a Microsoft Entra account attached for access to organizational resources. Access to resources in the organization can be further limited based on that Microsoft Entra account and Conditional Access policies applied to the device identity.
+</p>
+<p>
+ Administrators can secure and further control these Microsoft Entra registered devices using Mobile Device Management (MDM) tools like Microsoft Intune. MDM provides a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, and security software kept updated.
+</p>
+<p>
+ Microsoft Entra ID registration can be accomplished when accessing a work application for the first time or manually using the Windows 10 Settings menu.
+</p>
+<h3 id="scenarios-for-registered-devices">
+ Scenarios for registered devices
+</h3>
+<p>
+ A user in your organization wants to access tools for email, reporting time-off, and benefits enrollment from their home PC. Your organization has these tools behind a Conditional Access policy that requires access from an Intune compliant device. The user adds their organization account and registers their home PC with Microsoft Entra ID and the required Intune policies are enforced giving the user access to their resources.
+</p>
+<p>
+ Another user wants to access their organizational email on their personal Android phone that has been rooted. Your company requires a compliant device and has created an Intune compliance policy to block any rooted devices. The employee is stopped from accessing organizational resources on this device.
+</p>
+<h2 id="microsoft-entra-joined-devices">
+ Microsoft Entra joined devices
+</h2>
+<p>
+ Microsoft Entra join is intended for organizations that want to be cloud-first or cloud-only. Any organization can deploy Microsoft Entra joined devices no matter the size or industry. Microsoft Entra join enables access to both cloud and on-premises apps and resources.
+</p>
+<div class="buttons buttons-right margin-bottom-none margin-top-sm">
+ <!-- -->
+ <!-- -->
+</div>
+<div class="has-inner-focus">
+ <table aria-label="Microsoft Entra joined devices" class="table">
+  <thead>
+   <tr>
+    <th>
+     <strong>
+      Microsoft Entra joined
+     </strong>
+    </th>
+    <th>
+     <strong>
+      Description
+     </strong>
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td>
+     Definition
+    </td>
+    <td>
+     Joined only to Microsoft Entra ID requiring organizational account to sign in to the device
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Primary audience
+    </td>
+    <td>
+     Suitable for both cloud-only and hybrid organizations
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Device ownership
+    </td>
+    <td>
+     Organization
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Operating systems
+    </td>
+    <td>
+     All Windows 10 &amp; 11 devices except Windows 10/11 Home
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Device management
+    </td>
+    <td>
+     Mobile Device Management (example: Microsoft Intune)
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Key capabilities
+    </td>
+    <td>
+     SSO to both cloud and on-premises resources, Conditional Access, Self-service Password Reset and Windows Hello PIN reset
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+ Microsoft Entra joined devices are signed in to using an organizational Microsoft Entra account. Access to resources in the organization can be further limited based on that Microsoft Entra account and Conditional Access policies applied to the device identity.
+</p>
+<p>
+ Administrators can secure and further control Microsoft Entra joined devices using Mobile Device Management (MDM) tools like Microsoft Intune or in co-management scenarios using Microsoft Endpoint Configuration Manager. These tools provide a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, software installations, and software updates. Administrators can make organization applications available to Microsoft Entra joined devices using Configuration Manager.
+</p>
+<p>
+ Microsoft Entra join can be accomplished using self-service options like the Out of Box Experience (OOBE), bulk enrollment, or Windows Autopilot.
+</p>
+<p>
+ Microsoft Entra joined devices can still maintain single sign-on access to on-premises resources when they are on the organization's network. Microsoft Entra joined devices authenticate to on-premises servers like for file, print, and other applications.
+</p>
+<h3 id="scenarios-for-joined-devices">
+ Scenarios for joined devices
+</h3>
+<p>
+ Although Microsoft Entra join is primarily intended for organizations that do not have an on-premises Windows Server Active Directory infrastructure, you can certainly use it in scenarios where:
+</p>
+<ul>
+ <li>
+  You want to transition to cloud-based infrastructure using Microsoft Entra ID and MDM like Intune.
+ </li>
+ <li>
+  You can’t use an on-premises domain join, for example, if you need to get mobile devices such as tablets and phones under control.
+ </li>
+ <li>
+  Your users primarily need to access Microsoft 365 or other SaaS apps integrated with Microsoft Entra ID.
+ </li>
+ <li>
+  You want to manage a group of users in Microsoft Entra ID instead of in Active Directory. This scenario can apply, for example, to seasonal workers, contractors, or students.
+ </li>
+ <li>
+  You want to provide joining capabilities to workers in remote branch offices with limited on-premises infrastructure.
+ </li>
+</ul>
+<p>
+ You can configure Microsoft Entra joined devices for all Windows 10 devices with the exception of Windows 10 Home.
+</p>
+<p>
+ The goal of Microsoft Entra joined devices is to simplify:
+</p>
+<ul>
+ <li>
+  Windows deployments of work-owned devices
+ </li>
+ <li>
+  Access to organizational apps and resources from any Windows device
+ </li>
+ <li>
+  Cloud-based management of work-owned devices
+ </li>
+ <li>
+  Users to sign in to their devices with their Microsoft Entra ID or synced Active Directory work or school accounts.
+ </li>
+</ul>
+<p>
+ <span class="mx-imgBorder">
+  <img alt="Diagram of Microsoft Entra joined devices connected to the cloud. A laptop registered to your cloud directory." data-linktype="relative-path" loading="lazy" src="../../../assets/azure-active-directory-joined-device_ab73fa3d.png"/>
+ </span>
+</p>
+<p>
+ Microsoft Entra Join can be deployed by using a number of different methods.
+</p>
+<h2 id="hybrid-microsoft-entra-joined-devices">
+ Hybrid Microsoft Entra joined devices
+</h2>
+<p>
+ For more than a decade, many organizations have used the domain join to their on-premises Active Directory to enable:
+</p>
+<ul>
+ <li>
+  IT departments to manage work-owned devices from a central location.
+ </li>
+ <li>
+  Users to sign in to their devices with their Active Directory work or school accounts.
+ </li>
+</ul>
+<p>
+ Typically, organizations with an on-premises footprint rely on imaging methods to configure devices, and they often use
+ <strong>
+  Configuration Manager
+ </strong>
+ or
+ <strong>
+  group policy (GP)
+ </strong>
+ to manage them.
+</p>
+<p>
+ If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Microsoft Entra ID, you can implement hybrid Microsoft Entra joined devices. These devices are devices that are joined to your on-premises Active Directory and registered with your Microsoft Entra directory.
+</p>
+<div class="buttons buttons-right margin-bottom-none margin-top-sm">
+ <!-- -->
+ <!-- -->
+</div>
+<div class="has-inner-focus">
+ <table aria-label="Hybrid Microsoft Entra joined devices" class="table">
+  <thead>
+   <tr>
+    <th>
+     <strong>
+      Hybrid Microsoft Entra joined
+     </strong>
+    </th>
+    <th>
+     <strong>
+      Description
+     </strong>
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td>
+     Definition
+    </td>
+    <td>
+     Joined to on-premises AD and Microsoft Entra ID requiring organizational account to sign in to the device
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Primary audience
+    </td>
+    <td>
+     Suitable for hybrid organizations with existing on-premises AD infrastructure
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Device ownership
+    </td>
+    <td>
+     Organization
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Operating systems
+    </td>
+    <td>
+     Windows 11, 10, 8.1 and 7, along with Windows Server 2008/R2, 2012/R2, 2016 and 2019
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Device sign in options
+    </td>
+    <td>
+     Password or Windows Hello for Business
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Device management
+    </td>
+    <td>
+     Group Policy, Configuration Manager standalone or co-management with Microsoft Intune
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Key capabilities
+    </td>
+    <td>
+     SSO to both cloud and on-premises resources, Conditional Access, Self-service Password Reset and Windows Hello PIN reset
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+ <span class="mx-imgBorder">
+  <img alt="Diagram of the process flow of Hybrid Microsoft Entra joined devices.  A laptop is registered to an on-premises active directory." data-linktype="relative-path" loading="lazy" src="../../../assets/azure-active-directory-hybrid-joined-device_197e594f.png"/>
+ </span>
+</p>
+<h3 id="scenarios-for-hybrid-joined">
+ Scenarios for hybrid joined
+</h3>
+<p>
+ Use Microsoft Entra hybrid joined devices if:
+</p>
+<ul>
+ <li>
+  You have Win32 apps deployed to these devices that rely on Active Directory machine authentication.
+ </li>
+ <li>
+  You want to continue to use Group Policy to manage device configuration.
+ </li>
+ <li>
+  You want to continue to use existing imaging solutions to deploy and configure devices.
+ </li>
+ <li>
+  You must support down-level Windows 7 and 8.1 devices in addition to Windows 10.
+ </li>
+</ul>
+<h2 id="device-writeback">
+ Device Writeback
+</h2>
+<p>
+ In a cloud-based Microsoft Entra ID configuration, devices are only registered in Microsoft Entra ID. Your on-premises AD has no visibility of the devices. This means that conditional access in the cloud is easy to set up and maintain. However, in this section we are discussing hybrid setups with Microsoft Entra Connect. How can you do on-premises conditional access using devices, if they only exist in Microsoft Entra ID? Device writeback helps you to keep a track of devices registered with Microsoft Entra ID in AD. You will have a copy of the device objects in the container "Registered Devices"
+</p>
+<p>
+ Scenario: You have an application that you want to give access to users only if they are coming from registered devices.
+</p>
+<p>
+ Cloud: You can write Conditional Access policies for any Microsoft Entra integrated applications to authorize based on whether the device is joined to Microsoft Entra ID or not.
+</p>
+<p>
+ On-premises: This is not possible without device writeback. If the application is integrated with ADFS (2012 or higher) then you can write claim rules to check for the device status and then provide access only if the "is managed " claim is present. In order to issue this claim, ADFS will check for the device object in the "Registered Devices" container and then issue the claim accordingly.
+</p>
+<p>
+ Windows Hello For Business (WHFB) requires device writeback to function in Hybrid and Federated scenarios.
+</p>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

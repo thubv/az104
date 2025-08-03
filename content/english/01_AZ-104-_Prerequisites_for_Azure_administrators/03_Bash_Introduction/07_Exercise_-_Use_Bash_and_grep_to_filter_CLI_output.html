@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Use Bash and grep to filter CLI output - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Use Bash and grep to filter CLI output - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,39 +168,38 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Use Bash and grep to filter CLI output</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/bash-introduction/6-exercise-filter-cli-output/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Use Bash and grep to filter CLI output</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/bash-introduction/6-exercise-filter-cli-output/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/bash-introduction/6-exercise-filter-cli-output/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Until now, you've been running Bash commands on their own. Bash is powerful when combined with other tools, so let's get some practice by using Bash to filter output from the Azure CLI.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Let's say you want to see an up-to-date list of the virtual machine (VM) SKUs available in the westus region of Azure. You can do that with this command:
    </p>
-   <pre class="has-inner-focus"><code class="lang-bash" data-author-content="az vm list-skus --location westus --output table
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="az vm list-skus --location westus --output table
 "><span>az vm list-skus --location westus --output table
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You should see a long list of VM types as an output. To narrow down this list to the VM SKUs that interest you, you can  use
     <code>
      grep
     </code>
     , Linux's universal pattern-matching program. To find the "DS" SKUs, popular for use in data science, use the following command:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="az vm list-skus --location westus --output table | grep DS
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="az vm list-skus --location westus --output table | grep DS
 "><span>az vm list-skus --location westus --output table | grep DS
 </span></code></pre>
-   <p>
+<p>
     This pipes output from the
     <code>
      az
@@ -210,41 +210,39 @@
     </code>
     , which filters out lines that lack the "DS" string.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     That's still a lot of VMs. You know that DS V2 VMs are a more recent series. Let's adjust the
     <code>
      grep
     </code>
     command to use a more intricate regular expression:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="az vm list-skus --location westus --output table | grep DS.*_v2
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="az vm list-skus --location westus --output table | grep DS.*_v2
 "><span>az vm list-skus --location westus --output table | grep DS.*_v2
 </span></code></pre>
-   <p>
+<p>
     This command filters out lines that don't match the regular expression
     <code>
      DS.*_v2
     </code>
     . You might recognize some of the characters in that expression from our discussion of "wildcards" in an earlier unit. Regular expressions make great use of wildcards.
    </p>
-   <p>
+<p>
     Regular expressions are a topic for another module, but come in handy for Bash scripting.
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   Using Bash with other CLI commands makes the latter easier to work with. And because a sysadmin's work never ends, any tool that reduces the workload is welcome.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

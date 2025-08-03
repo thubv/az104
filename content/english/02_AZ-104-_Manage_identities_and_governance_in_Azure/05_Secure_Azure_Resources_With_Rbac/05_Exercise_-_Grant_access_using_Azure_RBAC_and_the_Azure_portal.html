@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Grant access using Azure RBAC and the Azure portal - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Grant access using Azure RBAC and the Azure portal - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,27 +168,26 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Grant access using Azure RBAC and the Azure portal</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/5-grant-access/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Grant access using Azure RBAC and the Azure portal</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/5-grant-access/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">https://learn.microsoft.com/en-us/training/modules/secure-azure-resources-with-rbac/5-grant-access/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-identities-governance</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   A coworker named Alain at First Up Consultants needs permission to create and manage virtual machines for a project on which they're working. Your manager has asked that you handle this request. Using the best practice to grant users the least privileges to get their work done, you decide to assign Alain the Virtual Machine Contributor role for a resource group.
  </p>
- <h2 id="grant-access">
+<h2 id="grant-access">
   Grant access
  </h2>
- <p>
+<p>
   Follow this procedure to assign the Virtual Machine Contributor role to a user at the resource group scope.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Sign in to the
     <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/" target="az-portal">
      Azure portal
@@ -202,48 +202,48 @@
     </a>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the Search box at the top, search for
     <strong>
      Resource groups
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the list of resource groups, select a resource group.
    </p>
-   <p>
+<p>
     These steps use a resource group named
     <strong>
      example-group
     </strong>
     , but your resource group's name will be different.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the left menu pane, select
     <strong>
      Access control (IAM)
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select the
     <strong>
      Role assignments
     </strong>
     tab to display the current list of role assignments at this scope.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Add
@@ -254,23 +254,23 @@
     </strong>
     .
    </p>
-   <p>
+<p>
     If you don't have permissions to assign roles, the
     <strong>
      Add role assignment
     </strong>
     option will be disabled.
    </p>
-   <p>
+<p>
     The
     <strong>
      Add role assignment
     </strong>
     page opens.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Role
@@ -281,18 +281,18 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Next
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Members
@@ -303,84 +303,84 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Search for and select a user.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Select
     </strong>
     to add the user to the Members list.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Next
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Review + assign
     </strong>
     tab, review the role assignment settings.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Review + assign
     </strong>
     to assign the role.
    </p>
-   <p>
+<p>
     After a few moments, the user is assigned the Virtual Machine Contributor role at the resource group scope. The user can now create and manage virtual machines just within this resource group.
    </p>
-  </li>
- </ol>
- <h2 id="remove-access">
+</li>
+</ol>
+<h2 id="remove-access">
   Remove access
  </h2>
- <p>
+<p>
   In Azure RBAC, you can remove a role assignment to remove access.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the list of role assignments, select
     <strong>
      View Assignments
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Search for and check the box for the user with the Virtual Machine Contributor role.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Delete
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the
     <strong>
      Remove role assignments
@@ -391,19 +391,17 @@
     </strong>
     .
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   In this unit, you learned how to grant a user access to create and manage virtual machines in a resource group using the Azure portal.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

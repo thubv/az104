@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configure autoscale - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configure autoscale - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,30 +168,29 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Configure autoscale</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/10-configure-autoscale/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Configure autoscale</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/10-configure-autoscale/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-virtual-machine-availability/10-configure-autoscale/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   When you create an Azure Virtual Machine Scale Sets implementation in the Azure portal, you can enable manual or autoscaling. For optimal performance, you should define a minimum, maximum, and default number of virtual machine instances to use.
  </p>
- <p>
+<p>
   In the Azure portal, you can select the scaling mode.
  </p>
- <p>
-  <strong>
+<p>
+<strong>
    Scaling mode
   </strong>
- </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+</p>
+<ul>
+<li>
+<p>
+<strong>
      Manually update the capacity
     </strong>
     : You can manually update the capacity and maintain a fixed instances count. Set the
@@ -199,88 +199,86 @@
     </strong>
     to the number of virtual machines in the scale set (0 - 1000). Configure the
     <a data-linktype="absolute-path" href="/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy">
-     <strong>
+<strong>
       Scale-in policy
      </strong>
-    </a>
+</a>
     which is the order virtual machines are selected for deletion. For example, you could balance across zones and then delete the virtual machine with the highest instance ID.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Autoscaling
     </strong>
     : You can autoscale the capacity on any schedule, based on any metrics. Specify the maximum number of virtual machines that can be available when autoscaling is applied on your implementation.
    </p>
-  </li>
- </ul>
- <p>
-  <strong>
+</li>
+</ul>
+<p>
+<strong>
    Configure autoscaling
   </strong>
- </p>
- <p>
+</p>
+<p>
   Autoscaling is based on a scaling condition.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Default instance count.
     </strong>
     The initial number of virtual machines deployed in this scale set (0-1000).
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Instance limit.
     </strong>
     The minimum instance count you want this condition to scale down to. The maximum instance count you want this condition to scale up to.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Scale out.
     </strong>
     The CPU usage percentage threshold for triggering the scale-out autoscale rule. The number of instances to scale out by.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Scale in.
     </strong>
     The CPU usage percentage threshold for triggering the scale-in autoscale rule. The number of instances to scale in by.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Query duration
     </strong>
     : This duration is the time the Autoscale engine looks back for the metric usage average. This look back is to allow your metric to stabilize.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Schedule
     </strong>
     : Specify the start and end dates. You can also repeat the schedule on specific days.
    </p>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

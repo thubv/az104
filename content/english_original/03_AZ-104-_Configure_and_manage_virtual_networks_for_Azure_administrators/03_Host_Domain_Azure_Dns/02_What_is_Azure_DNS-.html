@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Azure DNS? - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 2 What Is Azure Dns</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/2-what-is-azure-dns/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/2-what-is-azure-dns/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ Azure DNS is a hosting service for Domain Name System (DNS) domains that provides name resolution by using Microsoft Azure infrastructure.
+</p>
+<p>
+ In this unit, you learn what DNS is and how it works. You also learn about Azure DNS and why you'd use it.
+</p>
+<h2 id="what-is-dns">
+ What is DNS?
+</h2>
+<p>
+ DNS, or the Domain Name System, is a protocol within the TCP/IP standard. DNS serves an essential role of translating the human-readable domain names—for example:
+ <code>
+  www.wideworldimports.com
+ </code>
+ —into a known IP address. IP addresses enable computers and network devices to identify and route requests among themselves.
+</p>
+<p>
+ DNS uses a global directory hosted on servers around the world. Microsoft is part of the network that provides a DNS service through Azure DNS.
+</p>
+<p>
+ A DNS server is also known as a DNS name server, or just a name server.
+</p>
+<h2 id="how-does-dns-work">
+ How does DNS work?
+</h2>
+<p>
+ A DNS server carries out one of two primary functions:
+</p>
+<ul>
+ <li>
+  Maintains a local cache of recently accessed or used domain names and their IP addresses. This cache provides a faster response to a local domain lookup request. If the DNS server can't find the requested domain, it passes the request to another DNS server. This process repeats at each DNS server until either a match is made or the search times out.
+ </li>
+ <li>
+  Maintains the key-value pair database of IP addresses and any host or subdomain over which the DNS server has authority. This function is often associated with mail, web, and other internet domain services.
+ </li>
+</ul>
+<h3 id="dns-server-assignment">
+ DNS server assignment
+</h3>
+<p>
+ In order for a computer, server, or other network-enabled device to access web-based resources, it must reference a DNS server.
+</p>
+<p>
+ When you connect by using your on-premises network, the DNS settings come from your server. When you connect by using an external location like a hotel, the DNS settings come from the internet service provider (ISP).
+</p>
+<h3 id="domain-lookup-requests">
+ Domain lookup requests
+</h3>
+<p>
+ Here's a simplified overview of the process a DNS server uses when it resolves a domain-name lookup request:
+</p>
+<ul>
+ <li>
+  If the domain name is stored in the short-term cache, the DNS server resolves the domain request.
+ </li>
+ <li>
+  If the domain isn't in the cache, it contacts one or more DNS servers on the web to see if they have a match. When a match is found, the DNS server updates the local cache and resolves the request.
+ </li>
+ <li>
+  If the domain isn't found after a reasonable number of DNS checks, the DNS server responds with a
+  <em>
+   domain cannot be found
+  </em>
+  error.
+ </li>
+</ul>
+<h3 id="ipv4-and-ipv6">
+ IPv4 and IPv6
+</h3>
+<p>
+ Every computer, server, or network-enabled device on your network has an IP address. An IP address is unique within your domain. There are two standards of IP address: IPv4 and IPv6.
+</p>
+<ul>
+ <li>
+  <p>
+   <strong>
+    IPv4
+   </strong>
+   is composed of four sets of numbers, in the range 0 to 255, each separated by a dot; for example: 127.0.0.1. Today, IPv4 is the most commonly used standard. Yet, with the increase in IoT devices, the IPv4 standard will eventually be unable to keep up.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    IPv6
+   </strong>
+   is a relatively new standard and is intended to eventually replace IPv4. It consists of eight groups of hexadecimal numbers, each separated by a colon; for example: fe80:11a1:ac15:e9gf:e884:edb0:ddee:fea3.
+  </p>
+ </li>
+</ul>
+<p>
+ Many network devices are now provisioned with both an IPv4 and an IPv6 address. The DNS name server can resolve domain names to both IPv4 and IPv6 addresses.
+</p>
+<h3 id="dns-settings-for-your-domain">
+ DNS settings for your domain
+</h3>
+<p>
+ Whether a third-party host your DNS server or you manage it in-house, you need to configure it for each host type you're using. Host types include web, email, or other services you're using.
+</p>
+<p>
+ As the administrator for your company, you want to set up a DNS server by using Azure DNS. In this instance, the DNS server acts as a start of authority (SOA) for your domain.
+</p>
+<h3 id="dns-record-types">
+ DNS record types
+</h3>
+<p>
+ Configuration information for your DNS server is stored as a file within a zone on your DNS server. Each file is called a record. The following record types are the most commonly created and used:
+</p>
+<ul>
+ <li>
+  <strong>
+   A
+  </strong>
+  is the host record, and is the most common type of DNS record. It maps the domain or host name to the IP address.
+ </li>
+ <li>
+  <strong>
+   CNAME
+  </strong>
+  is a Canonical Name record that's used to create an alias from one domain name to another domain name. If you had different domain names that all accessed the same website, you'd use CNAME.
+ </li>
+ <li>
+  <strong>
+   MX
+  </strong>
+  is the mail exchange record. It maps mail requests to your mail server, whether hosted on-premises or in the cloud.
+ </li>
+ <li>
+  <strong>
+   TXT
+  </strong>
+  is the text record. It's used to associate text strings with a domain name. Azure and Microsoft 365 use TXT records to verify domain ownership.
+ </li>
+</ul>
+<p>
+ Additionally, there are the following record types:
+</p>
+<ul>
+ <li>
+  Wildcards
+ </li>
+ <li>
+  CAA (certificate authority)
+ </li>
+ <li>
+  NS (name server)
+ </li>
+ <li>
+  SOA (start of authority)
+ </li>
+ <li>
+  SPF (sender policy framework)
+ </li>
+ <li>
+  SRV (server locations)
+ </li>
+</ul>
+<p>
+ The SOA and NS records are created automatically when you create a DNS zone by using Azure DNS.
+</p>
+<h3 id="record-sets">
+ Record sets
+</h3>
+<p>
+ Some record types support the concept of record sets, or resource record sets. A record set allows for multiple resources to be defined in a single record. For example, here's an A record that has one domain with two IP addresses:
+</p>
+<div class="codeHeader" data-bi-name="code-header" id="code-try-0">
+ <span class="language">
+ </span>
+</div>
+<pre class="has-inner-focus"><code data-author-content="www.wideworldimports.com.     3600    IN    A    127.0.0.1
+www.wideworldimports.com.     3600    IN    A    127.0.0.2
+">www.wideworldimports.com.     3600    IN    A    127.0.0.1
+www.wideworldimports.com.     3600    IN    A    127.0.0.2
+</code></pre>
+<p>
+ SOA and CNAME records can't contain record sets.
+</p>
+<h2 id="what-is-azure-dns">
+ What is Azure DNS?
+</h2>
+<p>
+ Azure DNS allows you to host and manage your domains by using a globally distributed name-server infrastructure. It allows you to manage all of your domains by using your existing Azure credentials.
+</p>
+<p>
+ Azure DNS acts as the SOA for the domain.
+</p>
+<p>
+ You can't use Azure DNS to register a domain name; you need to register it by using a third-party domain registrar.
+</p>
+<h2 id="why-use-azure-dns-to-host-your-domain">
+ Why use Azure DNS to host your domain?
+</h2>
+<p>
+ Azure DNS is built on the Azure Resource Manager service, which offers the following benefits:
+</p>
+<ul>
+ <li>
+  Improved security
+ </li>
+ <li>
+  Ease of use
+ </li>
+ <li>
+  Private DNS domains
+ </li>
+ <li>
+  Alias record sets
+ </li>
+</ul>
+<p>
+ At this time, Azure DNS doesn't support Domain Name System Security Extensions. If you require this security extension, you should host those portions of your domain with a third-party provider.
+</p>
+<h3 id="security-features">
+ Security features
+</h3>
+<p>
+ Azure DNS provides the following security features:
+</p>
+<ul>
+ <li>
+  Role-based access control, which gives you fine-grained control over users' access to Azure resources. You can monitor their usage and control the resources and services to which they have access.
+ </li>
+ <li>
+  Activity logs, which let you track changes to a resource and pinpoint where faults occurred.
+ </li>
+ <li>
+  Resource locking, which gives you a greater level of control to restrict or remove access to resource groups, subscriptions, or any Azure resources.
+ </li>
+</ul>
+<h3 id="ease-of-use">
+ Ease of use
+</h3>
+<p>
+ Azure DNS can manage DNS records for your Azure services and provide DNS for your external resources. Azure DNS uses the same Azure credentials, support contract, and billing as your other Azure services.
+</p>
+<p>
+ You can manage your domains and records by using the Azure portal, Azure PowerShell cmdlets, or the Azure CLI. Applications that require automated DNS management can integrate with the service by using the REST API and software development kit (SDKs).
+</p>
+<h3 id="private-domains">
+ Private domains
+</h3>
+<p>
+ Azure DNS handles translating external domain names to IP addresses. Azure DNS lets you create private zones. These zones provide name resolution for virtual machines (VMs) within a virtual network and between virtual networks without having to create a custom DNS solution. Private zones allow you to use your own custom domain names rather than the Azure-provided names.
+</p>
+<p>
+ To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.
+</p>
+<p>
+ Private DNS zones have the following benefits:
+</p>
+<ul>
+ <li>
+  DNS zones are supported as part of the Azure infrastructure, so there's no need to invest in a DNS solution.
+ </li>
+ <li>
+  All DNS record types are supported: A, CNAME, TXT, MX, SOA, AAAA, PTR, and SRV.
+ </li>
+ <li>
+  Host names for VMs in your virtual network are automatically maintained.
+ </li>
+ <li>
+  Split-horizon DNS support allows the same domain name to exist in both private and public zones. It resolves to the correct one based on the originating request location.
+ </li>
+</ul>
+<h3 id="alias-record-sets">
+ Alias record sets
+</h3>
+<p>
+ Alias records sets can point to an Azure resource. For example, you can set up an alias record to direct traffic to an Azure public IP address, an Azure Traffic Manager profile, or an Azure Content Delivery Network endpoint.
+</p>
+<p>
+ The alias record set is supported in the following DNS record types:
+</p>
+<ul>
+ <li>
+  A
+ </li>
+ <li>
+  AAAA
+ </li>
+ <li>
+  CNAME
+ </li>
+</ul>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

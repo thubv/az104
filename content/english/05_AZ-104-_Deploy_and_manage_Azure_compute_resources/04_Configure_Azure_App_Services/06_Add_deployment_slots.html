@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add deployment slots - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add deployment slots - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,77 +168,76 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Add deployment slots</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/6-add-deployment-slots/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Add deployment slots</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/6-add-deployment-slots/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/6-add-deployment-slots/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Deployment slots are configured in the Azure portal. You can swap your app content and configuration elements between deployment slots, including the production slot.
  </p>
- <h3 id="things-to-know-about-creating-deployment-slots">
+<h3 id="things-to-know-about-creating-deployment-slots">
   Things to know about creating deployment slots
  </h3>
- <p>
+<p>
   Let's review some details about how deployment slots are configured.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     New deployment slots can be empty or cloned.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Deployment slot settings fall into three categories:
    </p>
-   <ul>
-    <li>
+<ul>
+<li>
      Slot-specific app settings and connection strings (if applicable).
     </li>
-    <li>
+<li>
      Continuous deployment settings (when enabled).
     </li>
-    <li>
+<li>
      Azure App Service authentication settings (when enabled).
     </li>
-   </ul>
-  </li>
-  <li>
-   <p>
+</ul>
+</li>
+<li>
+<p>
     When you clone a configuration from another deployment slot, the cloned configuration is editable. Some configuration elements follow the content across the swap. Other slot-specific configuration elements stay in the source slot after the swap.
    </p>
-  </li>
- </ul>
- <h4 id="swapped-settings-versus-slot-specific-settings">
+</li>
+</ul>
+<h4 id="swapped-settings-versus-slot-specific-settings">
   Swapped settings versus slot-specific settings
  </h4>
- <p>
+<p>
   The following table lists settings that are swapped between deployment slots. The table also lists settings that remain in the source slot (slot-specific). As you review these settings, consider which features are required for your App Service apps. Read more about
   <a data-linktype="absolute-path" href="/en-us/azure/app-service/deploy-staging-slots?tabs=portal#which-settings-are-swapped">
    which settings are swapped
   </a>
   .
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Swapped settings versus slot-specific settings" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Swapped settings versus slot-specific settings" class="table">
+<thead>
+<tr>
+<th>
       Swapped settings
      </th>
-     <th>
+<th>
       Slot-specific settings
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
       Language stack and version, 32/64-bit
            App settings
       <strong>
@@ -264,7 +264,7 @@
       </strong>
       Path mapping
      </td>
-     <td>
+<td>
       Custom domain names
            Nonpublic certificates and TLS/SSL settings
            Scale settings
@@ -276,30 +276,28 @@
            Virtual network integration
            Managed identities
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <p>
-  <strong>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+<strong>
    *
   </strong>
   Setting can be configured to be slot-specific.
  </p>
- <p>
-  <strong>
+<p>
+<strong>
    **
   </strong>
   Feature isn't currently available.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

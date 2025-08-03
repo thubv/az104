@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Run your first PowerShell commands - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Run your first PowerShell commands - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,27 +168,26 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Run your first PowerShell commands</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/3-exercise-powershell/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Run your first PowerShell commands</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/3-exercise-powershell/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/3-exercise-powershell/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   In this unit, you use Azure Cloud Shell as a Linux terminal. You also can access Cloud Shell through the Azure portal or at
   <a data-linktype="external" href="https://shell.azure.com">
    Cloud Shell sign-in
   </a>
   . You don't need to install anything on your PC or laptop to use Cloud Shell.
  </p>
- <div class="alert is-info">
-  <p class="alert-title">
+<div class="alert is-info">
+<p class="alert-title">
    Note
   </p>
-  <p>
+<p>
    In this module, you're using the Azure Cloud Shell on the right-hand side of the screen, but in real-world situations, you can also use the integrated Terminal in Visual Studio Code by selecting
    <strong>
     Terminal
@@ -202,13 +202,13 @@
    </strong>
    in the drop-down in the top-left of the Terminal window.
   </p>
- </div>
- <p>
+</div>
+<p>
   Before beginning this exercise, be sure to activate the sandbox.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the Azure Cloud Shell on the right-hand side of the screen, select
     <strong>
      Switch to PowerShell
@@ -219,9 +219,9 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command in Cloud Shell, and then press
     <kbd>
      Enter
@@ -232,13 +232,13 @@
     </code>
     verifies your installation.
    </p>
-   <pre class="has-inner-focus"><code class="lang-powershell" data-author-content="$PSVersionTable
+<pre class="has-inner-focus"><code class="lang-powershell" data-author-content="$PSVersionTable
 "><span><span class="hljs-variable">$PSVersionTable</span>
 </span></code></pre>
-   <p>
+<p>
     Your output resembles the following table:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content=" Name                           Value
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content=" Name                           Value
  ----                           -----
  PSVersion                      7.3.6
  PSEdition                      Core
@@ -261,44 +261,44 @@
  SerializationVersion           1.1.0.1
  WSManStackVersion              3.0
 </code></pre>
-   <p>
+<p>
     The output provides information about your PowerShell version, and your platform and edition.
    </p>
-   <p>
+<p>
     For information limited to your version of PowerShell, you can run a modified version of
     <code>
      $PSVersionTable
     </code>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command in Cloud Shell, and then press
     <kbd>
      Enter
     </kbd>
     .
    </p>
-   <pre class="has-inner-focus"><code class="lang-powershell" data-author-content="$PSVersionTable.PSVersion
+<pre class="has-inner-focus"><code class="lang-powershell" data-author-content="$PSVersionTable.PSVersion
 "><span><span class="hljs-variable">$PSVersionTable</span>.PSVersion
 </span></code></pre>
-   <p>
+<p>
     Your output now resembles the following table:
    </p>
-   <pre class="has-inner-focus"><code class="lang-output" data-author-content="Major  Minor  Patch  PreReleaseLabel BuildLabel
+<pre class="has-inner-focus"><code class="lang-output" data-author-content="Major  Minor  Patch  PreReleaseLabel BuildLabel
 -----  -----  -----  --------------- ----------
 7      3      6  
 ">Major  Minor  Patch  PreReleaseLabel BuildLabel
 -----  -----  -----  --------------- ----------
 7      3      6  
 </code></pre>
-   <p>
+<p>
     This output gives you more details about your version of PowerShell.
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   Running
   <code>
    $PSVersionTable
@@ -314,13 +314,11 @@
   .
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

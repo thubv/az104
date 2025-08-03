@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Implement soft delete for Azure Files - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Implement soft delete for Azure Files - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,111 +168,108 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Implement soft delete for Azure Files</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/5-implement-file-sync/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Implement soft delete for Azure Files</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/5-implement-file-sync/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/5-implement-file-sync/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Azure Files offers
   <a data-linktype="absolute-path" href="/en-us/azure/storage/files/storage-files-prevent-file-share-deletion?toc=%2Fazure%2Fstorage%2Ffile-sync">
    soft delete for file shares
   </a>
   . Soft delete lets you recover deleted files and file shares.
  </p>
- <h3 id="things-to-know-about-soft-delete-for-azure-files">
+<h3 id="things-to-know-about-soft-delete-for-azure-files">
   Things to know about soft delete for Azure Files
  </h3>
- <p>
+<p>
   Let's take a look at the characteristics of soft delete for Azure Files.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     Soft delete for file shares is enabled at the file share level.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Soft delete transitions content to a soft deleted state instead of being permanently erased.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Soft delete lets you configure the retention period. The retention period is the amount of time that soft deleted file shares are stored and available for recovery.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Soft delete provides a retention period between 1 and 365 days.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Soft delete can be enabled on either new or existing file shares.
    </p>
-  </li>
- </ul>
- <h3 id="things-to-consider-when-using-soft-delete-for-azure-files">
+</li>
+</ul>
+<h3 id="things-to-consider-when-using-soft-delete-for-azure-files">
   Things to consider when using soft delete for Azure Files
  </h3>
- <p>
+<p>
   There are many advantages to using soft delete for Azure Files. Consider the following scenarios, and think about how you can use soft delete.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Recover from accidental data loss
     </strong>
     . You can recover deleted or corrupted data with soft delete.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Upgrade scenarios
     </strong>
     . Use soft delete to restore to a known good state after a failed upgrade attempt.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Ransomware protection
     </strong>
     . Use soft delete to recover data without paying ransom to cybercriminals.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Long-term retention
     </strong>
     . Use soft delete to comply with data retention requirements.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Business continuity
     </strong>
     . Use soft delete to prepare your infrastructure to be highly available for critical workloads.
    </p>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

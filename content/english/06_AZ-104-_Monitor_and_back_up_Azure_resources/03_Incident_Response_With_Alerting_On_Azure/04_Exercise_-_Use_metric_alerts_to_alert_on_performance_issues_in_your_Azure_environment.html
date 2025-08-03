@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Use metric alerts to alert on performance issues in your Azure environment - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Use metric alerts to alert on performance issues in your Azure environment - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,37 +168,36 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Use metric alerts to alert on performance issues in your Azure environment</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/4-exercise-metric-alerts/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Use metric alerts to alert on performance issues in your Azure environment</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/4-exercise-metric-alerts/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/4-exercise-metric-alerts/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   The shipping company you work for wants to avoid any future issues with updates to its applications on the Azure platform. To improve the alert capabilities in Azure, you made the choice to use Azure metric alerts.
  </p>
- <p>
+<p>
   In this exercise, you create a Linux virtual machine (VM). This VM runs an app that runs the CPU at 100 percent utilization. You create monitoring rules in the Azure portal and in the Azure CLI to alert you about high CPU usage.
  </p>
- <h2 id="create-the-vm">
+<h2 id="create-the-vm">
   Create the VM
  </h2>
- <p>
+<p>
   This VM runs a specific configuration that stresses the CPU and generates the metric monitoring data needed to trigger an alert.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Start by creating the configuration script. To create the
     <code>
      cloud-init.txt
     </code>
     file with the configuration for the VM, run the following command in Azure Cloud Shell:
    </p>
-   <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat &lt;&lt;EOF &gt; cloud-init.txt
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat &lt;&lt;EOF &gt; cloud-init.txt
 #cloud-config
 package_upgrade: true
 packages:
@@ -214,9 +214,9 @@ runcmd:
 - sudo stress --cpu 1
 EOF
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     To set up an Ubuntu Linux VM, run the following
     <code>
      az vm create
@@ -227,7 +227,7 @@ EOF
     </code>
     file that you created in the previous step to configure the newly created Ubuntu Linux VM.
    </p>
-   <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az vm create \
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az vm create \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --name vm1 \
     --location eastUS \
@@ -242,34 +242,34 @@ EOF
     <span class="hljs-parameter">--custom-data</span> cloud<span class="hljs-parameter">-init</span>.txt \
     <span class="hljs-parameter">--generate-ssh-keys</span>
 </span></code></pre>
-  </li>
- </ol>
- <h2 id="create-the-metric-alert-using-the-azure-portal">
+</li>
+</ol>
+<h2 id="create-the-metric-alert-using-the-azure-portal">
   Create the metric alert using the Azure portal
  </h2>
- <div class="alert is-info">
-  <p class="alert-title">
+<div class="alert is-info">
+<p class="alert-title">
    Note
   </p>
-  <p>
+<p>
    Wait until the VM is successfully created before proceeding with the exercise. The VM creation process is complete when you get the completed JSON output in the Azure Cloud Shell window.
   </p>
- </div>
- <p>
+</div>
+<p>
   You can use either the Azure portal or the CLI to create a metric alert. In this exercise, we cover both, starting with the Azure portal.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Sign in to the
     <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/learn.docs.microsoft.com" target="az-portal">
      Azure portal
     </a>
     using the same account that you used to activate the sandbox.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the Azure portal menu, search for and select
     <strong>
      Monitor
@@ -284,9 +284,9 @@ EOF
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Open the
     <strong>
      + Create
@@ -295,19 +295,19 @@ EOF
     <strong>
      Alert rule
     </strong>
-   </p>
-  </li>
-  <li>
-   <p>
+</p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Select a resource
     </strong>
     pane, set the scope for your alert rule. You can filter by subscription, resource type, or resource location.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the
     <strong>
      Resource types
@@ -318,9 +318,9 @@ EOF
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Check the box next to
     <strong>
      vm1
@@ -331,18 +331,18 @@ EOF
     </strong>
     at the bottom of the pane.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Next:Condition
     </strong>
     at the bottom of the page.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the
     <strong>
      Signal name
@@ -353,96 +353,96 @@ EOF
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the
     <strong>
      Alert logic
     </strong>
     section, enter (or confirm) the following values for each setting.
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 1" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 1" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
-        <strong>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
          Alert logic
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Threshold
        </td>
-       <td>
+<td>
         Static
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Aggregation type
        </td>
-       <td>
+<td>
         Maximum
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Operator
        </td>
-       <td>
+<td>
         Greater than
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Threshold value
        </td>
-       <td>
+<td>
         90
        </td>
-      </tr>
-      <tr>
-       <td>
-        <strong>
+</tr>
+<tr>
+<td>
+<strong>
          When to evaluate
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Check every
        </td>
-       <td>
+<td>
         1 minute
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Lookback period
        </td>
-       <td>
+<td>
         1 minute
        </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Select the
     <strong>
      Details
@@ -453,90 +453,90 @@ EOF
     </strong>
     section, enter the following values for each setting.
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 2" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 2" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
         Severity
        </td>
-       <td>
+<td>
         2 - Warning
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Alert rule name
        </td>
-       <td>
+<td>
         Cpu90PercentAlert
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Description
        </td>
-       <td>
+<td>
         Virtual machine is running at or greater than 90% CPU utilization
        </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Expand the
     <strong>
      Advanced options
     </strong>
     section and confirm the following values for each setting.
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 3" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 3" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
         Enable upon creation
        </td>
-       <td>
+<td>
         Yes (checked)
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Automatically resolve alerts
        </td>
-       <td>
+<td>
         Yes (checked)
        </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Select
     <strong>
      Review + create
@@ -547,26 +547,26 @@ EOF
     </strong>
     .
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   You successfully created a metric alert rule that triggers an alert when the CPU percentage on the VM exceeds 90 percent. The rule checks every minute and reviews one minute of data. It can take up to 10 minutes for a metric alert rule to become active.
  </p>
- <h2 id="create-the-metric-alert-through-the-cli">
+<h2 id="create-the-metric-alert-through-the-cli">
   Create the metric alert through the CLI
  </h2>
- <p>
+<p>
   You can also set up metric alerts by using the CLI. This process can be quicker than using the portal, especially if you're planning to set up more than one alert.
  </p>
- <p>
+<p>
   Let's create a new metric alert similar to the one you set up in the Azure portal.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Run the following command in Cloud Shell to obtain the resource ID of the virtual machine you previously created:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content='VMID=$(az vm show \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content='VMID=$(az vm show \
         --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
         --name vm1 \
         --query id \
@@ -577,12 +577,12 @@ EOF
         --query id \
         --output tsv)
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command to create a new metric alert. The alert is triggered when the VM CPU is greater than 80 percent.
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='az monitor metrics alert create \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='az monitor metrics alert create \
     -n "Cpu80PercentAlert" \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --scopes $VMID \
@@ -601,34 +601,34 @@ EOF
     <span class="hljs-parameter">--window-size</span> <span class="hljs-number">1</span>m \
     <span class="hljs-parameter">--severity</span> <span class="hljs-number">3</span>
 </span></code></pre>
-  </li>
- </ol>
- <h2 id="view-your-metric-alerts-in-azure-monitor">
+</li>
+</ol>
+<h2 id="view-your-metric-alerts-in-azure-monitor">
   View your metric alerts in Azure Monitor
  </h2>
- <p>
+<p>
   In this exercise, you set up an Ubuntu VM and configured it to stress test the CPU. You also created a metric rule to detect when the maximum CPU percentage exceeds 80 percent and 90 percent.
  </p>
- <div class="alert is-info">
-  <p class="alert-title">
+<div class="alert is-info">
+<p class="alert-title">
    Note
   </p>
-  <p>
+<p>
    It might take 10 minutes before you see the alerts show up in the Azure portal.
   </p>
- </div>
- <ol>
-  <li>
-   <p>
+</div>
+<ol>
+<li>
+<p>
     Return to the
     <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/learn.docs.microsoft.com" target="az-portal">
      Azure portal
     </a>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the Azure portal menu, select
     <strong>
      Monitor
@@ -639,33 +639,31 @@ EOF
     </strong>
     in the left menu pane.
    </p>
-   <p>
+<p>
     This step presents the Alert summary pane, where you can see the count of the number of alerts. If you don't see your alerts listed, wait a few minutes and select
     <strong>
      Refresh
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You configured your metric alerts with severities of 2 and 3. Select one of the alerts to view the severity level.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select one of the alerts to show the alert details.
    </p>
-  </li>
- </ol>
+</li>
+</ol>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

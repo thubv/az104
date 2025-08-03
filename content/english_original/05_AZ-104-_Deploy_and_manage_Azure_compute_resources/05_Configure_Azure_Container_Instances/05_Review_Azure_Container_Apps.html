@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Azure Container Apps - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 5 Review Docker Platform</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/5-review-docker-platform/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/5-review-docker-platform/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ There are many options for teams to build and deploy cloud native and containerized applications on Azure. Let's understand which scenarios and use cases are best suited for Azure Container Apps and how it compares to other container options on Azure. Listen to a developer's view of Azure Container Instances.
+</p>
+<div class="embeddedvideo">
+ <iframe allowfullscreen="true" data-linktype="external" frameborder="0" src="https://learn-video.azurefd.net/vod/player?id=f33ea4b6-2c00-4b85-8875-e7193921f8cd&amp;locale=en-us&amp;embedUrl=%2Ftraining%2Fmodules%2Fconfigure-azure-container-instances%2F5-review-docker-platform" title="Video Player">
+ </iframe>
+</div>
+<h3 id="things-to-know-about-azure-container-apps">
+ Things to know about Azure Container Apps
+</h3>
+<p>
+ <a data-linktype="absolute-path" href="/en-us/azure/container-apps/overview">
+  Azure Container Apps
+ </a>
+ is a serverless platform that allows you to maintain less infrastructure and save costs while running containerized applications. Instead of worrying about server configuration, container orchestration, and deployment details, Container Apps provides all the up-to-date server resources required to keep your applications stable and secure.
+</p>
+<p>
+ Common uses of Azure Container Apps include:
+</p>
+<ul>
+ <li>
+  Deploying API endpoints
+ </li>
+ <li>
+  Hosting background processing jobs
+ </li>
+ <li>
+  Handling event-driven processing
+ </li>
+ <li>
+  Running microservices
+ </li>
+</ul>
+<p>
+ Applications built on Azure Container Apps can dynamically scale based on the following characteristics:
+</p>
+<ul>
+ <li>
+  HTTP traffic
+ </li>
+ <li>
+  Event-driven processing
+ </li>
+ <li>
+  CPU or memory load
+ </li>
+ <li>
+  Any KEDA-supported scaler
+ </li>
+</ul>
+<h3 id="things-to-consider-when-using-azure-container-apps">
+ Things to consider when using Azure Container Apps
+</h3>
+<p>
+ Azure Container Apps enables you to build serverless microservices and jobs based on containers. Distinctive features of Container Apps include:
+</p>
+<ul>
+ <li>
+  Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
+ </li>
+ <li>
+  Powered by Kubernetes and open-source technologies like Dapr, KEDA, and envoy.
+ </li>
+ <li>
+  Supports Kubernetes-style apps and microservices with features like service discovery and traffic splitting.
+ </li>
+ <li>
+  Enables event-driven application architectures by supporting scale based on traffic and pulling from event sources like queues, including scale to zero.
+ </li>
+ <li>
+  Supports running on demand, scheduled, and event-driven jobs.
+ </li>
+</ul>
+<p>
+ Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams prefer to start building container microservices with Azure Container Apps.
+</p>
+<h4 id="compare-container-management-solutions">
+ Compare container management solutions
+</h4>
+<p>
+ Azure Container Instances (ACI) can be managed in several ways. Azure Container Apps (ACA) is one way, and Azure Kubernetes Service (AKS) is another. Here’s a comparison table for when to use ACA and AKS.
+</p>
+<div class="buttons buttons-right margin-bottom-none margin-top-sm">
+ <!-- -->
+ <!-- -->
+</div>
+<div class="has-inner-focus">
+ <table aria-label="Compare container management solutions" class="table">
+  <thead>
+   <tr>
+    <th>
+     Feature
+    </th>
+    <th>
+     Azure Container Apps (ACA)
+    </th>
+    <th>
+     Azure Kubernetes Service (AKS)
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td>
+     Overview
+    </td>
+    <td>
+     ACA is a serverless container platform that simplifies the deployment and management of microservices-based applications by abstracting away the underlying infrastructure.
+    </td>
+    <td>
+     AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. It’s suitable for complex applications that require orchestration.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Deployment
+    </td>
+    <td>
+     ACA provides a PaaS experience with quick deployment and management capabilities.
+    </td>
+    <td>
+     AKS offers more control and customization options for Kubernetes environments, making it suitable for complex applications and microservices.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Management
+    </td>
+    <td>
+     ACA builds upon AKS and offers a simplified PaaS experience for running containers.
+    </td>
+    <td>
+     AKS provides a more granular control over the Kubernetes environment, suitable for teams with Kubernetes expertise.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Scalability
+    </td>
+    <td>
+     ACA supports both HTTP-based autoscaling and event-driven scaling, making it ideal for applications that need to respond quickly to changes in demand.
+    </td>
+    <td>
+     AKS offers horizontal pod autoscaling and cluster autoscaling, providing robust scalability options for containerized applications.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Use Cases
+    </td>
+    <td>
+     ACA is designed for microservices and serverless applications that benefit from rapid scaling and simplified management.
+    </td>
+    <td>
+     AKS is best for complex, long-running applications. These applications require full Kubernetes features and tight integration with other Azure services.
+    </td>
+   </tr>
+   <tr>
+    <td>
+     Integration
+    </td>
+    <td>
+     ACA integrates with Azure Logic Apps, Functions, and Event Grid for event-driven architectures.
+    </td>
+    <td>
+     AKS provides features like Azure Policy for Kubernetes, Azure Monitor for containers, and Azure Defender for Kubernetes for comprehensive security and governance.
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

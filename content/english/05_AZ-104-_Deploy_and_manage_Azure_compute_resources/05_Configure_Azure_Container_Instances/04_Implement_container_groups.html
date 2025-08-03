@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Implement container groups - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Implement container groups - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,16 +168,15 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Implement container groups</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/4-implement-container-groups/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Implement container groups</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/4-implement-container-groups/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/4-implement-container-groups/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   The top-level resource in Azure Container Instances is the
   <strong>
    container group
@@ -187,152 +187,150 @@
   </a>
   is a collection of containers that get scheduled on the same host machine. The containers share a lifecycle, resources, local network, and storage volumes.
  </p>
- <h3 id="things-to-know-about-container-groups">
+<h3 id="things-to-know-about-container-groups">
   Things to know about container groups
  </h3>
- <p>
+<p>
   Let's review some of details about container groups for Azure Container Instances.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     A container group is similar to a pod in Kubernetes. A pod typically has a 1:1 mapping with a container, but a pod can contain multiple containers. The containers in a multi-container pod can share related resources.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Azure Container Instances allocates resources to a multi-container group by adding together the resource requests of all containers in the group. Resources can include items such as CPUs, memory, and GPUs.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     There are two common ways to deploy a multi-container group: Azure Resource Manager (ARM) templates and YAML files.
    </p>
-   <ul>
-    <li>
-     <p>
-      <strong>
+<ul>
+<li>
+<p>
+<strong>
        ARM template
       </strong>
       . An ARM template is recommended for deploying other Azure service resources when you deploy your container instances, such as an Azure Files file share.
      </p>
-    </li>
-    <li>
-     <p>
-      <strong>
+</li>
+<li>
+<p>
+<strong>
        YAML file
       </strong>
       . Due to the concise nature of the YAML format, a YAML file is recommended when your deployment includes only container instances.
      </p>
-    </li>
-   </ul>
-  </li>
-  <li>
-   <p>
+</li>
+</ul>
+</li>
+<li>
+<p>
     Container groups can share an external-facing IP address, one or more ports on the IP address, and a DNS label with an FQDN.
    </p>
-   <ul>
-    <li>
-     <p>
-      <strong>
+<ul>
+<li>
+<p>
+<strong>
        External client access
       </strong>
       . You must expose the port on the IP address and from the container to enable external clients to reach a container in your group.
      </p>
-    </li>
-    <li>
-     <p>
-      <strong>
+</li>
+<li>
+<p>
+<strong>
        Port mapping
       </strong>
       . Port mapping isn't supported because containers in a group share a port namespace.
      </p>
-    </li>
-    <li>
-     <p>
-      <strong>
+</li>
+<li>
+<p>
+<strong>
        Deleted groups
       </strong>
       . When a container group is deleted, its IP address and FQDN are released.
      </p>
-    </li>
-   </ul>
-  </li>
- </ul>
- <h4 id="configuration-example">
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="configuration-example">
   Configuration example
  </h4>
- <p>
+<p>
   Consider the following example of a multi-container group with two containers.
  </p>
- <p>
+<p>
   The multi-container group has the following characteristics and configuration:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    The container group is scheduled on a single host machine, and is assigned a DNS name label.
   </li>
-  <li>
+<li>
    The container group exposes a single public IP address with one exposed port.
   </li>
-  <li>
+<li>
    One container in the group listens on port 80. The other container listens on port 1433.
   </li>
-  <li>
+<li>
    The group includes two Azure Files file shares as volume mounts. Each container in the group mounts one of the file shares locally.
   </li>
- </ul>
- <h3 id="things-to-consider-when-using-container-groups">
+</ul>
+<h3 id="things-to-consider-when-using-container-groups">
   Things to consider when using container groups
  </h3>
- <p>
+<p>
   Multi-container groups are useful when you want to divide a single functional task into a few container images. Different teams can deliver the images, and the images can have separate resource requirements.
  </p>
- <p>
+<p>
   Consider the following scenarios for working with multi-container groups. Think about what options can support your internal apps for the online retailer.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Consider web app updates
     </strong>
     . Support updates to your web apps by implementing a multi-container group. One container in the group serves the web app and another container pulls the latest content from source control.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider log data collection
     </strong>
     . Use a multi-container group to capture logging and metrics data about your app. Your application container outputs logs and metrics. A logging container collects the output data and writes the data to long-term storage.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider app monitoring
     </strong>
     . Enable monitoring for your app with a multi-container group. A monitoring container periodically makes a request to your application container to ensure your app is running and responding correctly. The monitoring container raises an alert if it identifies possible issues with your app.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider front-end and back-end support
     </strong>
     . Create a multi-container group to hold your front-end container and back-end container. The front-end container can serve a web app. The back-end container can run a service to retrieve data.
    </p>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

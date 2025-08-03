@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Determine blob object replication - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Determine blob object replication - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,101 +168,100 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Determine blob object replication</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/6-determine-blob-object-replication/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
-  <a data-linktype="absolute-path" href="/en-us/azure/storage/blobs/object-replication-overview">
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Determine blob object replication</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/6-determine-blob-object-replication/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-blob-storage/6-determine-blob-object-replication/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
+<a data-linktype="absolute-path" href="/en-us/azure/storage/blobs/object-replication-overview">
    Object replication
   </a>
   copies blobs in a container asynchronously according to policy rules that you configure.
  </p>
- <p>
+<p>
   Replication includes the blob content, metadata properties, and versions. The following illustration shows an example of asynchronous replication of blob containers between regions.
  </p>
- <h3 id="things-to-know-about-blob-object-replication">
+<h3 id="things-to-know-about-blob-object-replication">
   Things to know about blob object replication
  </h3>
- <p>
+<p>
   There are several considerations to keep in mind when planning your configuration for blob object replication.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     Object replication requires that blob versioning is enabled on both the source and destination accounts. When blob versioning is enabled, you can access earlier versions of a blob. This access lets you recover your modified or deleted data.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Object replication doesn't support blob snapshots. Any snapshots on a blob in the source account aren't replicated to the destination account.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Object replication is supported when the source and destination accounts are in the Hot, Cool, or Cold tier. The source and destination accounts can be in different tiers.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     When you configure object replication, you create a replication policy that specifies the source Azure storage account and the destination storage account.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     A replication policy includes one or more rules that specify a source container and a destination container. The policy identifies the blobs in the source container to replicate.
    </p>
-  </li>
- </ul>
- <h3 id="things-to-consider-when-configuring-blob-object-replication">
+</li>
+</ul>
+<h3 id="things-to-consider-when-configuring-blob-object-replication">
   Things to consider when configuring blob object replication
  </h3>
- <p>
+<p>
   There are many benefits to using blob object replication. Consider the following scenarios and think about how replication can be a part of your Blob Storage strategy.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Consider latency reductions
     </strong>
     . Minimize latency with blob object replication. You can reduce latency for read requests by enabling clients to consume data from a region that's in closer physical proximity.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider efficiency for compute workloads
     </strong>
     . Improve efficiency for compute workloads by using blob object replication. With object replication, compute workloads can process the same sets of blobs in different regions.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider data distribution
     </strong>
     . Optimize your configuration for data distribution. You can process or analyze data in a single location and then replicate only the results to other regions.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider costs benefits
     </strong>
     . Manage your configuration and optimize your storage policies. After your data is replicated, you can reduce costs by moving the data to the Archive tier by using lifecycle management policies.
    </p>
-  </li>
- </ul>
- <h3 id="consider-versioning-when-using-object-replication">
+</li>
+</ul>
+<h3 id="consider-versioning-when-using-object-replication">
   Consider versioning when using object replication
  </h3>
- <p>
+<p>
   You can enable
   <a data-linktype="absolute-path" href="/en-us/azure/storage/blobs/versioning-overview">
    Blob versioning
@@ -269,13 +269,11 @@
   to automatically maintain previous versions of an object. When blob versioning is enabled, you can access earlier versions of a blob. This access lets you recover your modified or deleted data.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

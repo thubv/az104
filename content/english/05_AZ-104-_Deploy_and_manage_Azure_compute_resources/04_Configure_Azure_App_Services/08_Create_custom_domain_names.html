@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create custom domain names - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create custom domain names - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,16 +168,15 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Create custom domain names</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/8-create-custom-domain-names/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Create custom domain names</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/8-create-custom-domain-names/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-app-services/8-create-custom-domain-names/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   When you create a web app, Azure assigns the app to a subdomain of
   <code>
    azurewebsites.net
@@ -191,56 +191,56 @@
   </code>
   . Azure also assigns a virtual IP address for your app. For a production web app, you might want users to see a custom domain name.
  </p>
- <h3 id="what-is-a-custom-domain">
+<h3 id="what-is-a-custom-domain">
   What is a custom domain?
  </h3>
- <p>
+<p>
   A domain name is the address people type into a web browser to reach your website. A custom domain is a domain name that you own and configure to point to your Azure-hosted app, replacing the default Azure domain.
  </p>
- <p>
+<p>
   For example:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Default Azure domain:
    <code>
     myapp-00000.westus.azurewebsites.net
    </code>
-  </li>
-  <li>
+</li>
+<li>
    Custom domain:
    <code>
     www.contoso.com
    </code>
-  </li>
- </ul>
- <p>
+</li>
+</ul>
+<p>
   Using a custom domain allows you to:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Establish a branded, user-friendly web address.
   </li>
-  <li>
+<li>
    Improve trust and credibility with customers.
   </li>
-  <li>
+<li>
    Manage and secure traffic to your application.
   </li>
- </ul>
- <h3 id="steps-to-configure-a-custom-domain-name-for-your-app">
+</ul>
+<h3 id="steps-to-configure-a-custom-domain-name-for-your-app">
   Steps to configure a custom domain name for your app
  </h3>
- <p>
+<p>
   Creating a custom domain name requires providers, security, and naming information.
  </p>
- <p>
+<p>
   There are three steps to create a custom domain name.
  </p>
- <ol>
-  <li>
-   <p>
-    <strong>
+<ol>
+<li>
+<p>
+<strong>
      Reserve your domain name
     </strong>
     . The easiest way to set up a custom domain is to buy one directly in the Azure portal. (This name isn't the Azure assigned name of
@@ -249,17 +249,17 @@
     </code>
     .) The registration process enables you to manage your web app's domain name directly in the Azure portal instead of going to a third-party site. Configuring the domain name in your web app is also a simple process in the Azure portal.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Create DNS records to map the domain to your Azure web app
     </strong>
     . The Domain Name System (DNS) uses data records to map domain names to IP addresses. There are several types of DNS records.
    </p>
-   <ul>
-    <li>
-     <p>
+<ul>
+<li>
+<p>
       For web apps, you create either an
       <code>
        A
@@ -270,15 +270,15 @@
       </code>
       (Canonical Name) record.
      </p>
-     <ul>
-      <li>
+<ul>
+<li>
        An
        <code>
         A
        </code>
        record maps a domain name to an IP address.
       </li>
-      <li>
+<li>
        A
        <code>
         CNAME
@@ -293,10 +293,10 @@
        </code>
        URL.
       </li>
-     </ul>
-    </li>
-    <li>
-     <p>
+</ul>
+</li>
+<li>
+<p>
       If the IP address changes, a
       <code>
        CNAME
@@ -307,9 +307,9 @@
       </code>
       record must be updated.
      </p>
-    </li>
-    <li>
-     <p>
+</li>
+<li>
+<p>
       Some domain registrars don't allow
       <code>
        CNAME
@@ -320,38 +320,36 @@
       </code>
       record.
      </p>
-    </li>
-   </ul>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>
      Enable the custom domain
     </strong>
     . After you have your domain and create your DNS record, use the Azure portal to validate your custom domain and add it to your web app. Be sure to test your domain before publishing.
    </p>
-  </li>
- </ol>
- <div class="alert is-primary">
-  <p class="alert-title">
+</li>
+</ol>
+<div class="alert is-primary">
+<p class="alert-title">
    Important
   </p>
-  <p>
+<p>
    To
    <a data-linktype="absolute-path" href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">
     map a custom DNS name to your app
    </a>
    , you need a paid tier of an App Service plan for your app.
   </p>
- </div>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

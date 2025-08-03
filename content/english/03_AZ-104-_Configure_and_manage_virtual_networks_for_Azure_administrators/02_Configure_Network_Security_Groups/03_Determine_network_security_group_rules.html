@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Determine network security group rules - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Determine network security group rules - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,27 +168,26 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Determine network security group rules</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/3-determine-network-security-groups-rules/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Determine network security group rules</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/3-determine-network-security-groups-rules/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/3-determine-network-security-groups-rules/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Security rules in network security groups enable you to filter network traffic. You can define rules to control the traffic flow in and out of virtual network subnets and network interfaces.
  </p>
- <h3 id="things-to-know-about-security-rules">
+<h3 id="things-to-know-about-security-rules">
   Things to know about security rules
  </h3>
- <p>
+<p>
   Let's review the characteristics of security rules in network security groups.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     Azure creates several default security rules within each network security group, including inbound traffic and outbound traffic. Examples of default rules include
     <code>
      DenyAllInbound
@@ -198,115 +198,115 @@
     </code>
     traffic.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Azure creates the default security rules in each network security group that you create.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You can add more security rules to a network security group by
     <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-security-rule">
      specifying conditions
     </a>
     . Here's a list of the most common conditions.
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 1" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 1" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
         Source
        </td>
-       <td>
+<td>
         Any, IP Addresses, My IP address, Service Tag, or Application security group
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Source port ranges
        </td>
-       <td>
+<td>
         Specify the ports on which the rule allows or denies traffic
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Destination
        </td>
-       <td>
+<td>
         Any, IP Addresses, Service Tag,  or Application security group
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Protocol
        </td>
-       <td>
+<td>
         Restrict the rule to the Transmission Control Protocol (TCP), User Datagram Protocol (UDP), or Internet Control Message Protocol (ICMP). The default is for the rule to apply to all protocols (Any).
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Action
        </td>
-       <td>
+<td>
         Allow or Deny
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Priority
        </td>
-       <td>
+<td>
         A value between 100 and 4,096 that's unique for all security rules within the NSG
        </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Each security rule is assigned a Priority value. All security rules for a network security group are processed in priority order. When a rule has a low Priority value, the rule has a higher priority or precedence in terms of order processing.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You can't remove the default security rules.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You can override a default security rule by creating another security rule that has a higher Priority setting for your network security group.
    </p>
-  </li>
- </ul>
- <h4 id="inbound-traffic-rules">
+</li>
+</ul>
+<h4 id="inbound-traffic-rules">
   Inbound traffic rules
  </h4>
- <p>
+<p>
   Azure defines three default inbound security rules for your network security group. These rules
   <strong>
    deny all inbound traffic
   </strong>
   except traffic from your virtual network and Azure load balancers. The next image shows the default inbound security rules for a network security group in the Azure portal.
  </p>
- <h4 id="outbound-traffic-rules">
+<h4 id="outbound-traffic-rules">
   Outbound traffic rules
  </h4>
- <p>
+<p>
   Azure defines three default outbound security rules for your network security group. These rules
   <strong>
    only allow outbound traffic
@@ -314,13 +314,11 @@
   to the internet and your virtual network. The next image shows the default outbound security rules for a network security group in the Azure portal.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Restore Azure virtual machine data - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Restore Azure virtual machine data - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,55 +168,54 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Restore Azure virtual machine data</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/6-exercise-restore-virtual-machine-data/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Restore Azure virtual machine data</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/6-exercise-restore-virtual-machine-data/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/protect-virtual-machines-with-azure-backup/6-exercise-restore-virtual-machine-data/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   A few days after you backed up your first Azure virtual machine (VM), the server had issues. The VM needs to be restored from a backup. You want to restore the VM's disk and attach it to the problematic live server, and then track the restore to ensure that it finished successfully.
  </p>
- <p>
+<p>
   In this exercise, you see how to restore a successful backup to replace a VM that became corrupted, and monitor its progress.
  </p>
- <h2 id="restore-a-virtual-machine-in-the-azure-portal">
+<h2 id="restore-a-virtual-machine-in-the-azure-portal">
   Restore a virtual machine in the Azure portal
  </h2>
- <h3 id="create-a-storage-account-to-use-as-a-staging-location">
+<h3 id="create-a-storage-account-to-use-as-a-staging-location">
   Create a storage account to use as a staging location
  </h3>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     If you closed Azure, sign in to the
     <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/" target="az-portal">
      Azure portal
     </a>
     by using the same account that you used in the previous exercise.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the Azure portal, enter
     <strong>
      Storage accounts
     </strong>
     in the top search bar, and then select it.
    </p>
-   <p>
+<p>
     The
     <strong>
      Storage accounts
     </strong>
     pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the menu bar, select
     <strong>
      Create
@@ -226,111 +226,111 @@
     </strong>
     pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Basics
     </strong>
     tab, enter the following values for each setting to create a storage account.
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 1" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 1" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
         Resource group
        </td>
-       <td>
+<td>
         From the dropdown list, select
         <strong>
          vmbackups
         </strong>
         .
        </td>
-      </tr>
-      <tr>
-       <td>
-        <strong>
+</tr>
+<tr>
+<td>
+<strong>
          Instance details
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Storage account name
        </td>
-       <td>
+<td>
         Enter a unique name like
         <strong>
          restorestagingYYYYMMDD
         </strong>
         , where YYYYMMDD is replaced with today's date.
        </td>
-      </tr>
-      <tr>
-       <td>
-        <strong>
+</tr>
+<tr>
+<td>
+<strong>
          Region
         </strong>
-       </td>
-       <td>
+</td>
+<td>
         From the dropdown list, select
         <strong>
          (US) West US 2
         </strong>
         .
        </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Select
     <strong>
      Review + create
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     After validation passes, select
     <strong>
      Create
     </strong>
     .
    </p>
-   <p>
+<p>
     Wait for the storage account to be deployed.
    </p>
-  </li>
- </ol>
- <h3 id="stop-the-virtual-machine">
+</li>
+</ol>
+<h3 id="stop-the-virtual-machine">
   Stop the virtual machine
  </h3>
- <p>
+<p>
   A backup can't be restored if the VM is allocated and running. If you forget to stop the VM and attempt to restore it, you see an error that's similar to the following example.
  </p>
- <p>
+<p>
   To prevent this error, follow these steps:
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the top left of the Azure portal, select
     <strong>
      Home
@@ -345,25 +345,25 @@
     </strong>
     .
    </p>
-   <p>
+<p>
     The
     <em>
      NW-APP01
     </em>
     virtual machine pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the menu bar, select
     <strong>
      Stop
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the
     <strong>
      Stop this virtual machine
@@ -374,21 +374,21 @@
     </strong>
     .
    </p>
-  </li>
- </ol>
- <h3 id="restore-the-virtual-machine">
+</li>
+</ol>
+<h3 id="restore-the-virtual-machine">
   Restore the virtual machine
  </h3>
- <p>
+<p>
   The Recovery Services vaults are accessible at the subscription level. When you're viewing the VM, Azure provides a quick link to the specific vault under
   <strong>
    Operations
   </strong>
   .
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the menu pane, scroll to
     <strong>
      Operations
@@ -399,9 +399,9 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     To restore the virtual machine, in the menu bar, select
     <strong>
      Restore VM
@@ -416,9 +416,9 @@
     </em>
     appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Under the
     <strong>
      Restore point
@@ -433,9 +433,9 @@
     </strong>
     pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     By default, the start and end date are set for a two week range. Set the
     <strong>
      Start date
@@ -450,7 +450,7 @@
     </strong>
     .
    </p>
-   <p>
+<p>
     The
     <strong>
      Restore Virtual Machine
@@ -461,53 +461,53 @@
     </em>
     appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Configure the restore point using the following values for each setting.
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 2" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 2" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
-        <strong>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
          Restore Configuration
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Replace existing
        </td>
-       <td>
+<td>
         Select this option.
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Staging Location
        </td>
-       <td>
+<td>
         From the dropdown list, select the storage account that you previously created.
        </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Select
     <strong>
      Restore
@@ -524,15 +524,15 @@
     <strong>
      Triggering restore for NW-APP01
     </strong>
-   </p>
-  </li>
- </ol>
- <h2 id="track-a-restore">
+</p>
+</li>
+</ol>
+<h2 id="track-a-restore">
   Track a restore
  </h2>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the
     <strong>
      Alerts and Jobs
@@ -547,9 +547,9 @@
     </strong>
     pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the
     <strong>
      Details
@@ -564,7 +564,7 @@
     </strong>
     job.
    </p>
-   <p>
+<p>
     The
     <strong>
      Restore
@@ -575,41 +575,39 @@
     </em>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You can monitor the progress of the VM restore job:
    </p>
-   <ul>
-    <li>
-     <strong>
+<ul>
+<li>
+<strong>
       Job details
      </strong>
      : Details about the restore job you launched for this VM.
     </li>
-    <li>
-     <strong>
+<li>
+<strong>
       Job status
      </strong>
      : Real-time progress of the restore job.
     </li>
-    <li>
-     <strong>
+<li>
+<strong>
       Sub tasks
      </strong>
      : Name and status of the tasks within the job.
     </li>
-   </ul>
-  </li>
- </ol>
+</ul>
+</li>
+</ol>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

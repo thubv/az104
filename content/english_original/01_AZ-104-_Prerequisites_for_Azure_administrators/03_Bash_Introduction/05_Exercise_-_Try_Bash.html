@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Try Bash - Training | Microsoft Learn</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0078d4;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+        }
+        
+        h1 { 
+            border-bottom: 3px solid #0078d4; 
+            padding-bottom: 15px; 
+            font-size: 2.2em;
+            margin-bottom: 1.5em;
+        }
+        
+        h2 { 
+            font-size: 1.6em; 
+            border-left: 4px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 { font-size: 1.3em; }
+        h4 { font-size: 1.1em; }
+        
+        p {
+            margin: 16px 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .source-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+            font-size: 0.9em;
+        }
+        
+        .source-info h2 {
+            margin-top: 0;
+            color: #1976d2;
+            font-size: 1.2em;
+        }
+        
+        .translation-placeholder {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .translation-placeholder h2 {
+            margin-top: 0;
+            color: #f57c00;
+            font-size: 1.2em;
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image container for better layout */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            margin: 10px 0;
+        }
+        
+        .image-container p {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            text-align: left; 
+        }
+        
+        th { 
+            background-color: #f5f5f5; 
+            font-weight: bold;
+            color: #0078d4;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #0078d4;
+            font-weight: 600;
+        }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .alert.is-info {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #1976d2;
+        }
+        
+        .alert.is-warning {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+            color: #f57c00;
+        }
+        
+        .alert-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> 4 Exercise Try Bash</p>
+        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/bash-introduction/4-exercise-try-bash/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/bash-introduction/4-exercise-try-bash/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    
+    <div class="main-content">
+        <p>
+ On your own Linux computer, you can run Bash commands locally. If you have access to Linux servers, you can remote in to them and run Bash commands there. But nobody wants to experiment on a live production system, particularly on their first day at Northwind.
+</p>
+<p>
+ In this unit, you use Azure Cloud Shell on the right as your Linux terminal. Azure Cloud Shell is a shell you can access through the Azure portal or at
+ <a data-linktype="external" href="https://shell.azure.com">
+  https://shell.azure.com
+ </a>
+ . You don't have to install anything on your PC or laptop to use it.
+</p>
+<h2 id="familiarize-yourself-with-cloud-shell">
+ Familiarize yourself with Cloud Shell
+</h2>
+<p>
+ First, let's explore what's in Cloud Shell by using the Bash commands we've learned.
+</p>
+<ol>
+ <li>
+  <p>
+   Use the
+   <code>
+    ls
+   </code>
+   command to list all files and subdirectories in the current directory:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-0">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls
+"><span><span class="hljs-built_in">ls</span>
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   You should see output that looks similar to this:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-1">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-output" data-author-content="yourname@Azure:~$ ls
+clouddrive
+">yourname@Azure:~$ ls
+clouddrive
+</code></pre>
+  <p>
+   <strong>
+    clouddrive
+   </strong>
+   is a subdirectory of your current directory. It's a mounted file share that persists if you're using Cloud Shell on your own account. Right now, you're using it on the Microsoft Learn sandbox.
+  </p>
+ </li>
+ <li>
+  <p>
+   But wait, what
+   <em>
+    is
+   </em>
+   the current directory? Let's use the
+   <code>
+    pwd
+   </code>
+   command to find out.
+   <code>
+    pwd
+   </code>
+   stands for "print working directory." It prints the long-form path to what directory you're in now.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-2">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="pwd
+"><span><span class="hljs-built_in">pwd</span>
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   You should see an output like this:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-3">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-output" data-author-content="yourname@Azure:~$ pwd
+/home/yourname
+">yourname@Azure:~$ pwd
+/home/yourname
+</code></pre>
+  <p>
+   This output means that you're in a directory called
+   <strong>
+    yourname
+   </strong>
+   within a directory called
+   <strong>
+    home
+   </strong>
+   , at the root of the Linux file system.
+  </p>
+ </li>
+ <li>
+  <p>
+   There doesn't appear to be much in our current directory. Let's use a Bash
+   <em>
+    flag
+   </em>
+   to print all hidden files and directories to double check that's correct.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-4">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -a
+"><span><span class="hljs-built_in">ls</span> -a
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   That output showed us a lot more stuff in this directory than we initially thought.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-5">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-output" data-author-content="yourname@Azure:~$ ls -a
+.  ..  .azure  .bash_history  .bash_logout  .bashrc  clouddrive  .profile  .tmux.conf  .viminfo
+">yourname@Azure:~$ ls -a
+.  ..  .azure  .bash_history  .bash_logout  .bashrc  clouddrive  .profile  .tmux.conf  .viminfo
+</code></pre>
+ </li>
+ <li>
+  <p>
+   What were all of those files and subdirectories? Some are behind-the-scenes files to make Cloud Shell work. Let's discuss a few of the others.
+  </p>
+  <ul>
+   <li>
+    <code>
+     .
+    </code>
+    refers to your current directory, and
+    <code>
+     ..
+    </code>
+    refers to your parent directory. Wherever you are, if you print all hidden files and directories, you see
+    <code>
+     .
+    </code>
+    and
+    <code>
+     ..
+    </code>
+    printed.
+   </li>
+   <li>
+    <code>
+     .bash_history
+    </code>
+    is a special Bash file where all commands that you enter into the shell are stored. Bash remembers your command history, which, as we see later, is useful.
+   </li>
+   <li>
+    <code>
+     .bash_logout
+    </code>
+    is another special Bash file that is read and run every time a sign-in shell exists. Linux superusers can modify it to customize your environment.
+   </li>
+   <li>
+    <code>
+     .bashrc
+    </code>
+    is an important Bash configuration file that runs whenever you start a new shell. If you decide to open this file to look at it, be careful about making changes, because they can have unintended consequences.
+   </li>
+  </ul>
+ </li>
+</ol>
+<h2 id="recall-your-history-and-autocomplete-commands">
+ Recall your history and autocomplete commands
+</h2>
+<p>
+ When you're entering complicated commands like this one, it's easy to make a mistake:
+</p>
+<div class="codeHeader" data-bi-name="code-header" id="code-try-6">
+ <span class="language">
+  Bash
+ </span>
+</div>
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -a .azure/commands/202?*.log
+"><span><span class="hljs-built_in">ls</span> -a .azure/commands/202?*.<span class="hljs-built_in">log</span>
+</span></code></pre>
+<p>
+ Fortunately, Bash offers a couple pieces of functionality to help you.
+</p>
+<h3 id="recalling-previous-commands">
+ Recalling previous commands
+</h3>
+<ol>
+ <li>
+  <p>
+   Try entering this command that has a typo (
+   <code>
+    203?
+   </code>
+   instead of
+   <code>
+    202?
+   </code>
+   ):
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-7">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -a .azure/commands/203?*.log
+"><span><span class="hljs-built_in">ls</span> -a .azure/commands/203?*.<span class="hljs-built_in">log</span>
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   You should see this output letting you know that there weren't any files that matched that pattern:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-8">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-output" data-author-content="ls: cannot access '.azure/commands/203?*.log': No such file or directory
+">ls: cannot access '.azure/commands/203?*.log': No such file or directory
+</code></pre>
+ </li>
+ <li>
+  <p>
+   Rather than entering the whole thing again to correct your mistake, you can recall previously entered commands by using the
+   <strong>
+    Up arrow
+   </strong>
+   and
+   <strong>
+    Down arrow
+   </strong>
+   keys. Try using the
+   <strong>
+    Up arrow
+   </strong>
+   key to bring back your incorrect command. Then use the
+   <strong>
+    Left arrow key
+   </strong>
+   to fix it by replacing the final
+   <code>
+    3
+   </code>
+   with a
+   <code>
+    2
+   </code>
+   . Select
+   <strong>
+    Enter
+   </strong>
+   again to submit the corrected command.
+  </p>
+  <p>
+   Using the
+   <strong>
+    Up arrow
+   </strong>
+   key multiple times in a row moves you back multiple commands. Use the
+   <strong>
+    Down arrow
+   </strong>
+   key to move to later commands.
+  </p>
+ </li>
+ <li>
+  <p>
+   Now you should see something like the following output. It lets you know that your command worked correctly to list files that matched the given pattern.
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-9">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-output" data-author-content=".azure/commands/2020-01-29.21-56-35.login.103.log
+.azure/commands/2020-01-29.21-56-38.account_set.112.log
+">.azure/commands/2020-01-29.21-56-35.login.103.log
+.azure/commands/2020-01-29.21-56-38.account_set.112.log
+</code></pre>
+ </li>
+</ol>
+<h3 id="autocompletion">
+ Autocompletion
+</h3>
+<p>
+ Let's say you want to read the contents of one of the files that you just found. You can use the
+ <code>
+  cat
+ </code>
+ (short for "catenate") command to print the contents of a file to the screen.
+</p>
+<ol>
+ <li>
+  <p>
+   To use this command, you could use the full file name, such as:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-10">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat .azure/commands/2020-01-29.21-56-35.login.103.log
+"><span>cat .azure/commands/2020-01-29.21-56-35.login.103.log
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   But that's a lot to type, and very error prone. Instead, you can use Bash's rudimentary autocompletion to do most of the work for you. Try typing:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-11">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat .a
+"><span>cat .a
+</span></code></pre>
+  <p>
+   Then select the
+   <strong>
+    Tab
+   </strong>
+   key. What happens?
+  </p>
+ </li>
+ <li>
+  <p>
+   You should see the rest of the word "azure/" appear in your command:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-12">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat .azure/
+"><span>cat .azure/
+</span></code></pre>
+  <p>
+   Keep typing the beginnings of words and using
+   <strong>
+    Tab
+   </strong>
+   to autocomplete. Keep in mind that if there's an ambiguity, Bash won't fill in anything. You can select
+   <strong>
+    Tab
+   </strong>
+   twice to have Bash print all the files and directories in a given path that match the letters you typed already.
+  </p>
+ </li>
+ <li>
+  <p>
+   Play around until you get to a real
+   <strong>
+    .log
+   </strong>
+   file in the command directory. Then select
+   <strong>
+    Enter
+   </strong>
+   to use the
+   <code>
+    cat
+   </code>
+   command to print its contents to screen. It might look something like this:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-13">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-output" data-author-content="CMD-LOG-LINE-BEGIN 103 | 2020-01-29 21:56:35,426 | INFO | az_command_data_logger | command args: login --identity
+CMD-LOG-LINE-BEGIN 103 | 2020-01-29 21:56:37,604 | INFO | az_command_data_logger | exit code: 0
+">CMD-LOG-LINE-BEGIN 103 | 2020-01-29 21:56:35,426 | INFO | az_command_data_logger | command args: login --identity
+CMD-LOG-LINE-BEGIN 103 | 2020-01-29 21:56:37,604 | INFO | az_command_data_logger | exit code: 0
+</code></pre>
+  <p>
+   Keep in mind that if you've typed an incorrect letter already, Bash won't be able to correctly guess what letter you meant to type.
+  </p>
+ </li>
+</ol>
+<h2 id="use-man">
+ Use
+ <code>
+  man
+ </code>
+</h2>
+<p>
+ We just used the
+ <code>
+  cat
+ </code>
+ command, but you don't know much about it yet. Practice
+ <code>
+  man
+ </code>
+ to bring up more information about the
+ <code>
+  cat
+ </code>
+ command.
+</p>
+<ol>
+ <li>
+  <p>
+   Enter the following command to understand more about what
+   <code>
+    cat
+   </code>
+   is and how to use it:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-14">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="man cat
+"><span>man cat
+</span></code></pre>
+  <p>
+   Yes, you entered "man cat" into your shell. Bash commands can be both cryptic and amusing!
+  </p>
+ </li>
+ <li>
+  <p>
+   You should see an output like this:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-15">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-output" data-author-content="CAT(1)                                       User Commands                                       CAT(1)
+
+NAME
+       cat - concatenate files and print on the standard output
+
+SYNOPSIS
+       cat [OPTION]... [FILE]...
+
+DESCRIPTION
+       Concatenate FILE(s) to standard output.
+
+       With no FILE, or when FILE is -, read standard input.
+
+       -A, --show-all
+              equivalent to -vET
+
+       -b, --number-nonblank
+              number nonempty output lines, overrides -n
+
+       -e     equivalent to -vE
+
+...
+">CAT(1)                                       User Commands                                       CAT(1)
+
+NAME
+       cat - concatenate files and print on the standard output
+
+SYNOPSIS
+       cat [OPTION]... [FILE]...
+
+DESCRIPTION
+       Concatenate FILE(s) to standard output.
+
+       With no FILE, or when FILE is -, read standard input.
+
+       -A, --show-all
+              equivalent to -vET
+
+       -b, --number-nonblank
+              number nonempty output lines, overrides -n
+
+       -e     equivalent to -vE
+
+...
+</code></pre>
+ </li>
+ <li>
+  <p>
+   Use up and down arrows to scroll through the manual page, and enter
+   <code>
+    q
+   </code>
+   to exit.
+  </p>
+ </li>
+</ol>
+<h2 id="change-directories">
+ Change directories
+</h2>
+<p>
+ Let's practice one more basic Bash command:
+ <code>
+  cd
+ </code>
+ .
+</p>
+<p>
+ While using the shell, you're always sitting inside a directory—just like a folder on your PC or Mac. To change folders, you use the
+ <code>
+  cd
+ </code>
+ (change directory) command.
+</p>
+<p>
+ It's simple, but let's get some practice.
+</p>
+<ol>
+ <li>
+  <p>
+   First, enter this command to make sure you're in the right place:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-16">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd ~
+"><span><span class="hljs-built_in">cd</span> ~
+</span></code></pre>
+  <p>
+   This command moved you back to your special
+   <strong>
+    home
+   </strong>
+   directory in the shell, if you weren't already there.
+  </p>
+ </li>
+ <li>
+  <p>
+   Double check by using the
+   <code>
+    pwd
+   </code>
+   command one more time:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-17">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="pwd
+"><span><span class="hljs-built_in">pwd</span>
+</span></code></pre>
+ </li>
+ <li>
+  <p>
+   You should see an output like this:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-18">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-output" data-author-content="/home/yourname
+">/home/yourname
+</code></pre>
+  <p>
+   <code>
+    ~
+   </code>
+   is another special character in Bash that refers to this home directory. You can use
+   <code>
+    ~
+   </code>
+   to refer to the location
+   <strong>
+    /home/yourname
+   </strong>
+   no matter where you are in the shell.
+  </p>
+ </li>
+ <li>
+  <p>
+   Let's change to the directory that holds log files (where we were earlier):
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-19">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd .azure/commands/
+"><span><span class="hljs-built_in">cd</span> .azure/commands/
+</span></code></pre>
+  <p>
+   You can either enter the full command yourself, or use
+   <strong>
+    Tab
+   </strong>
+   to autocomplete.
+  </p>
+  <p>
+   Now you should see that the line where you enter commands looks different, showing you where you are in the shell:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-20">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-output" data-author-content="yourname@Azure:~/.azure/commands$
+">yourname@Azure:~/.azure/commands$
+</code></pre>
+ </li>
+ <li>
+  <p>
+   Try using the special
+   <code>
+    ..
+   </code>
+   syntax to move up one directory:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-21">
+   <span class="language">
+    Bash
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd ..
+"><span><span class="hljs-built_in">cd</span> ..
+</span></code></pre>
+  <p>
+   Now you should be one level up in the directory structure, and your command line should look like this:
+  </p>
+  <div class="codeHeader" data-bi-name="code-header" id="code-try-22">
+   <span class="language">
+    Output
+   </span>
+  </div>
+  <pre class="has-inner-focus"><code class="lang-output" data-author-content="yourname@Azure:~/.azure$
+">yourname@Azure:~/.azure$
+</code></pre>
+ </li>
+</ol>
+<p>
+ Great work! You've taken your first steps to being a Bash expert. Let's keep learning.
+</p>
+
+    </div>
+    
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+        <p><em>Translation will be added here...</em></p>
+    </div>
+</body>
+</html>

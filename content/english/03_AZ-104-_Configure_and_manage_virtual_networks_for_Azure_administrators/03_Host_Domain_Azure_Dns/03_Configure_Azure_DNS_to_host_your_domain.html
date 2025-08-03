@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configure Azure DNS to host your domain - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configure Azure DNS to host your domain - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,136 +168,135 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Configure Azure DNS to host your domain</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/3-configure-azure-dns-host-domain/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Configure Azure DNS to host your domain</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/3-configure-azure-dns-host-domain/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns/3-configure-azure-dns-host-domain/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   The new company website is in final testing. You're working on the plan to deploy the wideworldimports.com domain by using Azure DNS. You need to understand what steps are involved.
  </p>
- <p>
+<p>
   In this unit, you learn how to:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    Create and configure a DNS zone for your domain by using Azure DNS.
   </li>
-  <li>
+<li>
    Understand how to link your domain to an Azure DNS zone.
   </li>
-  <li>
+<li>
    Create and configure a private DNS zone.
   </li>
- </ul>
- <h2 id="configure-a-public-dns-zone">
+</ul>
+<h2 id="configure-a-public-dns-zone">
   Configure a public DNS zone
  </h2>
- <p>
+<p>
   You use a DNS zone to host the DNS records for a domain, such as wideworldimports.com.
  </p>
- <h3 id="step-1-create-a-dns-zone-in-azure">
+<h3 id="step-1-create-a-dns-zone-in-azure">
   Step 1: Create a DNS zone in Azure
  </h3>
- <p>
+<p>
   You used a third-party domain-name registrar to register the wideworldimports.com domain. The domain doesn't point to your organization's website yet.
  </p>
- <p>
+<p>
   To host the domain name with Azure DNS, you first need to create a DNS zone for that domain. A DNS zone holds all the DNS entries for your domain.
  </p>
- <p>
+<p>
   When creating a DNS zone, you need to supply the following details:
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Subscription
     </strong>
     : The subscription to be used.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Resource group
     </strong>
     : The name of the resource group to hold your domains. If one doesn't exist, create one to allow for better control and management.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Name
     </strong>
     : Your domain name, which in this case is wideworldimports.com.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Resource group location
     </strong>
     : The location defaults to the location of the resource group.
    </p>
-  </li>
- </ul>
- <h3 id="step-2-get-your-azure-dns-name-servers">
+</li>
+</ul>
+<h3 id="step-2-get-your-azure-dns-name-servers">
   Step 2: Get your Azure DNS name servers
  </h3>
- <p>
+<p>
   After you create a DNS zone for the domain, you need to get the name server details from the name servers (NS) record. You use these details to update your domain registrar's information and point to the Azure DNS zone.
  </p>
- <h3 id="step-3-update-the-domain-registrar-setting">
+<h3 id="step-3-update-the-domain-registrar-setting">
   Step 3: Update the domain registrar setting
  </h3>
- <p>
+<p>
   As the domain owner, you need to sign in to the domain-management application provided by your domain registrar. In the management application, edit the NS record and change the NS details to match your Azure DNS name server details.
  </p>
- <p>
+<p>
   Changing the NS details is called
   <em>
    domain delegation
   </em>
   . When you delegate the domain, you must use all four name servers provided by Azure DNS.
  </p>
- <h3 id="step-4-verify-delegation-of-domain-name-services">
+<h3 id="step-4-verify-delegation-of-domain-name-services">
   Step 4: Verify delegation of domain name services
  </h3>
- <p>
+<p>
   The next step is to verify that the delegated domain now points to the Azure DNS zone you created for the domain. This process can take as few as 10 minutes, but might take longer.
  </p>
- <p>
+<p>
   To verify the success of the domain delegation, query the start of authority (SOA) record. The SOA record is automatically created when the Azure DNS zone is set up. You can verify the SOA record using a tool like nslookup.
  </p>
- <p>
+<p>
   The SOA record represents your domain and becomes the reference point when other DNS servers are searching for your domain on the internet.
  </p>
- <p>
+<p>
   To verify the delegation, use nslookup like this:
  </p>
- <pre class="has-inner-focus"><code class="lang-dos" data-author-content="nslookup -type=SOA wideworldimports.com
+<pre class="has-inner-focus"><code class="lang-dos" data-author-content="nslookup -type=SOA wideworldimports.com
 "><span>nslookup -<span class="hljs-built_in">type</span>=SOA wideworldimports.com
 </span></code></pre>
- <h3 id="step-5-configure-your-custom-dns-settings">
+<h3 id="step-5-configure-your-custom-dns-settings">
   Step 5: Configure your custom DNS settings
  </h3>
- <p>
+<p>
   The domain name is wideworldimports.com. When it's used in a browser, the domain resolves to your website. But what if you want to add in web servers or load balancers? These resources need to have their own custom settings in the DNS zone, either as an A record or a CNAME.
  </p>
- <h4 id="a-record">
+<h4 id="a-record">
   A record
  </h4>
- <p>
+<p>
   Each A record requires the following details:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Name
    </strong>
    : The name of the custom domain, for example
@@ -305,109 +305,107 @@
    </em>
    .
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Type
    </strong>
    : In this instance, it's A.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     TTL
    </strong>
    : Represents the "time-to-live" as a whole unit, where 1 is one second. This value indicates how long the A record lives in a DNS cache before it expires.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     IP address
    </strong>
    : The IP address of the server to which this A record should resolve.
   </li>
- </ul>
- <h4 id="cname-record">
+</ul>
+<h4 id="cname-record">
   CNAME record
  </h4>
- <p>
+<p>
   The CNAME is the canonical name, or the alias for an A record. Use CNAME when you have different domain names that all access the same website. For example, you might need a CNAME in the
   <em>
    wideworldimports
   </em>
   zone if you want both www.wideworldimports.com and wideworldimports.com to resolve to the same IP address.
  </p>
- <p>
+<p>
   You'd create the CNAME record in the
   <em>
    wideworldimports
   </em>
   zone with the following information:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    NAME: www
   </li>
-  <li>
+<li>
    TTL: 600 seconds
   </li>
-  <li>
+<li>
    Record type: CNAME
   </li>
- </ul>
- <p>
+</ul>
+<p>
   If you exposed a web function, you'd create a CNAME record that resolves to the Azure function.
  </p>
- <h2 id="configure-a-private-dns-zone">
+<h2 id="configure-a-private-dns-zone">
   Configure a private DNS zone
  </h2>
- <p>
+<p>
   Another type of DNS zone that you can configure and host in Azure is a private DNS zone. Private DNS zones aren't visible on the Internet, and don't require that you use a domain registrar. You can use private DNS zones to assign DNS names to virtual machines (VMs) in your Azure virtual networks.
  </p>
- <h3 id="step-1-create-a-private-dns-zone">
+<h3 id="step-1-create-a-private-dns-zone">
   Step 1: Create a private DNS zone
  </h3>
- <p>
+<p>
   In the Azure portal, search for
   <em>
    private DNS zones
   </em>
   . To create the private zone, you need enter a resource group and the name of the zone. For example, the name might be something like private.wideworldimports.com.
  </p>
- <h3 id="step-2-identify-virtual-networks">
+<h3 id="step-2-identify-virtual-networks">
   Step 2: Identify virtual networks
  </h3>
- <p>
+<p>
   Let's assume that your organization already created your VMs and virtual networks in a production environment. Identify the virtual networks associated with VMs that need name-resolution support. To link the virtual networks to the private zone, you need the virtual network names.
  </p>
- <h3 id="step-3-link-your-virtual-network-to-a-private-dns-zone">
+<h3 id="step-3-link-your-virtual-network-to-a-private-dns-zone">
   Step 3: Link your virtual network to a private DNS zone
  </h3>
- <p>
+<p>
   To link the private DNS zone to a virtual network, you create a virtual network link. In the Azure portal, go to the private zone, and select
   <strong>
    Virtual network links
   </strong>
   .
  </p>
- <p>
+<p>
   Select
   <strong>
    Add
   </strong>
   to pick the virtual network you want to link to the private zone.
  </p>
- <p>
+<p>
   You add a virtual network link record for each virtual network that needs private name-resolution support.
  </p>
- <p>
+<p>
   In the next unit, you learn how to create a public DNS zone.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

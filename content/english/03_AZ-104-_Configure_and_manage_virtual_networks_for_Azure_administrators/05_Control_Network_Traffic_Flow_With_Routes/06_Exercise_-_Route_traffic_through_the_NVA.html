@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Route traffic through the NVA - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Route traffic through the NVA - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,35 +168,34 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Route traffic through the NVA</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/6-exercise-route-traffic-through-nva/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Route traffic through the NVA</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/6-exercise-route-traffic-through-nva/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes/6-exercise-route-traffic-through-nva/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Now that you've created the network virtual appliance (NVA) and virtual machines (VMs), you'll route the traffic through the NVA.
  </p>
- <h2 id="create-public-and-private-virtual-machines">
+<h2 id="create-public-and-private-virtual-machines">
   Create public and private virtual machines
  </h2>
- <p>
+<p>
   The next steps deploy a VM into the public and private subnets.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Open the Cloud Shell editor and create a file named cloud-init.txt.
    </p>
-   <pre class="has-inner-focus"><code class="lang-bash" data-author-content="code cloud-init.txt
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="code cloud-init.txt
 "><span>code cloud-init.txt
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Add the following configuration information to the file. With this configuration, the
     <code>
      inetutils-traceroute
@@ -206,7 +206,7 @@
     </code>
     utility that you'll use later in this exercise.
    </p>
-   <pre class="has-inner-focus"><code class="lang-Text" data-author-content="#cloud-config
+<pre class="has-inner-focus"><code class="lang-Text" data-author-content="#cloud-config
 package_upgrade: true
 packages:
    - inetutils-traceroute
@@ -215,9 +215,9 @@ package_upgrade: true
 packages:
    - inetutils-traceroute
 </code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Press
     <kbd>
      Ctrl+S
@@ -228,9 +228,9 @@ packages:
     </kbd>
     to close the editor.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In Cloud Shell, run the following command to create the
     <strong>
      public
@@ -245,7 +245,7 @@ packages:
     </strong>
     account.
    </p>
-   <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az vm create \
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az vm create \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --name public \
     --vnet-name vnet \
@@ -266,9 +266,9 @@ packages:
     <span class="hljs-parameter">--custom-data</span> cloud<span class="hljs-parameter">-init</span>.txt \
     <span class="hljs-parameter">--admin-password</span> <span class="hljs-string">&lt;password&gt;</span>
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command to create the
     <strong>
      private
@@ -279,7 +279,7 @@ packages:
     </code>
     with a suitable password.
    </p>
-   <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az vm create \
+<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content='az vm create \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --name private \
     --vnet-name vnet \
@@ -300,9 +300,9 @@ packages:
     <span class="hljs-parameter">--custom-data</span> cloud<span class="hljs-parameter">-init</span>.txt \
     <span class="hljs-parameter">--admin-password</span> <span class="hljs-string">&lt;password&gt;</span>
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following Linux
     <code>
      watch
@@ -317,7 +317,7 @@ packages:
     </code>
     command so that you can monitor the progress of the VMs.
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="watch -d -n 5 &quot;az vm list \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="watch -d -n 5 &quot;az vm list \
     --resource-group &quot;&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;&quot; \
     --show-details \
     --query '[*].{Name:name, ProvisioningState:provisioningState, PowerState:powerState}' \
@@ -328,7 +328,7 @@ packages:
     --query '[*].{Name:name, ProvisioningState:provisioningState, PowerState:powerState}' \
     --output table"</span>
 </span></code></pre>
-   <p>
+<p>
     A
     <strong>
      ProvisioningState
@@ -343,9 +343,9 @@ packages:
     </kbd>
     to stop the command and continue with the exercise.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command to save the public IP address of the
     <strong>
      public
@@ -356,7 +356,7 @@ packages:
     </code>
     :
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='PUBLICIP="$(az vm list-ip-addresses \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='PUBLICIP="$(az vm list-ip-addresses \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --name public \
     --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" \
@@ -371,9 +371,9 @@ echo $PUBLICIP
 
 echo <span class="hljs-variable">$PUBLICIP</span>
 </span></code></pre>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command to save the public IP address of the
     <strong>
      private
@@ -384,7 +384,7 @@ echo <span class="hljs-variable">$PUBLICIP</span>
     </code>
     :
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='PRIVATEIP="$(az vm list-ip-addresses \
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-azurecli" data-author-content='PRIVATEIP="$(az vm list-ip-addresses \
     --resource-group "&lt;rgn&gt;[sandbox resource group name]&lt;/rgn&gt;" \
     --name private \
     --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" \
@@ -399,12 +399,12 @@ echo $PRIVATEIP
 
 echo <span class="hljs-variable">$PRIVATEIP</span>
 </span></code></pre>
-  </li>
- </ol>
- <h2 id="test-traffic-routing-through-the-network-virtual-appliance">
+</li>
+</ol>
+<h2 id="test-traffic-routing-through-the-network-virtual-appliance">
   Test traffic routing through the network virtual appliance
  </h2>
- <p>
+<p>
   The final steps use the Linux
   <code>
    traceroute
@@ -435,9 +435,9 @@ echo <span class="hljs-variable">$PRIVATEIP</span>
   </strong>
   VM.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Run the following command to trace the route from
     <strong>
      public
@@ -452,10 +452,10 @@ echo <span class="hljs-variable">$PRIVATEIP</span>
     </strong>
     account that you specified earlier.
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="ssh -t -o StrictHostKeyChecking=no azureuser@$PUBLICIP 'traceroute private --type=icmp; exit'
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="ssh -t -o StrictHostKeyChecking=no azureuser@$PUBLICIP 'traceroute private --type=icmp; exit'
 "><span>ssh -t -o StrictHostKeyChecking=no azureuser@<span class="hljs-variable">$PUBLICIP</span> <span class="hljs-string">'traceroute private --type=icmp; exit'</span>
 </span></code></pre>
-   <p>
+<p>
     If you receive the error message
     <code>
      bash: traceroute: command not found
@@ -466,7 +466,7 @@ echo <span class="hljs-variable">$PRIVATEIP</span>
     </code>
     can take a minute or two after VM deployment. After the command succeeds, the output should look similar to the following example:
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-Text" data-author-content="traceroute to private.kzffavtrkpeulburui2lgywxwg.gx.internal.cloudapp.net (10.0.1.4), 64 hops max
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-Text" data-author-content="traceroute to private.kzffavtrkpeulburui2lgywxwg.gx.internal.cloudapp.net (10.0.1.4), 64 hops max
 1   10.0.2.4  0.710ms  0.410ms  0.536ms
 2   10.0.1.4  0.966ms  0.981ms  1.268ms
 Connection to 52.165.151.216 closed.
@@ -475,7 +475,7 @@ Connection to 52.165.151.216 closed.
 2   10.0.1.4  0.966ms  0.981ms  1.268ms
 Connection to 52.165.151.216 closed.
 </code></pre>
-   <p>
+<p>
     Notice that the first hop is to 10.0.2.4. This address is the private IP address of
     <strong>
      nva
@@ -498,9 +498,9 @@ Connection to 52.165.151.216 closed.
     </strong>
     is routed through the NVA.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Run the following command to trace the route from
     <strong>
      private
@@ -515,33 +515,33 @@ Connection to 52.165.151.216 closed.
     </strong>
     account.
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="ssh -t -o StrictHostKeyChecking=no azureuser@$PRIVATEIP 'traceroute public --type=icmp; exit'
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-bash" data-author-content="ssh -t -o StrictHostKeyChecking=no azureuser@$PRIVATEIP 'traceroute public --type=icmp; exit'
 "><span>ssh -t -o StrictHostKeyChecking=no azureuser@<span class="hljs-variable">$PRIVATEIP</span> <span class="hljs-string">'traceroute public --type=icmp; exit'</span>
 </span></code></pre>
-   <p>
+<p>
     You should see the traffic go directly to
     <strong>
      public
     </strong>
     (10.0.0.4) and not through the NVA, as shown in the following command output.
    </p>
-   <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-Text" data-author-content="traceroute to public.kzffavtrkpeulburui2lgywxwg.gx.internal.cloudapp.net (10.0.0.4), 64 hops max
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-Text" data-author-content="traceroute to public.kzffavtrkpeulburui2lgywxwg.gx.internal.cloudapp.net (10.0.0.4), 64 hops max
 1   10.0.0.4  1.095ms  1.610ms  0.812ms
 Connection to 52.173.21.188 closed.
 ">traceroute to public.kzffavtrkpeulburui2lgywxwg.gx.internal.cloudapp.net (10.0.0.4), 64 hops max
 1   10.0.0.4  1.095ms  1.610ms  0.812ms
 Connection to 52.173.21.188 closed.
 </code></pre>
-   <p>
+<p>
     The
     <strong>
      private
     </strong>
     VM is using default routes, and traffic is routed directly between the subnets.
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   You've now configured routing between subnets to direct traffic from the public internet through the
   <strong>
    dmzsubnet
@@ -553,13 +553,11 @@ Connection to 52.173.21.188 closed.
   subnet, you added a VM that acts as an NVA. You can configure this NVA to detect potentially malicious requests and block them before they reach their intended targets.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Implement application security groups - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Implement application security groups - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,73 +168,72 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Implement application security groups</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/6-implement-asgs/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Implement application security groups</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/6-implement-asgs/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-network-security-groups/6-implement-asgs/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   You can implement
   <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/application-security-groups">
    application security groups (ASGs)
   </a>
   in your Azure virtual network to logically group your virtual machines by workload. You can then define your network security group rules based on your application security groups.
  </p>
- <h3 id="things-to-know-about-using-application-security-groups">
+<h3 id="things-to-know-about-using-application-security-groups">
   Things to know about using application security groups
  </h3>
- <p>
+<p>
   Application security groups work in the same way as network security groups, but they provide an application-centric way of looking at your infrastructure. You join your virtual machines to an application security group. Then you use the application security group as a source or destination in the network security group rules.
  </p>
- <p>
+<p>
   Let's examine how to implement application security groups by creating a configuration for an online retailer. In our example scenario, we need to control network traffic to virtual machines in application security groups.
  </p>
- <h4 id="scenario-requirements">
+<h4 id="scenario-requirements">
   Scenario requirements
  </h4>
- <p>
+<p>
   Here are the scenario requirements for our example configuration:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    In this scenario, there are two tiers: web servers and application servers.
   </li>
-  <li>
+<li>
    The web servers handle HTTP and HTTPS internet traffic.
   </li>
-  <li>
+<li>
    The application servers process SQL requests from the web servers.
   </li>
- </ul>
- <h4 id="solution">
+</ul>
+<h4 id="solution">
   Solution
  </h4>
- <p>
+<p>
   For our scenario, we need to build the following configuration:
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Create application security groups for each tier.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     For each virtual machine server, assign its network interface to the appropriate application security group.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Create the network security group and security rules.
    </p>
-   <ul>
-    <li>
-     <p>
-      <strong>
+<ul>
+<li>
+<p>
+<strong>
        Rule 1
       </strong>
       : Set
@@ -242,13 +242,13 @@
       </strong>
       to 100. Allow access from the internet to the web servers machines from HTTP port 80 and HTTPS port 443.
      </p>
-     <p>
+<p>
       Rule 1 has the lowest priority value, so it has precedence over the other rules in the group. Customer access to our online catalog is paramount in our design.
      </p>
-    </li>
-    <li>
-     <p>
-      <strong>
+</li>
+<li>
+<p>
+<strong>
        Rule 2
       </strong>
       : Set
@@ -257,10 +257,10 @@
       </strong>
       to 110. Allow access from the web servers to application servers over HTTPS port 1433.
      </p>
-    </li>
-    <li>
-     <p>
-      <strong>
+</li>
+<li>
+<p>
+<strong>
        Rule 3
       </strong>
       : Set
@@ -273,69 +273,67 @@
       </strong>
       access from anywhere to application server machines over HTTPS port 1433.
      </p>
-     <p>
+<p>
       The combination of Rule 2 and Rule 3 ensures that only our web servers can access our database servers. This security configuration protects our inventory databases from outside attack.
      </p>
-    </li>
-   </ul>
-  </li>
- </ol>
- <h3 id="things-to-consider-when-using-application-security-groups">
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="things-to-consider-when-using-application-security-groups">
   Things to consider when using application security groups
  </h3>
- <p>
+<p>
   There are several advantages to implementing application security groups in your virtual networks.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Consider IP address maintenance
     </strong>
     . When you control network traffic by using application security groups, you don't need to configure inbound and outbound traffic for specific IP addresses. If you have many virtual machines in your configuration, it can be difficult to specify all of the affected IP addresses. As you maintain your configuration, the number of your servers can change. These changes can require you to modify how you support different IP addresses in your security rules.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider no subnets
     </strong>
     . By organizing your virtual machines into application security groups, you don't need to also distribute your servers across specific subnets. You can arrange your servers by application and purpose to achieve logical groupings.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider simplified rules
     </strong>
     . Application security groups help to eliminate the need for multiple rule sets. You don't need to create a separate rule for each virtual machine. You can dynamically apply new rules to designated application security groups. New security rules are automatically applied to all the virtual machines in the specified application security group.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider workload support
     </strong>
     . A configuration that implements application security groups is easy to maintain and understand because the organization is based on workload usage. Application security groups provide logical arrangements for your applications, services, data storage, and workloads.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider service tags
     </strong>
     . Service Tags represent a group of IP address prefixes from a specific Azure service. They help minimize the complexity of frequent updates on network security rules. While service tags are used to simplify the management of IP addresses for Azure services, ASGs are used to group VMs and manage network security policies based on those groups.
    </p>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

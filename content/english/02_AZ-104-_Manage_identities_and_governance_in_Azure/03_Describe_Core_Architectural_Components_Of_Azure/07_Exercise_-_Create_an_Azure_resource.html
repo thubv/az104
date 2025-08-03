@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Create an Azure resource - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Create an Azure resource - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,268 +168,265 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Create an Azure resource</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/7-exercise-create-azure-resource/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Create an Azure resource</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/7-exercise-create-azure-resource/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/7-exercise-create-azure-resource/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-identities-governance</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   In this exercise, you’ll use the Azure portal to create a resource. The focus of the exercise is observing how Azure resource groups populate with created resources.
  </p>
- <div class="alert is-primary">
-  <p class="alert-title">
+<div class="alert is-primary">
+<p class="alert-title">
    Important
   </p>
-  <p>
+<p>
    The sandbox should already be activated, but if the sandbox closed, reactivate the sandbox before continuing.
   </p>
- </div>
- <h2 id="task-1-create-a-virtual-machine">
+</div>
+<h2 id="task-1-create-a-virtual-machine">
   Task 1: Create a virtual machine
  </h2>
- <p>
+<p>
   In this task, you’ll create a virtual machine using the Azure portal.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Sign in to the
     <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/learn.docs.microsoft.com" target="az-portal">
      Azure portal
     </a>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select Create a resource &gt; Virtual Machine &gt; Create.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     The Create a virtual machine pane opens to the basics tab.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Verify or enter the following values for each setting. If a setting isn’t specified, leave the default value.
    </p>
-   <p>
-    <strong>
+<p>
+<strong>
      Basics tab
     </strong>
-   </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 1" class="table">
-     <thead>
-      <tr>
-       <th>
-        <strong>
+</p>
+<div class="has-inner-focus">
+<table aria-label="Table 1" class="table">
+<thead>
+<tr>
+<th>
+<strong>
          Setting
         </strong>
-       </th>
-       <th>
-        <strong>
+</th>
+<th>
+<strong>
          Value
         </strong>
-       </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
         Subscription
        </td>
-       <td>
+<td>
         Concierge Subscription
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Resource group
        </td>
-       <td>
+<td>
         Select the resource group name that begins with
         <strong>
          learn
         </strong>
         .
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Virtual machine name
        </td>
-       <td>
+<td>
         my-VM
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Region
        </td>
-       <td>
+<td>
         Leave default
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Availability options
        </td>
-       <td>
+<td>
         Leave default
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Security type
        </td>
-       <td>
+<td>
         Leave default
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Image
        </td>
-       <td>
+<td>
         Leave default
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         VM architecture
        </td>
-       <td>
+<td>
         Leave default
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Run with Azure Spot discount
        </td>
-       <td>
+<td>
         Unchecked
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Size
        </td>
-       <td>
+<td>
         Leave default
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Authentication type
        </td>
-       <td>
+<td>
         Password
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Username
        </td>
-       <td>
+<td>
         azureuser
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Password
        </td>
-       <td>
+<td>
         Enter a custom password
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Confirm password
        </td>
-       <td>
+<td>
         Reenter the custom password
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Public inbound ports
        </td>
-       <td>
+<td>
         None
        </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Select Review and Create.
    </p>
-  </li>
- </ol>
- <div class="alert is-primary">
-  <p class="alert-title">
+</li>
+</ol>
+<div class="alert is-primary">
+<p class="alert-title">
    Important
   </p>
-  <p>
+<p>
    Product details will include a cost associated with creating the virtual machine. This is a system function. If you’re creating the VM in the Learn sandbox, you won’t actually incur any costs.
   </p>
- </div>
- <ol start="6">
-  <li>
+</div>
+<ol start="6">
+<li>
    Select Create
   </li>
- </ol>
- <p>
+</ol>
+<p>
   Wait while the VM is provisioned. Deployment is in progress will change to Deployment is complete when the VM is ready.
  </p>
- <h2 id="task-2-verify-resources-created">
+<h2 id="task-2-verify-resources-created">
   Task 2: Verify resources created
  </h2>
- <p>
+<p>
   Once the deployment is created, you can verify that Azure created not only a VM, but all of the associated resources the VM needs.
  </p>
- <ol>
-  <li>
+<ol>
+<li>
    Select Home.
   </li>
-  <li>
+<li>
    Select Resource groups.
   </li>
-  <li>
+<li>
    Select the [sandbox resource group name] resource group.
   </li>
- </ol>
- <p>
+</ol>
+<p>
   You should see a list of resources in the resource group. The storage account and virtual network are associated with the Learn sandbox. However, the rest of the resources were created when you created the virtual machine. By default, Azure gave them all a similar name to help with association and grouped them in the same resource group.
  </p>
- <p>
+<p>
   Congratulations! You've created a resource in Azure and had a chance to see how resources get grouped on creation.
  </p>
- <h2 id="clean-up">
+<h2 id="clean-up">
   Clean up
  </h2>
- <p>
+<p>
   The sandbox automatically cleans up your resources when you're finished with this module.
  </p>
- <p>
+<p>
   When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources that you leave running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

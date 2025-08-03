@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bash commands and operators - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bash commands and operators - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,67 +168,66 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Bash commands and operators</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/bash-introduction/3-bash-commands/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Bash commands and operators</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/bash-introduction/3-bash-commands/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/bash-introduction/3-bash-commands/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Every shell language has its most-used commands. Let's start building your Bash repertoire by examining the most commonly used commands.
  </p>
- <h2 id="bash-commands">
+<h2 id="bash-commands">
   Bash commands
  </h2>
- <p>
+<p>
   Let's look at common Bash commands and how to use them.
  </p>
- <h3 id="ls-command">
-  <code>
+<h3 id="ls-command">
+<code>
    ls
   </code>
   command
  </h3>
- <p>
-  <code>
+<p>
+<code>
    ls
   </code>
   lists the contents of your current directory or the directory specified in an argument to the command. By itself, it lists the files and directories in the current directory:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls
 "><span><span class="hljs-built_in">ls</span>
 </span></code></pre>
- <p>
+<p>
   Files and directories whose names begin with a period are hidden by default. To include these items in a directory listing, use an
   <code>
    -a
   </code>
   flag:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -a
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -a
 "><span><span class="hljs-built_in">ls</span> -a
 </span></code></pre>
- <p>
+<p>
   To get even more information about the files and directories in the current directory, use an
   <code>
    -l
   </code>
   flag:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -l
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls -l
 "><span><span class="hljs-built_in">ls</span> -l
 </span></code></pre>
- <p>
+<p>
   Here's some sample output from a directory that contains a handful of JPEGs and PNGs and a subdirectory named
   <strong>
    gifs
   </strong>
   :
  </p>
- <pre class="has-inner-focus"><code class="lang-output" data-author-content="-rw-rw-r-- 1 azureuser azureuser  473774 Jun 13 15:38 0001.png
+<pre class="has-inner-focus"><code class="lang-output" data-author-content="-rw-rw-r-- 1 azureuser azureuser  473774 Jun 13 15:38 0001.png
 -rw-rw-r-- 1 azureuser azureuser 1557965 Jun 13 14:43 0002.jpg
 -rw-rw-r-- 1 azureuser azureuser  473774 Mar 26 09:21 0003.png
 -rw-rw-r-- 1 azureuser azureuser 4193680 Jun 13 09:40 0004.jpg
@@ -244,16 +244,16 @@ drwxrwxr-x 2 azureuser azureuser    4096 Jun 13 20:16 gifs
 -rw-rw-r-- 1 azureuser azureuser 1220517 Jun 13 14:44 0007.jpg
 drwxrwxr-x 2 azureuser azureuser    4096 Jun 13 20:16 gifs
 </code></pre>
- <p>
+<p>
   Each line provides detailed information about the corresponding file or directory. That information includes the permissions assigned to it, its owner, its size in bytes, the last time it was modified, and the file or directory name.
  </p>
- <h3 id="cat-command">
-  <code>
+<h3 id="cat-command">
+<code>
    cat
   </code>
   command
  </h3>
- <p>
+<p>
   Suppose you want to see what's inside a file. You can use the
   <code>
    cat
@@ -268,13 +268,13 @@ drwxrwxr-x 2 azureuser azureuser    4096 Jun 13 20:16 gifs
   </strong>
   directory:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat /etc/os-release
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat /etc/os-release
 "><span>cat /etc/os-release
 </span></code></pre>
- <p>
+<p>
   This is a useful command because it tells you which Linux distribution you're running:
  </p>
- <pre class="has-inner-focus"><code class="lang-output" data-author-content='NAME="Ubuntu"
+<pre class="has-inner-focus"><code class="lang-output" data-author-content='NAME="Ubuntu"
 VERSION="18.04.2 LTS (Bionic Beaver)"
 ID=ubuntu
 ID_LIKE=debian
@@ -299,20 +299,20 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 VERSION_CODENAME=bionic
 UBUNTU_CODENAME=bionic
 </code></pre>
- <p>
+<p>
   The
   <strong>
    /etc
   </strong>
   directory is a special one in Linux. It contains system-configuration files. You don't want to delete any files from this directory unless you know what you're doing.
  </p>
- <h3 id="sudo-command">
-  <code>
+<h3 id="sudo-command">
+<code>
    sudo
   </code>
   command
  </h3>
- <p>
+<p>
   Some Bash commands can only be run by the root user; a system administrator or superuser. If you try one of these commands without sufficient privileges, it fails. For example, only users logged in as a superuser can use
   <code>
    cat
@@ -323,33 +323,33 @@ UBUNTU_CODENAME=bionic
   </strong>
   :
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat /etc/at.deny
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat /etc/at.deny
 "><span>cat /etc/at.deny
 </span></code></pre>
- <p>
-  <strong>
+<p>
+<strong>
    at.deny
   </strong>
   is a special file that determines who can use other Bash commands to submit jobs for later execution.
  </p>
- <p>
+<p>
   You don't want to run as root most of the time; it's too dangerous. To run commands that require admin privilege without logging in as a superuser, you'll preface the commands with
   <code>
    sudo
   </code>
   :
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="sudo cat /etc/at.deny
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="sudo cat /etc/at.deny
 "><span>sudo cat /etc/at.deny
 </span></code></pre>
- <p>
-  <code>
+<p>
+<code>
    sudo
   </code>
   stands for "superuser do." When you use it, you're telling the shell that for this one command, you're acting with the root-user level of permission.
  </p>
- <h3 id="cd-mkdir-and-rmdir-commands">
-  <code>
+<h3 id="cd-mkdir-and-rmdir-commands">
+<code>
    cd
   </code>
   ,
@@ -362,8 +362,8 @@ UBUNTU_CODENAME=bionic
   </code>
   commands
  </h3>
- <p>
-  <code>
+<p>
+<code>
    cd
   </code>
   stands for "change directory," and it does exactly what the name suggests: it changes the current directory to another directory. It enables you to move from one directory to another just like its counterpart in Windows. The following command changes to a subdirectory of the current directory named
@@ -372,26 +372,26 @@ UBUNTU_CODENAME=bionic
   </strong>
   :
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd orders
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd orders
 "><span><span class="hljs-built_in">cd</span> orders
 </span></code></pre>
- <p>
+<p>
   You can move up a directory by specifying
   <code>
    ..
   </code>
   as the directory name:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd ..
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd ..
 "><span><span class="hljs-built_in">cd</span> ..
 </span></code></pre>
- <p>
+<p>
   This command changes to your home directory; the one you land in when you first sign in:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd ~
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cd ~
 "><span><span class="hljs-built_in">cd</span> ~
 </span></code></pre>
- <p>
+<p>
   You can create directories by using the
   <code>
    mkdir
@@ -402,20 +402,20 @@ UBUNTU_CODENAME=bionic
   </strong>
   in the current working directory:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="mkdir orders
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="mkdir orders
 "><span><span class="hljs-built_in">mkdir</span> orders
 </span></code></pre>
- <p>
+<p>
   If you want to create a subdirectory and another subdirectory under it with one command, use the
   <code>
    --parents
   </code>
   flag:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="mkdir --parents orders/2019
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="mkdir --parents orders/2019
 "><span><span class="hljs-built_in">mkdir</span> --parents orders/2019
 </span></code></pre>
- <p>
+<p>
   The
   <code>
    rmdir
@@ -434,13 +434,13 @@ UBUNTU_CODENAME=bionic
   </code>
   .
  </p>
- <h3 id="rm-command">
-  <code>
+<h3 id="rm-command">
+<code>
    rm
   </code>
   command
  </h3>
- <p>
+<p>
   The
   <code>
    rm
@@ -455,23 +455,23 @@ UBUNTU_CODENAME=bionic
   </strong>
   :
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="rm 0001.jpg
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="rm 0001.jpg
 "><span>rm 0001.jpg
 </span></code></pre>
- <p>
+<p>
   And this command deletes all the files in the current directory:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="rm *
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="rm *
 "><span>rm *
 </span></code></pre>
- <p>
+<p>
   Be wary of
   <code>
    rm
   </code>
   . It's a dangerous command.
  </p>
- <p>
+<p>
   Running
   <code>
    rm
@@ -482,10 +482,10 @@ UBUNTU_CODENAME=bionic
   </code>
   flag lets you think before you delete:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="rm -i *
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="rm -i *
 "><span>rm -i *
 </span></code></pre>
- <p>
+<p>
   Make it a habit to include
   <code>
    -i
@@ -506,8 +506,8 @@ UBUNTU_CODENAME=bionic
   <em>
    Don't do this.
   </em>
- </p>
- <p>
+</p>
+<p>
   If you want to delete a subdirectory named
   <strong>
    orders
@@ -518,23 +518,23 @@ UBUNTU_CODENAME=bionic
   </code>
   command this way:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="rm -r orders
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="rm -r orders
 "><span>rm -r orders
 </span></code></pre>
- <p>
+<p>
   This deletes the
   <strong>
    orders
   </strong>
   subdirectory and everything in it, including other subdirectories.
  </p>
- <h3 id="cp-command">
-  <code>
+<h3 id="cp-command">
+<code>
    cp
   </code>
   command
  </h3>
- <p>
+<p>
   The
   <code>
    cp
@@ -549,37 +549,37 @@ UBUNTU_CODENAME=bionic
   </strong>
   , use this command:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cp 0001.jpg 0002.jpg
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cp 0001.jpg 0002.jpg
 "><span>cp 0001.jpg 0002.jpg
 </span></code></pre>
- <p>
+<p>
   If
   <strong>
    0002.jpg
   </strong>
   already exists, Bash silently replaces it. That's great if it's what you intended, but not so wonderful if you didn't realize you were about to overwrite the old version.
  </p>
- <p>
+<p>
   Fortunately, if you use the
   <code>
    -i
   </code>
   (for "interactive") flag, Bash warns you before deleting existing files. This is safer:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cp -i 0001.jpg 0002.jpg
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cp -i 0001.jpg 0002.jpg
 "><span>cp -i 0001.jpg 0002.jpg
 </span></code></pre>
- <p>
+<p>
   You can use wildcards to copy several files at once. To copy all the files in the current directory to a subdirectory named
   <strong>
    photos
   </strong>
   , do this:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cp * photos
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cp * photos
 "><span>cp * photos
 </span></code></pre>
- <p>
+<p>
   To copy all the files in a subdirectory named
   <strong>
    photos
@@ -590,10 +590,10 @@ UBUNTU_CODENAME=bionic
   </strong>
   , do this:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cp photos/* images
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cp photos/* images
 "><span>cp photos/* images
 </span></code></pre>
- <p>
+<p>
   This assumes that the
   <strong>
    images
@@ -608,10 +608,10 @@ UBUNTU_CODENAME=bionic
   </strong>
   directory by using this command:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cp -r photos images
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cp -r photos images
 "><span>cp -r photos images
 </span></code></pre>
- <p>
+<p>
   The
   <code>
    -r
@@ -630,13 +630,13 @@ UBUNTU_CODENAME=bionic
   </strong>
   directory.
  </p>
- <h3 id="ps-command">
-  <code>
+<h3 id="ps-command">
+<code>
    ps
   </code>
   command
  </h3>
- <p>
+<p>
   The
   <code>
    ps
@@ -647,11 +647,11 @@ UBUNTU_CODENAME=bionic
   </code>
   flag:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -e
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -e
 "><span>ps -e
 </span></code></pre>
- <p>
-  <code>
+<p>
+<code>
    -e
   </code>
   lists
@@ -660,20 +660,20 @@ UBUNTU_CODENAME=bionic
   </em>
   running processes, and there are typically many of them.
  </p>
- <p>
+<p>
   For a more comprehensive look at what processes are running in the system, use the
   <code>
    -ef
   </code>
   flag:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef 
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef 
 "><span>ps -ef 
 </span></code></pre>
- <p>
+<p>
   This flag shows the names of all the running processes, their process identification numbers (PIDs), the PIDs of their parents (PPIDs), and when they began (STIME). It also shows what terminal, if any, they're attached to (TTY), how much CPU time they've racked up (TIME), and their full path names. Here's an abbreviated example:
  </p>
- <pre class="has-inner-focus"><code data-author-content="UID         PID   PPID  C STIME TTY          TIME CMD
+<pre class="has-inner-focus"><code data-author-content="UID         PID   PPID  C STIME TTY          TIME CMD
 root          1      0  0 13:35 ?        00:00:03 /sbin/init
 root          2      0  0 13:35 ?        00:00:00 [kthreadd]
 root          3      2  0 13:35 ?        00:00:00 [rcu_gp]
@@ -694,18 +694,18 @@ root          8      2  0 13:35 ?        00:00:00 [mm_percpu_wq]
 root          9      2  0 13:35 ?        00:00:01 [ksoftirqd/0]
 root         10      2  0 13:35 ?        00:00:02 [rcu_sched]
 </code></pre>
- <p>
+<p>
   As an aside, you might find documentation that shows
   <code>
    ps
   </code>
   being used this way:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps aux
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps aux
 "><span>ps aux
 </span></code></pre>
- <p>
-  <code>
+<p>
+<code>
    ps aux
   </code>
   and
@@ -722,19 +722,19 @@ root         10      2  0 13:35 ?        00:00:02 [rcu_sched]
   </code>
   . Today, both operating-system families accept either format.
  </p>
- <p>
+<p>
   This serves as an excellent reminder of why you should look closely at the manual for all Linux commands. Learning Bash is like learning English as a second language. There are many exceptions to the rules.
  </p>
- <h3 id="w-command">
-  <code>
+<h3 id="w-command">
+<code>
    w
   </code>
   command
  </h3>
- <p>
+<p>
   Users come, users go, and sometimes you get users you don't want at all. When an employee leaves to pursue other opportunities, the sysadmin is called upon to ensure that the worker can no longer sign in to the company's computer systems. Sysadmins are also expected to know who's logged in, and who shouldn't be.
  </p>
- <p>
+<p>
   To find out who's on your servers, Linux provides the
   <code>
    w
@@ -745,49 +745,49 @@ root         10      2  0 13:35 ?        00:00:02 [rcu_sched]
   </code>
   shows user names, their IP addresses, when they logged in, what processes they're currently running, and how much time those processes are consuming. It's a valuable tool for sysadmins.
  </p>
- <h2 id="bash-io-operators">
+<h2 id="bash-io-operators">
   Bash I/O operators
  </h2>
- <p>
+<p>
   You can do a lot in Linux just by exercising Bash commands and their many options. But you can really get work done when you combine commands by using I/O operators:
  </p>
- <ul>
-  <li>
-   <code>
+<ul>
+<li>
+<code>
     &lt;
    </code>
    for redirecting input to a source other than the keyboard
   </li>
-  <li>
-   <code>
+<li>
+<code>
     &gt;
    </code>
    for redirecting output to destination other than the screen
   </li>
-  <li>
-   <code>
+<li>
+<code>
     &gt;&gt;
    </code>
    for doing the same, but appending rather than overwriting
   </li>
-  <li>
-   <code>
+<li>
+<code>
     |
    </code>
    for piping output from one command to the input of another
   </li>
- </ul>
- <p>
+</ul>
+<p>
   Suppose you want to list everything in the current directory but capture the output in a file named
   <strong>
    listing.txt
   </strong>
   . The following command does just that:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls &gt; listing.txt
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls &gt; listing.txt
 "><span><span class="hljs-built_in">ls</span> &gt; listing.txt
 </span></code></pre>
- <p>
+<p>
   If
   <strong>
    listing.txt
@@ -806,10 +806,10 @@ root         10      2  0 13:35 ?        00:00:02 [rcu_sched]
   </strong>
   :
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls &gt;&gt; listing.txt
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ls &gt;&gt; listing.txt
 "><span><span class="hljs-built_in">ls</span> &gt;&gt; listing.txt
 </span></code></pre>
- <p>
+<p>
   The piping operator is powerful (and often used). It redirects the output of the first command to the input of the second command. Let's say you use
   <code>
    cat
@@ -824,20 +824,20 @@ root         10      2  0 13:35 ?        00:00:02 [rcu_sched]
   </strong>
   to show the next line:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef | more
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef | more
 "><span>ps -ef | more
 </span></code></pre>
- <p>
+<p>
   You can also pipe output to
   <code>
    head
   </code>
   to see just the first several lines:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef | head
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef | head
 "><span>ps -ef | head
 </span></code></pre>
- <p>
+<p>
   Or suppose you want to filter the output to include only the lines that contain the word "daemon." One way to do that is by piping the output from
   <code>
    ps
@@ -848,13 +848,13 @@ root         10      2  0 13:35 ?        00:00:02 [rcu_sched]
   </code>
   tool:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef | grep daemon
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="ps -ef | grep daemon
 "><span>ps -ef | grep daemon
 </span></code></pre>
- <p>
+<p>
   The output might look like this:
  </p>
- <pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content="azureus+  52463  50702  0 23:28 pts/0    00:00:00 grep --color=auto deamon
+<pre aria-label="Horizontally scrollable code" class="has-inner-focus" role="group" tabindex="0"><code class="lang-output" data-author-content="azureus+  52463  50702  0 23:28 pts/0    00:00:00 grep --color=auto deamon
 azureuser@bash-vm:~$ ps -ef | grep daemon
 root        449      1  0 13:35 ?        00:00:17 /usr/lib/linux-tools/4.18.0-1018-azure/hv_kvp_daemon -n
 root        988      1  0 13:35 ?        00:00:00 /usr/lib/accountsservice/accounts-daemon
@@ -873,7 +873,7 @@ root       1037      1  0 13:35 ?        00:00:00 /usr/bin/python3 -u /usr/sbin/
 root       1039      1  0 13:35 ?        00:00:00 /usr/lib/linux-tools/4.18.0-1018-azure/hv_vss_daemon -n
 azureus+  52477  50702  0 23:28 pts/0    00:00:00 grep --color=auto daemon
 </code></pre>
- <p>
+<p>
   You can also use files as input. By default, standard input comes from the keyboard, but it too can be redirected. To get input from a file instead of the keyboard, use the
   <code>
    &lt;
@@ -884,26 +884,26 @@ azureus+  52477  50702  0 23:28 pts/0    00:00:00 grep --color=auto daemon
   </code>
   sorts text in alphabetical order:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="sort &lt; file.txt
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="sort &lt; file.txt
 "><span>sort &lt; file.txt
 </span></code></pre>
- <p>
+<p>
   To save the sorted results to a new file, you can redirect input
   <em>
    and
   </em>
   output:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="sort &lt; file.txt &gt; sorted_file.txt
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="sort &lt; file.txt &gt; sorted_file.txt
 "><span>sort &lt; file.txt &gt; sorted_file.txt
 </span></code></pre>
- <p>
+<p>
   You can use I/O operators to chain Linux commands as needed. Consider the following command:
  </p>
- <pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat file.txt | fmt | pr | lpr
+<pre class="has-inner-focus"><code class="lang-bash" data-author-content="cat file.txt | fmt | pr | lpr
 "><span>cat file.txt | fmt | pr | lpr
 </span></code></pre>
- <p>
+<p>
   The output from
   <code>
    cat
@@ -935,13 +935,11 @@ azureus+  52477  50702  0 23:28 pts/0    00:00:00 grep --color=auto daemon
   sends the paginated output to the printer. All in a single line!
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

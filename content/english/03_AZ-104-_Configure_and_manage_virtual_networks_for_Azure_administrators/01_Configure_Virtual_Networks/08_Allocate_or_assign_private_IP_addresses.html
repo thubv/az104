@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allocate or assign private IP addresses - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Allocate or assign private IP addresses - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,142 +168,139 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Allocate or assign private IP addresses</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/8-associate-private-ip-addresses/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Allocate or assign private IP addresses</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/8-associate-private-ip-addresses/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-virtual-networks/8-associate-private-ip-addresses/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-virtual-networks</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   A
   <a data-linktype="absolute-path" href="/en-us/azure/virtual-network/ip-services/private-ip-addresses">
    private IP address
   </a>
   resource can be associated with virtual machine network interfaces, internal load balancers, and application gateways. Azure can provide an IP address (dynamic assignment) or you can assign the IP address (static assignment).
  </p>
- <h3 id="things-to-consider-when-associating-private-ip-addresses">
+<h3 id="things-to-consider-when-associating-private-ip-addresses">
   Things to consider when associating private IP addresses
  </h3>
- <p>
+<p>
   The next table summarizes how you can associate private IP addresses for different types of resources.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Things to consider when associating private IP addresses" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Things to consider when associating private IP addresses" class="table">
+<thead>
+<tr>
+<th>
       Resource
      </th>
-     <th>
+<th>
       Private IP address association
      </th>
-     <th>
+<th>
       Dynamic IP address
      </th>
-     <th>
+<th>
       Static IP address
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
       Virtual machine
      </td>
-     <td>
+<td>
       NIC
      </td>
-     <td>
+<td>
       Yes
      </td>
-     <td>
+<td>
       Yes
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Internal load balancer
      </td>
-     <td>
+<td>
       Front-end configuration
      </td>
-     <td>
+<td>
       Yes
      </td>
-     <td>
+<td>
       Yes
      </td>
-    </tr>
-    <tr>
-     <td>
+</tr>
+<tr>
+<td>
       Application gateway
      </td>
-     <td>
+<td>
       Front-end configuration
      </td>
-     <td>
+<td>
       Yes
      </td>
-     <td>
+<td>
       Yes
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <h4 id="private-ip-address-assignment">
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="private-ip-address-assignment">
   Private IP address assignment
  </h4>
- <p>
+<p>
   A private IP address is allocated from the address range of the virtual network subnet that a resource is deployed in. There are two options: dynamic and static.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Dynamic
     </strong>
     : Azure assigns the next available unassigned or unreserved IP address in the subnet's address range. Dynamic assignment is the default allocation method.
    </p>
-   <p>
+<p>
     Suppose addresses 10.0.0.4 through 10.0.0.9 are already assigned to other resources. In this case, Azure assigns the address 10.0.0.10 to a new resource.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Static
     </strong>
     : You select and assign any unassigned or unreserved IP address in the subnet's address range.
    </p>
-   <p>
+<p>
     Suppose a subnet's address range is 10.0.0.0/16, and addresses 10.0.0.4 through 10.0.0.9 are already assigned to other resources. In this scenario, you can assign any address between 10.0.0.10 and 10.0.255.254.
    </p>
-  </li>
- </ul>
- <div class="alert is-success">
-  <p class="alert-title">
+</li>
+</ul>
+<div class="alert is-success">
+<p class="alert-title">
    Tip
   </p>
-  <p>
+<p>
    For a more complete review of virtual networks, consider the
    <a data-linktype="absolute-path" href="/en-us/training/modules/introduction-to-azure-virtual-networks/">
     Introduction to Virtual Networks
    </a>
    training module.
   </p>
- </div>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

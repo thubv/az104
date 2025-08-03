@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Implement Azure App Service plans - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Implement Azure App Service plans - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,140 +168,137 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Implement Azure App Service plans</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/2-implement-azure/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Implement Azure App Service plans</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/2-implement-azure/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-app-service-plans/2-implement-azure/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   In Azure App Service, an application runs in an Azure App Service plan. An App Service plan defines a set of compute resources for a web application to run. The compute resources are analogous to a server farm in conventional web hosting. One or more applications can be configured to run on the same computing resources (or in the same App Service plan).
  </p>
- <h2 id="things-to-know-about-app-service-plans">
+<h2 id="things-to-know-about-app-service-plans">
   Things to know about App Service plans
  </h2>
- <p>
+<p>
   Let's take a closer look at how to implement and use an App Service plan with your virtual machines.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     When you create an App Service plan in a region, a set of compute resources is created for the plan in the specified region. Any applications that you place into the plan run on the compute resources defined by the plan.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Each App Service plan defines these settings:
    </p>
-   <ul>
-    <li>
-     <strong>
+<ul>
+<li>
+<strong>
       Operating system
      </strong>
      : Linux or Windows.
     </li>
-    <li>
-     <strong>
+<li>
+<strong>
       Region
      </strong>
      : The region for the App Service plan, such as West US, Central India, North Europe, and so on.
     </li>
-    <li>
-     <strong>
+<li>
+<strong>
       Pricing tier
      </strong>
      : Determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system selected at creation time.
     </li>
-    <li>
-     <strong>
+<li>
+<strong>
       Number of VM instances
      </strong>
      : Currently ranges from three to 30.
     </li>
-    <li>
-     <strong>
+<li>
+<strong>
       Size of VM instances
      </strong>
      : Defined by CPU, memory, and remote storage.
     </li>
-   </ul>
-  </li>
-  <li>
-   <p>
+</ul>
+</li>
+<li>
+<p>
     You can continue to add new applications to an existing plan as long as the plan has enough resources to handle the increasing load.
    </p>
-  </li>
- </ul>
- <h2 id="things-to-consider-when-using-app-service-plans">
+</li>
+</ul>
+<h2 id="things-to-consider-when-using-app-service-plans">
   Things to consider when using App Service plans
  </h2>
- <p>
+<p>
   Review the following considerations about using Azure App Service plans to run and scale your applications. Think about what conditions might apply to running and scaling the hotel website.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Consider cost savings
     </strong>
     . Because you pay for the computing resources that your App Service plan allocates, you can potentially save money by placing multiple applications into the same App Service plan.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider multiple applications in one plan
     </strong>
     . Create a single plan to support multiple applications, to make it easier to configure and maintain shared virtual machine instances. Because the applications share the same virtual machine instances, you need to carefully manage your plan resources and capacity.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Consider plan capacity
     </strong>
     . Before you add a new application to an existing plan, determine the resource requirements for the new application and identify the remaining capacity of your plan.
    </p>
-   <div class="alert is-primary">
-    <p class="alert-title">
+<div class="alert is-primary">
+<p class="alert-title">
      Important
     </p>
-    <p>
+<p>
      Overloading an App Service plan can potentially cause downtime for new and existing applications.
     </p>
-   </div>
-  </li>
-  <li>
-   <p>
-    <strong>
+</div>
+</li>
+<li>
+<p>
+<strong>
      Consider application isolation
     </strong>
     . Isolate your application into a new App Service plan when:
    </p>
-   <ul>
-    <li>
+<ul>
+<li>
      The application is resource-intensive.
     </li>
-    <li>
+<li>
      You want to scale the application independently from the other applications in the existing plan.
     </li>
-    <li>
+<li>
      The application needs resource in a different geographical region.
     </li>
-   </ul>
-  </li>
- </ul>
+</ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

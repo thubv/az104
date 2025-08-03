@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Use an activity log alert and an action group to notify users about events in your Azure infrastructure - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercise - Use an activity log alert and an action group to notify users about events in your Azure infrastructure - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,36 +168,35 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Exercise - Use an activity log alert and an action group to notify users about events in your Azure infrastructure</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/8-exercise-activity-log-alerts/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Exercise - Use an activity log alert and an action group to notify users about events in your Azure infrastructure</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/8-exercise-activity-log-alerts/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/8-exercise-activity-log-alerts/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-monitor-backup-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   The shipping company for which you work wants to avoid any future issues with updates to its applications on the Azure platform. To improve the alerting capabilities within Azure, you can create activity log alerts.
  </p>
- <p>
+<p>
   Your goal is to set up a Linux virtual machine (VM) and create an activity log monitoring rule to detect when a VM is deleted. Then, delete the VM to trigger this alert.
  </p>
- <h2 id="create-the-azure-activity-log-monitor">
+<h2 id="create-the-azure-activity-log-monitor">
   Create the Azure activity log monitor
  </h2>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     Sign in to the
     <a class="has-external-link-indicator" data-linktype="external" href="https://portal.azure.com/learn.docs.microsoft.com" target="az-portal">
      Azure portal
     </a>
     with the same account you used to activate the sandbox.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select your user icon in the top right corner, then go to
     <strong>
      Switch directory
@@ -211,9 +211,9 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the Azure portal resource menu or under
     <strong>
      Azure services
@@ -228,9 +228,9 @@
     </strong>
     pane for Monitor appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the Monitor menu, select
     <strong>
      Alerts
@@ -241,9 +241,9 @@
     </strong>
     pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the command bar, select
     <strong>
      + Create
@@ -266,9 +266,9 @@
     </strong>
     overlay pane on the right-hand side of your screen.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Select a resource
@@ -283,9 +283,9 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You want an alert when any virtual machine in your resource group is deleted. Select the box for the Sandbox resource group
     <strong>
      learn-53f3da3b-946a-4d7d-974e-6ac534868856
@@ -296,9 +296,9 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Back on the
     <strong>
      Create an alert rule
@@ -313,9 +313,9 @@
     </strong>
     tab.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Condition
@@ -330,9 +330,9 @@
     </strong>
     overlay pane to the right-hand side of your screen.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Select a signal
@@ -345,10 +345,10 @@
     <strong>
      Apply
     </strong>
-   </p>
-  </li>
-  <li>
-   <p>
+</p>
+</li>
+<li>
+<p>
     You're back on the
     <strong>
      Create an alert rule
@@ -367,17 +367,17 @@
     </strong>
     pane open for the next section.
    </p>
-  </li>
- </ol>
- <h2 id="add-an-email-alert-action">
+</li>
+</ol>
+<h2 id="add-an-email-alert-action">
   Add an email alert action
  </h2>
- <p>
+<p>
   For the previous Azure Monitor alert, you didn't add any actions. You just viewed triggered alerts in the Azure portal. Actions let you send an email for notifications, to trigger an Azure function, or to call a webhook. In this exercise, we're adding an email alert when VMs are deleted.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     On the
     <strong>
      Create an alert rule
@@ -388,9 +388,9 @@
     </strong>
     button.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Close the
     <strong>
      Use quick actions (preview)
@@ -409,9 +409,9 @@
     </strong>
     overlay pane appears.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Select action groups
@@ -422,143 +422,143 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Basics
     </strong>
     tab, enter the following values for each setting.
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 1" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 1" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
-        <strong>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
          Project details
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Subscription
        </td>
-       <td>
-        <strong>
+<td>
+<strong>
          Concierge Subscription
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Resource group
        </td>
-       <td>
+<td>
         From the dropdown list, select your sandbox resource group.
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Region
        </td>
-       <td>
-        <strong>
+<td>
+<strong>
          Global
         </strong>
         (default)
        </td>
-      </tr>
-      <tr>
-       <td>
-        <strong>
+</tr>
+<tr>
+<td>
+<strong>
          Instance details
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Action group name
        </td>
-       <td>
-        <strong>
+<td>
+<strong>
          Alert the operations team
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Display name
        </td>
-       <td>
-        <strong>
+<td>
+<strong>
          AlertOps
         </strong>
-       </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Select
     <strong>
      Next: Notifications
     </strong>
     and enter the following values for each setting.
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 2" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 2" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
         Notification type
        </td>
-       <td>
+<td>
         Select
         <strong>
          Email/SMS message/Push/Voice
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Name
        </td>
-       <td>
-        <strong>
+<td>
+<strong>
          VM was deleted
         </strong>
-       </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     The
     <strong>
      Email/SMS message/Push/Voice
@@ -569,9 +569,9 @@
     </strong>
     pencil icon.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the
     <strong>
      Email/SMS message/Push/Voice
@@ -590,9 +590,9 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Back on the
     <strong>
      Create action group
@@ -603,18 +603,18 @@
     </strong>
     to validate your input.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Create
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     The
     <strong>
      Create an alert rule
@@ -625,45 +625,45 @@
     </strong>
     and enter the following values for each setting.
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 3" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 3" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
         Alert rule name
        </td>
-       <td>
-        <strong>
+<td>
+<strong>
          VM was deleted
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Description
        </td>
-       <td>
-        <strong>
+<td>
+<strong>
          A VM in your resource group was deleted
         </strong>
-       </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Expand the
     <strong>
      Advanced options
@@ -674,9 +674,9 @@
     </strong>
     is selected.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Review + create
@@ -687,34 +687,34 @@
     </strong>
     .
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   Recipients added to the configured action group (operations team) receive a notification:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    When they're added to the action group
   </li>
-  <li>
+<li>
    When the alert is activated
   </li>
-  <li>
+<li>
    When the alert is triggered
   </li>
- </ul>
- <p>
+</ul>
+<p>
   It can take up to five minutes for an activity log alert rule to become active. In this exercise, if you delete the virtual machine before the rule deploys, the alert rule might not be triggered. Because of this delay, you might not see the same results in the following steps after you delete the VM.
  </p>
- <h2 id="delete-your-virtual-machine">
+<h2 id="delete-your-virtual-machine">
   Delete your virtual machine
  </h2>
- <p>
+<p>
   To trigger an alert, you need to delete the Linux VM that you created in the previous exercise.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     On the Azure portal menu or from the
     <strong>
      Home
@@ -725,27 +725,27 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Check the box for the
     <strong>
      vm1
     </strong>
     virtual machine.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Delete
     </strong>
     from the menu bar.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Enter
     <em>
      delete
@@ -756,9 +756,9 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     In the title bar, select the
     <strong>
      Notifications
@@ -769,26 +769,26 @@
     </strong>
     is successfully deleted.
    </p>
-  </li>
- </ol>
- <h2 id="view-your-activity-log-alerts-in-azure-monitor">
+</li>
+</ol>
+<h2 id="view-your-activity-log-alerts-in-azure-monitor">
   View your activity log alerts in Azure Monitor
  </h2>
- <p>
+<p>
   In the exercise, you set up an Ubuntu VM and created an activity log rule to detect when the VM was deleted. You then deleted a VM from your resource group. Let's check whether an alert was triggered.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     You should receive a notification email that reads,
     <strong>
      Important notice: Azure Monitor alert VM was deleted was activated...
     </strong>
     If not, open your email program and look for an email from azure-noreply@microsoft.com.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     On the Azure portal resource menu, select
     <strong>
      Monitor
@@ -799,18 +799,18 @@
     </strong>
     in the menu on the left.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     You should have three verbose alerts that were generated by deleting
     <strong>
      vm1
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select the name of one of the alerts (For example,
     <strong>
      VM was deleted
@@ -821,17 +821,17 @@
     </strong>
     pane appears that shows more details about the event.
    </p>
-  </li>
- </ol>
- <h2 id="add-an-alert-processing-rule-to-the-alert">
+</li>
+</ol>
+<h2 id="add-an-alert-processing-rule-to-the-alert">
   Add an alert processing rule to the alert
  </h2>
- <p>
+<p>
   We're going to schedule a one-time, overnight, planned maintenance. It starts in the evening and continues until the next morning.
  </p>
- <ol>
-  <li>
-   <p>
+<ol>
+<li>
+<p>
     In the Azure portal resource menu, select
     <strong>
      Monitor
@@ -846,27 +846,27 @@
     </strong>
     in the menu bar.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      + Create
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Check the box for your sandbox resource group as the scope of the alert processing rule, then select
     <strong>
      Apply
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Next: Rule settings
@@ -877,125 +877,125 @@
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Select
     <strong>
      Next: Scheduling
     </strong>
     .
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     By default, the rule works all the time, unless you disable it. We're going to define the rule to suppress notifications for a one-time overnight planned maintenance.
 Enter these settings for the scheduling of the alert processing rule:
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 4" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 4" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
         Apply the rule
        </td>
-       <td>
+<td>
         At a specific time
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Start
        </td>
-       <td>
+<td>
         Enter today's date at 10pm.
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         End
        </td>
-       <td>
+<td>
         Enter tomorrow's date at 7am.
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Time zone
        </td>
-       <td>
+<td>
         Select the local timezone.
        </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Select
     <strong>
      Next: Details
     </strong>
     and enter these settings:
    </p>
-   <div class="has-inner-focus">
-    <table aria-label="Table 5" class="table">
-     <thead>
-      <tr>
-       <th>
+<div class="has-inner-focus">
+<table aria-label="Table 5" class="table">
+<thead>
+<tr>
+<th>
         Setting
        </th>
-       <th>
+<th>
         Value
        </th>
-      </tr>
-     </thead>
-     <tbody>
-      <tr>
-       <td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
         Resource group
        </td>
-       <td>
+<td>
         Select your sandbox resource group.
        </td>
-      </tr>
-      <tr>
-       <td>
+</tr>
+<tr>
+<td>
         Rule name
        </td>
-       <td>
-        <strong>
+<td>
+<strong>
          Planned Maintenance
         </strong>
-       </td>
-      </tr>
-      <tr>
-       <td>
+</td>
+</tr>
+<tr>
+<td>
         Description
        </td>
-       <td>
-        <strong>
+<td>
+<strong>
          Suppress notifications during planned maintenance.
         </strong>
-       </td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  </li>
-  <li>
-   <p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>
     Select
     <strong>
      Review + create
@@ -1006,16 +1006,14 @@ Enter these settings for the scheduling of the alert processing rule:
     </strong>
     .
    </p>
-  </li>
- </ol>
+</li>
+</ol>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

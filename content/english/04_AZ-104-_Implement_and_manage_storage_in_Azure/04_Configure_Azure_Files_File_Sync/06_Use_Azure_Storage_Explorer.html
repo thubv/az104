@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use Azure Storage Explorer - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Use Azure Storage Explorer - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,129 +168,128 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Use Azure Storage Explorer</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/6-identify-components/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-storage" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
-  <a data-linktype="absolute-path" href="/en-us/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Use Azure Storage Explorer</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/6-identify-components/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-files-file-sync/6-identify-components/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-storage</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
+<a data-linktype="absolute-path" href="/en-us/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
    Azure Storage Explorer
   </a>
   is a standalone application that makes it easy to work with Azure Storage data on Windows, macOS, and Linux. With Azure Storage Explorer, you can access multiple accounts and subscriptions, and manage all your Storage content.
  </p>
- <h3 id="things-to-know-about-azure-storage-explorer">
+<h3 id="things-to-know-about-azure-storage-explorer">
   Things to know about Azure Storage Explorer
  </h3>
- <p>
+<p>
   Azure Storage Explorer has the following characteristics.
  </p>
- <ul>
-  <li>
-   <p>
+<ul>
+<li>
+<p>
     Azure Storage Explorer requires both management (Azure Resource Manager) and data layer permissions to allow full access to your resources. You need Microsoft Entra ID permissions to access your storage account, the containers in your account, and the data in the containers.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     Azure Storage Explorer lets you connect to different storage accounts.
    </p>
-   <ul>
-    <li>
+<ul>
+<li>
      Connect to storage accounts associated with your Azure subscriptions.
     </li>
-    <li>
+<li>
      Connect to storage accounts and services that are shared from other Azure subscriptions.
     </li>
-    <li>
+<li>
      Connect to and manage local storage by using the Azure Storage Emulator.
     </li>
-   </ul>
-  </li>
- </ul>
- <h3 id="things-to-consider-when-using-azure-storage-explorer">
+</ul>
+</li>
+</ul>
+<h3 id="things-to-consider-when-using-azure-storage-explorer">
   Things to consider when using Azure Storage Explorer
  </h3>
- <p>
+<p>
   Azure Storage Explorer supports many scenarios for working with storage accounts in Azure. As you review these options, think about which scenarios apply to your Azure Storage implementation.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Things to consider when using Azure Storage Explorer" class="table">
-   <thead>
-    <tr>
-     <th>
+<div class="has-inner-focus">
+<table aria-label="Things to consider when using Azure Storage Explorer" class="table">
+<thead>
+<tr>
+<th>
       Scenario
      </th>
-     <th>
+<th>
       Description
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td>
-      <strong>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
        Connect to an Azure subscription
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Manage storage resources that belong to your Azure subscription.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Work with local development storage
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Manage local storage by using the Azure Storage Emulator.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Attach to external storage
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Manage storage resources that belong to another Azure subscription or that are under national Azure clouds by using the storage account name, key, and endpoints. This scenario is described in more detail in the next section.
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Attach a storage account with a SAS
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Manage storage resources that belong to another Azure subscription by using a shared access signature (SAS).
      </td>
-    </tr>
-    <tr>
-     <td>
-      <strong>
+</tr>
+<tr>
+<td>
+<strong>
        Attach a service with a SAS
       </strong>
-     </td>
-     <td>
+</td>
+<td>
       Manage a specific Azure Storage service (blob container, queue, or table) that belongs to another Azure subscription by using a SAS.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <h2 id="attach-to-external-storage-account">
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="attach-to-external-storage-account">
   Attach to external storage account
  </h2>
- <p>
+<p>
   Azure Storage Explorer lets you attach to external storage accounts so storage accounts can be easily shared.
  </p>
- <p>
+<p>
   To create the connection, you need the external storage
   <strong>
    Account name
@@ -304,7 +304,7 @@
   </strong>
   .
  </p>
- <p>
+<p>
   To use a storage account name and key from a national Azure cloud, use the
   <strong>
    Storage endpoints domain
@@ -315,31 +315,29 @@
   </strong>
   , and then enter the custom storage account endpoint domain.
  </p>
- <h3 id="access-keys">
+<h3 id="access-keys">
   Access keys
  </h3>
- <p>
+<p>
   Access keys provide access to the entire storage account. You're provided two access keys so you can maintain connections by using one key while regenerating the other.
  </p>
- <div class="alert is-primary">
-  <p class="alert-title">
+<div class="alert is-primary">
+<p class="alert-title">
    Important
   </p>
-  <p>
+<p>
    Store your access keys securely. We recommend regenerating your access keys regularly.
   </p>
- </div>
- <p>
+</div>
+<p>
   When you regenerate your access keys, you must update any Azure resources and applications that access this storage account to use the new keys. This action doesn't interrupt access to disks from your virtual machines.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

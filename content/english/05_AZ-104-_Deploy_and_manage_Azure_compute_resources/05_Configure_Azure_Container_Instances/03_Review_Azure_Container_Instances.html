@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Azure Container Instances - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Azure Container Instances - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,141 +168,138 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Review Azure Container Instances</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/3-review/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Review Azure Container Instances</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/3-review/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources" target="_blank">https://learn.microsoft.com/en-us/training/modules/configure-azure-container-instances/3-review/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-compute-resources</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   Containers are becoming the preferred way to package, deploy, and manage cloud applications. There are many options for teams to build and deploy cloud native and containerized applications on Azure. In this unit, we review Azure Container Instances (ACI).
  </p>
- <p>
+<p>
   Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to manage any virtual machines and without having to adopt a higher-level service. Azure Container Instances is a great solution for any scenario that can operate in isolated containers.
  </p>
- <h3 id="understand-container-images">
+<h3 id="understand-container-images">
   Understand container images
  </h3>
- <p>
+<p>
   All containers are created from container images. A container image is a lightweight, standalone, executable package of software that encapsulates everything needed to run an application. It includes the following components:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Code
    </strong>
    : The application’s source code.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Runtime
    </strong>
    : The environment required to execute the application.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     System tools
    </strong>
    : Utilities necessary for the application to function.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     System libraries
    </strong>
    : Shared libraries used by the application.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Settings
    </strong>
    : Configuration parameters specific to the application.
   </li>
- </ul>
- <p>
+</ul>
+<p>
   When you create a container image, it becomes a portable unit that can run consistently across different computing environments. These images are the building blocks for containers, which are instances of these images running at runtime.
  </p>
- <p>
+<p>
   The following illustration shows a web server container built with Azure Container Instances. The container is running on a virtual machine in a virtual network.
  </p>
- <h3 id="things-to-know-about-azure-container-instances">
+<h3 id="things-to-know-about-azure-container-instances">
   Things to know about Azure Container Instances
  </h3>
- <p>
+<p>
   Let's review some of the
   <a data-linktype="absolute-path" href="/en-us/azure/container-instances/container-instances-overview">
    benefits of using Azure Container Instances
   </a>
   . As you review these points, think about how you can implement Container Instances for your internal applications.
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      Fast startup times
     </strong>
     . Containers can start in seconds without the need to deploy and manage virtual machines.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Public IP connectivity and DNS names
     </strong>
     . Containers can be directly exposed to the internet with an IP address and FQDN (fully qualified domain name).
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Custom sizes
     </strong>
     . Container nodes can be scaled dynamically to match actual resource demands for an application.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Persistent storage
     </strong>
     . Containers support direct mounting of Azure Files file shares.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Linux and Windows containers
     </strong>
     . Container Instances can schedule both Windows and Linux containers. Specify the operating system type when you create your container groups.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Coscheduled groups
     </strong>
     . Container Instances supports scheduling of multi-container groups that share host machine resources.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Virtual network deployment
     </strong>
     . Container Instances can be deployed into an Azure virtual network.
    </p>
-  </li>
- </ul>
+</li>
+</ul>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>

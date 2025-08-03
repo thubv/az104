@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evaluation of resources through Azure Policy - Training | Microsoft Learn</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Evaluation of resources through Azure Policy - Training | Microsoft Learn</title>
+<style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -167,72 +168,71 @@
     </style>
 </head>
 <body>
-    <div class="source-info">
-        <h2>📚 Course Information</h2>
-        <p><strong>Unit:</strong> Evaluation of resources through Azure Policy</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/azure-policies-evaluation-resources/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">Microsoft Learn</a></p>
-        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-    </div>
-    
-    <div class="main-content">
-        <div aria-hidden="false" id="module-unit-content">
- <p>
+<div class="source-info">
+<h2>📚 Course Information</h2>
+<p><strong>Unit:</strong> Evaluation of resources through Azure Policy</p>
+<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/azure-policies-evaluation-resources/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-identities-governance" target="_blank">https://learn.microsoft.com/en-us/training/modules/sovereignty-policy-initiatives/azure-policies-evaluation-resources/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az-104-manage-identities-governance</a></p>
+<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+</div>
+<div class="main-content">
+<div aria-hidden="false" id="module-unit-content">
+<p>
   A significant benefit of Azure Policy is the insight and controls that it provides over resources in a subscription or management group of subscriptions. This control can be used to prevent resources from being created in the wrong location, enforce common and consistent tag usage, or audit existing resources for appropriate configurations and settings. Before you review compliance data and react to it, you need to understand the evaluation triggers, timings, and the resource compliance states.
  </p>
- <h2 id="evaluation-triggers">
+<h2 id="evaluation-triggers">
   Evaluation triggers
  </h2>
- <p>
+<p>
   Evaluations of assigned policies and initiatives happen as the result of various events:
  </p>
- <ul>
-  <li>
+<ul>
+<li>
    A policy or initiative is newly assigned to a scope
   </li>
-  <li>
+<li>
    A policy or initiative already assigned to a scope is updated
   </li>
-  <li>
+<li>
    A resource is deployed to or updated in a scope with an assignment through Azure Resource Manager, REST API, or a supported SDK
   </li>
-  <li>
+<li>
    A subscription (resource type Microsoft.Resources/subscriptions) is created or moved in a management group hierarchy with an assigned policy definition that targets the subscription resource type
   </li>
-  <li>
+<li>
    A policy exemption is created, updated, or deleted
   </li>
-  <li>
+<li>
    Standard compliance evaluation cycle
   </li>
-  <li>
+<li>
    The machine configuration resource provider is updated with compliance details by a managed resource
   </li>
-  <li>
+<li>
    On-demand scan
   </li>
- </ul>
- <p>
+</ul>
+<p>
   For more information, see
   <a data-linktype="absolute-path" href="/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers">
    Evaluation triggers
   </a>
   .
  </p>
- <h2 id="evaluation-timing">
+<h2 id="evaluation-timing">
   Evaluation timing
  </h2>
- <p>
+<p>
   When you're working with policy assignments in Azure, you need to understand the behavior and timing of compliance scans, especially in Brownfield scenarios, where new policies are applied to existing resources. Compliance scans through Azure policies are triggered by various methods:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Automatic full scan
    </strong>
    - A full compliance scan is triggered automatically every 24 hours.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Manual scan for Brownfield scenarios
    </strong>
    - In cases where a new policy is applied to existing resources (Brownfield scenarios), you can manually trigger a compliance scan by running
@@ -241,79 +241,79 @@
    </em>
    .
   </li>
- </ul>
- <p>
+</ul>
+<p>
   When you assign a new policy, a delay can occur in the policy taking effect, which can be up to 30 minutes. The Azure Resource Manager cache holds session data, and it can take time for the policy to propagate in the same session. To bypass the caching delay, you can sign out and sign back in to refresh the Azure Resource Manager cache, which ensures that the new policy is applied immediately to the defined scope.
  </p>
- <p>
+<p>
   After the scan starts, several factors influence how long it takes for a compliance scan to complete:
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Policy definitions
    </strong>
    - The size and complexity of the policy definitions can increase scan time.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Number of policies
    </strong>
    - The more policies applied, the longer the scan might take.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Scope size
    </strong>
    - The size of the resource scope assigned to the policy also plays a role.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     System load
    </strong>
    - Compliance scans are a low-priority operation, meaning that if the system is busy with more critical tasks, the scan might take longer. The system prioritizes interactive and high-importance operations, so scans might take several minutes, or tens of minutes, even in smaller environments.
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Synchronous scan (Low-Priority Execution)
    </strong>
    - Because compliance scans are synchronous and assigned a low priority in Azure's system, they're delayed if the system is busy. This scan can significantly extend the time it takes for the scan to complete, even for smaller scopes or policies.
   </li>
- </ul>
- <p>
+</ul>
+<p>
   This understanding of the compliance scan process and potential delays allows you to better manage the application and avoid unnecessary waiting, especially in environments with complex or extensive policy definitions.
  </p>
- <h2 id="resource-compliance-states">
+<h2 id="resource-compliance-states">
   Resource compliance states
  </h2>
- <p>
+<p>
   When initiative or policy definitions are assigned, Azure Policy determines which resources are applicable. Then, it evaluates those resources that aren't excluded or exempted. Evaluation provides one of the compliance states to each resource based on conditions in the policy rule and each resource's adherence to those requirements.
  </p>
- <ul>
-  <li>
-   <strong>
+<ul>
+<li>
+<strong>
     Non-compliant
    </strong>
-  </li>
-  <li>
-   <strong>
+</li>
+<li>
+<strong>
     Compliant
    </strong>
-  </li>
-  <li>
-   <strong>
+</li>
+<li>
+<strong>
     Error
    </strong>
    (for template or evaluation error)
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Conflicting
    </strong>
    (two or more policy assignments in the same scope with contradicting rules, such as two policies appending the same tag with different values)
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Protected
    </strong>
    (resource covered under an assignment with a
@@ -322,8 +322,8 @@
    </em>
    effect)
   </li>
-  <li>
-   <strong>
+<li>
+<strong>
     Exempted Unknown
    </strong>
    (default state for definitions with a
@@ -332,11 +332,11 @@
    </em>
    effect)
   </li>
- </ul>
- <p>
+</ul>
+<p>
   When multiple resources or policies have varying compliance states, the overall compliance state is assessed individually for each resource and for each policy assignment. Azure Policy ranks each compliance state so that one wins over another in this situation. The rank order of the states is as given in the previous list of compliance states.
  </p>
- <p>
+<p>
   The compliance percentage is determined by dividing
   <strong>
    Compliant
@@ -375,18 +375,18 @@
   </strong>
   states.
  </p>
- <p>
+<p>
   For more information on when the policies return these states for any particular resource, see
   <a data-linktype="absolute-path" href="/en-us/azure/governance/policy/concepts/compliance-states">
    Azure Policy compliance states
   </a>
   .
  </p>
- <h2 id="enforcement-mode">
+<h2 id="enforcement-mode">
   Enforcement Mode
  </h2>
- <p>
-  <em>
+<p>
+<em>
    enforcementMode
   </em>
   is a property of a policy assignment that lets you deactivate the enforcement of certain policy effects. This mode allows you to test the policy's outcome on existing resources without initiating the policy effect or triggering entries in the
@@ -399,7 +399,7 @@
   </em>
   can be changed to Enabled after the policy is thoroughly tested.
  </p>
- <p>
+<p>
   This scenario is commonly referred to as
   <em>
    What If
@@ -422,78 +422,78 @@
   </em>
   lets the evaluation happen without the effect taking place.
  </p>
- <p>
+<p>
   The following table describes this property's values.
  </p>
- <div class="has-inner-focus">
-  <table aria-label="Enforcement Mode" class="table">
-   <thead>
-    <tr>
-     <th style="text-align: left;">
+<div class="has-inner-focus">
+<table aria-label="Enforcement Mode" class="table">
+<thead>
+<tr>
+<th style="text-align: left;">
       Mode
      </th>
-     <th style="text-align: left;">
+<th style="text-align: left;">
       JSON value
      </th>
-     <th style="text-align: left;">
+<th style="text-align: left;">
       Type
      </th>
-     <th style="text-align: left;">
+<th style="text-align: left;">
       Remediate manually
      </th>
-     <th style="text-align: left;">
+<th style="text-align: left;">
       Activity log entry
      </th>
-     <th style="text-align: left;">
+<th style="text-align: left;">
       Description
      </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td style="text-align: left;">
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">
       Enabled
      </td>
-     <td style="text-align: left;">
+<td style="text-align: left;">
       Default
      </td>
-     <td style="text-align: left;">
+<td style="text-align: left;">
       string
      </td>
-     <td style="text-align: left;">
+<td style="text-align: left;">
       Yes
      </td>
-     <td style="text-align: left;">
+<td style="text-align: left;">
       Yes
      </td>
-     <td style="text-align: left;">
+<td style="text-align: left;">
       The policy effect is enforced during resource creation or update.
      </td>
-    </tr>
-    <tr>
-     <td style="text-align: left;">
+</tr>
+<tr>
+<td style="text-align: left;">
       Disabled
      </td>
-     <td style="text-align: left;">
+<td style="text-align: left;">
       DoNotEnforce
      </td>
-     <td style="text-align: left;">
+<td style="text-align: left;">
       string
      </td>
-     <td style="text-align: left;">
+<td style="text-align: left;">
       Yes
      </td>
-     <td style="text-align: left;">
+<td style="text-align: left;">
       No
      </td>
-     <td style="text-align: left;">
+<td style="text-align: left;">
       The policy effect isn't enforced during resource creation or update.
      </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <p>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
   If
   <em>
    enforcementMode
@@ -516,16 +516,16 @@
   </em>
   .
  </p>
- <h2 id="policy-enforcement-and-safe-deployment-best-practices">
+<h2 id="policy-enforcement-and-safe-deployment-best-practices">
   Policy enforcement and safe deployment best practices
  </h2>
- <p>
+<p>
   Without the appropriate knowledge of best practices and proper testing, applying a set of policy to an existing environment that's running production workloads can result in unintended behaviors of policy resources. Treating policy as code (keeping your policy definitions in source control, and whenever a change is made, testing and validating that change) allows you to automate testing and make sure that no manual error factor happens. The best practices framework focuses on minimizing the impact of policy changes while ensuring compliance, and it includes two aspects:
  </p>
- <ul>
-  <li>
-   <p>
-    <strong>
+<ul>
+<li>
+<p>
+<strong>
      First aspect
     </strong>
     - Start from Assignments of new policies with
@@ -538,34 +538,34 @@
     </em>
     Disabled allows you to view the compliance state and evaluate policy outcomes without triggering actions or denying operations. This "what-if" scenario minimizes impact and helps identify issues in the new policies or changes without disrupting the environment.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Second aspect
     </strong>
     - Deploy policies in deployment rings. To control potential negative impacts, policies should be deployed gradually in smaller subsets and then in bigger sets. You can start with test and development environments and then move to production by applying the policy to a small subset first. This strategy helps in testing the policy thoroughly. Gradually expanding the scope (through deployment rings) can cover the full production environment.
    </p>
-  </li>
- </ul>
- <p>
+</li>
+</ul>
+<p>
   The following diagram shows how to apply the safe deployment best practices framework for Azure Policy assignments.
  </p>
- <p>
+<p>
   The following steps correspond with the outlined steps in the preceding screenshot:
  </p>
- <ol>
-  <li>
-   <p>
-    <strong>
+<ol>
+<li>
+<p>
+<strong>
      Create definition
     </strong>
     - Begin by defining the policy definition with the scope as root (tenant).
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Create assignment
     </strong>
     - Define deployment rings (1 to 5) by using resource selectors. Assign the policy to a specific scope (such as a resource group, subscription, or management group) in Ring 5. Assign with
@@ -574,34 +574,34 @@
     </em>
     Disabled to evaluate compliance without enforcing changes.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     a)
     <strong>
      Compliance check
     </strong>
     - Verify that the policy is being applied correctly and that the desired compliance state is achieved for the resources in Ring 5.
    </p>
-   <p>
+<p>
     b)
     <strong>
      Application health check
     </strong>
     - Assess the impact of the policy for the resources in Ring 5. Ensure that no unexpected side effects exist.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Repeat for each ring (Non-production)
     </strong>
     - Repeat step 3 for all nonproduction environment rings.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Update assignment (Optional)
     </strong>
     - If necessary, adjust the policy definition or assignment based on the evaluation of resources of the nonproduction environment and then reassign it to the resources in Ring 5 with the
@@ -610,64 +610,64 @@
     </em>
     Enabled.
    </p>
-  </li>
-  <li>
-   <p>
+</li>
+<li>
+<p>
     a)
     <strong>
      Compliance check
     </strong>
     - Reevaluate compliance after making changes (same as step 3a).
    </p>
-   <p>
+<p>
     b)
     <strong>
      Application health check
     </strong>
     - Again, verify that the policy isn't causing issues (same as step 3b).
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Repeat for each ring (Non-production)
     </strong>
     - Repeat step 6 for all nonproduction environment rings.
    </p>
-  </li>
-  <li>
-   <p>
-    <strong>
+</li>
+<li>
+<p>
+<strong>
      Repeat for production rings
     </strong>
     - After the policy is validated in a nonproduction environment, gradually deploy it to production environments, starting with a smaller subset (ring) and expanding the scope over time.
    </p>
-  </li>
- </ol>
- <p>
+</li>
+</ol>
+<p>
   For more detailed steps on the safe deployment of Azure Policy assignments with different effects, see
   <a data-linktype="absolute-path" href="/en-us/azure/governance/policy/how-to/policy-safe-deployment-practices#steps-for-safe-deployment-of-azure-policy-assignments-with-deny-or-append-effects">
    Safe deployment of Azure Policy assignments
   </a>
   .
  </p>
- <h2 id="reacting-to-policy-state-changes">
+<h2 id="reacting-to-policy-state-changes">
   Reacting to policy state changes
  </h2>
- <p>
+<p>
   Azure Policy events allow applications to react to state changes. This integration is done without the need for complicated code or expensive and inefficient polling services. Events from Azure Policy (Event Source) are pushed through Microsoft Azure Event Grid to Event Handlers.
  </p>
- <p>
+<p>
   Azure Event Grid provides reliable delivery services to your applications through rich retry policies and dead-letter delivery. Event Grid takes care of the proper routing, filtering, and multicasting of the events to destinations through Event Grid subscriptions. For more information, see
   <a data-linktype="absolute-path" href="/en-us/azure/event-grid/">
    Azure Event Grid
   </a>
   .
  </p>
- <p>
+<p>
   An Event Handler is the place where the event is sent. Several services, such as Microsoft Azure Functions, Microsoft Azure Logic Apps, or your own custom HTTP listener, can be configured to handle events. You can also use any webhook for handling events.
  </p>
- <p>
+<p>
   For more information, see
   <a data-linktype="absolute-path" href="/en-us/azure/event-grid/event-handlers">
    Event handlers in Azure Event Grid
@@ -683,13 +683,11 @@
   tutorial.
  </p>
 </div>
-
-    </div>
-    
-    <div class="translation-placeholder">
-        <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
-    </div>
+</div>
+<div class="translation-placeholder">
+<h2>🇻🇳 Vietnamese Translation</h2>
+<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
+<p><em>Translation will be added here...</em></p>
+</div>
 </body>
 </html>
