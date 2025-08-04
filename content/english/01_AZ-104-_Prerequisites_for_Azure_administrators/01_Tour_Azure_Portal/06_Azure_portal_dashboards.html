@@ -418,8 +418,245 @@
 </div>
 <div class="translation-placeholder">
 <h2>🇻🇳 Vietnamese Translation</h2>
-<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-<p><em>Translation will be added here...</em></p>
+<div aria-hidden="false" id="module-unit-content-vi">
+<p>
+  Hãy xem cách tạo và chỉnh sửa dashboard trong Azure portal. Trong unit này, bạn sẽ học về việc tạo và sử dụng dashboard. Trong unit tiếp theo, bạn sẽ thử nghiệm những điều đã học.
+ </p>
+<h2 id="what-is-a-dashboard-vi">
+  Dashboard là gì?
+ </h2>
+<p>
+  <em>
+   Dashboard
+  </em>
+  là một tập hợp có thể tùy chỉnh các tile UI được hiển thị trong Azure portal. Bạn có thể thêm, xóa và định vị các tile để tạo ra chính xác view mà bạn muốn, sau đó lưu view đó như một dashboard. Bạn có thể cấu hình nhiều dashboard và có thể chuyển đổi giữa chúng khi cần thiết. Bạn thậm chí có thể chia sẻ dashboard với các thành viên khác trong nhóm.
+ </p>
+<p>
+  Dashboard mang lại sự linh hoạt trong việc hiển thị thông tin nào. Ví dụ, bạn có thể tạo dashboard cho các vai trò cụ thể trong tổ chức, sau đó sử dụng kiểm soát truy cập dựa trên vai trò (RBAC) để kiểm soát ai có thể truy cập từng dashboard.
+ </p>
+<p>
+  Dashboard được lưu trữ dưới dạng file JavaScript Object Notation (JSON). Định dạng này có nghĩa là bạn có thể tải xuống dashboard và chỉnh sửa file trực tiếp, sau đó tải lên lại Azure hoặc chia sẻ với người dùng khác. Azure lưu trữ dashboard trong các resource group, giống như bất kỳ tài nguyên nào khác mà bạn có thể quản lý trong portal.
+ </p>
+<h2 id="explore-the-default-dashboard-vi">
+  Khám phá dashboard mặc định
+ </h2>
+<p>
+  Dashboard mặc định có tên là "Dashboard." Khi bạn đăng nhập vào Azure portal và chọn
+  <strong>
+   Dashboard
+  </strong>
+  từ menu portal, bạn sẽ thấy dashboard này chứa năm tile.
+ </p>
+<h2 id="creating-and-managing-dashboards-vi">
+  Tạo và quản lý dashboard
+ </h2>
+<p>
+  Các điều khiển ở đầu dashboard cho phép bạn tạo, tải lên, chỉnh sửa, xuất và chia sẻ dashboard. Bạn cũng có thể chuyển dashboard sang chế độ toàn màn hình, sao chép hoặc xóa nó.
+ </p>
+<h2 id="select-dashboard-vi">
+  Chọn dashboard
+ </h2>
+<p>
+  Ở đầu thanh công cụ bên trái, bên cạnh tên dashboard, là điều khiển dropdown lựa chọn dashboard. Chọn điều khiển này cho phép bạn chọn từ các dashboard mà bạn đã định nghĩa cho tài khoản của mình. Điều khiển này giúp bạn dễ dàng chuyển đổi giữa nhiều dashboard cho các mục đích khác nhau.
+ </p>
+<p>
+  Dashboard mà bạn tạo ban đầu là riêng tư; nghĩa là chỉ bạn mới có thể thấy chúng. Để làm cho dashboard có sẵn trong toàn doanh nghiệp, bạn cần chia sẻ nó. Chúng ta sẽ khám phá tùy chọn đó sau.
+ </p>
+<h2 id="create-a-new-dashboard-vi">
+  Tạo dashboard mới
+ </h2>
+<p>
+  Để tạo dashboard mới, chọn
+  <strong>
+   Create
+  </strong>
+  . Nếu bạn chọn
+  <strong>
+   Custom
+  </strong>
+  , không gian làm việc dashboard xuất hiện mà không có tile nào. Sau đó bạn có thể thêm, xóa và điều chỉnh tile theo ý muốn, và đặt tên cho dashboard. Khi hoàn thành tùy chỉnh dashboard, chọn
+  <strong>
+   Save
+  </strong>
+  để lưu và chuyển sang dashboard đó.
+ </p>
+<p>
+  Bạn cũng có thể chọn
+  <strong>
+   Upload
+  </strong>
+  để tải lên file JSON dashboard mà bạn đã tùy chỉnh, thay vì tạo dashboard trong portal.
+ </p>
+<h2 id="export-vi">
+  Xuất
+ </h2>
+<p>
+  Để tải xuống dashboard hiện tại dưới dạng file JSON, chọn
+  <strong>
+   Export
+  </strong>
+  , sau đó chọn
+  <strong>
+   Download
+  </strong>
+  . Sau đó bạn có thể tùy chỉnh file và tải lên, hoặc để người khác tải file đó lên Azure portal để sử dụng làm dashboard của họ.
+ </p>
+<p>
+  Bạn cũng có thể chọn
+  <strong>
+   Export
+  </strong>
+  , sau đó chọn
+  <strong>
+   Print
+  </strong>
+  để in một bản sao dashboard hiện tại.
+ </p>
+<h2 id="edit-a-dashboard-using-the-portal-vi">
+  Chỉnh sửa dashboard bằng portal
+ </h2>
+<p>
+  Để sử dụng portal để thay đổi dashboard hiện tại, chọn nút
+  <strong>
+   Edit
+  </strong>
+  (biểu tượng
+  <strong>
+   bút chì
+  </strong>
+  ) hoặc nhấp chuột phải vào vùng nền dashboard và chọn
+  <strong>
+   Edit
+  </strong>
+  .
+ </p>
+<p>
+  Dashboard chuyển sang chế độ chỉnh sửa.
+ </p>
+<p>
+  Ở phía bên phải, bạn tìm thấy
+  <strong>
+   Tile Gallery
+  </strong>
+  , hiển thị nhiều tile khác nhau mà bạn có thể thêm vào dashboard. Bạn có thể lọc Tile Gallery bằng cách sử dụng hộp tìm kiếm để chỉ hiển thị các mục khớp với từ khóa tìm kiếm.
+ </p>
+<p>
+  Để thêm tile vào dashboard, chọn tile từ danh sách và sau đó kéo nó vào vùng làm việc. Sau đó bạn có thể di chuyển từng tile, thay đổi kích thước hoặc tùy chỉnh dữ liệu mà nó hiển thị.
+ </p>
+<div class="alert is-success">
+<p class="alert-title">
+   Mẹo
+  </p>
+<p>
+   Bạn cũng có thể lấy các phần tử từ trang tài nguyên và ghim chúng vào dashboard. Khi sử dụng dịch vụ, hãy tìm biểu tượng
+   <strong>
+    Pin
+   </strong>
+   . Khi bạn chọn nó, bạn sẽ thấy pane
+   <strong>
+    Pin to dashboard
+   </strong>
+   cho phép bạn chọn dashboard (hoặc tạo mới) cho tile chứa chi tiết của dịch vụ đó.
+  </p>
+</div>
+<p>
+  Trong chế độ chỉnh sửa, vùng làm việc dashboard được chia thành các ô vuông. Mỗi tile phải chiếm ít nhất một ô vuông, và các tile sẽ tự động căn chỉnh với tập hợp lớn nhất gần nhất của các đường chia tile. Bất kỳ tile nào chồng lấp sẽ được di chuyển ra khỏi đường.
+ </p>
+<h3 id="change-tile-sizes-vi">
+  Thay đổi kích thước tile
+ </h3>
+<p>
+  Một số tile có kích thước cố định và bạn chỉ có thể chỉnh sửa kích thước của chúng theo cách lập trình. Tuy nhiên, nếu tile có góc dưới bên phải màu xám, bạn có thể thay đổi kích thước bằng cách kéo chỉ báo góc.
+ </p>
+<p>
+  Hoặc, nhấp chuột phải vào tile và sau đó chỉ định kích thước bạn muốn.
+ </p>
+<h3 id="change-tile-settings-vi">
+  Thay đổi cài đặt tile
+ </h3>
+<p>
+  Một số tile có cài đặt có thể chỉnh sửa. Ví dụ, với tile
+  <strong>
+   Clock
+  </strong>
+  , bạn có thể chọn
+  <strong>
+   Edit
+  </strong>
+  để mở pane
+  <strong>
+   Edit clock
+  </strong>
+  . Sau đó bạn có thể đặt múi giờ và chọn xem thời gian hiển thị ở định dạng 12 hay 24 giờ.
+ </p>
+<p>
+  Đối với các công ty đa quốc gia/khu vực hoặc xuyên lục địa, bạn có thể thêm nhiều đồng hồ, mỗi cái với múi giờ khác nhau.
+ </p>
+<h3 id="accepting-your-edits-vi">
+  Chấp nhận chỉnh sửa
+ </h3>
+<p>
+  Bạn có thể chọn
+  <strong>
+   Preview
+  </strong>
+  để xem các chỉnh sửa đề xuất. Khi các tile được sắp xếp như bạn muốn, chọn
+  <strong>
+   Save
+  </strong>
+  .
+ </p>
+<h2 id="share-or-unshare-a-dashboard-vi">
+  Chia sẻ hoặc hủy chia sẻ dashboard
+ </h2>
+<p>
+  Khi bạn định nghĩa dashboard mới, nó là riêng tư và chỉ hiển thị với tài khoản của bạn. Để làm cho nó hiển thị với người khác, chọn
+  <strong>
+   Share
+  </strong>
+  .
+ </p>
+<p>
+  Như với bất kỳ tài nguyên Azure nào khác, bạn cần chỉ định resource group mới (hoặc sử dụng resource group hiện có) để lưu trữ dashboard được chia sẻ. Nếu bạn không có resource group hiện có, Azure sẽ tạo resource group
+  <em>
+   dashboards
+  </em>
+  ở bất kỳ vị trí nào bạn chỉ định.
+ </p>
+<p>
+  Sau khi chia sẻ dashboard, bạn sẽ thấy liên kết
+  <strong>
+   Manage sharing
+  </strong>
+  ở đầu dashboard, thay vì
+  <strong>
+   Share
+  </strong>
+  . Từ đây, bạn có thể hủy chia sẻ dashboard hoặc chọn
+  <strong>
+   Access control
+  </strong>
+  để chỉ định ai có thể xem và chỉnh sửa dashboard.
+ </p>
+<h2 id="clone-a-dashboard-vi">
+  Sao chép dashboard
+ </h2>
+<p>
+  Sao chép dashboard tạo ra một bản sao tức thì có tên "Clone of &lt;tên dashboard&gt;" và mở bản sao đó ở chế độ chỉnh sửa.
+ </p>
+<p>
+  Sao chép là cách dễ dàng để tạo dashboard trước khi chia sẻ chúng. Ví dụ, nếu bạn có dashboard tương tự như dashboard mới mà bạn muốn chia sẻ, bạn có thể sao chép nó. Bạn có thể thực hiện các thay đổi cần thiết, sau đó chia sẻ nó.
+ </p>
+<h2 id="delete-a-dashboard-vi">
+  Xóa dashboard
+ </h2>
+<p>
+  Xóa dashboard sẽ loại bỏ nó khỏi danh sách dashboard có sẵn của bạn. Bạn sẽ được nhắc xác nhận rằng bạn muốn xóa dashboard, nhưng không có cách nào để khôi phục dashboard đã xóa.
+ </p>
+<p>
+  Bây giờ, hãy thử một số tùy chọn này bằng cách tạo dashboard mới.
+ </p>
+</div>
 </div>
 </body>
 </html>

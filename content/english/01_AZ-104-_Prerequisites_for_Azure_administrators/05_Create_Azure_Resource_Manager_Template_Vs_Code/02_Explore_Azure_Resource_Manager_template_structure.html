@@ -571,8 +571,201 @@
 </div>
 <div class="translation-placeholder">
 <h2>🇻🇳 Vietnamese Translation</h2>
-<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-<p><em>Translation will be added here...</em></p>
+<div aria-hidden="false" id="module-unit-content-vi">
+<p>
+  Trong unit này, bạn sẽ tìm hiểu về việc sử dụng Azure Resource Manager template (ARM template) để triển khai infrastructure as code. Bạn sẽ khảo sát các phần của ARM template, học cách triển khai ARM template lên Azure, và tìm hiểu chi tiết về phần
+  <em>
+   resources
+  </em>
+  của ARM template.
+ </p>
+<h2 id="what-is-infrastructure-as-code-vi">
+  Infrastructure as code là gì?
+ </h2>
+<p>
+<em>
+   Infrastructure as code
+  </em>
+  cho phép bạn mô tả, thông qua code, cơ sở hạ tầng mà bạn cần cho ứng dụng của mình.
+ </p>
+<p>
+  Với infrastructure as code, bạn có thể duy trì cả application code và mọi thứ bạn cần để triển khai ứng dụng trong một code repository trung tâm. Các lợi thế của infrastructure as code là:
+ </p>
+<ul>
+<li>
+   Cấu hình nhất quán
+  </li>
+<li>
+   Khả năng mở rộng được cải thiện
+  </li>
+<li>
+   Triển khai nhanh hơn
+  </li>
+<li>
+   Khả năng truy vết tốt hơn
+  </li>
+</ul>
+
+<h2 id="what-is-an-arm-template-vi">
+  ARM template là gì?
+ </h2>
+<p>
+  ARM template là file JavaScript Object Notation (JSON) định nghĩa cơ sở hạ tầng và cấu hình cho việc triển khai của bạn. Template sử dụng
+  <em>
+   declarative syntax
+  </em>
+  . Declarative syntax là cách xây dựng cấu trúc và các phần tử phác thảo tài nguyên trông như thế nào mà không mô tả control flow. Declarative syntax khác với
+  <em>
+   imperative syntax
+  </em>
+  , sử dụng lệnh cho máy tính thực hiện.
+ </p>
+<p>
+  ARM template cho phép bạn khai báo những gì bạn định triển khai mà không cần viết chuỗi lệnh lập trình để tạo ra nó. Trong ARM template, bạn chỉ định tài nguyên và thuộc tính cho những tài nguyên đó.
+  <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview" target="az-portal">
+   Azure Resource Manager
+  </a>
+  sau đó sử dụng thông tin đó để triển khai tài nguyên một cách có tổ chức và nhất quán.
+ </p>
+
+<h3 id="benefits-of-using-arm-templates-vi">
+  Lợi ích của việc sử dụng ARM template
+ </h3>
+<p>
+  ARM template cho phép bạn tự động hóa việc triển khai và sử dụng thực hành infrastructure as code (IaC). Template code trở thành một phần của dự án cơ sở hạ tầng và phát triển của bạn.
+ </p>
+<p>
+  ARM template là
+  <em>
+   idempotent
+  </em>
+  , có nghĩa là bạn có thể triển khai cùng template nhiều lần và nhận được cùng loại tài nguyên ở cùng trạng thái.
+ </p>
+
+<h3 id="arm-template-file-structure-vi">
+  Cấu trúc file ARM template
+ </h3>
+<p>
+  Khi bạn viết ARM template, bạn cần hiểu tất cả các phần tạo nên template và chúng làm gì. File ARM template được tạo thành từ các phần tử sau:
+ </p>
+<div class="has-inner-focus">
+<table aria-label="ARM template file structure" class="table">
+<thead>
+<tr>
+<th>
+      Phần tử
+     </th>
+<th>
+      Mô tả
+     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>
+       schema
+      </strong>
+</td>
+<td>
+      Phần bắt buộc định nghĩa vị trí của file JSON schema mô tả cấu trúc dữ liệu JSON.
+     </td>
+</tr>
+<tr>
+<td>
+<strong>
+       contentVersion
+      </strong>
+</td>
+<td>
+      Phần bắt buộc định nghĩa phiên bản template của bạn (như 1.0.0.0).
+     </td>
+</tr>
+<tr>
+<td>
+<strong>
+       parameters
+      </strong>
+</td>
+<td>
+      Phần tùy chọn nơi bạn định nghĩa các giá trị được cung cấp trong quá trình triển khai.
+     </td>
+</tr>
+<tr>
+<td>
+<strong>
+       variables
+      </strong>
+</td>
+<td>
+      Phần tùy chọn nơi bạn định nghĩa các giá trị được sử dụng để đơn giản hóa biểu thức ngôn ngữ template.
+     </td>
+</tr>
+<tr>
+<td>
+<strong>
+       resources
+      </strong>
+</td>
+<td>
+      Phần bắt buộc định nghĩa các mục thực tế bạn muốn triển khai hoặc cập nhật trong resource group hoặc subscription.
+     </td>
+</tr>
+<tr>
+<td>
+<strong>
+       output
+      </strong>
+</td>
+<td>
+      Phần tùy chọn nơi bạn chỉ định các giá trị được trả về ở cuối việc triển khai.
+     </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="deploy-an-arm-template-to-azure-vi">
+  Triển khai ARM template lên Azure
+ </h2>
+<p>
+  Bạn có thể triển khai ARM template lên Azure bằng một trong các cách sau:
+ </p>
+<ul>
+<li>
+   Triển khai template cục bộ
+  </li>
+<li>
+   Triển khai linked template
+  </li>
+<li>
+   Triển khai trong continuous deployment pipeline
+  </li>
+</ul>
+
+<h2 id="add-resources-to-the-template-vi">
+  Thêm tài nguyên vào template
+ </h2>
+<p>
+  Để thêm tài nguyên vào template, bạn cần biết resource provider và các loại tài nguyên của nó. Cú pháp cho sự kết hợp này có dạng
+  <em>
+   {resource-provider}/{resource-type}
+  </em>
+  . Ví dụ, để thêm tài nguyên storage account vào template, bạn cần resource provider
+  <code>
+   Microsoft.Storage
+  </code>
+  . Một trong các loại cho provider này là
+  <code>
+   storageAccount
+  </code>
+  . Vì vậy resource type của bạn được hiển thị là
+  <code>
+   Microsoft.Storage/storageAccounts
+  </code>
+  .
+ </p>
+</div>
 </div>
 </body>
 </html>

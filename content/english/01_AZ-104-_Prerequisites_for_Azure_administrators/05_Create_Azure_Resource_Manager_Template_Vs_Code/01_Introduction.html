@@ -266,8 +266,93 @@
 </div>
 <div class="translation-placeholder">
 <h2>🇻🇳 Vietnamese Translation</h2>
-<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-<p><em>Translation will be added here...</em></p>
+<div aria-hidden="false" id="module-unit-content-vi">
+<p>
+  JSON Azure Resource Manager template (ARM template) cho phép bạn chỉ định cơ sở hạ tầng của dự án theo cách khai báo và có thể tái sử dụng. Bạn có thể tạo phiên bản và lưu các template trong cùng source control với dự án phát triển của mình.
+ </p>
+<p>
+  Giả sử bạn đang quản lý một nhóm phần mềm đang phát triển hệ thống kiểm kê cho các công ty đối tác. Bạn dự định triển khai sản phẩm này lên Azure và để mỗi công ty đối tác có giải pháp riêng. Bạn dự định triển khai các chính sách khác nhau cho mỗi triển khai thông qua các tài khoản lưu trữ Azure khác nhau. Bạn quyết định sử dụng thực hành
+  <em>
+   infrastructure as code
+  </em>
+  bằng cách sử dụng ARM template. Cách tiếp cận này cho phép bạn theo dõi các phiên bản khác nhau và đảm bảo rằng việc triển khai cơ sở hạ tầng cho mỗi môi trường là nhất quán và linh hoạt.
+ </p>
+<p>
+  Trong module này, chúng tôi giới thiệu cho bạn cấu trúc ARM template và cho bạn thực hành tạo và triển khai ARM template lên Azure.
+ </p>
+<div class="alert is-info">
+<p class="alert-title">
+   Lưu ý
+  </p>
+<p>
+   Bicep là ngôn ngữ để định nghĩa tài nguyên Azure của bạn. Nó có trải nghiệm tác giả đơn giản hơn JSON, cùng với các tính năng khác giúp cải thiện chất lượng infrastructure as code của bạn. Chúng tôi khuyến nghị bất kỳ ai mới với infrastructure as code trên Azure nên sử dụng Bicep thay vì JSON. Để tìm hiểu về Bicep, hãy xem
+   <a data-linktype="relative-path" href="../../paths/fundamentals-bicep/">
+    lộ trình học tập Fundamentals of Bicep
+   </a>
+   .
+  </p>
+</div>
+<h2 id="learning-objectives-vi">
+  Mục tiêu học tập
+ </h2>
+<p>
+  Trong module này, bạn sẽ:
+ </p>
+<ul>
+<li>
+   Triển khai JSON ARM template bằng Visual Studio Code.
+  </li>
+<li>
+   Khai báo tài nguyên và thêm tính linh hoạt cho template bằng cách thêm parameter và output.
+  </li>
+</ul>
+<h2 id="prerequisites-vi">
+  Điều kiện tiên quyết
+ </h2>
+<ul>
+<li>
+   Quen thuộc với Azure, bao gồm Azure portal, subscription, resource group và định nghĩa tài nguyên.
+  </li>
+<li>
+   Tài khoản Azure. Bạn có thể nhận tài khoản miễn phí
+   <a class="has-external-link-indicator" data-linktype="external" href="https://azure.microsoft.com/free" target="az-portal">
+    tại đây
+   </a>
+   .
+  </li>
+<li>
+<a class="has-external-link-indicator" data-linktype="external" href="https://code.visualstudio.com/" target="az-portal">
+    Visual Studio Code
+   </a>
+   được cài đặt cục bộ.
+  </li>
+<li>
+   Extension
+   <a class="has-external-link-indicator" data-linktype="external" href="https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools" target="az-portal">
+    Azure Resource Manager Tools for Visual Studio Code
+   </a>
+   được cài đặt cục bộ.
+  </li>
+<li>
+   Một trong hai:
+   <ul>
+<li>
+     Công cụ
+     <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli" target="az-portal">
+      Azure CLI
+     </a>
+     mới nhất được cài đặt cục bộ.
+    </li>
+<li>
+     <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/powershell/azure/install-az-ps" target="az-portal">
+      Azure PowerShell
+     </a>
+     mới nhất được cài đặt cục bộ.
+    </li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 </body>
 </html>

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>How does Azure Cloud Shell work? - Training | Microsoft Learn</title>
-<style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>How does Azure Cloud Shell work? - Training | Microsoft Learn</title>
+    <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -15,46 +16,57 @@
             color: #333;
             background-color: #fff;
         }
-        
-        h1, h2, h3, h4, h5, h6 {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             color: #0078d4;
             margin-top: 2em;
             margin-bottom: 1em;
             font-weight: 600;
         }
-        
-        h1 { 
-            border-bottom: 3px solid #0078d4; 
-            padding-bottom: 15px; 
+
+        h1 {
+            border-bottom: 3px solid #0078d4;
+            padding-bottom: 15px;
             font-size: 2.2em;
             margin-bottom: 1.5em;
         }
-        
-        h2 { 
-            font-size: 1.6em; 
+
+        h2 {
+            font-size: 1.6em;
             border-left: 4px solid #0078d4;
             padding-left: 15px;
         }
-        
-        h3 { font-size: 1.3em; }
-        h4 { font-size: 1.1em; }
-        
+
+        h3 {
+            font-size: 1.3em;
+        }
+
+        h4 {
+            font-size: 1.1em;
+        }
+
         p {
             margin: 16px 0;
             text-align: justify;
             line-height: 1.7;
         }
-        
-        ul, ol {
+
+        ul,
+        ol {
             margin: 20px 0;
             padding-left: 30px;
         }
-        
+
         li {
             margin: 10px 0;
             line-height: 1.6;
         }
-        
+
         code {
             background-color: #f6f8fa;
             padding: 3px 8px;
@@ -63,7 +75,7 @@
             font-size: 0.9em;
             color: #d73a49;
         }
-        
+
         pre {
             background-color: #f6f8fa;
             padding: 20px;
@@ -72,13 +84,13 @@
             border-left: 4px solid #0078d4;
             margin: 20px 0;
         }
-        
+
         pre code {
             background: none;
             padding: 0;
             color: #333;
         }
-        
+
         blockquote {
             border-left: 4px solid #0078d4;
             padding: 20px;
@@ -87,7 +99,7 @@
             border-radius: 4px;
             font-style: italic;
         }
-        
+
         .source-info {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             padding: 20px;
@@ -96,13 +108,13 @@
             border-left: 5px solid #2196f3;
             font-size: 0.9em;
         }
-        
+
         .source-info h2 {
             margin-top: 0;
             color: #1976d2;
             font-size: 1.2em;
         }
-        
+
         .translation-placeholder {
             background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
             padding: 20px;
@@ -110,40 +122,41 @@
             margin-top: 40px;
             border-left: 5px solid #ff9800;
         }
-        
+
         .translation-placeholder h2 {
             margin-top: 0;
             color: #f57c00;
             font-size: 1.2em;
         }
-        
-        img { 
-            max-width: 100%; 
-            height: auto; 
+
+        img {
+            max-width: 100%;
+            height: auto;
             margin: 25px 0;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
-        table { 
-            border-collapse: collapse; 
-            width: 100%; 
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
             margin: 25px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
-        th, td { 
-            border: 1px solid #ddd; 
-            padding: 15px; 
-            text-align: left; 
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
         }
-        
-        th { 
-            background-color: #f5f5f5; 
+
+        th {
+            background-color: #f5f5f5;
             font-weight: bold;
             color: #0078d4;
         }
-        
+
         .highlight {
             background-color: #fff3cd;
             padding: 15px;
@@ -151,263 +164,504 @@
             border-left: 4px solid #ffc107;
             margin: 20px 0;
         }
-        
+
         strong {
             color: #0078d4;
             font-weight: 600;
         }
-        
+
         a {
             color: #0078d4;
             text-decoration: none;
         }
-        
+
         a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
-<div class="source-info">
-<h2>📚 Course Information</h2>
-<p><strong>Unit:</strong> How does Azure Cloud Shell work?</p>
-<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-cloud-shell/3-how-azure-cloud-shell-works/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/intro-to-azure-cloud-shell/3-how-azure-cloud-shell-works/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
-<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-</div>
-<div class="main-content">
-<div aria-hidden="false" id="module-unit-content">
-<p>
-  As an IT admin for Contoso Corporation, you're frequently on-call to perform administrative tasks and resolve workload disruptions to resources in your organization's Azure subscriptions. When visiting a family member during a weekend that you're on call, the development team notifies you of a problem with an Azure virtual machine (VM). The VM became nonresponsive during scheduled maintenance for the upgrade of an application that runs on it. Because the developers weren't granted access to the underlying Azure virtual machine hosting infrastructure, they're only able to remotely access the VM when it's operating normally. So, you're being called to diagnose and remediate the problem.
- </p>
-<p>
-  Since you're visiting family, you don’t have access to your administrative workstation and diagnostic scripts. You do have access to a laptop with an internet browser. Using the laptop, you browse to the Azure portal, authenticate against your organization’s Azure subscription, open Azure Cloud Shell, mount an Azure File Share, access your diagnostic scripts, and diagnose and remediate the problems with the VM, returning it to operation.
- </p>
-<h2 id="access-cloud-shell">
-  Access Cloud Shell
- </h2>
-<p>
-  You have a few different options for accessing Azure Cloud Shell:
- </p>
-<ul>
-<li>
-<p>
-    From a direct link:
-    <a data-linktype="external" href="https://shell.azure.com">
-     https://shell.azure.com
-    </a>
-</p>
-</li>
-<li>
-<p>
-    From the Azure portal
-   </p>
-</li>
-<li>
-<p>
-    From code snippets when accessing Microsoft Learn:
-   </p>
-</li>
-</ul>
-<p>
-  When you open a Cloud Shell session, a temporary host is allocated to your session. This VM is preconfigured with the latest versions of PowerShell and Bash. You can then select the command-line experience you want to use:
- </p>
-<p>
-  After you select the shell experience you want to use, you can start managing your Azure resources:
- </p>
-<p>
-  Cloud Shell sessions terminate after 20 minutes of inactivity. When a session terminates, files on your CloudDrive are persisted, but you need to start a new session to access the Cloud Shell environment.
- </p>
-<h2 id="access-your-own-scripts-and-files">
-  Access your own scripts and files
- </h2>
-<p>
-  When using Cloud Shell, you might also need to run scripts or use files for different actions. You can persist files on Cloud Shell by using the Azure CloudDrive:
- </p>
-<p>
-  After uploading files, you can interact with them as you would in a regular PowerShell or Bash session:
- </p>
-<p>
-  Now that your file resides on CloudDrive, you can close the session and open another session on a different device and still access the same file. Cloud Shell also lets you map an Azure Storage File Share, which is tied to a specific region. Access to an Azure File Share lets you work with the contents of that share through Cloud Shell.
- </p>
-<p>
-  If you need to edit scripts hosted on the CloudDrive or File Share, you can use the Cloud Shell editor. Select the curly brackets {} icon on the browser and open the file you want to edit, or use the command
-  <code>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> How does Azure Cloud Shell work?</p>
+        <p><strong>Source:</strong> <a
+                href="https://learn.microsoft.com/en-us/training/modules/intro-to-azure-cloud-shell/3-how-azure-cloud-shell-works/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites"
+                target="_blank">https://learn.microsoft.com/en-us/training/modules/intro-to-azure-cloud-shell/3-how-azure-cloud-shell-works/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a>
+        </p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+            <p>
+                As an IT admin for Contoso Corporation, you're frequently on-call to perform administrative tasks and
+                resolve workload disruptions to resources in your organization's Azure subscriptions. When visiting a
+                family member during a weekend that you're on call, the development team notifies you of a problem with
+                an Azure virtual machine (VM). The VM became nonresponsive during scheduled maintenance for the upgrade
+                of an application that runs on it. Because the developers weren't granted access to the underlying Azure
+                virtual machine hosting infrastructure, they're only able to remotely access the VM when it's operating
+                normally. So, you're being called to diagnose and remediate the problem.
+            </p>
+            <p>
+                Since you're visiting family, you don’t have access to your administrative workstation and diagnostic
+                scripts. You do have access to a laptop with an internet browser. Using the laptop, you browse to the
+                Azure portal, authenticate against your organization’s Azure subscription, open Azure Cloud Shell, mount
+                an Azure File Share, access your diagnostic scripts, and diagnose and remediate the problems with the
+                VM, returning it to operation.
+            </p>
+            <h2 id="access-cloud-shell">
+                Access Cloud Shell
+            </h2>
+            <p>
+                You have a few different options for accessing Azure Cloud Shell:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        From a direct link:
+                        <a data-linktype="external" href="https://shell.azure.com">
+                            https://shell.azure.com
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        From the Azure portal
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        From code snippets when accessing Microsoft Learn:
+                    </p>
+                </li>
+            </ul>
+            <p>
+                When you open a Cloud Shell session, a temporary host is allocated to your session. This VM is
+                preconfigured with the latest versions of PowerShell and Bash. You can then select the command-line
+                experience you want to use:
+            </p>
+            <p>
+                After you select the shell experience you want to use, you can start managing your Azure resources:
+            </p>
+            <p>
+                Cloud Shell sessions terminate after 20 minutes of inactivity. When a session terminates, files on your
+                CloudDrive are persisted, but you need to start a new session to access the Cloud Shell environment.
+            </p>
+            <h2 id="access-your-own-scripts-and-files">
+                Access your own scripts and files
+            </h2>
+            <p>
+                When using Cloud Shell, you might also need to run scripts or use files for different actions. You can
+                persist files on Cloud Shell by using the Azure CloudDrive:
+            </p>
+            <p>
+                After uploading files, you can interact with them as you would in a regular PowerShell or Bash session:
+            </p>
+            <p>
+                Now that your file resides on CloudDrive, you can close the session and open another session on a
+                different device and still access the same file. Cloud Shell also lets you map an Azure Storage File
+                Share, which is tied to a specific region. Access to an Azure File Share lets you work with the contents
+                of that share through Cloud Shell.
+            </p>
+            <p>
+                If you need to edit scripts hosted on the CloudDrive or File Share, you can use the Cloud Shell editor.
+                Select the curly brackets {} icon on the browser and open the file you want to edit, or use the command
+                <code>
    code
   </code>
-  and specify the filename; for example:
- </p>
-<pre class="has-inner-focus"><code class="lang-bash" data-author-content="code temp.txt
+                and specify the filename; for example:
+            </p>
+            <pre class="has-inner-focus"><code class="lang-bash" data-author-content="code temp.txt
 "><span>code temp.txt
 </span></code></pre>
-<div class="alert is-info">
-<p class="alert-title">
-   Note
-  </p>
-<p>
-   The
-   <code>
+            <div class="alert is-info">
+                <p class="alert-title">
+                    Note
+                </p>
+                <p>
+                    The
+                    <code>
     code
    </code>
-   command only works in the Classic mode in Cloud Shell. To enable Classic mode, select the
-   <strong>
-    More
-   </strong>
-   icon (
-   <strong>
-    ...
-   </strong>
-   ), then select
-   <strong>
-    Settings
-   </strong>
-   &gt;
-   <strong>
-    Go to Classic version
-   </strong>
-   .
-  </p>
-</div>
-<h2 id="cloud-shell-tools">
-  Cloud Shell tools
- </h2>
-<p>
-  If you need to manage resources (such as Docker containers or Kubernetes Clusters) or want to use non-Microsoft tools (such as Ansible and Terraform) in Cloud Shell, the Cloud Shell session comes with these add-ons already preconfigured.
- </p>
-<p>
-  Here’s a list of all add-ons available to you within a Cloud Shell session:
- </p>
-<div class="has-inner-focus">
-<table aria-label="Cloud Shell tools" class="table">
-<thead>
-<tr>
-<th>
-      Category
-     </th>
-<th>
-      Name
-     </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<strong>
-       Linux tools
-      </strong>
-</td>
-<td>
-      bash
-           zsh
-           sh
-           tmux
-           dig
-     </td>
-</tr>
-<tr>
-<td>
-<strong>
-       Azure tools
-      </strong>
-</td>
-<td>
-<a data-linktype="absolute-path" href="/en-us/cli/azure/">
-       Azure CLI
-      </a>
-      AzCopy
-           Azure Functions CLI
-           Service Fabric CLI
-           Batch Shipyard
-           blobxfer
-     </td>
-</tr>
-<tr>
-<td>
-<strong>
-       Text editors
-      </strong>
-</td>
-<td>
-      code (Cloud Shell editor)
-           vim
-           nano
-           emacs
-     </td>
-</tr>
-<tr>
-<td>
-<strong>
-       Source control
-      </strong>
-</td>
-<td>
-      git
-     </td>
-</tr>
-<tr>
-<td>
-<strong>
-       Build tools
-      </strong>
-</td>
-<td>
-      make
-           maven
-           npm
-           pip
-     </td>
-</tr>
-<tr>
-<td>
-<strong>
-       Containers
-      </strong>
-</td>
-<td>
-      Docker Machine
-           Kubectl
-           Helm
-           DC/OS CLI
-     </td>
-</tr>
-<tr>
-<td>
-<strong>
-       Databases
-      </strong>
-</td>
-<td>
-      MySQL client
-           PostgreSql client
-           sqlcmd Utility
-           mssql-scripter
-     </td>
-</tr>
-<tr>
-<td>
-<strong>
-       Other
-      </strong>
-</td>
-<td>
-      iPython Client
-           Cloud Foundry CLI
-           Terraform
-           Ansible
-           Chef InSpec
-           Puppet Bolt
-           HashiCorp Packer
-           Office 365 CLI
-     </td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="translation-placeholder">
-<h2>🇻🇳 Vietnamese Translation</h2>
-<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-<p><em>Translation will be added here...</em></p>
-</div>
+                    command only works in the Classic mode in Cloud Shell. To enable Classic mode, select the
+                    <strong>
+                        More
+                    </strong>
+                    icon (
+                    <strong>
+                        ...
+                    </strong>
+                    ), then select
+                    <strong>
+                        Settings
+                    </strong>
+                    &gt;
+                    <strong>
+                        Go to Classic version
+                    </strong>
+                    .
+                </p>
+            </div>
+            <h2 id="cloud-shell-tools">
+                Cloud Shell tools
+            </h2>
+            <p>
+                If you need to manage resources (such as Docker containers or Kubernetes Clusters) or want to use
+                non-Microsoft tools (such as Ansible and Terraform) in Cloud Shell, the Cloud Shell session comes with
+                these add-ons already preconfigured.
+            </p>
+            <p>
+                Here’s a list of all add-ons available to you within a Cloud Shell session:
+            </p>
+            <div class="has-inner-focus">
+                <table aria-label="Cloud Shell tools" class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Category
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Linux tools
+                                </strong>
+                            </td>
+                            <td>
+                                bash
+                                zsh
+                                sh
+                                tmux
+                                dig
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Azure tools
+                                </strong>
+                            </td>
+                            <td>
+                                <a data-linktype="absolute-path" href="/en-us/cli/azure/">
+                                    Azure CLI
+                                </a>
+                                AzCopy
+                                Azure Functions CLI
+                                Service Fabric CLI
+                                Batch Shipyard
+                                blobxfer
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Text editors
+                                </strong>
+                            </td>
+                            <td>
+                                code (Cloud Shell editor)
+                                vim
+                                nano
+                                emacs
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Source control
+                                </strong>
+                            </td>
+                            <td>
+                                git
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Build tools
+                                </strong>
+                            </td>
+                            <td>
+                                make
+                                maven
+                                npm
+                                pip
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Containers
+                                </strong>
+                            </td>
+                            <td>
+                                Docker Machine
+                                Kubectl
+                                Helm
+                                DC/OS CLI
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Databases
+                                </strong>
+                            </td>
+                            <td>
+                                MySQL client
+                                PostgreSql client
+                                sqlcmd Utility
+                                mssql-scripter
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Other
+                                </strong>
+                            </td>
+                            <td>
+                                iPython Client
+                                Cloud Foundry CLI
+                                Terraform
+                                Ansible
+                                Chef InSpec
+                                Puppet Bolt
+                                HashiCorp Packer
+                                Office 365 CLI
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <div aria-hidden="false" id="module-unit-content-vi">
+            <p>
+                Với tư cách là quản trị viên IT của Contoso Corporation, bạn thường xuyên trực để thực hiện các tác vụ
+                quản trị và giải quyết các sự cố gián đoạn workload đối với tài nguyên trong subscription Azure của tổ
+                chức. Khi đang thăm thành viên gia đình vào cuối tuần mà bạn đang trực, nhóm phát triển thông báo cho
+                bạn về vấn đề với máy ảo Azure (VM). VM trở nên không phản hồi trong quá trình bảo trì theo lịch để nâng
+                cấp ứng dụng chạy trên đó. Vì các nhà phát triển không được cấp quyền truy cập vào cơ sở hạ tầng hosting
+                máy ảo Azure cơ bản, họ chỉ có thể truy cập từ xa vào VM khi nó hoạt động bình thường. Vì vậy, bạn được
+                gọi để chẩn đoán và khắc phục vấn đề.
+            </p>
+            <p>
+                Vì bạn đang thăm gia đình, bạn không có quyền truy cập vào máy trạm quản trị và các script chẩn đoán.
+                Bạn có quyền truy cập vào laptop với trình duyệt internet. Sử dụng laptop, bạn duyệt đến Azure portal,
+                xác thực với subscription Azure của tổ chức, mở Azure Cloud Shell, mount Azure File Share, truy cập
+                script chẩn đoán và chẩn đoán cũng như khắc phục các vấn đề với VM, đưa nó trở lại hoạt động.
+            </p>
+            <h2 id="access-cloud-shell-vi">
+                Truy cập Cloud Shell
+            </h2>
+            <p>
+                Bạn có một vài tùy chọn khác nhau để truy cập Azure Cloud Shell:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Từ liên kết trực tiếp:
+                        <a data-linktype="external" href="https://shell.azure.com">
+                            https://shell.azure.com
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Từ Azure portal
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Từ các đoạn code khi truy cập Microsoft Learn:
+                    </p>
+                </li>
+            </ul>
+            <p>
+                Khi bạn mở phiên Cloud Shell, một host tạm thời được phân bổ cho phiên của bạn. VM này được cấu hình sẵn
+                với các phiên bản mới nhất của PowerShell và Bash. Sau đó bạn có thể chọn trải nghiệm command-line mà
+                bạn muốn sử dụng:
+            </p>
+            <p>
+                Sau khi chọn trải nghiệm shell mà bạn muốn sử dụng, bạn có thể bắt đầu quản lý tài nguyên Azure:
+            </p>
+            <p>
+                Các phiên Cloud Shell kết thúc sau 20 phút không hoạt động. Khi phiên kết thúc, các file trên CloudDrive
+                của bạn được duy trì, nhưng bạn cần bắt đầu phiên mới để truy cập môi trường Cloud Shell.
+            </p>
+            <h2 id="access-your-own-scripts-and-files-vi">
+                Truy cập script và file của riêng bạn
+            </h2>
+            <p>
+                Khi sử dụng Cloud Shell, bạn cũng có thể cần chạy script hoặc sử dụng file cho các hành động khác nhau.
+                Bạn có thể duy trì file trên Cloud Shell bằng cách sử dụng Azure CloudDrive:
+            </p>
+            <p>
+                Sau khi tải lên file, bạn có thể tương tác với chúng như trong phiên PowerShell hoặc Bash thông thường:
+            </p>
+            <p>
+                Bây giờ file của bạn nằm trên CloudDrive, bạn có thể đóng phiên và mở phiên khác trên thiết bị khác và
+                vẫn truy cập cùng file đó. Cloud Shell cũng cho phép bạn map Azure Storage File Share, được gắn với một
+                region cụ thể. Truy cập vào Azure File Share cho phép bạn làm việc với nội dung của share đó thông qua
+                Cloud Shell.
+            </p>
+            <p>
+                Nếu bạn cần chỉnh sửa script được lưu trữ trên CloudDrive hoặc File Share, bạn có thể sử dụng trình soạn
+                thảo Cloud Shell. Chọn biểu tượng dấu ngoặc nhọn {} trên trình duyệt và mở file bạn muốn chỉnh sửa, hoặc
+                sử dụng lệnh
+                <code>
+   code
+  </code>
+                và chỉ định tên file; ví dụ:
+            </p>
+            <pre class="has-inner-focus"><code class="lang-bash"><span>code temp.txt
+</span></code></pre>
+            <div class="alert is-info">
+                <p class="alert-title">
+                    Lưu ý
+                </p>
+                <p>
+                    Lệnh
+                    <code>
+    code
+   </code>
+                    chỉ hoạt động trong chế độ Classic trong Cloud Shell. Để bật chế độ Classic, chọn biểu tượng
+                    <strong>
+                        More
+                    </strong>
+                    (
+                    <strong>
+                        ...
+                    </strong>
+                    ), sau đó chọn
+                    <strong>
+                        Settings
+                    </strong>
+                    &gt;
+                    <strong>
+                        Go to Classic version
+                    </strong>
+                    .
+                </p>
+            </div>
+            <h2 id="cloud-shell-tools-vi">
+                Công cụ Cloud Shell
+            </h2>
+            <p>
+                Nếu bạn cần quản lý tài nguyên (như Docker container hoặc Kubernetes Cluster) hoặc muốn sử dụng các công
+                cụ không phải của Microsoft (như Ansible và Terraform) trong Cloud Shell, phiên Cloud Shell đi kèm với
+                các add-on này đã được cấu hình sẵn.
+            </p>
+            <p>
+                Đây là danh sách tất cả add-on có sẵn cho bạn trong phiên Cloud Shell:
+            </p>
+            <div class="has-inner-focus">
+                <table aria-label="Cloud Shell tools" class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Danh mục
+                            </th>
+                            <th>
+                                Tên
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Công cụ Linux
+                                </strong>
+                            </td>
+                            <td>
+                                bash, zsh, sh, tmux, dig
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Công cụ Azure
+                                </strong>
+                            </td>
+                            <td>
+                                Azure CLI, AzCopy, Azure Functions CLI, Service Fabric CLI, Batch Shipyard, blobxfer
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Trình soạn thảo văn bản
+                                </strong>
+                            </td>
+                            <td>
+                                code (Cloud Shell editor), vim, nano, emacs
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Kiểm soát mã nguồn
+                                </strong>
+                            </td>
+                            <td>
+                                git
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Công cụ build
+                                </strong>
+                            </td>
+                            <td>
+                                make, maven, npm, pip
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Container
+                                </strong>
+                            </td>
+                            <td>
+                                Docker Machine, Kubectl, Helm, DC/OS CLI
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Cơ sở dữ liệu
+                                </strong>
+                            </td>
+                            <td>
+                                MySQL client, PostgreSql client, sqlcmd Utility, mssql-scripter
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Khác
+                                </strong>
+                            </td>
+                            <td>
+                                iPython Client, Cloud Foundry CLI, Terraform, Ansible, Chef InSpec, Puppet Bolt,
+                                HashiCorp Packer, Office 365 CLI
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

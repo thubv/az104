@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ-104: Microsoft Azure Administrator - Chương 1</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        
+        .header p {
+            margin: 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .module-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .module-card h2 {
+            color: #0078d4;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+        
+        .module-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .units-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .units-list li {
+            margin: 8px 0;
+        }
+        
+        .units-list a {
+            color: #0078d4;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: block;
+            transition: background-color 0.2s ease;
+            font-size: 0.95em;
+        }
+        
+        .units-list a:hover {
+            background-color: #f0f8ff;
+            text-decoration: none;
+        }
+        
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #20c997);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+            margin-top: 5px;
+        }
+        
+        .stats {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stats h3 {
+            color: #0078d4;
+            margin-top: 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #0078d4;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AZ-104: Microsoft Azure Administrator</h1>
+        <p>Chương 1: Prerequisites for Azure administrators</p>
+    </div>
+
+    <div class="modules-grid">
+        <!-- Module 1: Tour Azure Portal -->
+        <div class="module-card">
+            <h2>Module 1: Tour Azure Portal</h2>
+            <p>Tìm hiểu về Azure portal và các tùy chọn quản lý Azure</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 78%"></div>
+            </div>
+            <div class="progress-text">7/9 units đã dịch (78%)</div>
+            <ul class="units-list">
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/01_Introduction.html">01. Introduction</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/02_Azure_management_options.html">02. Azure management options</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/04_Exercise_-_Work_with_resources.html">04. Exercise - Work with resources</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/05_Exercise_-_Use_the_Azure_portal.html">05. Exercise - Use the Azure portal</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/06_Azure_portal_dashboards.html">06. Azure portal dashboards</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/07_Exercise_-_Customize_the_dashboard.html">07. Exercise - Customize the dashboard</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/08_Access_preview_features.html">08. Access preview features</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/01_Tour_Azure_Portal/09_Summary.html">09. Summary</a></li>
+            </ul>
+        </div>
+
+        <!-- Module 2: Azure Cloud Shell -->
+        <div class="module-card">
+            <h2>Module 2: Intro To Azure Cloud Shell</h2>
+            <p>Tìm hiểu về Azure Cloud Shell và cách sử dụng</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%"></div>
+            </div>
+            <div class="progress-text">6/6 units đã dịch (100%)</div>
+            <ul class="units-list">
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/01_Introduction.html">01. Introduction</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/02_What_is_Azure_Cloud_Shell-.html">02. What is Azure Cloud Shell?</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/03_How_does_Azure_Cloud_Shell_work-.html">03. How does Azure Cloud Shell work?</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/04_When_should_you_use_Azure_Cloud_Shell-.html">04. When should you use Azure Cloud Shell?</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/05_Module_assessment.html">05. Module assessment</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/02_Intro_To_Azure_Cloud_Shell/06_Summary.html">06. Summary</a></li>
+            </ul>
+        </div>
+
+        <!-- Module 3: Bash Introduction -->
+        <div class="module-card">
+            <h2>Module 3: Bash Introduction</h2>
+            <p>Học các kiến thức cơ bản về Bash shell</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 67%"></div>
+            </div>
+            <div class="progress-text">6/9 units đã dịch (67%)</div>
+            <ul class="units-list">
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/01_Introduction.html">01. Introduction</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/02_What_is_Bash-.html">02. What is Bash?</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/03_Bash_fundamentals.html">03. Bash fundamentals</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/04_Bash_commands_and_operators.html">04. Bash commands and operators</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/08_Module_assessment.html">08. Module assessment</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/03_Bash_Introduction/09_Summary.html">09. Summary</a></li>
+            </ul>
+        </div>
+
+        <!-- Module 4: PowerShell -->
+        <div class="module-card">
+            <h2>Module 4: Introduction To PowerShell</h2>
+            <p>Tìm hiểu về PowerShell và các cmdlet</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 71%"></div>
+            </div>
+            <div class="progress-text">5/7 units đã dịch (71%)</div>
+            <ul class="units-list">
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/01_Introduction.html">01. Introduction</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/02_What_is_PowerShell-.html">02. What is PowerShell?</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/04_Locate_commands.html">04. Locate commands</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/06_Module_assessment.html">06. Module assessment</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/04_Introduction_To_Powershell/07_Summary.html">07. Summary</a></li>
+            </ul>
+        </div>
+
+        <!-- Module 5: ARM Templates -->
+        <div class="module-card">
+            <h2>Module 5: Create Azure Resource Manager Template</h2>
+            <p>Tìm hiểu về ARM Templates và Infrastructure as Code</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 57%"></div>
+            </div>
+            <div class="progress-text">4/7 units đã dịch (57%)</div>
+            <ul class="units-list">
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/01_Introduction.html">01. Introduction</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/02_Explore_Azure_Resource_Manager_template_structure.html">02. Explore ARM template structure</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/06_Module_assessment.html">06. Module assessment</a></li>
+                <li><a href="content/english/01_AZ-104-_Prerequisites_for_Azure_administrators/05_Create_Azure_Resource_Manager_Template_Vs_Code/07_Summary.html">07. Summary</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="stats">
+        <h3>📊 Thống kê tiến độ dịch</h3>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">32</span>
+                <div class="stat-label">Units đã dịch</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">38</span>
+                <div class="stat-label">Tổng units</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">84%</span>
+                <div class="stat-label">Hoàn thành</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">5</span>
+                <div class="stat-label">Modules</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>🎓 AZ-104: Microsoft Azure Administrator - Chương 1 đã được dịch sang tiếng Việt</p>
+        <p>Mỗi trang đều có bản dịch tiếng Việt ở cuối trang</p>
+    </div>
+</body>
+</html>

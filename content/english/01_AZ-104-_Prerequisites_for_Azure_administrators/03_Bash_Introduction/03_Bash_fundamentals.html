@@ -475,8 +475,261 @@ ls *[0-9]
 </div>
 <div class="translation-placeholder">
 <h2>🇻🇳 Vietnamese Translation</h2>
-<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-<p><em>Translation will be added here...</em></p>
+<div aria-hidden="false" id="module-unit-content-vi">
+<p>
+  Hiểu biết về Bash bắt đầu từ việc hiểu cú pháp Bash. Sau khi bạn biết cú pháp, bạn có thể áp dụng nó cho mọi lệnh Bash mà bạn chạy.
+ </p>
+<p>
+  Cú pháp đầy đủ cho lệnh Bash là:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">command</span> [options] [arguments]
+</span></code></pre>
+<p>
+  Bash coi chuỗi đầu tiên mà nó gặp là một lệnh. Lệnh sau sử dụng lệnh
+  <code>
+   ls
+  </code>
+  (viết tắt của "list") của Bash để hiển thị nội dung của thư mục làm việc hiện tại:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span>
+</span></code></pre>
+<p>
+  Các argument thường đi kèm với lệnh Bash. Ví dụ, bạn có thể bao gồm tên đường dẫn trong lệnh
+  <code>
+   ls
+  </code>
+  để liệt kê nội dung của thư mục khác:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> /etc
+</span></code></pre>
+<p>
+  Hầu hết các lệnh Bash đều có tùy chọn để sửa đổi cách chúng hoạt động. Các tùy chọn, còn được gọi là
+  <em>
+   flag
+  </em>
+  , cung cấp cho lệnh các hướng dẫn cụ thể hơn. Ví dụ, các file và thư mục có tên bắt đầu bằng dấu chấm được ẩn khỏi người dùng và không được hiển thị bởi
+  <code>
+   ls
+  </code>
+  . Tuy nhiên, bạn có thể bao gồm flag
+  <code>
+   -a
+  </code>
+  (viết tắt của "all") trong lệnh
+  <code>
+   ls
+  </code>
+  và xem mọi thứ trong thư mục đích:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> -a /etc
+</span></code></pre>
+<p>
+  Bạn thậm chí có thể kết hợp các flag để ngắn gọn. Ví dụ, thay vì nhập
+  <code>
+   ls -a -l /etc
+  </code>
+  để hiển thị tất cả file và thư mục trong thư mục
+  <strong>
+   /etc
+  </strong>
+  của Linux ở dạng dài, bạn có thể nhập thay thế:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> -al /etc
+</span></code></pre>
+<p>
+  Bash rất ngắn gọn. Đôi khi thật đáng chú ý (và là niềm tự hào của những người đam mê Bash) về việc bạn có thể hoàn thành bao nhiều việc với một lệnh duy nhất.
+ </p>
+<h2 id="get-help-vi">
+  Nhận trợ giúp
+ </h2>
+<p>
+  Những tùy chọn và argument nào có thể được sử dụng, hoặc phải được sử dụng, thay đổi từ lệnh này sang lệnh khác. May mắn thay, tài liệu Bash được tích hợp vào hệ điều hành. Trợ giúp không bao giờ cách xa hơn một lệnh. Để tìm hiểu về các tùy chọn cho một lệnh, sử dụng lệnh
+  <code>
+   man
+  </code>
+  (viết tắt của "manual"). Ví dụ, để xem tất cả các tùy chọn cho lệnh
+  <code>
+   mkdir
+  </code>
+  ("make directory"), làm như sau:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span>man <span class="hljs-built_in">mkdir</span>
+</span></code></pre>
+<p>
+<code>
+   man
+  </code>
+  là bạn tốt nhất khi bạn học Bash.
+  <code>
+   man
+  </code>
+  là cách bạn tìm thông tin cần thiết để hiểu cách bất kỳ lệnh nào hoạt động.
+ </p>
+<p>
+  Hầu hết các lệnh Bash và Linux đều hỗ trợ tùy chọn
+  <code>
+   --help
+  </code>
+  . Điều này hiển thị mô tả về cú pháp và tùy chọn của lệnh. Để minh họa, nhập
+  <code>
+   mkdir --help
+  </code>
+  . Output trông giống như thế này:
+ </p>
+<pre class="has-inner-focus"><code class="lang-output">Usage: mkdir [OPTION]... DIRECTORY...
+Create the DIRECTORY(ies), if they do not already exist.
+    
+Mandatory arguments to long options are mandatory for short options too.
+  -m, --mode=MODE   set file mode (as in chmod), not a=rwx - umask
+  -p, --parents     no error if existing, make parent directories as needed
+  -v, --verbose     print a message for each created directory
+  -Z                   set SELinux security context of each created directory
+                         to the default type
+      --context[=CTX]  like -Z, or if CTX is specified then set the SELinux
+                         or SMACK security context to CTX
+      --help     display this help and exit
+      --version  output version information and exit
+</code></pre>
+<p>
+  Trợ giúp thu được theo cách này thường ngắn gọn hơn trợ giúp thu được với
+  <code>
+   man
+  </code>
+  .
+ </p>
+<h2 id="use-wildcards-vi">
+  Sử dụng wildcard
+ </h2>
+<p>
+  Wildcard là các ký hiệu đại diện cho một hoặc nhiều ký tự trong lệnh Bash. Wildcard được sử dụng thường xuyên nhất là dấu hoa thị. Nó đại diện cho không ký tự hoặc một chuỗi ký tự. Giả sử thư mục hiện tại của bạn chứa hàng trăm file hình ảnh, nhưng bạn chỉ muốn xem các file PNG; những file có tên kết thúc bằng
+  <strong>
+   .png
+  </strong>
+  . Đây là lệnh để chỉ liệt kê những file đó:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> *.png
+</span></code></pre>
+<div class="alert is-info">
+<p class="alert-title">
+   Lưu ý
+  </p>
+<p>
+   Linux không có khái niệm chính thức về phần mở rộng tên file như các hệ điều hành khác. Điều này không có nghĩa là các file PNG sẽ không có phần mở rộng
+   <strong>
+    .png
+   </strong>
+   . Nó chỉ đơn giản có nghĩa là Linux không gắn ý nghĩa đặc biệt nào với việc tên file kết thúc bằng
+   <strong>
+    .png
+   </strong>
+   .
+  </p>
+</div>
+<p>
+  Bây giờ giả sử thư mục hiện tại cũng chứa các file JPEG. Một số kết thúc bằng
+  <strong>
+   .jpg
+  </strong>
+  , trong khi những file khác kết thúc bằng
+  <strong>
+   .jpeg.
+  </strong>
+  Đây là một cách để liệt kê tất cả các file JPEG:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> *.jpg *.jpeg
+</span></code></pre>
+<p>
+  Và đây là cách khác:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> *.jp*g
+</span></code></pre>
+<p>
+  Wildcard
+  <code>
+   *
+  </code>
+  khớp với không hoặc nhiều ký tự, nhưng wildcard
+  <code>
+   ?
+  </code>
+  đại diện cho một ký tự duy nhất. Nếu thư mục hiện tại chứa các file có tên
+  <strong>
+   0001.jpg
+  </strong>
+  ,
+  <strong>
+   0002.jpg
+  </strong>
+  , và cứ thế cho đến
+  <strong>
+   0009.jpg
+  </strong>
+  , lệnh sau liệt kê tất cả chúng:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> 000?.jpg
+</span></code></pre>
+<p>
+  Một cách khác để sử dụng wildcard để lọc output là sử dụng dấu ngoặc vuông, biểu thị nhóm ký tự. Lệnh sau liệt kê tất cả các file trong thư mục hiện tại có tên chứa dấu chấm ngay sau đó là J hoặc P viết thường. Nó liệt kê tất cả các file
+  <strong>
+   .jpg
+  </strong>
+  ,
+  <strong>
+   .jpeg
+  </strong>
+  , và
+  <strong>
+   .png
+  </strong>
+  , nhưng không phải file
+  <strong>
+   .gif
+  </strong>
+  :
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> *.[jp]*
+</span></code></pre>
+<p>
+  Trong Linux, tên file và các lệnh hoạt động trên chúng phân biệt chữ hoa chữ thường. Vì vậy, để liệt kê tất cả các file trong thư mục hiện tại có tên chứa dấu chấm theo sau bởi J hoặc P viết hoa
+  <em>
+   hoặc
+  </em>
+  viết thường, bạn có thể nhập:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> *.[jpJP]*
+</span></code></pre>
+<p>
+  Các biểu thức trong dấu ngoặc vuông có thể đại diện cho phạm vi ký tự. Ví dụ, lệnh sau liệt kê tất cả các file trong thư mục hiện tại có tên bắt đầu bằng chữ cái viết thường:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> [a-z]*
+</span></code></pre>
+<p>
+  Ngược lại, lệnh này liệt kê tất cả các file trong thư mục hiện tại có tên bắt đầu bằng chữ cái viết hoa:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> [A-Z]*
+</span></code></pre>
+<p>
+  Và lệnh này liệt kê tất cả các file trong thư mục hiện tại có tên bắt đầu bằng chữ cái viết thường
+  <em>
+   hoặc
+  </em>
+  viết hoa:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> [a-zA-Z]*
+</span></code></pre>
+<p>
+  Dựa trên tất cả điều này, bạn có thể đoán các lệnh sau làm gì không?
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span> [0-9]*
+<span class="hljs-built_in">ls</span> *[0-9]*
+<span class="hljs-built_in">ls</span> *[0-9]
+</span></code></pre>
+<p>
+  Nếu bạn cần sử dụng một trong các ký tự wildcard như ký tự thông thường, bạn làm cho nó literal hoặc "escape nó" bằng cách đặt trước nó một dấu gạch chéo ngược. Vì vậy, nếu vì lý do nào đó bạn có dấu hoa thị như một phần của tên file—điều bạn không bao giờ nên làm có chủ ý—bạn có thể tìm kiếm nó bằng cách sử dụng lệnh như:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span>$ <span class="hljs-built_in">ls</span> *\**
+</span></code></pre>
+</div>
 </div>
 </body>
 </html>

@@ -312,8 +312,140 @@
 </div>
 <div class="translation-placeholder">
 <h2>🇻🇳 Vietnamese Translation</h2>
-<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-<p><em>Translation will be added here...</em></p>
+<div aria-hidden="false" id="module-unit-content-vi">
+<p>
+  PowerShell bao gồm hai phần: command-line shell và ngôn ngữ scripting. Nó bắt đầu như một framework để tự động hóa các tác vụ quản trị trong Windows. PowerShell đã phát triển thành công cụ đa nền tảng được sử dụng cho nhiều loại tác vụ.
+ </p>
+<p>
+  Command-line shell thiếu giao diện đồ họa, nơi bạn sử dụng chuột để tương tác với các phần tử đồ họa. Thay vào đó, bạn nhập lệnh văn bản vào console máy tính. Dưới đây là một số lợi ích của việc sử dụng console:
+ </p>
+<ul>
+<li>
+   Tương tác với console thường nhanh hơn so với sử dụng giao diện đồ họa.
+  </li>
+<li>
+   Trong console, bạn có thể chạy hàng loạt lệnh, vì vậy nó lý tưởng cho tự động hóa tác vụ cho pipeline tích hợp liên tục.
+  </li>
+<li>
+   Bạn có thể sử dụng console để tương tác với tài nguyên đám mây và các tài nguyên khác.
+  </li>
+<li>
+   Bạn có thể lưu trữ lệnh và script trong file văn bản và sử dụng hệ thống kiểm soát mã nguồn. Khả năng này có lẽ là một trong những lợi ích lớn nhất, vì các lệnh của bạn có thể lặp lại và có thể kiểm toán. Trong nhiều hệ thống, đặc biệt là hệ thống chính phủ, mọi thứ phải được theo dõi và đánh giá, hoặc
+   <em>
+    kiểm toán
+   </em>
+   . Kiểm toán bao gồm mọi thứ từ thay đổi cơ sở dữ liệu đến thay đổi được thực hiện bởi script.
+  </li>
+</ul>
+<h2 id="features-vi">
+  Tính năng
+ </h2>
+<p>
+  PowerShell chia sẻ một số tính năng với các shell truyền thống:
+ </p>
+<ul>
+<li>
+<strong>
+    Hệ thống trợ giúp tích hợp
+   </strong>
+   : Hầu hết các shell đều có một loại hệ thống trợ giúp nào đó, trong đó bạn có thể tìm hiểu thêm về lệnh. Ví dụ, bạn có thể tìm hiểu lệnh làm gì và nó hỗ trợ những tham số nào. Hệ thống trợ giúp trong PowerShell cung cấp thông tin về lệnh và cũng tích hợp với các bài viết trợ giúp trực tuyến.
+  </li>
+<li>
+<strong>
+    Pipeline
+   </strong>
+   : Các shell truyền thống sử dụng pipeline để chạy nhiều lệnh tuần tự. Output của lệnh này là input cho lệnh tiếp theo. PowerShell triển khai khái niệm này giống như các shell truyền thống, nhưng nó khác biệt vì nó hoạt động trên object thay vì text. Bạn sẽ tìm hiểu thêm về tính năng này sau trong module này.
+  </li>
+<li>
+<strong>
+    Alias
+   </strong>
+   : Alias là tên thay thế có thể được sử dụng để chạy lệnh. PowerShell hỗ trợ sử dụng các alias phổ biến như
+   <code>
+    cls
+   </code>
+   (xóa màn hình) và
+   <code>
+    ls
+   </code>
+   (liệt kê file). Do đó, người dùng mới có thể sử dụng kiến thức của họ về các framework khác và không nhất thiết phải nhớ tên PowerShell cho các lệnh quen thuộc.
+  </li>
+</ul>
+<p>
+  PowerShell khác với command-line shell truyền thống theo một vài cách:
+ </p>
+<ul>
+<li>
+<strong>
+    Nó hoạt động trên object thay vì text.
+   </strong>
+   Trong command-line shell, bạn phải chạy script có output và input có thể khác nhau, vì vậy bạn dành thời gian để định dạng output và trích xuất dữ liệu bạn cần. Ngược lại, trong PowerShell bạn sử dụng object làm input và output. Điều đó có nghĩa là bạn dành ít thời gian hơn cho việc định dạng và trích xuất.
+  </li>
+<li>
+<strong>
+    Nó có cmdlet.
+   </strong>
+   Các lệnh trong PowerShell được gọi là cmdlet (phát âm là
+   <em>
+    commandlet
+   </em>
+   ). Trong PowerShell, cmdlet được xây dựng trên runtime chung thay vì các executable riêng biệt như trong nhiều môi trường shell khác. Đặc điểm này cung cấp trải nghiệm nhất quán trong việc phân tích tham số và hành vi pipeline. Cmdlet thường nhận object input và trả về object. Các cmdlet cốt lõi trong PowerShell được xây dựng trong .NET Core và là mã nguồn mở. Bạn có thể mở rộng PowerShell bằng cách sử dụng thêm cmdlet, script và function từ cộng đồng và các nguồn khác, hoặc bạn có thể xây dựng cmdlet riêng trong .NET Core hoặc PowerShell.
+  </li>
+<li>
+<strong>
+    Nó có nhiều loại lệnh.
+   </strong>
+   Các lệnh trong PowerShell có thể là native executable, cmdlet, function, script hoặc alias. Mọi lệnh bạn chạy đều thuộc một trong những loại này. Các từ
+   <em>
+    command
+   </em>
+   và
+   <em>
+    cmdlet
+   </em>
+   thường được sử dụng thay thế cho nhau, vì cmdlet là một loại command.
+  </li>
+</ul>
+<h2 id="installation-vi">
+  Cài đặt
+ </h2>
+<p>
+  Trong module này, bạn thực hành sử dụng PowerShell trên máy tính của mình. PowerShell có sẵn trên nhiều nền tảng. Tuy nhiên, nếu bạn sử dụng máy tính chạy Linux, macOS hoặc phiên bản Windows cũ hơn, bạn cần cài đặt nó.
+ </p>
+<h3 id="windows-vi">
+  Windows
+ </h3>
+<p>
+  Nếu bạn đang chạy Windows 8 trở lên, một phiên bản PowerShell gọi là
+  <em>
+   Windows PowerShell
+  </em>
+  sẽ được cài đặt sẵn. Phiên bản này hơi khác so với bản phát hành PowerShell mới nhất, nhưng nó hoạt động tốt cho mục đích học tập.
+ </p>
+<p>
+  Bạn có thể mở Windows PowerShell từ menu Start.
+ </p>
+<h3 id="other-operating-systems-vi">
+  Hệ điều hành khác
+ </h3>
+<p>
+  Nếu máy tính của bạn chạy hệ điều hành khác ngoài Windows 8 trở lên, bạn cần cài đặt PowerShell. Để tìm hướng dẫn cài đặt cho hệ điều hành của bạn, xem
+  <a class="has-external-link-indicator" data-linktype="absolute-path" href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell" target="az-portal">
+   Cài đặt các phiên bản PowerShell khác nhau
+  </a>
+  .
+ </p>
+<h3 id="powershell-extension-for-visual-studio-code-vi">
+  Extension PowerShell cho Visual Studio Code
+ </h3>
+<p>
+  Chúng tôi khuyến nghị bạn sử dụng
+  <a class="has-external-link-indicator" data-linktype="external" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell" target="az-portal">
+   extension PowerShell cho Visual Studio Code
+  </a>
+  để tạo script PowerShell và chạy các lệnh trong module này. Extension này cho phép bạn chạy lệnh, và cũng giúp bạn với snippet, hoàn thành code và làm nổi bật cú pháp.
+ </p>
+</div>
 </div>
 </body>
 </html>

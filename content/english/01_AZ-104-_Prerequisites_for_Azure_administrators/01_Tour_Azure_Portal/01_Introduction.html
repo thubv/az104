@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Introduction to Azure portal features - Training | Microsoft Learn</title>
-<style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Introduction to Azure portal features - Training | Microsoft Learn</title>
+    <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -15,46 +16,57 @@
             color: #333;
             background-color: #fff;
         }
-        
-        h1, h2, h3, h4, h5, h6 {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             color: #0078d4;
             margin-top: 2em;
             margin-bottom: 1em;
             font-weight: 600;
         }
-        
-        h1 { 
-            border-bottom: 3px solid #0078d4; 
-            padding-bottom: 15px; 
+
+        h1 {
+            border-bottom: 3px solid #0078d4;
+            padding-bottom: 15px;
             font-size: 2.2em;
             margin-bottom: 1.5em;
         }
-        
-        h2 { 
-            font-size: 1.6em; 
+
+        h2 {
+            font-size: 1.6em;
             border-left: 4px solid #0078d4;
             padding-left: 15px;
         }
-        
-        h3 { font-size: 1.3em; }
-        h4 { font-size: 1.1em; }
-        
+
+        h3 {
+            font-size: 1.3em;
+        }
+
+        h4 {
+            font-size: 1.1em;
+        }
+
         p {
             margin: 16px 0;
             text-align: justify;
             line-height: 1.7;
         }
-        
-        ul, ol {
+
+        ul,
+        ol {
             margin: 20px 0;
             padding-left: 30px;
         }
-        
+
         li {
             margin: 10px 0;
             line-height: 1.6;
         }
-        
+
         code {
             background-color: #f6f8fa;
             padding: 3px 8px;
@@ -63,7 +75,7 @@
             font-size: 0.9em;
             color: #d73a49;
         }
-        
+
         pre {
             background-color: #f6f8fa;
             padding: 20px;
@@ -72,13 +84,13 @@
             border-left: 4px solid #0078d4;
             margin: 20px 0;
         }
-        
+
         pre code {
             background: none;
             padding: 0;
             color: #333;
         }
-        
+
         blockquote {
             border-left: 4px solid #0078d4;
             padding: 20px;
@@ -87,7 +99,7 @@
             border-radius: 4px;
             font-style: italic;
         }
-        
+
         .source-info {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             padding: 20px;
@@ -96,13 +108,13 @@
             border-left: 5px solid #2196f3;
             font-size: 0.9em;
         }
-        
+
         .source-info h2 {
             margin-top: 0;
             color: #1976d2;
             font-size: 1.2em;
         }
-        
+
         .translation-placeholder {
             background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
             padding: 20px;
@@ -110,40 +122,41 @@
             margin-top: 40px;
             border-left: 5px solid #ff9800;
         }
-        
+
         .translation-placeholder h2 {
             margin-top: 0;
             color: #f57c00;
             font-size: 1.2em;
         }
-        
-        img { 
-            max-width: 100%; 
-            height: auto; 
+
+        img {
+            max-width: 100%;
+            height: auto;
             margin: 25px 0;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
-        table { 
-            border-collapse: collapse; 
-            width: 100%; 
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
             margin: 25px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
-        th, td { 
-            border: 1px solid #ddd; 
-            padding: 15px; 
-            text-align: left; 
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
         }
-        
-        th { 
-            background-color: #f5f5f5; 
+
+        th {
+            background-color: #f5f5f5;
             font-weight: bold;
             color: #0078d4;
         }
-        
+
         .highlight {
             background-color: #fff3cd;
             padding: 15px;
@@ -151,63 +164,108 @@
             border-left: 4px solid #ffc107;
             margin: 20px 0;
         }
-        
+
         strong {
             color: #0078d4;
             font-weight: 600;
         }
-        
+
         a {
             color: #0078d4;
             text-decoration: none;
         }
-        
+
         a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
-<div class="source-info">
-<h2>📚 Course Information</h2>
-<p><strong>Unit:</strong> Introduction</p>
-<p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/1-introduction/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/1-introduction/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
-<p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
-</div>
-<div class="main-content">
-<div aria-hidden="false" id="module-unit-content">
-<p>
-  Azure is a cloud platform that provides the compute, storage, and networking resources needed to build cloud-hosted applications. As a new user, the Azure portal is likely to be the primary way you interact with Azure. The Azure portal lets you create and manage all your Azure resources. For example, you can set up a new database, increase the compute power of your virtual machines, and monitor your monthly costs. It's also a great learning tool because you can survey all available resources and use guided wizards to create new ones.
- </p>
-<p>
-  Here, you learn how to sign in to the portal and navigate the portal interface. You learn how to deploy new resources and explore preview features. You also learn how to customize the dashboard so it's convenient to locate and monitor your most essential services.
- </p>
-<h2 id="learning-objectives">
-  Learning objectives
- </h2>
-<p>
-  Upon completion of this module, you'll be able to:
- </p>
-<ul>
-<li>
-   Describe options for Azure management, including the Azure portal.
-  </li>
-<li>
-   Navigate the Azure portal.
-  </li>
-<li>
-   Create, customize, and share dashboards.
-  </li>
-<li>
-   Find and try out preview features.
-  </li>
-</ul>
-</div>
-</div>
-<div class="translation-placeholder">
-<h2>🇻🇳 Vietnamese Translation</h2>
-<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-<p><em>Translation will be added here...</em></p>
-</div>
+    <div class="source-info">
+        <h2>📚 Course Information</h2>
+        <p><strong>Unit:</strong> Introduction</p>
+        <p><strong>Source:</strong> <a
+                href="https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/1-introduction/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites"
+                target="_blank">https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/1-introduction/?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.az104-admin-prerequisites</a>
+        </p>
+        <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
+    </div>
+    <div class="main-content">
+        <div aria-hidden="false" id="module-unit-content">
+            <p>
+                Azure is a cloud platform that provides the compute, storage, and networking resources needed to build
+                cloud-hosted applications. As a new user, the Azure portal is likely to be the primary way you interact
+                with Azure. The Azure portal lets you create and manage all your Azure resources. For example, you can
+                set up a new database, increase the compute power of your virtual machines, and monitor your monthly
+                costs. It's also a great learning tool because you can survey all available resources and use guided
+                wizards to create new ones.
+            </p>
+            <p>
+                Here, you learn how to sign in to the portal and navigate the portal interface. You learn how to deploy
+                new resources and explore preview features. You also learn how to customize the dashboard so it's
+                convenient to locate and monitor your most essential services.
+            </p>
+            <h2 id="learning-objectives">
+                Learning objectives
+            </h2>
+            <p>
+                Upon completion of this module, you'll be able to:
+            </p>
+            <ul>
+                <li>
+                    Describe options for Azure management, including the Azure portal.
+                </li>
+                <li>
+                    Navigate the Azure portal.
+                </li>
+                <li>
+                    Create, customize, and share dashboards.
+                </li>
+                <li>
+                    Find and try out preview features.
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="translation-placeholder">
+        <h2>🇻🇳 Vietnamese Translation</h2>
+        <div aria-hidden="false" id="module-unit-content-vi">
+            <p>
+                Azure là một nền tảng đám mây cung cấp các tài nguyên tính toán, lưu trữ và mạng cần thiết để xây dựng
+                các ứng dụng được lưu trữ trên đám mây. Đối với người dùng mới, Azure portal có thể sẽ là cách chính để
+                bạn tương tác với Azure. Azure portal cho phép bạn tạo và quản lý tất cả các tài nguyên Azure của mình.
+                Ví dụ, bạn có thể thiết lập một cơ sở dữ liệu mới, tăng sức mạnh tính toán của máy ảo và theo dõi chi
+                phí hàng tháng. Đây cũng là một công cụ học tập tuyệt vời vì bạn có thể khảo sát tất cả các tài nguyên
+                có sẵn và sử dụng các trình hướng dẫn để tạo tài nguyên mới.
+            </p>
+            <p>
+                Ở đây, bạn sẽ học cách đăng nhập vào portal và điều hướng giao diện portal. Bạn sẽ học cách triển khai
+                tài nguyên mới và khám phá các tính năng xem trước. Bạn cũng sẽ học cách tùy chỉnh dashboard để thuận
+                tiện trong việc định vị và theo dõi các dịch vụ quan trọng nhất của mình.
+            </p>
+            <h2 id="learning-objectives-vi">
+                Mục tiêu học tập
+            </h2>
+            <p>
+                Sau khi hoàn thành module này, bạn sẽ có thể:
+            </p>
+            <ul>
+                <li>
+                    Mô tả các tùy chọn quản lý Azure, bao gồm Azure portal.
+                </li>
+                <li>
+                    Điều hướng Azure portal.
+                </li>
+                <li>
+                    Tạo, tùy chỉnh và chia sẻ dashboard.
+                </li>
+                <li>
+                    Tìm và thử nghiệm các tính năng xem trước.
+                </li>
+            </ul>
+        </div>
+    </div>
 </body>
+
 </html>

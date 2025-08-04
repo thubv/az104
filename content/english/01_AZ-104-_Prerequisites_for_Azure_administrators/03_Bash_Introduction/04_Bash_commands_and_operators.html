@@ -938,8 +938,186 @@ azureus+  52477  50702  0 23:28 pts/0    00:00:00 grep --color=auto daemon
 </div>
 <div class="translation-placeholder">
 <h2>🇻🇳 Vietnamese Translation</h2>
-<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-<p><em>Translation will be added here...</em></p>
+<div aria-hidden="false" id="module-unit-content-vi">
+<p>
+  Mỗi ngôn ngữ shell đều có những lệnh được sử dụng nhiều nhất. Hãy bắt đầu xây dựng kho tàng Bash của bạn bằng cách xem xét các lệnh thường được sử dụng nhất.
+ </p>
+<h2 id="bash-commands-vi">
+  Lệnh Bash
+ </h2>
+<p>
+  Hãy xem các lệnh Bash phổ biến và cách sử dụng chúng.
+ </p>
+<h3 id="ls-command-vi">
+Lệnh <code>ls</code>
+ </h3>
+<p>
+<code>
+   ls
+  </code>
+  liệt kê nội dung của thư mục hiện tại hoặc thư mục được chỉ định trong argument của lệnh. Bản thân nó liệt kê các file và thư mục trong thư mục hiện tại:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span><span class="hljs-built_in">ls</span>
+</span></code></pre>
+
+<h3 id="cat-command-vi">
+Lệnh <code>cat</code>
+ </h3>
+<p>
+  Giả sử bạn muốn xem bên trong file là gì. Bạn có thể sử dụng lệnh
+  <code>
+   cat
+  </code>
+  cho việc đó. Output sẽ không có ý nghĩa nhiều trừ khi file là file văn bản.
+ </p>
+
+<h3 id="sudo-command-vi">
+Lệnh <code>sudo</code>
+ </h3>
+<p>
+  Một số lệnh Bash chỉ có thể được chạy bởi root user; quản trị viên hệ thống hoặc superuser. Nếu bạn thử một trong những lệnh này mà không có đủ quyền, nó sẽ thất bại.
+ </p>
+<p>
+<code>
+   sudo
+  </code>
+  có nghĩa là "superuser do." Khi bạn sử dụng nó, bạn đang nói với shell rằng cho lệnh này, bạn đang hành động với mức quyền của root user.
+ </p>
+
+<h3 id="cd-mkdir-and-rmdir-commands-vi">
+Lệnh <code>cd</code>, <code>mkdir</code>, và <code>rmdir</code>
+ </h3>
+<p>
+<code>
+   cd
+  </code>
+  có nghĩa là "change directory," và nó làm chính xác như tên gọi: nó thay đổi thư mục hiện tại sang thư mục khác.
+ </p>
+<p>
+  Bạn có thể tạo thư mục bằng lệnh
+  <code>
+   mkdir
+  </code>
+  . Lệnh
+  <code>
+   rmdir
+  </code>
+  xóa thư mục, nhưng chỉ khi nó trống.
+ </p>
+
+<h3 id="rm-command-vi">
+Lệnh <code>rm</code>
+ </h3>
+<p>
+  Lệnh
+  <code>
+   rm
+  </code>
+  là viết tắt của "remove." Như bạn mong đợi,
+  <code>
+   rm
+  </code>
+  xóa file. Hãy cẩn thận với
+  <code>
+   rm
+  </code>
+  . Đây là lệnh nguy hiểm.
+ </p>
+
+<h3 id="cp-command-vi">
+Lệnh <code>cp</code>
+ </h3>
+<p>
+  Lệnh
+  <code>
+   cp
+  </code>
+  sao chép không chỉ file mà cả thư mục (và thư mục con) nếu bạn muốn.
+ </p>
+
+<h3 id="ps-command-vi">
+Lệnh <code>ps</code>
+ </h3>
+<p>
+  Lệnh
+  <code>
+   ps
+  </code>
+  cung cấp cho bạn snapshot của tất cả các process đang chạy hiện tại.
+ </p>
+
+<h2 id="bash-io-operators-vi">
+  Toán tử I/O Bash
+ </h2>
+<p>
+  Bạn có thể làm được nhiều việc trong Linux chỉ bằng cách sử dụng các lệnh Bash và nhiều tùy chọn của chúng. Nhưng bạn thực sự có thể hoàn thành công việc khi kết hợp các lệnh bằng cách sử dụng toán tử I/O:
+ </p>
+<ul>
+<li>
+<code>
+    &lt;
+   </code>
+   để chuyển hướng input đến nguồn khác ngoài bàn phím
+  </li>
+<li>
+<code>
+    &gt;
+   </code>
+   để chuyển hướng output đến đích khác ngoài màn hình
+  </li>
+<li>
+<code>
+    &gt;&gt;
+   </code>
+   để làm tương tự, nhưng append thay vì ghi đè
+  </li>
+<li>
+<code>
+    |
+   </code>
+   để pipe output từ lệnh này đến input của lệnh khác
+  </li>
+</ul>
+<p>
+  Toán tử piping rất mạnh mẽ (và thường được sử dụng). Nó chuyển hướng output của lệnh đầu tiên đến input của lệnh thứ hai.
+ </p>
+<p>
+  Bạn có thể sử dụng toán tử I/O để nối các lệnh Linux khi cần thiết. Xem xét lệnh sau:
+ </p>
+<pre class="has-inner-focus"><code class="lang-bash"><span>cat file.txt | fmt | pr | lpr
+</span></code></pre>
+<p>
+  Output từ
+  <code>
+   cat
+  </code>
+  đi đến
+  <code>
+   fmt
+  </code>
+  , output từ
+  <code>
+   fmt
+  </code>
+  đi đến
+  <code>
+   pr
+  </code>
+  , và cứ thế.
+  <code>
+   fmt
+  </code>
+  định dạng kết quả thành đoạn văn gọn gàng.
+  <code>
+   pr
+  </code>
+  phân trang kết quả. Và
+  <code>
+   lpr
+  </code>
+  gửi output đã phân trang đến máy in. Tất cả trong một dòng!
+ </p>
+</div>
 </div>
 </body>
 </html>

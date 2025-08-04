@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,46 +15,57 @@
             color: #333;
             background-color: #fff;
         }
-        
-        h1, h2, h3, h4, h5, h6 {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             color: #0078d4;
             margin-top: 2em;
             margin-bottom: 1em;
             font-weight: 600;
         }
-        
-        h1 { 
-            border-bottom: 3px solid #0078d4; 
-            padding-bottom: 15px; 
+
+        h1 {
+            border-bottom: 3px solid #0078d4;
+            padding-bottom: 15px;
             font-size: 2.2em;
             margin-bottom: 1.5em;
         }
-        
-        h2 { 
-            font-size: 1.6em; 
+
+        h2 {
+            font-size: 1.6em;
             border-left: 4px solid #0078d4;
             padding-left: 15px;
         }
-        
-        h3 { font-size: 1.3em; }
-        h4 { font-size: 1.1em; }
-        
+
+        h3 {
+            font-size: 1.3em;
+        }
+
+        h4 {
+            font-size: 1.1em;
+        }
+
         p {
             margin: 16px 0;
             text-align: justify;
             line-height: 1.7;
         }
-        
-        ul, ol {
+
+        ul,
+        ol {
             margin: 20px 0;
             padding-left: 30px;
         }
-        
+
         li {
             margin: 10px 0;
             line-height: 1.6;
         }
-        
+
         code {
             background-color: #f6f8fa;
             padding: 3px 8px;
@@ -62,7 +74,7 @@
             font-size: 0.9em;
             color: #d73a49;
         }
-        
+
         pre {
             background-color: #f6f8fa;
             padding: 20px;
@@ -71,13 +83,13 @@
             border-left: 4px solid #0078d4;
             margin: 20px 0;
         }
-        
+
         pre code {
             background: none;
             padding: 0;
             color: #333;
         }
-        
+
         blockquote {
             border-left: 4px solid #0078d4;
             padding: 20px;
@@ -86,7 +98,7 @@
             border-radius: 4px;
             font-style: italic;
         }
-        
+
         .source-info {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             padding: 20px;
@@ -95,13 +107,13 @@
             border-left: 5px solid #2196f3;
             font-size: 0.9em;
         }
-        
+
         .source-info h2 {
             margin-top: 0;
             color: #1976d2;
             font-size: 1.2em;
         }
-        
+
         .translation-placeholder {
             background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
             padding: 20px;
@@ -109,60 +121,61 @@
             margin-top: 40px;
             border-left: 5px solid #ff9800;
         }
-        
+
         .translation-placeholder h2 {
             margin-top: 0;
             color: #f57c00;
             font-size: 1.2em;
         }
-        
-        img { 
-            max-width: 100%; 
-            height: auto; 
+
+        img {
+            max-width: 100%;
+            height: auto;
             margin: 25px 0;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: block;
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         /* Image container for better layout */
         .image-container {
             text-align: center;
             margin: 30px 0;
         }
-        
+
         .image-container img {
             margin: 10px 0;
         }
-        
+
         .image-container p {
             font-size: 0.9em;
             color: #666;
             font-style: italic;
             margin-top: 10px;
         }
-        
-        table { 
-            border-collapse: collapse; 
-            width: 100%; 
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
             margin: 25px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
-        th, td { 
-            border: 1px solid #ddd; 
-            padding: 15px; 
-            text-align: left; 
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
         }
-        
-        th { 
-            background-color: #f5f5f5; 
+
+        th {
+            background-color: #f5f5f5;
             font-weight: bold;
             color: #0078d4;
         }
-        
+
         .highlight {
             background-color: #fff3cd;
             padding: 15px;
@@ -170,21 +183,21 @@
             border-left: 4px solid #ffc107;
             margin: 20px 0;
         }
-        
+
         strong {
             color: #0078d4;
             font-weight: 600;
         }
-        
+
         a {
             color: #0078d4;
             text-decoration: none;
         }
-        
+
         a:hover {
             text-decoration: underline;
         }
-        
+
         /* Alert boxes */
         .alert {
             padding: 15px;
@@ -192,122 +205,140 @@
             border-radius: 6px;
             border-left: 4px solid;
         }
-        
+
         .alert.is-info {
             background-color: #e3f2fd;
             border-left-color: #2196f3;
             color: #1976d2;
         }
-        
+
         .alert.is-warning {
             background-color: #fff3e0;
             border-left-color: #ff9800;
             color: #f57c00;
         }
-        
+
         .alert-title {
             font-weight: bold;
             margin-bottom: 10px;
         }
     </style>
 </head>
+
 <body>
     <div class="source-info">
         <h2>📚 Course Information</h2>
         <p><strong>Unit:</strong> 2 Azure Management</p>
-        <p><strong>Source:</strong> <a href="https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/2-azure-management/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites" target="_blank">https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/2-azure-management/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites</a></p>
+        <p><strong>Source:</strong> <a
+                href="https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/2-azure-management/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites"
+                target="_blank">https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/2-azure-management/?ns-enrollment-type=learningpath&ns-enrollment-id=learn.az104-admin-prerequisites</a>
+        </p>
         <p><strong>Course:</strong> AZ-104: Microsoft Azure Administrator</p>
     </div>
-    
+
     <div class="main-content">
         <p>
- You can configure and manage Azure using a broad range of tools and platforms. There are tools available for the command line, language-specific Software Development Kits (SDKs), developer tools, tools for migration, and many others.
-</p>
-<p>
- Tools that are commonly used for day-to-day management and interaction include:
-</p>
-<ul>
- <li>
-  <strong>
-   Azure portal
-  </strong>
-  for interacting with Azure via a Graphical User Interface (GUI)
- </li>
- <li>
-  <strong>
-   Azure PowerShell
-  </strong>
-  and
-  <strong>
-   Azure Command-Line Interface (CLI)
-  </strong>
-  for command-line and automation-based interactions with Azure
- </li>
- <li>
-  <strong>
-   Azure Cloud Shell
-  </strong>
-  for a web-based command-line interface
- </li>
- <li>
-  <strong>
-   Azure mobile app
-  </strong>
-  for monitoring and managing your resources from your mobile device
- </li>
-</ul>
-<p>
- There are also Azure SDKs for a range of languages and frameworks and REST APIs to help manage and control Azure resources programmatically.
-</p>
-<p>
- When you're starting out with Azure, you'll probably use the Azure portal most often.
-</p>
-<h2 id="azure-portal">
- Azure portal
-</h2>
-<p>
- The
- <a data-linktype="external" href="https://portal.azure.com">
-  Azure portal
- </a>
- is a public website you can access with any web browser. Once you sign in with your Azure account, you can create, manage, and monitor Azure services and resources. In the Azure portal, you can use search to find different types of services and get links for help on a topic. The Azure portal also guides you through complex administrative tasks by using wizards and tooltips.
-</p>
-<p>
- <span class="mx-imgBorder">
-  <a aria-haspopup="dialog" class="lightbox-enabled" data-bi-name="lightbox" data-linktype="relative-path" href="media/2-azure-portal.png#lightbox">
-   <img alt="Screenshot of the Azure portal Home page." data-linktype="relative-path" loading="lazy" src="../../../assets/2-azure-portal_82221f6a.png"/>
-  </a>
- </span>
-</p>
-<p>
- The Azure portal is often the best interface for carrying out single tasks, or when you want to look at configuration options in detail.
-</p>
-<p>
- Generally speaking, the portal doesn't let you automate repetitive tasks. For example, to set up multiple VMs, you'd need to create them one at a time. This process might make the portal approach less ideal for complex tasks that involve repetition. For these types of tasks, Azure PowerShell and Azure CLI can be helpful.
-</p>
-<h2 id="azure-powershell">
- Azure PowerShell
-</h2>
-<p>
- Azure PowerShell lets you connect to your Azure subscription and manage resources.
-</p>
-<p>
- For example, Azure PowerShell provides the
- <code>
+            You can configure and manage Azure using a broad range of tools and platforms. There are tools available for
+            the command line, language-specific Software Development Kits (SDKs), developer tools, tools for migration,
+            and many others.
+        </p>
+        <p>
+            Tools that are commonly used for day-to-day management and interaction include:
+        </p>
+        <ul>
+            <li>
+                <strong>
+                    Azure portal
+                </strong>
+                for interacting with Azure via a Graphical User Interface (GUI)
+            </li>
+            <li>
+                <strong>
+                    Azure PowerShell
+                </strong>
+                and
+                <strong>
+                    Azure Command-Line Interface (CLI)
+                </strong>
+                for command-line and automation-based interactions with Azure
+            </li>
+            <li>
+                <strong>
+                    Azure Cloud Shell
+                </strong>
+                for a web-based command-line interface
+            </li>
+            <li>
+                <strong>
+                    Azure mobile app
+                </strong>
+                for monitoring and managing your resources from your mobile device
+            </li>
+        </ul>
+        <p>
+            There are also Azure SDKs for a range of languages and frameworks and REST APIs to help manage and control
+            Azure resources programmatically.
+        </p>
+        <p>
+            When you're starting out with Azure, you'll probably use the Azure portal most often.
+        </p>
+        <h2 id="azure-portal">
+            Azure portal
+        </h2>
+        <p>
+            The
+            <a data-linktype="external" href="https://portal.azure.com">
+                Azure portal
+            </a>
+            is a public website you can access with any web browser. Once you sign in with your Azure account, you can
+            create, manage, and monitor Azure services and resources. In the Azure portal, you can use search to find
+            different types of services and get links for help on a topic. The Azure portal also guides you through
+            complex administrative tasks by using wizards and tooltips.
+        </p>
+        <p>
+            <span class="mx-imgBorder">
+                <a aria-haspopup="dialog" class="lightbox-enabled" data-bi-name="lightbox" data-linktype="relative-path"
+                    href="media/2-azure-portal.png#lightbox">
+                    <img alt="Screenshot of the Azure portal Home page." data-linktype="relative-path" loading="lazy"
+                        src="../../../assets/2-azure-portal_82221f6a.png" />
+                </a>
+            </span>
+        </p>
+        <p>
+            The Azure portal is often the best interface for carrying out single tasks, or when you want to look at
+            configuration options in detail.
+        </p>
+        <p>
+            Generally speaking, the portal doesn't let you automate repetitive tasks. For example, to set up multiple
+            VMs, you'd need to create them one at a time. This process might make the portal approach less ideal for
+            complex tasks that involve repetition. For these types of tasks, Azure PowerShell and Azure CLI can be
+            helpful.
+        </p>
+        <h2 id="azure-powershell">
+            Azure PowerShell
+        </h2>
+        <p>
+            Azure PowerShell lets you connect to your Azure subscription and manage resources.
+        </p>
+        <p>
+            For example, Azure PowerShell provides the
+            <code>
   New-AzVM
  </code>
- command that creates a virtual machine for you inside your Azure subscription. To use it, you launch PowerShell and install the Azure PowerShell module if you haven't already done so. Then, sign in to your Azure account using the command
- <code>
+            command that creates a virtual machine for you inside your Azure subscription. To use it, you launch
+            PowerShell and install the Azure PowerShell module if you haven't already done so. Then, sign in to your
+            Azure account using the command
+            <code>
   Connect-AzAccount
  </code>
- and issue a command such as:
-</p>
-<div class="codeHeader" data-bi-name="code-header" id="code-try-0">
- <span class="language">
-  PowerShell
- </span>
-</div>
-<pre class="has-inner-focus"><code class="lang-powershell" data-author-content='New-AzVM `
+            and issue a command such as:
+        </p>
+        <div class="codeHeader" data-bi-name="code-header" id="code-try-0">
+            <span class="language">
+                PowerShell
+            </span>
+        </div>
+        <pre class="has-inner-focus"><code class="lang-powershell" data-author-content='New-AzVM `
     -ResourceGroupName "MyResourceGroup" `
     -Name "TestVm" `
     -Image "UbuntuLTS" `
@@ -318,25 +349,27 @@
    <span class="hljs-parameter"> -Image</span> <span class="hljs-string">"UbuntuLTS"</span> `
     ...
 </span></code></pre>
-<h2 id="azure-cli">
- Azure CLI
-</h2>
-<p>
- Azure CLI is a command-line program that connects to Azure and executes administrative commands on Azure resources. Azure CLI can run on Windows, Linux, or macOS.
-</p>
-<p>
- For example, to create a VM, you open a command prompt window and install the Azure CLI if you haven't already done so. Then, sign in to Azure using the command
- <code>
+        <h2 id="azure-cli">
+            Azure CLI
+        </h2>
+        <p>
+            Azure CLI is a command-line program that connects to Azure and executes administrative commands on Azure
+            resources. Azure CLI can run on Windows, Linux, or macOS.
+        </p>
+        <p>
+            For example, to create a VM, you open a command prompt window and install the Azure CLI if you haven't
+            already done so. Then, sign in to Azure using the command
+            <code>
   az login
  </code>
- and issue a command such as:
-</p>
-<div class="codeHeader" data-bi-name="code-header" id="code-try-1">
- <span class="language">
-  Azure CLI
- </span>
-</div>
-<pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az vm create \
+            and issue a command such as:
+        </p>
+        <div class="codeHeader" data-bi-name="code-header" id="code-try-1">
+            <span class="language">
+                Azure CLI
+            </span>
+        </div>
+        <pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az vm create \
   --resource-group MyResourceGroup \
   --name TestVm \
   --image Ubuntu2204 \
@@ -349,82 +382,272 @@
   <span class="hljs-parameter">--generate-ssh-keys</span> \
   ...
 </span></code></pre>
-<h2 id="azure-cloud-shell">
- Azure Cloud Shell
-</h2>
-<p>
- <a data-linktype="external" href="https://shell.azure.com/">
-  Azure Cloud Shell
- </a>
- is an interactive, authenticated, browser-accessible shell for managing Azure resources using scripting tools like Azure CLI or Azure PowerShell. The Cloud Shell also has many other developer tools available, such as text editors, source-control tools, databases, and more.
-</p>
-<p>
- <span class="mx-imgBorder">
-  <img alt="Screenshot of an Azure Cloud Shell instance using Bash within a Microsoft Edge browser window." data-linktype="relative-path" loading="lazy" src="../../../assets/2-cloud-shell_8c44201a.png"/>
- </span>
-</p>
-<p>
- You can access Azure Cloud Shell from within the Azure portal or by navigating to
- <a data-linktype="external" href="https://shell.azure.com">
-  https://shell.azure.com
- </a>
- .
-</p>
-<h2 id="azure-mobile-app">
- Azure mobile app
-</h2>
-<section class="row">
- <div class="column">
-  <p>
-   <img alt="Screenshot of the Azure mobile app running on a phone, showing the activity log for a virtual machine." data-linktype="relative-path" loading="lazy" src="../../../assets/2-azure-mobile-app_9840e3ed.png"/>
-  </p>
- </div>
- <div class="column span3">
-  <p>
-   The
-   <a data-linktype="external" href="https://aka.ms/azuremobileapp/">
-    Microsoft Azure mobile app
-   </a>
-   allows you to access, manage, and monitor all your Azure accounts and resources from your iOS or Android phone or tablet.
-  </p>
-  <p>
-   Once installed, you can perform many common Azure tasks, such as:
-  </p>
-  <ul>
-   <li>
-    Check the current status and critical metrics of your services.
-   </li>
-   <li>
-    Stay informed with notifications and alerts about important health issues.
-   </li>
-   <li>
-    Review the latest Azure alerts.
-   </li>
-   <li>
-    Start, stop, and restart virtual machines or web apps.
-   </li>
-   <li>
-    Connect to your virtual machines.
-   </li>
-   <li>
-    Manage permissions with role-based access control (RBAC).
-   </li>
-   <li>
-    Use the Azure Cloud Shell to run saved scripts or perform administrative tasks.
-   </li>
-  </ul>
- </div>
-</section>
-<p>
- In the rest of this module, we'll take a closer look at the portal approach.
-</p>
+        <h2 id="azure-cloud-shell">
+            Azure Cloud Shell
+        </h2>
+        <p>
+            <a data-linktype="external" href="https://shell.azure.com/">
+                Azure Cloud Shell
+            </a>
+            is an interactive, authenticated, browser-accessible shell for managing Azure resources using scripting
+            tools like Azure CLI or Azure PowerShell. The Cloud Shell also has many other developer tools available,
+            such as text editors, source-control tools, databases, and more.
+        </p>
+        <p>
+            <span class="mx-imgBorder">
+                <img alt="Screenshot of an Azure Cloud Shell instance using Bash within a Microsoft Edge browser window."
+                    data-linktype="relative-path" loading="lazy" src="../../../assets/2-cloud-shell_8c44201a.png" />
+            </span>
+        </p>
+        <p>
+            You can access Azure Cloud Shell from within the Azure portal or by navigating to
+            <a data-linktype="external" href="https://shell.azure.com">
+                https://shell.azure.com
+            </a>
+            .
+        </p>
+        <h2 id="azure-mobile-app">
+            Azure mobile app
+        </h2>
+        <section class="row">
+            <div class="column">
+                <p>
+                    <img alt="Screenshot of the Azure mobile app running on a phone, showing the activity log for a virtual machine."
+                        data-linktype="relative-path" loading="lazy"
+                        src="../../../assets/2-azure-mobile-app_9840e3ed.png" />
+                </p>
+            </div>
+            <div class="column span3">
+                <p>
+                    The
+                    <a data-linktype="external" href="https://aka.ms/azuremobileapp/">
+                        Microsoft Azure mobile app
+                    </a>
+                    allows you to access, manage, and monitor all your Azure accounts and resources from your iOS or
+                    Android phone or tablet.
+                </p>
+                <p>
+                    Once installed, you can perform many common Azure tasks, such as:
+                </p>
+                <ul>
+                    <li>
+                        Check the current status and critical metrics of your services.
+                    </li>
+                    <li>
+                        Stay informed with notifications and alerts about important health issues.
+                    </li>
+                    <li>
+                        Review the latest Azure alerts.
+                    </li>
+                    <li>
+                        Start, stop, and restart virtual machines or web apps.
+                    </li>
+                    <li>
+                        Connect to your virtual machines.
+                    </li>
+                    <li>
+                        Manage permissions with role-based access control (RBAC).
+                    </li>
+                    <li>
+                        Use the Azure Cloud Shell to run saved scripts or perform administrative tasks.
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <p>
+            In the rest of this module, we'll take a closer look at the portal approach.
+        </p>
 
     </div>
-    
+
     <div class="translation-placeholder">
         <h2>🇻🇳 Vietnamese Translation</h2>
-        <p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-        <p><em>Translation will be added here...</em></p>
+        <p>
+            Bạn có thể cấu hình và quản lý Azure bằng cách sử dụng nhiều công cụ và nền tảng khác nhau. Có các công cụ
+            dành cho dòng lệnh, Bộ công cụ phát triển phần mềm (SDK) dành riêng cho từng ngôn ngữ, công cụ phát triển,
+            công cụ di chuyển và nhiều công cụ khác.
+        </p>
+        <p>
+            Các công cụ thường được sử dụng cho việc quản lý và tương tác hàng ngày bao gồm:
+        </p>
+        <ul>
+            <li>
+                <strong>
+                    Azure portal
+                </strong>
+                để tương tác với Azure thông qua Giao diện người dùng đồ họa (GUI)
+            </li>
+            <li>
+                <strong>
+                    Azure PowerShell
+                </strong>
+                và
+                <strong>
+                    Azure Command-Line Interface (CLI)
+                </strong>
+                để tương tác với Azure dựa trên dòng lệnh và tự động hóa
+            </li>
+            <li>
+                <strong>
+                    Azure Cloud Shell
+                </strong>
+                cho giao diện dòng lệnh dựa trên web
+            </li>
+            <li>
+                <strong>
+                    Ứng dụng di động Azure
+                </strong>
+                để theo dõi và quản lý tài nguyên từ thiết bị di động của bạn
+            </li>
+        </ul>
+        <p>
+            Ngoài ra còn có các Azure SDK cho nhiều ngôn ngữ và framework khác nhau cùng với REST API để giúp quản lý và
+            kiểm soát tài nguyên Azure theo cách lập trình.
+        </p>
+        <p>
+            Khi bạn mới bắt đầu với Azure, có thể bạn sẽ sử dụng Azure portal thường xuyên nhất.
+        </p>
+        <h2 id="azure-portal-vi">
+            Azure portal
+        </h2>
+        <p>
+            <a data-linktype="external" href="https://portal.azure.com">
+                Azure portal
+            </a>
+            là một trang web công cộng mà bạn có thể truy cập bằng bất kỳ trình duyệt web nào. Sau khi đăng nhập bằng
+            tài khoản Azure của mình, bạn có thể tạo, quản lý và theo dõi các dịch vụ và tài nguyên Azure. Trong Azure
+            portal, bạn có thể sử dụng tính năng tìm kiếm để tìm các loại dịch vụ khác nhau và nhận liên kết trợ giúp về
+            một chủ đề. Azure portal cũng hướng dẫn bạn thực hiện các tác vụ quản trị phức tạp bằng cách sử dụng trình
+            hướng dẫn và chú giải công cụ.
+        </p>
+        <p>
+            Azure portal thường là giao diện tốt nhất để thực hiện các tác vụ đơn lẻ hoặc khi bạn muốn xem chi tiết các
+            tùy chọn cấu hình.
+        </p>
+        <p>
+            Nói chung, portal không cho phép bạn tự động hóa các tác vụ lặp đi lặp lại. Ví dụ, để thiết lập nhiều VM,
+            bạn cần tạo từng VM một. Quá trình này có thể khiến cách tiếp cận portal trở nên kém lý tưởng cho các tác vụ
+            phức tạp liên quan đến việc lặp lại. Đối với những loại tác vụ này, Azure PowerShell và Azure CLI có thể hữu
+            ích.
+        </p>
+        <h2 id="azure-powershell-vi">
+            Azure PowerShell
+        </h2>
+        <p>
+            Azure PowerShell cho phép bạn kết nối với subscription Azure và quản lý tài nguyên.
+        </p>
+        <p>
+            Ví dụ, Azure PowerShell cung cấp lệnh
+            <code>
+  New-AzVM
+ </code>
+            để tạo máy ảo cho bạn trong subscription Azure. Để sử dụng nó, bạn khởi chạy PowerShell và cài đặt module
+            Azure PowerShell nếu chưa làm điều đó. Sau đó, đăng nhập vào tài khoản Azure bằng lệnh
+            <code>
+  Connect-AzAccount
+ </code>
+            và thực hiện lệnh như:
+        </p>
+        <div class="codeHeader" data-bi-name="code-header" id="code-try-0-vi">
+            <span class="language">
+                PowerShell
+            </span>
+        </div>
+        <pre class="has-inner-focus"><code class="lang-powershell"><span><span class="hljs-pscommand">New-AzVM</span> `
+   <span class="hljs-parameter"> -ResourceGroupName</span> <span class="hljs-string">"MyResourceGroup"</span> `
+   <span class="hljs-parameter"> -Name</span> <span class="hljs-string">"TestVm"</span> `
+   <span class="hljs-parameter"> -Image</span> <span class="hljs-string">"UbuntuLTS"</span> `
+    ...
+</span></code></pre>
+        <h2 id="azure-cli-vi">
+            Azure CLI
+        </h2>
+        <p>
+            Azure CLI là một chương trình dòng lệnh kết nối với Azure và thực thi các lệnh quản trị trên tài nguyên
+            Azure. Azure CLI có thể chạy trên Windows, Linux hoặc macOS.
+        </p>
+        <p>
+            Ví dụ, để tạo VM, bạn mở cửa sổ command prompt và cài đặt Azure CLI nếu chưa làm điều đó. Sau đó, đăng nhập
+            vào Azure bằng lệnh
+            <code>
+  az login
+ </code>
+            và thực hiện lệnh như:
+        </p>
+        <div class="codeHeader" data-bi-name="code-header" id="code-try-1-vi">
+            <span class="language">
+                Azure CLI
+            </span>
+        </div>
+        <pre class="has-inner-focus"><code class="lang-azurecli"><span><span class="hljs-keyword">az vm create </span>\
+  <span class="hljs-parameter">--resource-group</span> MyResourceGroup \
+  <span class="hljs-parameter">--name</span> TestVm \
+  <span class="hljs-parameter">--image</span> Ubuntu2204 \
+  <span class="hljs-parameter">--generate-ssh-keys</span> \
+  ...
+</span></code></pre>
+        <h2 id="azure-cloud-shell-vi">
+            Azure Cloud Shell
+        </h2>
+        <p>
+            <a data-linktype="external" href="https://shell.azure.com/">
+                Azure Cloud Shell
+            </a>
+            là một shell tương tác, được xác thực, có thể truy cập qua trình duyệt để quản lý tài nguyên Azure bằng các
+            công cụ scripting như Azure CLI hoặc Azure PowerShell. Cloud Shell cũng có nhiều công cụ phát triển khác có
+            sẵn, chẳng hạn như trình soạn thảo văn bản, công cụ kiểm soát mã nguồn, cơ sở dữ liệu và nhiều hơn nữa.
+        </p>
+        <p>
+            Bạn có thể truy cập Azure Cloud Shell từ trong Azure portal hoặc bằng cách điều hướng đến
+            <a data-linktype="external" href="https://shell.azure.com">
+                https://shell.azure.com
+            </a>
+            .
+        </p>
+        <h2 id="azure-mobile-app-vi">
+            Ứng dụng di động Azure
+        </h2>
+        <section class="row">
+            <div class="column span3">
+                <p>
+                    <a data-linktype="external" href="https://aka.ms/azuremobileapp/">
+                        Ứng dụng di động Microsoft Azure
+                    </a>
+                    cho phép bạn truy cập, quản lý và theo dõi tất cả các tài khoản và tài nguyên Azure từ điện thoại
+                    hoặc máy tính bảng iOS hoặc Android.
+                </p>
+                <p>
+                    Sau khi cài đặt, bạn có thể thực hiện nhiều tác vụ Azure phổ biến, chẳng hạn như:
+                </p>
+                <ul>
+                    <li>
+                        Kiểm tra trạng thái hiện tại và các chỉ số quan trọng của dịch vụ.
+                    </li>
+                    <li>
+                        Luôn được thông báo với các thông báo và cảnh báo về các vấn đề sức khỏe quan trọng.
+                    </li>
+                    <li>
+                        Xem lại các cảnh báo Azure mới nhất.
+                    </li>
+                    <li>
+                        Khởi động, dừng và khởi động lại máy ảo hoặc ứng dụng web.
+                    </li>
+                    <li>
+                        Kết nối với máy ảo của bạn.
+                    </li>
+                    <li>
+                        Quản lý quyền với kiểm soát truy cập dựa trên vai trò (RBAC).
+                    </li>
+                    <li>
+                        Sử dụng Azure Cloud Shell để chạy các script đã lưu hoặc thực hiện các tác vụ quản trị.
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <p>
+            Trong phần còn lại của module này, chúng ta sẽ xem xét kỹ hơn cách tiếp cận portal.
+        </p>
     </div>
 </body>
+
 </html>

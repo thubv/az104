@@ -346,8 +346,167 @@ Clear       cl          Common         Removes all the resources from a contai�
 </div>
 <div class="translation-placeholder">
 <h2>🇻🇳 Vietnamese Translation</h2>
-<p><em>Bản dịch tiếng Việt sẽ được thêm vào đây...</em></p>
-<p><em>Translation will be added here...</em></p>
+<div aria-hidden="false" id="module-unit-content-vi">
+<p>
+  <em>
+   Cmdlet
+  </em>
+  (phát âm là "command-let") là lệnh được biên dịch. Cmdlet có thể được phát triển trong .NET hoặc .NET Core và được gọi như một lệnh trong PowerShell. Hàng nghìn cmdlet có sẵn trong cài đặt PowerShell của bạn. Thách thức nằm ở việc khám phá cmdlet là gì và chúng có thể làm gì cho bạn.
+ </p>
+<p>
+  Cmdlet được đặt tên theo tiêu chuẩn đặt tên verb-noun. Pattern này có thể giúp bạn hiểu chúng làm gì và cách tìm kiếm chúng. Nó cũng giúp các nhà phát triển cmdlet tạo tên nhất quán. Bạn có thể xem danh sách các verb được phê duyệt bằng cách sử dụng cmdlet
+  <code>
+   Get-Verb
+  </code>
+  . Verb được tổ chức theo loại hoạt động và chức năng.
+ </p>
+<p>
+  Đây là một phần của output từ việc chạy
+  <code>
+   Get-Verb
+  </code>
+  :
+ </p>
+<pre class="has-inner-focus"><code class="lang-output">Verb        AliasPrefix Group          Description
+----        ----------- -----          -----------
+Add         a           Common         Adds a resource to a container, or atta…
+Clear       cl          Common         Removes all the resources from a contai…
+</code></pre>
+<p>
+  Danh sách này hiển thị verb và mô tả của nó. Các nhà phát triển cmdlet nên sử dụng verb được phê duyệt, và cũng đảm bảo rằng mô tả verb phù hợp với chức năng của cmdlet.
+ </p>
+<p>
+  Ba cmdlet cốt lõi cho phép bạn tìm hiểu sâu về cmdlet nào tồn tại và chúng làm gì:
+ </p>
+<ul>
+<li>
+<strong>
+    Get-Command
+   </strong>
+   : Cmdlet
+   <code>
+    Get-Command
+   </code>
+   liệt kê tất cả cmdlet có sẵn trên hệ thống của bạn. Lọc danh sách để nhanh chóng tìm lệnh bạn cần.
+  </li>
+<li>
+<strong>
+    Get-Help
+   </strong>
+   : Chạy cmdlet cốt lõi
+   <code>
+    Get-Help
+   </code>
+   để gọi hệ thống trợ giúp tích hợp. Bạn cũng có thể chạy alias
+   <code>
+    help
+   </code>
+   để gọi
+   <code>
+    Get-Help
+   </code>
+   nhưng cải thiện trải nghiệm đọc bằng cách phân trang phản hồi.
+  </li>
+<li>
+<strong>
+    Get-Member
+   </strong>
+   : Khi bạn gọi lệnh, phản hồi là object chứa nhiều thuộc tính. Chạy cmdlet cốt lõi
+   <code>
+    Get-Member
+   </code>
+   để đi sâu vào phản hồi đó và tìm hiểu thêm về nó.
+  </li>
+</ul>
+<h2 id="locate-commands-by-using-get-command-vi">
+  Định vị lệnh bằng Get-Command
+ </h2>
+<p>
+  Khi bạn chạy cmdlet
+  <code>
+   Get-Command
+  </code>
+  trong Cloud Shell, bạn nhận được danh sách mọi lệnh được cài đặt trong PowerShell. Vì hàng nghìn lệnh được cài đặt, bạn cần cách lọc phản hồi để có thể nhanh chóng định vị lệnh mà bạn cần.
+ </p>
+<p>
+  Để lọc danh sách, hãy nhớ tiêu chuẩn đặt tên verb-noun cho cmdlet. Ví dụ, trong lệnh
+  <code>
+   Get-Random
+  </code>
+  ,
+  <code>
+   Get
+  </code>
+  là verb và
+  <code>
+   Random
+  </code>
+  là noun. Sử dụng flag để nhắm mục tiêu verb hoặc noun trong lệnh bạn muốn. Flag bạn chỉ định mong đợi giá trị là chuỗi. Bạn có thể thêm ký tự khớp pattern vào chuỗi đó để đảm bảo bạn thể hiện rằng, ví dụ, giá trị của flag nên bắt đầu hoặc kết thúc bằng chuỗi nhất định.
+ </p>
+<p>
+  Các ví dụ này cho thấy cách sử dụng flag để lọc danh sách lệnh:
+ </p>
+<ul>
+<li>
+<p>
+<strong>
+     -Noun
+    </strong>
+    : Flag
+    <code>
+     -Noun
+    </code>
+    nhắm mục tiêu phần tên lệnh liên quan đến noun. Đây là tìm kiếm điển hình cho tên lệnh sử dụng
+    <em>
+     alias
+    </em>
+    làm noun mà chúng ta đang tìm kiếm:
+   </p>
+<pre class="has-inner-focus"><code class="lang-powershell"><span><span class="hljs-pscommand">Get-Command</span><span class="hljs-parameter"> -Noun</span> alias*
+</span></code></pre>
+<p>
+    Lệnh này tìm kiếm tất cả cmdlet có phần noun bắt đầu bằng
+    <code>
+     alias
+    </code>
+    .
+   </p>
+</li>
+<li>
+<p>
+<strong>
+     -Verb
+    </strong>
+    : Flag
+    <code>
+     -Verb
+    </code>
+    nhắm mục tiêu phần tên lệnh liên quan đến verb. Bạn có thể kết hợp flag
+    <code>
+     -Noun
+    </code>
+    và flag
+    <code>
+     -Verb
+    </code>
+    để tạo truy vấn tìm kiếm chi tiết hơn. Đây là ví dụ:
+   </p>
+<pre class="has-inner-focus"><code class="lang-powershell"><span><span class="hljs-pscommand">Get-Command</span><span class="hljs-parameter"> -Verb</span> Get<span class="hljs-parameter"> -Noun</span> alias*
+</span></code></pre>
+<p>
+    Bây giờ bạn đã thu hẹp tìm kiếm để chỉ định rằng phần verb cần khớp với
+    <code>
+     Get
+    </code>
+    , và phần noun cần khớp với
+    <code>
+     alias
+    </code>
+    .
+   </p>
+</li>
+</ul>
+</div>
 </div>
 </body>
 </html>
